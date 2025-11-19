@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Curator Atelier · Custom Corporate Gifting</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Curator Atelier designs custom luxury corporate gifting programs and branded hampers for discerning brands and executives." />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#040908;
+      --bg-alt:#081613;
+      --panel:#0b1915;
+      --accent:#c9a24b;
+      --accent-soft:rgba(201,162,75,.14);
+      --text:#f6f1e5;
+      --muted:#a7b0aa;
+      --border:#22302a;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{
+      font-family:'Inter',system-ui,-apple-system,BlinkMacSystemFont,sans-serif;
+      background:radial-gradient(circle at top,#172620 0,#020504 55%,#010303 100%);
+      color:var(--text);
+      line-height:1.6;
+    }
+    a{text-decoration:none;color:inherit;}
+    img{max-width:100%;display:block;}
+
+    .page{
+      max-width:1180px;
+      margin:0 auto;
+      padding:2.5rem 1.25rem 4rem;
+    }
+
+    /* NAV */
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:1.75rem;
+      padding:0.75rem 0 1.2rem;
+      border-bottom:1px solid rgba(255,255,255,0.05);
+      box-shadow:0 10px 30px rgba(0,0,0,0.4);
+    }
+    .logo-wrap{
+      display:flex;
+      align-items:center;
+      gap:0.6rem;
+    }
+    .logo-mark{
+      width:36px;height:36px;
+      border-radius:999px;
+      border:1px solid var(--accent-soft);
+      display:flex;align-items:center;justify-content:center;
+      font-family:'Playfair Display',serif;
+      font-size:1.1rem;
+      color:var(--accent);
+      background:radial-gradient(circle at 20% 0,#25332b 0,#050806 60%);
+    }
+    .logo-main{
+      font-family:'Playfair Display',serif;
+      letter-spacing:0.18em;
+      text-transform:uppercase;
+      font-size:0.9rem;
+    }
+    .logo-sub{
+      font-size:0.68rem;
+      color:var(--muted);
+      letter-spacing:0.16em;
+      text-transform:uppercase;
+    }
+    .nav-links{
+      display:flex;
+      align-items:center;
+      gap:2.5rem;
+      font-size:0.82rem;
+      letter-spacing:0.16em;
+      text-transform:uppercase;
+      color:var(--text);
+    }
+    .nav-links a:hover{color:var(--accent);}
+
+    /* BUTTONS */
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      border-radius:999px;
+      padding:.55rem 1.4rem;
+      border:1px solid transparent;
+      font-size:.78rem;
+      letter-spacing:.1em;
+      text-transform:uppercase;
+      cursor:pointer;
+      transition:all .18s ease-out;
+      white-space:nowrap;
+    }
+    .btn-primary{
+      background:linear-gradient(135deg,#c9a24b,#f4e0a4);
+      color:#151109;
+      font-weight:500;
+      box-shadow:0 0 0 1px rgba(0,0,0,.3),0 8px 25px rgba(0,0,0,.5);
+    }
+    .btn-primary:hover{
+      filter:brightness(1.04);
+      transform:translateY(-1px);
+      box-shadow:0 10px 30px rgba(0,0,0,.7);
+    }
+    .btn-outline{
+      border-color:var(--border);
+      background:transparent;
+      color:var(--text);
+    }
+    .btn-outline:hover{
+      border-color:var(--accent);
+      background:rgba(201,162,75,.06);
+    }
+    .btn-whatsapp{
+      border-color:#25D366;
+      background:rgba(37,211,102,0.06);
+      color:#dfffe9;
+    }
+    .btn-whatsapp:hover{
+      background:rgba(37,211,102,0.16);
+      box-shadow:0 0 0 1px rgba(37,211,102,0.35);
+    }
+
+    .phone-link{
+      color:var(--accent);
+      font-weight:500;
+    }
+    .phone-link:hover{text-decoration:underline;}
+
+    /* HERO */
+    .hero{
+      display:grid;
+      grid-template-columns:minmax(0,1.4fr) minmax(0,1.2fr);
+      gap:2.2rem;
+      padding:1rem 0 2.3rem;
+      border-bottom:1px solid rgba(255,255,255,.05);
+    }
+    .hero-copy-eyebrow{
+      font-size:.75rem;
+      text-transform:uppercase;
+      letter-spacing:.16em;
+      color:var(--muted);
+      margin-bottom:.6rem;
+    }
+    .hero-title{
+      font-family:'Playfair Display',serif;
+      font-size:clamp(2.3rem,3vw,2.8rem);
+      line-height:1.15;
+      letter-spacing:.06em;
+      text-transform:uppercase;
+      margin-bottom:1rem;
+      color:var(--accent);
+    }
+    .hero-sub{
+      font-size:.95rem;
+      color:var(--muted);
+      max-width:32rem;
+      margin-bottom:1.5rem;
+    }
+    .hero-cta-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:.8rem;
+      margin-bottom:1.3rem;
+    }
+    .hero-note{
+      font-size:.78rem;
+      color:var(--muted);
+    }
+    .hero-note strong{color:var(--accent);font-weight:500;}
+
+    .hero-panel{
+      border-radius:22px;
+      background:linear-gradient(145deg,#050806,#071411);
+      border:1px solid var(--border);
+      padding:1.4rem 1.6rem 1.6rem;
+      box-shadow:0 24px 60px rgba(0,0,0,.7);
+    }
+    .hero-panel-title{
+      font-family:'Playfair Display',serif;
+      font-size:1.2rem;
+      margin-bottom:.6rem;
+      color:var(--accent);
+    }
+    .hero-panel-text{
+      font-size:.86rem;
+      color:var(--muted);
+      margin-bottom:1rem;
+    }
+    .hero-panel-list{
+      font-size:.82rem;
+      color:var(--muted);
+      padding-left:1rem;
+    }
+    .hero-panel-list li{margin-bottom:.25rem;}
+
+    /* SECTIONS */
+    section{padding:2.4rem 0 0;}
+    .section-eyebrow{
+      font-size:.75rem;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      color:var(--muted);
+      margin-bottom:.35rem;
+    }
+    .section-title{
+      font-family:'Playfair Display',serif;
+      font-size:1.55rem;
+      margin-bottom:.9rem;
+      color:var(--accent);
+    }
+    .section-intro{
+      font-size:.9rem;
+      color:var(--muted);
+      max-width:40rem;
+      margin-bottom:1.6rem;
+    }
+
+    .two-col{
+      display:grid;
+      grid-template-columns:minmax(0,1.2fr) minmax(0,1.2fr);
+      gap:1.8rem;
+    }
+
+    .pill-list{
+      display:flex;
+      flex-wrap:wrap;
+      gap:.45rem;
+      margin-top:.6rem;
+    }
+    .pill{
+      font-size:.75rem;
+      border-radius:999px;
+      border:1px solid var(--border);
+      padding:.25rem .7rem;
+      color:var(--muted);
+      background:rgba(0,0,0,.4);
+    }
+
+    .card-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+      gap:1.2rem;
+      margin-top:.6rem;
+    }
+    .info-card{
+      border-radius:18px;
+      background:var(--panel);
+      border:1px solid var(--border);
+      padding:1.1rem 1.2rem 1.3rem;
+      font-size:.86rem;
+      color:var(--muted);
+    }
+    .info-card h3{
+      font-family:'Playfair Display',serif;
+      font-size:1rem;
+      margin-bottom:.35rem;
+      color:var(--accent);
+    }
+
+    /* CONTACT FORM */
+    .contact-wrap{
+      border-radius:22px;
+      background:var(--bg-alt);
+      border:1px solid var(--border);
+      padding:1.3rem 1.4rem 1.5rem;
+      margin-top:1.2rem;
+    }
+    .form-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:.8rem;
+      margin-top:.7rem;
+    }
+    label{
+      font-size:.75rem;
+      color:var(--muted);
+      margin-bottom:.18rem;
+      display:block;
+    }
+    input,select,textarea{
+      width:100%;
+      border-radius:10px;
+      border:1px solid var(--border);
+      background:rgba(3,5,5,.95);
+      color:var(--text);
+      padding:.6rem .8rem;
+      font-size:.8rem;
+      font-family:inherit;
+      outline:none;
+    }
+    textarea{min-height:90px;resize:vertical;}
+    input:focus,select:focus,textarea:focus{
+      border-color:var(--accent);
+      box-shadow:0 0 0 1px var(--accent-soft);
+    }
+    .contact-footer{
+      margin-top:1rem;
+      display:flex;
+      flex-wrap:wrap;
+      gap:.75rem;
+      align-items:center;
+      justify-content:space-between;
+      font-size:.78rem;
+      color:var(--muted);
+    }
+
+    /* FOOTER */
+    footer{
+      padding:2.2rem 0 0.4rem;
+      font-size:.74rem;
+      color:var(--muted);
+      border-top:1px solid rgba(255,255,255,.04);
+      margin-top:2.4rem;
+    }
+    footer-top{display:block;margin-bottom:.5rem;}
+
+    /* FLOATING WHATSAPP */
+    .whatsapp-float{
+      position:fixed;
+      right:18px;
+      bottom:18px;
+      width:52px;
+      height:52px;
+      border-radius:50%;
+      background:#25D366;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:1.6rem;
+      box-shadow:0 8px 25px rgba(0,0,0,.6);
+      z-index:50;
+    }
+    .whatsapp-float span{transform:translateY(1px);}
+    .whatsapp-float:hover{
+      filter:brightness(1.05);
+      transform:translateY(-1px);
+    }
+
+    @media(max-width:768px){
+      .nav{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:.6rem;
+        padding-bottom:.75rem;
+        box-shadow:none;
+      }
+      .nav-links{
+        gap:1.4rem;
+        flex-wrap:wrap;
+        font-size:.78rem;
+      }
+      .hero{
+        grid-template-columns:1fr;
+      }
+      .hero-panel{margin-top:1.3rem;}
+      .two-col{
+        grid-template-columns:1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- NAV -->
+  <header class="nav">
+    <div class="logo-wrap">
+      <div class="logo-mark">CA</div>
+      <div>
+        <div class="logo-main">CURATOR ATELIER</div>
+        <div class="logo-sub">Holiday Décor · Hampers</div>
+      </div>
+    </div>
+
+    <nav class="nav-links">
+      <a href="index.html#collection">Holiday Collection</a>
+      <a href="custom-gifting.html">Custom Gifting</a>
+      <a href="ordering-details.html">Ordering Details</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div>
+      <div class="hero-copy-eyebrow">Corporate & VIP Gifting · DMV & Nationwide</div>
+      <h1 class="hero-title">
+        Custom Gifting,<br/>
+        Quiet-Luxury Presentation.
+      </h1>
+      <p class="hero-sub">
+        Curator Atelier designs bespoke gifting programs for law firms, private practices, real estate teams, tech
+        companies and family offices — from 20 to 500+ hampers, fully branded to your standard.
+      </p>
+      <div class="hero-cta-row">
+        <a class="btn btn-primary" href="#inquiry">Request Corporate Quote</a>
+        <a class="btn btn-whatsapp"
+           href="https://wa.me/13016367663?text=Hi%20Curator%20Atelier%2C%20I%E2%80%99d%20like%20to%20discuss%20custom%20holiday%20gifting."
+           target="_blank" rel="noopener">
+          💬 WhatsApp Our Atelier
+        </a>
+        <a class="btn btn-outline"
+           href="https://calendly.com/hello-curatoratelier/30min"
+           target="_blank" rel="noopener">
+          Book 30-Min Strategy Call
+        </a>
+      </div>
+      <p class="hero-note">
+        <strong>Response time:</strong> 1–3 business hours · Dedicated concierge for 50+ hamper projects.
+      </p>
+    </div>
+
+    <aside class="hero-panel">
+      <div class="hero-panel-title">Perfect For</div>
+      <p class="hero-panel-text">
+        Brands and leaders who want their holiday gifting to feel curated, intentional and absolutely on-brand —
+        never “bulk order generic baskets.”
+      </p>
+      <ul class="hero-panel-list">
+        <li>Law firms & wealth managers</li>
+        <li>Real estate & mortgage teams</li>
+        <li>Medical & dental practices</li>
+        <li>Founders, executives & VIP hosts</li>
+      </ul>
+      <div class="pill-list">
+        <span class="pill">20–500+ Hampers</span>
+        <span class="pill">Full Branding</span>
+        <span class="pill">Nationwide Shipping</span>
+        <span class="pill">C-Suite Presentation</span>
+      </div>
+    </aside>
+  </section>
+
+  <!-- WHAT WE OFFER -->
+  <section>
+    <div class="section-eyebrow">Custom Gifting Atelier</div>
+    <h2 class="section-title">Built for Brands Who Refuse Generic Gifts.</h2>
+    <p class="section-intro">
+      We curate gifting programs that feel like an extension of your brand — from Dom Pérignon and Diptyque candles
+      to engraved keepsakes, branded sleeves and handwritten notes.
+    </p>
+
+    <div class="card-grid">
+      <article class="info-card">
+        <h3>Branded C-Suite Hampers</h3>
+        <p>
+          Dom Pérignon, Veuve Clicquot, Godiva, Diptyque and artisan accompaniments, housed in custom keepsake
+          boxes with your logo, brand colors and engraved details.
+        </p>
+      </article>
+      <article class="info-card">
+        <h3>Team & Staff Gifting (20–500+)</h3>
+        <p>
+          Tiered hampers for partners, managers and staff — allowing you to scale generosity across the org while
+          preserving a quiet-luxury aesthetic and clear budget control.
+        </p>
+      </article>
+      <article class="info-card">
+        <h3>Nationwide Recipient Management</h3>
+        <p>
+          Share a CSV of recipient names and addresses; our team handles packing, labeling and staggered shipping for
+          on-time arrival across the U.S.
+        </p>
+      </article>
+      <article class="info-card">
+        <h3>Full Brand Integration</h3>
+        <p>
+          Custom tags, sleeves, wax seals, tissue and ribbon, plus message cards delivered in your voice. Every
+          element is designed to feel elevated, not promotional.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section>
+    <div class="section-eyebrow">How It Works</div>
+    <h2 class="section-title">A Simple, White-Glove Process.</h2>
+
+    <div class="two-col">
+      <div>
+        <h3 class="section-eyebrow" style="margin-bottom:.2rem;">Step 1</h3>
+        <h2 class="section-title" style="font-size:1.25rem;margin-bottom:.4rem;">Consultation & Brief</h2>
+        <p class="section-intro" style="margin-bottom:1rem;">
+          We begin with a 15–30 minute conversation (or a quick email brief) to understand your brand, audience,
+          budget and quantity.
+        </p>
+        <ul class="hero-panel-list">
+          <li>Ideal number of hampers per tier</li>
+          <li>Brand colors, logo and tone</li>
+          <li>Alcohol / no-alcohol preferences</li>
+          <li>Dietary needs & gifting objectives</li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="section-eyebrow" style="margin-bottom:.2rem;">Step 2 & 3</h3>
+        <h2 class="section-title" style="font-size:1.25rem;margin-bottom:.4rem;">Curation, Approval & Execution</h2>
+        <p class="section-intro" style="margin-bottom:1rem;">
+          We present 1–2 curated concepts with clear pricing per tier. Once approved and the deposit is paid, our
+          atelier begins production.
+        </p>
+        <ul class="hero-panel-list">
+          <li>Design boards and line-item inclusions</li>
+          <li>Signed-off mockups for tags / sleeves</li>
+          <li>Address-list collection & verification</li>
+          <li>Tracked delivery reports upon completion</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- INQUIRY FORM -->
+  <section id="inquiry">
+    <div class="section-eyebrow">Book & Inquire</div>
+    <h2 class="section-title">Request Your Custom Gifting Proposal.</h2>
+    <p class="section-intro">
+      Share a few details below and our team will reply within 1–3 business hours with recommended tiers, estimated
+      budgets and suggested timelines.
+    </p>
+
+    <div class="contact-wrap">
+      <form method="POST" action="https://formspree.io/f/xblwkzyq">
+        <input type="hidden" name="_subject" value="New Curator Atelier Custom Gifting Inquiry" />
+        <input type="hidden" name="page" value="Custom Gifting" />
+
+        <div class="form-grid">
+          <div>
+            <label for="name">Full Name</label>
+            <input id="name" name="name" required />
+          </div>
+          <div>
+            <label for="company">Company / Brand</label>
+            <input id="company" name="company" />
+          </div>
+          <div>
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" required />
+          </div>
+          <div>
+            <label for="phone">Phone</label>
+            <input id="phone" name="phone" />
+          </div>
+        </div>
+
+        <div class="form-grid" style="margin-top:.8rem;">
+          <div>
+            <label for="qty">Approx. Quantity</label>
+            <input id="qty" name="quantity" placeholder="e.g., 40, 120, 250+" />
+          </div>
+          <div>
+            <label for="budget">Estimated Budget</label>
+            <input id="budget" name="budget" placeholder="$20,000 staff gifting, etc." />
+          </div>
+          <div>
+            <label for="timeline">Ideal Delivery Window</label>
+            <input id="timeline" name="timeline" placeholder="e.g., Dec 10–15, rolling deliveries" />
+          </div>
+          <div>
+            <label for="interest">Priority Focus</label>
+            <select id="interest" name="interest">
+              <option>Staff / Team Gifting</option>
+              <option>VIP / C-Suite Hampers</option>
+              <option>Client / Referral Gifting</option>
+              <option>Other (explain below)</option>
+            </select>
+          </div>
+        </div>
+
+        <div style="margin-top:.8rem;">
+          <label for="message">Tell us a bit more</label>
+          <textarea id="message" name="message"
+            placeholder="Brand tone, key recipients, alcohol/no-alcohol preferences, dietary needs, special requests…"></textarea>
+        </div>
+
+        <div class="contact-footer">
+          <button type="submit" class="btn btn-primary">Submit Corporate Inquiry</button>
+          <div>
+            Prefer WhatsApp? <a class="phone-link"
+              href="https://wa.me/13016367663?text=Hi%20Curator%20Atelier%2C%20I%E2%80%99d%20like%20a%20custom%20gifting%20proposal."
+              target="_blank" rel="noopener">Chat instantly</a><br/>
+            Or call us at <a class="phone-link" href="tel:13016367663">301-636-7663</a><br/>
+            Prefer a scheduled consult? <a
+              href="https://calendly.com/hello-curatoratelier/30min"
+              target="_blank" rel="noopener">Book a 30-minute call</a>.<br/>
+            Or email us at <a class="phone-link"
+              href="mailto:hello@curatoratelier.com?subject=Curator%20Atelier%20Custom%20Gifting">hello@curatoratelier.com</a>
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <footer-top>© <span id="year"></span> Curator Atelier. All rights reserved.</footer-top>
+    <div>
+      Quiet-luxury Christmas décor and gifting atelier for the DMV’s most discerning homes and corporate clients.
+      &nbsp;|&nbsp; Call us:
+      <a class="phone-link" href="tel:13016367663">301-636-7663</a>
+      &nbsp;|&nbsp; Email:
+      <a class="phone-link"
+         href="mailto:hello@curatoratelier.com?subject=Curator%20Atelier%20Inquiry">hello@curatoratelier.com</a>
+    </div>
+  </footer>
+</div>
+
+<!-- FLOATING WHATSAPP BUBBLE -->
+<a class="whatsapp-float"
+   href="https://wa.me/13016367663?text=Hi%20Curator%20Atelier%2C%20I%E2%80%99m%20interested%20in%20holiday%20d%C3%A9cor%20or%20gifting."
+   target="_blank" rel="noopener"
+   aria-label="Chat with Curator Atelier on WhatsApp">
+  <span>💬</span>
+</a>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
