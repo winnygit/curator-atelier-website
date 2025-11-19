@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Curator Atelier · Ordering Details</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Clear ordering details for Curator Atelier’s luxury holiday décor installations and gift hampers." />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* Same design system as other page */
+    :root{
+      --bg:#040908;
+      --bg-alt:#081613;
+      --panel:#0b1915;
+      --accent:#c9a24b;
+      --accent-soft:rgba(201,162,75,.14);
+      --text:#f6f1e5;
+      --muted:#a7b0aa;
+      --border:#22302a;
+    }
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{
+      font-family:'Inter',system-ui,-apple-system,BlinkMacSystemFont,sans-serif;
+      background:radial-gradient(circle at top,#172620 0,#020504 55%,#010303 100%);
+      color:var(--text);
+      line-height:1.6;
+    }
+    a{text-decoration:none;color:inherit;}
+    img{max-width:100%;display:block;}
+
+    .page{
+      max-width:1180px;
+      margin:0 auto;
+      padding:2.5rem 1.25rem 4rem;
+    }
+
+    /* NAV */
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:1.75rem;
+      padding:0.75rem 0 1.2rem;
+      border-bottom:1px solid rgba(255,255,255,0.05);
+      box-shadow:0 10px 30px rgba(0,0,0,0.4);
+    }
+    .logo-wrap{display:flex;align-items:center;gap:0.6rem;}
+    .logo-mark{
+      width:36px;height:36px;
+      border-radius:999px;
+      border:1px solid var(--accent-soft);
+      display:flex;align-items:center;justify-content:center;
+      font-family:'Playfair Display',serif;
+      font-size:1.1rem;
+      color:var(--accent);
+      background:radial-gradient(circle at 20% 0,#25332b 0,#050806 60%);
+    }
+    .logo-main{
+      font-family:'Playfair Display',serif;
+      letter-spacing:0.18em;
+      text-transform:uppercase;
+      font-size:0.9rem;
+    }
+    .logo-sub{
+      font-size:0.68rem;
+      color:var(--muted);
+      letter-spacing:0.16em;
+      text-transform:uppercase;
+    }
+    .nav-links{
+      display:flex;
+      align-items:center;
+      gap:2.5rem;
+      font-size:0.82rem;
+      letter-spacing:0.16em;
+      text-transform:uppercase;
+      color:var(--text);
+    }
+    .nav-links a:hover{color:var(--accent);}
+
+    /* BUTTONS */
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      border-radius:999px;
+      padding:.55rem 1.4rem;
+      border:1px solid transparent;
+      font-size:.78rem;
+      letter-spacing:.1em;
+      text-transform:uppercase;
+      cursor:pointer;
+      transition:all .18s ease-out;
+      white-space:nowrap;
+    }
+    .btn-primary{
+      background:linear-gradient(135deg,#c9a24b,#f4e0a4);
+      color:#151109;
+      font-weight:500;
+      box-shadow:0 0 0 1px rgba(0,0,0,.3),0 8px 25px rgba(0,0,0,.5);
+    }
+    .btn-primary:hover{
+      filter:brightness(1.04);
+      transform:translateY(-1px);
+      box-shadow:0 10px 30px rgba(0,0,0,.7);
+    }
+    .btn-outline{
+      border-color:var(--border);
+      background:transparent;
+      color:var(--text);
+    }
+    .btn-outline:hover{
+      border-color:var(--accent);
+      background:rgba(201,162,75,.06);
+    }
+    .btn-whatsapp{
+      border-color:#25D366;
+      background:rgba(37,211,102,0.06);
+      color:#dfffe9;
+    }
+    .btn-whatsapp:hover{
+      background:rgba(37,211,102,0.16);
+      box-shadow:0 0 0 1px rgba(37,211,102,0.35);
+    }
+
+    .phone-link{
+      color:var(--accent);
+      font-weight:500;
+    }
+    .phone-link:hover{text-decoration:underline;}
+
+    /* HERO */
+    .hero{
+      padding:1rem 0 2.3rem;
+      border-bottom:1px solid rgba(255,255,255,.05);
+    }
+    .hero-copy-eyebrow{
+      font-size:.75rem;
+      text-transform:uppercase;
+      letter-spacing:.16em;
+      color:var(--muted);
+      margin-bottom:.6rem;
+    }
+    .hero-title{
+      font-family:'Playfair Display',serif;
+      font-size:clamp(2.3rem,3vw,2.8rem);
+      line-height:1.15;
+      letter-spacing:.06em;
+      text-transform:uppercase;
+      margin-bottom:1rem;
+      color:var(--accent);
+    }
+    .hero-sub{
+      font-size:.95rem;
+      color:var(--muted);
+      max-width:40rem;
+      margin-bottom:1.5rem;
+    }
+    .hero-cta-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:.8rem;
+      margin-bottom:1.3rem;
+    }
+    .hero-note{
+      font-size:.78rem;
+      color:var(--muted);
+    }
+    .hero-note strong{color:var(--accent);font-weight:500;}
+
+    /* SECTIONS */
+    section{padding:2.4rem 0 0;}
+    .section-eyebrow{
+      font-size:.75rem;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      color:var(--muted);
+      margin-bottom:.35rem;
+    }
+    .section-title{
+      font-family:'Playfair Display',serif;
+      font-size:1.55rem;
+      margin-bottom:.9rem;
+      color:var(--accent);
+    }
+    .section-intro{
+      font-size:.9rem;
+      color:var(--muted);
+      max-width:40rem;
+      margin-bottom:1.6rem;
+    }
+
+    .info-block{
+      border-radius:22px;
+      background:#050707;
+      border:1px solid var(--border);
+      padding:1.3rem 1.5rem 1.5rem;
+      margin-bottom:1.6rem;
+      font-size:.88rem;
+      color:var(--muted);
+    }
+    .info-block h3{
+      font-family:'Playfair Display',serif;
+      font-size:1.05rem;
+      margin-bottom:.5rem;
+      color:var(--accent);
+    }
+    .info-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:1.2rem;
+    }
+    ul.detail-list{
+      padding-left:1.1rem;
+      margin-top:.35rem;
+      font-size:.86rem;
+    }
+    ul.detail-list li{margin-bottom:.25rem;}
+
+    /* CONTACT MINI FORM */
+    .contact-wrap{
+      border-radius:22px;
+      background:var(--bg-alt);
+      border:1px solid var(--border);
+      padding:1.3rem 1.4rem 1.5rem;
+      margin-top:1.2rem;
+    }
+    .form-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:.8rem;
+      margin-top:.7rem;
+    }
+    label{
+      font-size:.75rem;
+      color:var(--muted);
+      margin-bottom:.18rem;
+      display:block;
+    }
+    input,textarea{
+      width:100%;
+      border-radius:10px;
+      border:1px solid var(--border);
+      background:rgba(3,5,5,.95);
+      color:var(--text);
+      padding:.6rem .8rem;
+      font-size:.8rem;
+      font-family:inherit;
+      outline:none;
+    }
+    textarea{min-height:80px;resize:vertical;}
+    input:focus,textarea:focus{
+      border-color:var(--accent);
+      box-shadow:0 0 0 1px var(--accent-soft);
+    }
+    .contact-footer{
+      margin-top:1rem;
+      display:flex;
+      flex-wrap:wrap;
+      gap:.75rem;
+      align-items:center;
+      justify-content:space-between;
+      font-size:.78rem;
+      color:var(--muted);
+    }
+
+    /* FOOTER */
+    footer{
+      padding:2.2rem 0 0.4rem;
+      font-size:.74rem;
+      color:var(--muted);
+      border-top:1px solid rgba(255,255,255,.04);
+      margin-top:2.4rem;
+    }
+    footer-top{display:block;margin-bottom:.5rem;}
+
+    /* FLOATING WHATSAPP */
+    .whatsapp-float{
+      position:fixed;
+      right:18px;
+      bottom:18px;
+      width:52px;
+      height:52px;
+      border-radius:50%;
+      background:#25D366;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:1.6rem;
+      box-shadow:0 8px 25px rgba(0,0,0,.6);
+      z-index:50;
+    }
+    .whatsapp-float span{transform:translateY(1px);}
+    .whatsapp-float:hover{
+      filter:brightness(1.05);
+      transform:translateY(-1px);
+    }
+
+    @media(max-width:768px){
+      .nav{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:.6rem;
+        padding-bottom:.75rem;
+        box-shadow:none;
+      }
+      .nav-links{
+        gap:1.4rem;
+        flex-wrap:wrap;
+        font-size:.78rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- NAV -->
+  <header class="nav">
+    <div class="logo-wrap">
+      <div class="logo-mark">CA</div>
+      <div>
+        <div class="logo-main">CURATOR ATELIER</div>
+        <div class="logo-sub">Holiday Décor · Hampers</div>
+      </div>
+    </div>
+
+    <nav class="nav-links">
+      <a href="index.html#collection">Holiday Collection</a>
+      <a href="custom-gifting.html">Custom Gifting</a>
+      <a href="ordering-details.html">Ordering Details</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-copy-eyebrow">How to Order</div>
+    <h1 class="hero-title">Ordering Details & Client Policies.</h1>
+    <p class="hero-sub">
+      Everything you need to know about placing orders with Curator Atelier — from décor installation deposits and
+      payment timelines to hamper shipping, rush service and adjustments.
+    </p>
+    <div class="hero-cta-row">
+      <a class="btn btn-primary" href="index.html#collection">View Hampers</a>
+      <a class="btn btn-outline" href="https://calendly.com/hello-curatoratelier/30min" target="_blank" rel="noopener">
+        Book a Call
+      </a>
+      <a class="btn btn-whatsapp"
+         href="https://wa.me/13016367663?text=Hi%20Curator%20Atelier%2C%20I%20have%20a%20question%20about%20ordering."
+         target="_blank" rel="noopener">
+        💬 WhatsApp a Question
+      </a>
+    </div>
+    <p class="hero-note">
+      <strong>Short answer:</strong> Décor requires a 50% deposit to secure your date. Hampers are paid in full at checkout
+      via secure Stripe payment links.
+    </p>
+  </section>
+
+  <!-- DECOR ORDERING -->
+  <section>
+    <div class="section-eyebrow">Luxury Décor Installations</div>
+    <h2 class="section-title">How Décor Booking & Deposits Work.</h2>
+
+    <div class="info-block">
+      <h3>Booking Process</h3>
+      <ul class="detail-list">
+        <li>1. Submit an inquiry or book a consult — we confirm availability and recommended package.</li>
+        <li>2. You receive an itemized quote for <strong>Winter Sparkle</strong>, <strong>Evergreen Estate</strong>
+          or <strong>Christmas Royale</strong>.</li>
+        <li>3. A <strong>50% non-refundable deposit</strong> is paid via Stripe to lock in your installation date and crew.</li>
+        <li>4. Remaining 50% is due 48 hours before installation.</li>
+      </ul>
+      <p style="margin-top:.7rem;font-size:.86rem;">
+        Installations include full setup, styling and cleanup. Optional January takedown and storage services are
+        available and quoted separately.
+      </p>
+    </div>
+
+    <div class="info-grid">
+      <div class="info-block">
+        <h3>Rescheduling & Cancellations</h3>
+        <ul class="detail-list">
+          <li>Deposit is transferable to a new date within the same season, subject to availability.</li>
+          <li>Schedule changes requested within 7 days of installation may incur a rescheduling fee.</li>
+          <li>If you fully cancel, the deposit remains non-refundable and is used to cover design & reserved crew time.</li>
+        </ul>
+      </div>
+      <div class="info-block">
+        <h3>On-Site Requirements</h3>
+        <ul class="detail-list">
+          <li>Adult decision-maker available at the start of install.</li>
+          <li>Clear access to décor areas and electrical outlets.</li>
+          <li>Pets and children supervised away from ladders and fragile ornaments.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- HAMPER ORDERING -->
+  <section>
+    <div class="section-eyebrow">Gift Hampers</div>
+    <h2 class="section-title">How Hamper Ordering, Payment & Shipping Work.</h2>
+    <p class="section-intro">
+      Hampers are ordered via secure Stripe checkout links for each tier. You’ll receive an email confirmation with
+      your order details and shipping address immediately.
+    </p>
+
+    <div class="info-grid">
+      <div class="info-block">
+        <h3>Payment</h3>
+        <ul class="detail-list">
+          <li>All hamper orders are paid in full at checkout via Stripe.</li>
+          <li>We accept major credit/debit cards, Apple Pay and Google Pay.</li>
+          <li>For corporate orders above 50 units, invoice / bank transfer options are available on request.</li>
+        </ul>
+      </div>
+      <div class="info-block">
+        <h3>Delivery & Shipping</h3>
+        <ul class="detail-list">
+          <li>Local DMV courier delivery and national shipping available.</li>
+          <li>Standard lead time: 3–7 business days from payment.</li>
+          <li>Rush options are sometimes available for an additional fee.</li>
+          <li>For 20+ units, we support multi-address shipments via CSV upload.</li>
+        </ul>
+      </div>
+      <div class="info-block">
+        <h3>Changes & Adjustments</h3>
+        <ul class="detail-list">
+          <li>Minor changes can be requested within 12 hours of placing your order.</li>
+          <li>After hampers enter production, ingredients and packaging are locked in.</li>
+          <li>Dietary substitutions (vegan, gluten-free, nut-free) should be flagged upfront.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- POLICIES -->
+  <section>
+    <div class="section-eyebrow">Policies</div>
+    <h2 class="section-title">Refunds, Damage & Quality Guarantee.</h2>
+
+    <div class="info-grid">
+      <div class="info-block">
+        <h3>Décor Installations</h3>
+        <ul class="detail-list">
+          <li>Deposits are non-refundable once your date is booked.</li>
+          <li>If Curator Atelier must cancel due to emergency, you receive a full refund or priority rebooking.</li>
+          <li>Any concerns must be raised within 24 hours of installation so our team can promptly correct them.</li>
+        </ul>
+      </div>
+      <div class="info-block">
+        <h3>Hampers</h3>
+        <ul class="detail-list">
+          <li>Due to the nature of perishable and customized goods, hamper orders are non-refundable once shipped.</li>
+          <li>If an item arrives damaged, we will replace or credit it — simply email photos within 48 hours.</li>
+          <li>We reserve the right to make equal-or-higher value substitutions if a listed item is unavailable.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUICK QUESTION FORM -->
+  <section id="question">
+    <div class="section-eyebrow">Still Unsure?</div>
+    <h2 class="section-title">Ask a Quick Question.</h2>
+    <p class="section-intro">
+      Not ready for a full proposal yet? Send a short note below and we’ll reply with guidance, next steps or the
+      best package for your needs.
+    </p>
+
+    <div class="contact-wrap">
+      <form method="POST" action="https://formspree.io/f/xblwkzyq">
+        <input type="hidden" name="_subject" value="Ordering Details Question – Curator Atelier" />
+        <input type="hidden" name="page" value="Ordering Details" />
+
+        <div class="form-grid">
+          <div>
+            <label for="name">Full Name</label>
+            <input id="name" name="name" required />
+          </div>
+          <div>
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" required />
+          </div>
+        </div>
+
+        <div style="margin-top:.8rem;">
+          <label for="message">Your Question</label>
+          <textarea id="message" name="message"
+            placeholder="Example: We’d like décor + 40 hampers for our office — what’s the best way to structure this?"></textarea>
+        </div>
+
+        <div class="contact-footer">
+          <button type="submit" class="btn btn-primary">Send Question</button>
+          <div>
+            Prefer WhatsApp? <a class="phone-link"
+              href="https://wa.me/13016367663?text=Hi%20Curator%20Atelier%2C%20I%20have%20a%20quick%20question%20about%20ordering."
+              target="_blank" rel="noopener">Chat instantly</a><br/>
+            Or call us at <a class="phone-link" href="tel:13016367663">301-636-7663</a><br/>
+            Prefer a scheduled consult? <a href="https://calendly.com/hello-curatoratelier/30min"
+              target="_blank" rel="noopener">Book a 30-minute call</a>.<br/>
+            Or email us at <a class="phone-link"
+              href="mailto:hello@curatoratelier.com?subject=Ordering%20Question">hello@curatoratelier.com</a>
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <footer-top>© <span id="year"></span> Curator Atelier. All rights reserved.</footer-top>
+    <div>
+      Quiet-luxury Christmas décor and gifting atelier for the DMV’s most discerning homes and corporate clients.
+      &nbsp;|&nbsp; Call us:
+      <a class="phone-link" href="tel:13016367663">301-636-7663</a>
+      &nbsp;|&nbsp; Email:
+      <a class="phone-link"
+         href="mailto:hello@curatoratelier.com?subject=Curator%20Atelier%20Inquiry">hello@curatoratelier.com</a>
+    </div>
+  </footer>
+</div>
+
+<!-- FLOATING WHATSAPP BUBBLE -->
+<a class="whatsapp-float"
+   href="https://wa.me/13016367663?text=Hi%20Curator%20Atelier%2C%20I%E2%80%99m%20interested%20in%20holiday%20d%C3%A9cor%20or%20gifting."
+   target="_blank" rel="noopener"
+   aria-label="Chat with Curator Atelier on WhatsApp">
+  <span>💬</span>
+</a>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
