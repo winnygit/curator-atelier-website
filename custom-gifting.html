@@ -5,59 +5,301 @@
   <title>Curator Atelier · Custom Corporate Gifting</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Fully branded luxury hampers and gifting programs for law firms, real estate teams, executives and family offices.">
+
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
   <style>
-    :root{--bg:#040908;--bg-alt:#081613;--panel:#0b1915;--accent:#c9a24b;--accent-strong:#f4e0a4;--accent-soft:rgba(201,162,75,.14);--text:#f6f1e5;--muted:#a7b0aa;--border:#22302a;}
+    :root{
+      --bg:#040908;
+      --bg-alt:#081613;
+      --panel:#0b1915;
+      --accent:#c9a24b;
+      --accent-strong:#f4e0a4;
+      --accent-soft:rgba(201,162,75,.14);
+      --text:#f6f1e5;
+      --muted:#a7b0aa;
+      --border:#22302a;
+    }
+
     *{box-sizing:border-box;margin:0;padding:0;}
-    body{font-family:'Inter',sans-serif;background:radial-gradient(circle at top,#172620 0,#020504 55%,#010303 100%);color:var(--text);line-height:1.6;}
+    body{
+      font-family:'Inter',sans-serif;
+      background:radial-gradient(circle at top,#172620 0,#020504 55%,#010303 100%);
+      color:var(--text);
+      line-height:1.6;
+    }
     a{color:inherit;text-decoration:none;}
     img{max-width:100%;display:block;}
-    .page{max-width:1180px;margin:0 auto;padding:2.5rem 1.25rem 4rem;}
-    .nav{display:flex;align-items:center;justify-content:space-between;gap:1.75rem;padding-bottom:1.2rem;border-bottom:1px solid rgba(255,255,255,.05);}
+
+    .page{
+      max-width:1180px;
+      margin:0 auto;
+      padding:2.5rem 1.25rem 4rem;
+    }
+
+    /* NAV */
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:1.75rem;
+      padding-bottom:1.2rem;
+      border-bottom:1px solid rgba(255,255,255,.05);
+    }
     .logo-img{height:52px;width:auto;}
-    .nav-links{display:flex;gap:2.5rem;font-size:.82rem;letter-spacing:.16em;text-transform:uppercase;}
+    .nav-links{
+      display:flex;
+      gap:2.5rem;
+      font-size:.82rem;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+    }
     .nav-links a:hover{color:var(--accent-strong);}
-    .btn{display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:.55rem 1.4rem;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;transition:all .18s;}
-    .btn-primary{background:linear-gradient(135deg,#f9e4b0,#d6a948);color:#151109;font-weight:600;box-shadow:0 10px 30px rgba(0,0,0,.7);}
-    .btn-primary:hover{filter:brightness(1.06);transform:translateY(-1px);}
-    .btn-outline{border:1px solid var(--border);background:transparent;color:var(--text);}
-    .btn-outline:hover{border-color:var(--accent);background:rgba(201,162,75,.06);}
-    .btn-whatsapp{border:1px solid #25D366;background:rgba(37,211,102,.06);color:#dfffe9;}
-    .hero{display:grid;grid-template-columns:1fr 1fr;gap:2.2rem;padding:1rem 0 2.3rem;border-bottom:1px solid rgba(255,255,255,.05);}
-    .hero-copy-eyebrow{font-size:.75rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:.6rem;}
-    .hero-title{font-family:'Playfair Display',serif;font-size:clamp(2.4rem,3.5vw,3rem);line-height:1.15;letter-spacing:.06em;color:var(--accent-strong);}
-    .hero-sub{font-size:.95rem;color:var(--muted);max-width:34rem;margin:1rem 0 1.5rem;}
-    .hero-cta-row{display:flex;flex-wrap:wrap;gap:.9rem;margin-bottom:1rem;}
-    .hero-note{font-size:.78rem;color:var(--muted);}
+
+    /* BUTTONS */
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      border-radius:999px;
+      padding:.55rem 1.4rem;
+      font-size:.78rem;
+      letter-spacing:.1em;
+      text-transform:uppercase;
+      transition:all .18s;
+      border:1px solid transparent;
+      cursor:pointer;
+      white-space:nowrap;
+    }
+    .btn-primary{
+      background:linear-gradient(135deg,#f9e4b0,#d6a948);
+      color:#151109;
+      font-weight:600;
+      box-shadow:0 10px 30px rgba(0,0,0,.7);
+    }
+    .btn-primary:hover{
+      filter:brightness(1.06);
+      transform:translateY(-1px);
+    }
+    .btn-outline{
+      border:1px solid var(--border);
+      background:transparent;
+      color:var(--text);
+    }
+    .btn-outline:hover{
+      border-color:var(--accent);
+      background:rgba(201,162,75,.06);
+    }
+    .btn-whatsapp{
+      border:1px solid #25D366;
+      background:rgba(37,211,102,.06);
+      color:#dfffe9;
+    }
+    .btn-whatsapp:hover{
+      background:rgba(37,211,102,.16);
+      box-shadow:0 0 0 1px rgba(37,211,102,.35);
+    }
+
+    /* HERO */
+    .hero{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:2.2rem;
+      padding:1rem 0 2.3rem;
+      border-bottom:1px solid rgba(255,255,255,.05);
+    }
+    .hero-copy-eyebrow{
+      font-size:.75rem;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      color:var(--muted);
+      margin-bottom:.6rem;
+    }
+    .hero-title{
+      font-family:'Playfair Display',serif;
+      font-size:clamp(2.4rem,3.5vw,3rem);
+      line-height:1.15;
+      letter-spacing:.06em;
+      color:var(--accent-strong);
+    }
+    .hero-sub{
+      font-size:.95rem;
+      color:var(--muted);
+      max-width:34rem;
+      margin:1rem 0 1.5rem;
+    }
+    .hero-cta-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:.9rem;
+      margin-bottom:1rem;
+    }
+    .hero-note{
+      font-size:.78rem;
+      color:var(--muted);
+    }
     .hero-note strong{color:var(--accent-strong);}
-    .hero-panel{border-radius:22px;background:var(--panel);border:1px solid var(--border);padding:1.6rem;box-shadow:0 24px 60px rgba(0,0,0,.7);}
-    .hero-panel-title{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--accent);margin-bottom:.6rem;}
-    .pill-list{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.8rem;}
-    .pill{font-size:.74rem;border-radius:999px;border:1px solid var(--border);padding:.25rem .75rem;background:rgba(0,0,0,.4);color:var(--muted);}
+
+    .hero-panel{
+      border-radius:22px;
+      background:var(--panel);
+      border:1px solid var(--border);
+      padding:1.6rem;
+      box-shadow:0 24px 60px rgba(0,0,0,.7);
+    }
+    .hero-panel-title{
+      font-family:'Playfair Display',serif;
+      font-size:1.3rem;
+      color:var(--accent);
+      margin-bottom:.6rem;
+    }
+    .pill-list{
+      display:flex;
+      flex-wrap:wrap;
+      gap:.5rem;
+      margin-top:.8rem;
+    }
+    .pill{
+      font-size:.74rem;
+      border-radius:999px;
+      border:1px solid var(--border);
+      padding:.25rem .75rem;
+      background:rgba(0,0,0,.4);
+      color:var(--muted);
+    }
+
+    /* SECTIONS */
     section{padding:2.8rem 0;}
-    .section-eyebrow{font-size:.75rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:.4rem;}
-    .section-title{font-family:'Playfair Display',serif;font-size:1.7rem;color:var(--accent-strong);margin-bottom:.9rem;}
-    .section-intro{font-size:.94rem;color:var(--muted);max-width:46rem;margin-bottom:1.8rem;}
-    .card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:1.4rem;margin-top:1rem;}
-    .info-card{border-radius:18px;background:var(--panel);border:1px solid var(--border);padding:1.3rem;font-size:.88rem;color:var(--muted);}
-    .info-card h3{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--accent);margin-bottom:.5rem;}
-    .contact-wrap{border-radius:22px;background:var(--bg-alt);border:1px solid var(--border);padding:1.6rem;margin-top:1.4rem;}
-    .form-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-top:.8rem;}
-    label{font-size:.76rem;color:var(--muted);margin-bottom:.2rem;display:block;}
-    input,select,textarea{width:100%;border-radius:10px;border:1px solid var(--border);background:rgba(3,5,5,.95);color:var(--text);padding:.65rem .9rem;font-size:.86rem;}
-    input:focus,select:focus,textarea:focus{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent-soft);}
-    .contact-footer{margin-top:1.2rem;display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between;font-size:.8rem;color:var(--muted);}
-    footer{padding:2.4rem 0 .6rem;border-top:1px solid rgba(255,255,255,.04);margin-top:3rem;font-size:.76rem;color:var(--muted);}
-    .whatsapp-float{position:fixed;right:20px;bottom:20px;width:56px;height:56px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 12px 30px rgba(0,0,0,.7);z-index:100;}
+    .section-eyebrow{
+      font-size:.75rem;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      color:var(--muted);
+      margin-bottom:.4rem;
+    }
+    .section-title{
+      font-family:'Playfair Display',serif;
+      font-size:1.7rem;
+      color:var(--accent-strong);
+      margin-bottom:.9rem;
+    }
+    .section-intro{
+      font-size:.94rem;
+      color:var(--muted);
+      max-width:46rem;
+      margin-bottom:1.8rem;
+    }
+
+    .card-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(270px,1fr));
+      gap:1.4rem;
+      margin-top:1rem;
+    }
+    .info-card{
+      border-radius:18px;
+      background:var(--panel);
+      border:1px solid var(--border);
+      padding:1.3rem;
+      font-size:.88rem;
+      color:var(--muted);
+    }
+    .info-card h3{
+      font-family:'Playfair Display',serif;
+      font-size:1.1rem;
+      color:var(--accent);
+      margin-bottom:.5rem;
+    }
+
+    /* INQUIRY FORM */
+    .contact-wrap{
+      border-radius:22px;
+      background:var(--bg-alt);
+      border:1px solid var(--border);
+      padding:1.6rem;
+      margin-top:1.4rem;
+    }
+    .form-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:1rem;
+      margin-top:.8rem;
+    }
+    label{
+      font-size:.76rem;
+      color:var(--muted);
+      margin-bottom:.2rem;
+      display:block;
+    }
+    input,select,textarea{
+      width:100%;
+      border-radius:10px;
+      border:1px solid var(--border);
+      background:rgba(3,5,5,.95);
+      color:var(--text);
+      padding:.65rem .9rem;
+      font-size:.86rem;
+      outline:none;
+    }
+    input:focus,select:focus,textarea:focus{
+      border-color:var(--accent);
+      box-shadow:0 0 0 1px var(--accent-soft);
+    }
+    textarea{min-height:100px;resize:vertical;}
+
+    .contact-footer{
+      margin-top:1.2rem;
+      display:flex;
+      flex-wrap:wrap;
+      gap:1rem;
+      justify-content:space-between;
+      font-size:.8rem;
+      color:var(--muted);
+    }
+    .contact-footer a{color:var(--accent-strong);}
+
+    /* FOOTER */
+    footer{
+      padding:2.4rem 0 .6rem;
+      border-top:1px solid rgba(255,255,255,.04);
+      margin-top:3rem;
+      font-size:.76rem;
+      color:var(--muted);
+    }
+
+    /* FLOATING WHATSAPP */
+    .whatsapp-float{
+      position:fixed;
+      right:20px;
+      bottom:20px;
+      width:56px;
+      height:56px;
+      border-radius:50%;
+      background:#25D366;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      box-shadow:0 12px 30px rgba(0,0,0,.7);
+      z-index:100;
+      cursor:pointer;
+    }
+    .whatsapp-float span{font-size:1.7rem;color:#fff;}
     .whatsapp-float:hover{transform:scale(1.08);}
-    @media(max-width:768px){.hero{grid-template-columns:1fr;gap:1.8rem;}.nav{flex-direction:column;align-items:flex-start;gap:.8rem;}}
+
+    @media(max-width:768px){
+      .hero{grid-template-columns:1fr;gap:1.8rem;}
+      .nav{flex-direction:column;align-items:flex-start;gap:.8rem;}
+    }
   </style>
 </head>
 <body>
 <div class="page">
   <!-- NAV -->
   <header class="nav">
-    <a href="index.html"><img src="images/curator-logo.svg" alt="Curator Atelier" class="logo-img"></a>
+    <a href="index.html">
+      <img src="images/curator-logo.svg" alt="Curator Atelier" class="logo-img">
+    </a>
     <nav class="nav-links">
       <a href="index.html">Home</a>
       <a href="index.html#collection">Holiday Collection</a>
@@ -73,15 +315,29 @@
       <div class="hero-copy-eyebrow">Corporate · Executive · Family Office Gifting</div>
       <h1 class="hero-title">Custom Gifting,<br>Quiet-Luxury Presentation</h1>
       <p class="hero-sub">
-        Fully branded luxury hampers and gifting programs for law firms, real estate teams, medical practices and executives across the DMV & nationwide.
+        Fully branded luxury hampers and gifting programs for law firms, real estate teams, medical practices and executives
+        across the DMV & nationwide.
       </p>
       <div class="hero-cta-row">
         <a class="btn btn-primary" href="#inquiry">Request Corporate Quote</a>
-        <a class="btn btn-whatsapp" href="https://wa.me/13016367663?text=Hi%20Curator%20Atelier%2C%20I%E2%80%99d%20like%20to%20discuss%20custom%20gifting." target="_blank">WhatsApp Our Atelier</a>
-        <a class="btn btn-outline" href="https://calendly.com/hello-curatoratelier/30min" target="_blank">Book Strategy Call</a>
+        <a class="btn btn-whatsapp"
+           href="https://wa.me/13016367663?text=Hi%20Curator%20Atelier%2C%20I%E2%80%99d%20like%20to%20discuss%20custom%20gifting."
+           target="_blank" rel="noopener">
+          WhatsApp Our Atelier
+        </a>
+        <a class="btn btn-outline"
+           href="https://calendly.com/hello-curatoratelier/30min"
+           target="_blank" rel="noopener">
+          Book Strategy Call
+        </a>
       </div>
-      <p class="hero-note"><strong>Limited:</strong> Only 150 Corporate Platinum hampers remaining for 2025 · 68 left</p>
+      <p class="hero-note">
+        <strong>Limited:</strong> Only 150 Corporate Platinum hampers for 2025 · 68 left.
+        Prefer to talk it through? Call us at
+        <strong><a href="tel:+13016367663">301-636-7663</a></strong>.
+      </p>
     </div>
+
     <aside class="hero-panel">
       <div class="hero-panel-title">Perfect For</div>
       <ul class="hero-panel-list" style="list-style:none;padding:0;font-size:.88rem;">
@@ -104,13 +360,26 @@
     <div class="section-eyebrow">Custom Gifting Atelier</div>
     <h2 class="section-title">Built for Brands Who Refuse Generic Gifts</h2>
     <p class="section-intro">
-      From Dom Pérignon and Diptyque candles to engraved keepsakes and branded sleeves — every detail is curated to feel like an extension of your brand.
+      From Dom Pérignon and Diptyque candles to engraved keepsakes and branded sleeves — every detail is curated
+      to feel like an extension of your brand.
     </p>
     <div class="card-grid">
-      <article class="info-card"><h3>Branded C-Suite Hampers</h3><p>Dom Pérignon, Godiva, Diptyque in custom keepsake boxes with your logo and engraving.</p></article>
-      <article class="info-card"><h3>Team Gifting (20–500+)</h3><p>Tiered hampers so you can scale generosity while keeping a quiet-luxury aesthetic.</p></article>
-      <article class="info-card"><h3>Nationwide Recipient Management</h3><p>Upload a CSV — we handle packing, labeling and staggered shipping.</p></article>
-      <article class="info-card"><h3>Full Brand Integration</h3><p>Custom tags, sleeves, wax seals, ribbon and message cards in your voice.</p></article>
+      <article class="info-card">
+        <h3>Branded C-Suite Hampers</h3>
+        <p>Dom Pérignon, Godiva and Diptyque in custom keepsake boxes with your logo and engraving.</p>
+      </article>
+      <article class="info-card">
+        <h3>Team Gifting (20–500+)</h3>
+        <p>Tiered hampers so you can scale generosity while keeping a quiet-luxury aesthetic.</p>
+      </article>
+      <article class="info-card">
+        <h3>Nationwide Recipient Management</h3>
+        <p>Upload a CSV — we handle packing, labeling and staggered shipping.</p>
+      </article>
+      <article class="info-card">
+        <h3>Full Brand Integration</h3>
+        <p>Custom tags, sleeves, wax seals, ribbon and message cards in your voice.</p>
+      </article>
     </div>
   </section>
 
@@ -118,34 +387,87 @@
   <section id="inquiry">
     <div class="section-eyebrow">Corporate Inquiry</div>
     <h2 class="section-title">Request Your Custom Gifting Proposal</h2>
-    <p class="section-intro">Reply within 1–3 hours with tiers, budgets and timelines.</p>
+    <p class="section-intro">We respond within 1–3 hours with proposed tiers, budgets and timelines.</p>
+
     <div class="contact-wrap">
       <form method="POST" action="https://formspree.io/f/xblwkzyq">
         <input type="hidden" name="_subject" value="Custom Gifting Inquiry – Curator Atelier">
+
         <div class="form-grid">
-          <div><label>Name</label><input name="name" required></div>
-          <div><label>Company</label><input name="company"></div>
-          <div><label>Email</label><input name="email" type="email" required></div>
-          <div><label>Phone</label><input name="phone"></div>
+          <div>
+            <label>Name</label>
+            <input name="name" required>
+          </div>
+          <div>
+            <label>Company</label>
+            <input name="company">
+          </div>
+          <div>
+            <label>Email</label>
+            <input name="email" type="email" required>
+          </div>
+          <div>
+            <label>Phone</label>
+            <input name="phone">
+          </div>
         </div>
+
         <div class="form-grid" style="margin-top:.8rem;">
-          <div><label>Quantity</label><input name="quantity" placeholder="e.g., 120"></div>
-          <div><label>Budget</label><input name="budget" placeholder="$15,000–$40,000"></div>
-          <div><label>Delivery Window</label><input name="timeline"></div>
-          <div><label>Priority</label><select name="interest"><option>Staff Gifting</option><option>VIP Hampers</option><option>Both</option></select></div>
+          <div>
+            <label>Estimated Quantity</label>
+            <input name="quantity" placeholder="e.g., 120">
+          </div>
+          <div>
+            <label>Budget</label>
+            <input name="budget" placeholder="$15,000–$40,000">
+          </div>
+          <div>
+            <label>Delivery Window</label>
+            <input name="timeline" placeholder="e.g., Gifts delivered Dec 10–15">
+          </div>
+          <div>
+            <label>Priority</label>
+            <select name="interest">
+              <option>Staff Gifting</option>
+              <option>VIP Hampers</option>
+              <option>Both</option>
+            </select>
+          </div>
         </div>
-        <div style="margin-top:.8rem;"><label>Message</label><textarea name="message" placeholder="Brand tone, alcohol preferences, special requests…"></textarea></div>
+
+        <div style="margin-top:.8rem;">
+          <label>Message</label>
+          <textarea name="message"
+                    placeholder="Brand tone, alcohol preferences, dietary needs, special requests…"></textarea>
+        </div>
+
         <div class="contact-footer">
           <button type="submit" class="btn btn-primary">Submit Inquiry</button>
-          <div>Text <a href="https://wa.me/13016367663">301-636-7663</a> · <a href="mailto:hello@curatoratelier.com">hello@curatoratelier.com</a></div>
+          <div>
+            Call or WhatsApp <a href="tel:+13016367663">301-636-7663</a> ·
+            <a href="https://wa.me/13016367663" target="_blank" rel="noopener">Start WhatsApp chat</a> ·
+            <a href="mailto:hello@curatoratelier.com">hello@curatoratelier.com</a>
+          </div>
         </div>
       </form>
     </div>
   </section>
 
-  <footer>© <span id="year"></span> Curator Atelier. All rights reserved.</footer>
+  <footer>
+    © <span id="year"></span> Curator Atelier. All rights reserved.
+  </footer>
 </div>
-<a class="whatsapp-float" href="https://wa.me/13016367663" target="_blank"><span>WhatsApp</span></a>
-<script>document.getElementById('year').textContent=new Date().getFullYear();</script>
+
+<!-- FLOATING WHATSAPP BUTTON -->
+<a class="whatsapp-float"
+   href="https://wa.me/13016367663?text=Hi%20Curator%20Atelier%2C%20I%E2%80%99d%20like%20to%20discuss%20custom%20gifting."
+   target="_blank" rel="noopener"
+   aria-label="Chat with Curator Atelier on WhatsApp">
+  <span>💬</span>
+</a>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
