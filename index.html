@@ -1,773 +1,180 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <title>Curator Atelier · Luxury Holiday Décor & Gift Hampers</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Curator Atelier curates luxury Christmas décor installations and corporate gift hampers for the DMV and beyond." />
-
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-
-    <style>
-        :root{
-            /* COLOR DEFINITIONS */
-            --bg: #040908; /* Near Black */
-            --bg-alt: #081613; /* Dark Panel */
-            --panel: #0b1915;
-            --accent: #c9a24b; /* Rich Gold */
-            --accent-soft: rgba(201,162,75,.14);
-            --text: #f6f1e5; /* Off White */
-            --muted: #a7b0aa; /* Soft Gray */
-            --border: #22302a; /* Dark Border */
-        }
-
-        /* RESET & BASE */
-        *{box-sizing:border-box;margin:0;padding:0;}
-        body{
-            font-family:'Inter',system-ui,-apple-system,BlinkMacSystemFont,sans-serif;
-            background: radial-gradient(circle at top, #172620 0, #020504 55%, #010303 100%);
-            color:var(--text);
-            line-height:1.6;
-        }
-        a{text-decoration:none;color:inherit;}
-        img{max-width:100%;display:block;}
-
-        .page{
-            max-width:1180px;
-            margin:0 auto;
-            padding:2.5rem 1.25rem 4rem;
-        }
-
-        /* NAV */
-
-        .nav {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 1.75rem;
-            padding: 0.75rem 0 1.2rem;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-        }
-
-        .logo-wrap {
-            display: flex;
-            align-items: center;
-            gap: 0.7rem;
-        }
-
-        .logo-img{
-            width: 42px;
-            height: 42px;
-            object-fit: contain;
-        }
-
-        .logo-main {
-            font-family: 'Playfair Display', serif;
-            letter-spacing: 0.18em;
-            text-transform: uppercase;
-            font-size: 0.9rem;
-        }
-
-        .logo-sub {
-            font-size: 0.68rem;
-            color: var(--muted);
-            letter-spacing: 0.16em;
-            text-transform: uppercase;
-        }
-
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 2rem;
-            font-size: 0.82rem;
-            letter-spacing: 0.16em;
-            text-transform: uppercase;
-            color: var(--text);
-        }
-
-        .nav-links a { color: var(--text); }
-        .nav-links a:hover { color: var(--accent); }
-
-        /* BUTTONS */
-
-        .btn{
-            display:inline-flex;
-            align-items:center;
-            justify-content:center;
-            border-radius:999px;
-            padding:.6rem 1.4rem;
-            border:1px solid transparent;
-            font-size:.78rem;
-            letter-spacing:.1em;
-            text-transform:uppercase;
-            cursor:pointer;
-            transition:all .18s ease-out;
-            white-space:nowrap;
-        }
-        .btn-outline{
-            border-color:var(--border);
-            background:transparent;
-            color:var(--text);
-        }
-        .btn-outline:hover{
-            border-color:var(--accent);
-            background:rgba(201,162,75,.06);
-        }
-        .btn-primary{
-            background:linear-gradient(135deg,#f7e7b0,#c9a24b);
-            color:#151109;
-            font-weight:600;
-            box-shadow:0 0 0 1px rgba(0,0,0,.4),0 10px 28px rgba(0,0,0,.7);
-        }
-        .btn-primary:hover{
-            filter:brightness(1.05);
-            transform:translateY(-1px);
-            box-shadow:0 14px 36px rgba(0,0,0,.85);
-        }
-
-        /* HERO */
-
-        .hero{
-            display:grid;
-            grid-template-columns:minmax(0,1.3fr) minmax(0,1.35fr);
-            gap:2.2rem;
-            padding:1rem 0 2.3rem;
-            border-bottom:1px solid rgba(255,255,255,.05);
-        }
-        .hero-copy-eyebrow{
-            font-size:.75rem;
-            text-transform:uppercase;
-            letter-spacing:.16em;
-            color:var(--muted);
-            margin-bottom:.6rem;
-        }
-        .hero-title{
-            font-family:'Playfair Display',serif;
-            font-size:clamp(2.4rem,3.1vw,3rem);
-            line-height:1.1;
-            letter-spacing:.06em;
-            text-transform:uppercase;
-            margin-bottom:1rem;
-            color:var(--accent);
-        }
-        .hero-sub{
-            font-size:.95rem;
-            color:var(--muted);
-            max-width:32rem;
-            margin-bottom:1.5rem;
-        }
-        .hero-cta-row{
-            display:flex;
-            flex-wrap:wrap;
-            gap:.8rem;
-            margin-bottom:0.8rem;
-        }
-        .hero-note{
-            font-size:.78rem;
-            color:var(--muted);
-        }
-        .hero-note strong{color:var(--accent);font-weight:500;}
-
-        .hero-image{
-            position:relative;
-            border-radius:24px;
-            overflow:hidden;
-            border:1px solid rgba(255,255,255,.06);
-            box-shadow:0 26px 70px rgba(0,0,0,.8);
-            background:#040606 url("https://placehold.co/800x1200/15312C/C8A359?text=Curator+Atelier+Holiday+Decor") center/cover no-repeat;
-            min-height:320px;
-        }
-        .hero-image-overlay{
-            position:absolute;
-            inset:0;
-            background:linear-gradient(to top,rgba(0,0,0,.75),rgba(0,0,0,.1));
-            display:flex;
-            align-items:flex-start;
-            justify-content:flex-start;
-            padding:1.2rem 1.4rem;
-        }
-        .hero-image-caption{
-            font-family:'Playfair Display',serif;
-            font-size:.9rem;
-            letter-spacing:.14em;
-            text-transform:uppercase;
-            color:rgba(246,241,229,.9);
-        }
-
-        /* SECTIONS */
-
-        section{padding:2.4rem 0 0;}
-
-        .section-eyebrow{
-            font-size:.75rem;
-            letter-spacing:.16em;
-            text-transform:uppercase;
-            color:var(--muted);
-            margin-bottom:.35rem;
-        }
-        .section-title{
-            font-family:'Playfair Display',serif;
-            font-size:1.55rem;
-            margin-bottom:.9rem;
-            color:var(--accent);
-        }
-        .section-intro{
-            font-size:.9rem;
-            color:var(--muted);
-            max-width:40rem;
-            margin-bottom:1.6rem;
-        }
-
-        /* GRID / CARDS SHARED */
-
-        .collection-grid{
-            display:grid;
-            grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-            gap:1.2rem;
-        }
-        .product-card{
-            border-radius:18px;
-            background:var(--panel);
-            border:1px solid var(--border);
-            overflow:hidden;
-            display:flex;
-            flex-direction:column;
-        }
-        .product-media{
-            background:#020403;
-            aspect-ratio:4/3;
-            overflow:hidden;
-        }
-        .product-media img{
-            width:100%;
-            height:100%;
-            object-fit:cover;
-            opacity:0.7;
-        }
-        .product-body{
-            padding:0.9rem 1rem 1rem;
-        }
-        .product-name{
-            font-family:'Playfair Display',serif;
-            font-size:.98rem;
-            margin-bottom:.15rem;
-            color:var(--text);
-        }
-        .product-meta{
-            display:flex;
-            justify-content:space-between;
-            align-items:baseline;
-            font-size:.8rem;
-            color:var(--muted);
-        }
-        .product-price{
-            color:var(--accent);
-            font-weight:500;
-            font-size:.86rem;
-        }
-        .collection-cta-wrap{
-            text-align:center;
-            margin-top:1.5rem;
-        }
-
-        /* CURATED DELIVERED */
-
-        .process-panel{
-            margin-top:2.2rem;
-            border-radius:22px;
-            background:#050707;
-            border:1px solid var(--border);
-            padding:1.3rem 1.4rem 1.5rem;
-        }
-        .process-title{
-            font-family:'Playfair Display',serif;
-            font-size:1.4rem;
-            text-align:center;
-            margin-bottom:.3rem;
-            color:var(--accent);
-        }
-        .process-sub{
-            font-size:.86rem;
-            text-align:center;
-            color:var(--muted);
-            margin-bottom:1.1rem;
-        }
-        .process-grid{
-            display:grid;
-            grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
-            gap:1rem;
-        }
-        .process-item{
-            text-align:center;
-            font-size:.83rem;
-        }
-        .process-icon{
-            width:40px;height:40px;
-            border-radius:999px;
-            border:1px solid var(--accent-soft);
-            display:flex;align-items:center;justify-content:center;
-            margin:0 auto .5rem;
-            color:var(--accent);
-            font-size:1.1rem;
-        }
-        .process-item h3{
-            font-family:'Playfair Display',serif;
-            font-size:.95rem;
-            margin-bottom:.25rem;
-        }
-        .process-item p{color:var(--muted);font-size:.8rem;}
-
-        /* CONTACT */
-
-        .contact-wrap{
-            border-radius:22px;
-            background:var(--bg-alt);
-            border:1px solid var(--border);
-            padding:1.3rem 1.4rem 1.5rem;
-            margin-top:1.2rem;
-        }
-        .form-grid{
-            display:grid;
-            grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-            gap:.8rem;
-            margin-top:.7rem;
-        }
-        label{
-            font-size:.75rem;
-            color:var(--muted);
-            margin-bottom:.18rem;
-            display:block;
-        }
-        input,select,textarea{
-            width:100%;
-            border-radius:10px;
-            border:1px solid var(--border);
-            background:rgba(3,5,5,.95);
-            color:var(--text);
-            padding:.6rem .8rem;
-            font-size:.8rem;
-            font-family:inherit;
-            outline:none;
-        }
-        textarea{min-height:90px;resize:vertical;}
-        input:focus,select:focus,textarea:focus{
-            border-color:var(--accent);
-            box-shadow:0 0 0 1px var(--accent-soft);
-        }
-        .contact-footer{
-            margin-top:1rem;
-            display:flex;
-            flex-wrap:wrap;
-            gap:.75rem;
-            align-items:center;
-            justify-content:space-between;
-            font-size:.78rem;
-            color:var(--muted);
-        }
-
-        /* FOOTER */
-
-        footer{
-            padding:2.2rem 0 0.4rem;
-            font-size:.74rem;
-            color:var(--muted);
-            border-top:1px solid rgba(255,255,255,.04);
-            margin-top:2.4rem;
-        }
-        footer-top{
-            display:block;
-            margin-bottom:.35rem;
-        }
-        .footer-phone{
-            color:var(--accent);
-            font-weight:600;
-        }
-
-        /* FLOATING WHATSAPP BUTTON */
-
-        .whatsapp-float{
-            position:fixed;
-            right:18px;
-            bottom:18px;
-            width:54px;
-            height:54px;
-            border-radius:50%;
-            background:#25D366;
-            display:flex;
-            align-items:center;
-            justify-content:center;
-            box-shadow:0 10px 24px rgba(0,0,0,.7);
-            z-index:999;
-        }
-        .whatsapp-float img{
-            width:28px;
-            height:28px;
-        }
-        .whatsapp-float:hover{
-            transform:translateY(-1px);
-            box-shadow:0 14px 30px rgba(0,0,0,.85);
-        }
-
-        @media (max-width: 768px) {
-            .nav {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 0.6rem;
-                padding-bottom: 0.75rem;
-                box-shadow: none;
-            }
-
-            .nav-links {
-                gap: 1.4rem;
-                flex-wrap: wrap;
-                font-size: 0.78rem;
-            }
-
-            .hero{
-                grid-template-columns:1fr;
-            }
-
-            .hero-image{
-                order:-1;
-                margin-top:1.4rem;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Curator Atelier · DMV Luxury Christmas Décor & Gift Hampers</title>
+  <meta name="description" content="Potomac, Bethesda, McLean luxury interior Christmas installations + corporate gift hampers. Installed in 48 hours.">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#040908;--accent:#c9a24b;--accent-strong:#f4e0a4;--text:#f6f1e5;--muted:#a7b0aa;--border:#22302a;}
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;}
+    a{color:inherit;text-decoration:none;}
+    img,video{max-width:100%;display:block;}
+    .page{max-width:1180px;margin:0 auto;padding:2.5rem 1.25rem 4rem;position:relative;}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:2rem;padding-bottom:1.2rem;border-bottom:1px solid rgba(255,255,255,.05);}
+    .logo-img{height:56px;width:auto;}
+    .nav-links{display:flex;gap:2.5rem;font-size:.82rem;letter-spacing:.16em;text-transform:uppercase;}
+    .nav-links a:hover{color:var(--accent-strong);}
+    .btn{display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:.6rem 1.6rem;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;transition:all .2s;}
+    .btn-primary{background:linear-gradient(135deg,#f9e4b0,#d6a948);color:#151109;font-weight:600;box-shadow:0 10px 30px rgba(0,0,0,.7);}
+    .btn-primary:hover{filter:brightness(1.06);transform:translateY(-2px);}
+    .btn-outline{border:1px solid var(--border);background:transparent;color:var(--text);}
+    .btn-outline:hover{border-color:var(--accent);background:rgba(201,162,75,.06);}
+    .hero{position:relative;overflow:hidden;border-radius:28px;margin-bottom:3rem;box-shadow:0 30px 80px rgba(0,0,0,.9);}
+    .hero video{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:0;}
+    .hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(4,9,8,.9),rgba(4,9,8,.3));z-index:1;}
+    .hero-content{position:relative;z-index:2;padding:5rem 2rem;text-align:center;}
+    .hero-title{font-family:'Playfair Display',serif;font-size:clamp(3rem,6vw,4.5rem);color:var(--accent-strong);margin-bottom:.5rem;}
+    .hero-sub{font-size:1.1rem;max-width:800px;margin:0 auto 1.5rem;}
+    .scarcity{font-size:1.1rem;color:#f4e0a4;margin:1.2rem 0;font-weight:500;}
+    section{padding:3rem 0;}
+    .section-title{font-family:'Playfair Display',serif;font-size:2.2rem;color:var(--accent-strong);text-align:center;margin-bottom:1.5rem;}
+    .section-intro{font-size:1rem;color:var(--muted);max-width:720px;margin:0 auto 2.5rem;text-align:center;}
+    .collection-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:1.8rem;}
+    .card{border-radius:22px;background:#0b1915;border:1px solid var(--border);overflow:hidden;transition:transform .3s;}
+    .card:hover{transform:translateY(-10px);}
+    .card img{width:100%;height:260px;object-fit:cover;}
+    .card-body{padding:1.6rem;text-align:center;}
+    .card-title{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--accent-strong);margin-bottom:.4rem;}
+    .card-price{font-size:1.4rem;color:var(--accent-strong);font-weight:600;margin:.8rem 0;}
+    .card-scarcity{font-size:.9rem;color:#f4e0a4;margin:.6rem 0;}
+    .cta-center{text-align:center;margin:3rem 0;}
+    footer{text-align:center;padding:3rem 0 1.5rem;font-size:.8rem;color:var(--muted);border-top:1px solid rgba(255,255,255,.06);}
+    .whatsapp-float{position:fixed;right:20px;bottom:20px;width:60px;height:60px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 12px 35px rgba(0,0,0,.8);z-index:100;}
+    .whatsapp-float:hover{transform:scale(1.1);}
+    @media(max-width:768px){.hero-content{padding:4rem 1.5rem;}.collection-grid{grid-template-columns:1fr;}}
+  </style>
 </head>
 <body>
-    <div class="page">
-        <!-- NAV -->
-        <header class="nav">
-            <div class="logo-wrap">
-                <img src="images/curatorlogo.svg" alt="Curator Atelier logo" class="logo-img" />
-                <div>
-                    <div class="logo-main">CURATOR ATELIER</div>
-                    <div class="logo-sub">Holiday Décor · Hampers</div>
-                </div>
-            </div>
+  <div class="page">
+    <header class="nav">
+      <a href="/"><img src="images/curator-logo.svg" alt="Curator Atelier" class="logo-img"></a>
+      <nav class="nav-links">
+        <a href="#hampers">Hampers</a>
+        <a href="#decor">Décor</a>
+        <a href="custom-gifting.html">Custom Gifting</a>
+        <a href="ordering-details.html">Ordering Details</a>
+      </nav>
+    </header>
 
-            <nav class="nav-links">
-                <a href="#decor">Interior Décor</a>
-                <a href="#collection">Holiday Hampers</a>
-                <a href="#contact">Custom Gifting</a>
-                <a href="#contact">Ordering Details</a>
-            </nav>
-        </header>
+    <!-- HERO WITH VIDEO -->
+    <section class="hero">
+      <video autoplay muted loop playsinline poster="images/hero-fallback.jpg">
+        <source src="images/hero-video.mp4" type="video/mp4">
+      </video>
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <h1 class="hero-title">Curator Atelier</h1>
+        <p class="hero-sub">DMV luxury Christmas décor installations + corporate gift hampers<br>Installed in 48 hours · Free nationwide shipping on hampers</p>
+        <div class="scarcity">Only 12 décor installations remaining for 2025</div>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#hampers">Shop Hampers – Free Shipping</a>
+          <a class="btn btn-outline" href="https://calendly.com/hello-curatoratelier/30min" target="_blank">Book Décor Consult</a>
+        </div>
+      </div>
+    </section>
 
-        <!-- HERO -->
-        <section class="hero" id="top">
-            <div>
-                <div class="hero-copy-eyebrow">DMV · Potomac · Bethesda · McLean · Great Falls</div>
-                <h1 class="hero-title">
-                    Tailored.<br/>
-                    Impeccable.<br/>
-                    Unforgettable.
-                </h1>
-                <p class="hero-sub">
-                    Curator Atelier designs quiet-luxury Christmas décor and delivers fully branded holiday hampers for
-                    executives, teams and VIP clients across the DMV.
-                </p>
-
-                <div class="hero-cta-row">
-                    <a class="btn btn-primary" href="#collection">Shop Holiday Collection</a>
-                    <a class="btn btn-outline" href="https://calendly.com/hello-curatoratelier/30min" target="_blank" rel="noopener">
-                        Book Décor Consult
-                    </a>
-                </div>
-
-                <div class="hero-cta-row" style="margin-top:0.4rem;">
-                    <a class="btn btn-outline" href="#decor">View Décor Packages</a>
-                    <a class="btn btn-outline" href="YOUR-PRICE-PDF.pdf" target="_blank" rel="noopener">
-                        Download Full Catalog (PDF)
-                    </a>
-                </div>
-
-                <p class="hero-note">
-                    <strong>Install & delivery window:</strong> November 18 – December 24 · 50% deposit secures your date.
-                </p>
-            </div>
-
-            <aside class="hero-image">
-                <div class="hero-image-overlay">
-                    <div class="hero-image-caption">2025 Holiday Atelier</div>
-                </div>
-            </aside>
-        </section>
-
-        <!-- INTERIOR DÉCOR PACKAGES -->
-        <section id="decor">
-          <div class="section-eyebrow">Interior Décor</div>
-          <h2 class="section-title">Luxury Christmas Installations</h2>
-          <p class="section-intro">
-            Full-service, white-glove interior styling for Potomac, Bethesda, McLean, Great Falls and beyond. 
-            Installed in 48 hours · January takedown available.
-          </p>
-
-          <div class="collection-grid">
-
-            <!-- Winter Sparkle -->
-            <article class="product-card">
-              <div class="product-media">
-                <img src="images/decor/winter-sparkle.jpg" alt="Winter Sparkle Package – 7–8 ft flocked tree" />
-              </div>
-              <div class="product-body">
-                <div class="product-name">Winter Sparkle</div>
-                <div class="product-meta">
-                  <span>Up to 4,500 sq ft homes</span>
-                  <span class="product-price">$4,900</span>
-                </div>
-                <p style="font-size:0.82rem;margin-top:0.4rem;color:var(--muted);">
-                  7–8 ft flocked Fraser fir, mantel, entry styling, scent diffusers.
-                </p>
-              </div>
-            </article>
-
-            <!-- Evergreen Estate -->
-            <article class="product-card">
-              <div class="product-media">
-                <img src="images/decor/evergreen-estate.jpg" alt="Evergreen Estate Package – staircase garland" />
-              </div>
-              <div class="product-body">
-                <div class="product-name">Evergreen Estate</div>
-                <div class="product-meta">
-                  <span>Most popular · 4,500–7,000 sq ft</span>
-                  <span class="product-price">$7,900</span>
-                </div>
-                <p style="font-size:0.82rem;margin-top:0.4rem;color:var(--muted);">
-                  9–10 ft premium tree, full staircase garland, dining table, window candles.
-                </p>
-              </div>
-            </article>
-
-            <!-- Christmas Royale -->
-            <article class="product-card">
-              <div class="product-media">
-                <img src="images/decor/christmas-royale.jpg" alt="Christmas Royale – 10–12 ft statement tree" />
-              </div>
-              <div class="product-body">
-                <div class="product-name">Christmas Royale</div>
-                <div class="product-meta">
-                  <span>Estate homes 7,000 sq ft+</span>
-                  <span class="product-price">$12,900+</span>
-                </div>
-                <p style="font-size:0.82rem;margin-top:0.4rem;color:var(--muted);">
-                  10–12 ft statement tree, full banister wrap, kitchen island, monogrammed stockings.
-                </p>
-              </div>
-            </article>
+    <!-- HAMPERS -->
+    <section id="hampers">
+      <h2 class="section-title">Luxury Gift Hampers – Free Nationwide Shipping</h2>
+      <div class="collection-grid">
+        <div class="card">
+          <img src="images/hampers/classic-volume.jpg" alt="Classic Volume">
+          <div class="card-body">
+            <div class="card-title">Classic Volume</div>
+            <div class="card-price">$149</div>
+            <a href="https://buy.stripe.com/8x2cN4foTcqs5LTg5MeEo05" class="btn btn-primary" target="_blank">Pay Now</a>
           </div>
-
-          <div class="collection-cta-wrap">
-            <a class="btn btn-primary" href="https://calendly.com/hello-curatoratelier/30min" target="_blank">
-              Book Décor Consultation
-            </a>
+        </div>
+        <div class="card">
+          <img src="images/hampers/velvet-noir.jpg" alt="Velvet Noir">
+          <div class="card-body">
+            <div class="card-title">Velvet Noir</div>
+            <div class="card-price">$195</div>
+            <a href="https://buy.stripe.com/6oU7sK2C7fCEa293j0eEo04" class="btn btn-primary" target="_blank">Pay Now</a>
           </div>
-        </section>
+        </div>
+        <div class="card">
+          <img src="images/hampers/midnight-gold.jpg" alt="Midnight Gold">
+          <div class="card-body">
+            <div class="card-title">Midnight Gold</div>
+            <div class="card-price">$295</div>
+            <a href="https://buy.stripe.com/00w6oG2C77683DL4n4eEo03" class="btn btn-primary" target="_blank">Pay Now</a>
+          </div>
+        </div>
+        <div class="card">
+          <img src="images/hampers/champagne-royale.jpg" alt="Champagne Royale">
+          <div class="card-body">
+            <div class="card-title">Champagne Royale</div>
+            <div class="card-price">$499</div>
+            <a href="https://buy.stripe.com/28E14m1y37687U1bPweEo02" class="btn btn-primary" target="_blank">Pay Now</a>
+          </div>
+        </div>
+        <div class="card">
+          <img src="images/hampers/corporate-platinum.jpg" alt="Corporate Platinum">
+          <div class="card-body">
+            <div class="card-title">Corporate Platinum</div>
+            <div class="card-price">$799</div>
+            <div class="card-scarcity">Only 68 left</div>
+            <a href="https://buy.stripe.com/8x28wOb8D768a291aSeEo01" class="btn btn-primary" target="_blank">Pay Now</a>
+          </div>
+        </div>
+      </div>
+      <div class="cta-center">
+        <a class="btn btn-outline" href="custom-gifting.html">Need 20+ or branding? → Custom Quote</a>
+      </div>
+    </section>
 
-        <!-- HOLIDAY HAMPERS -->
-        <section id="collection">
-            <div class="section-eyebrow">Holiday Collection</div>
-            <h2 class="section-title">Luxury Hampers for Staff, Clients & C-Suite.</h2>
-            <p class="section-intro">
-                Each hamper arrives in a matte-black box with gold-foil logo, velvet ribbon, custom tag and fresh pine sprig.
-                Curated for effortless corporate gifting and unforgettable unboxing moments.
-            </p>
+    <!-- DÉCOR PACKAGES -->
+    <section id="decor">
+      <h2 class="section-title">Luxury Christmas Installations</h2>
+      <p class="section-intro">Full-service white-glove styling · Installed in 48 hours · January takedown available</p>
+      <div class="collection-grid">
+        <div class="card">
+          <img src="images/decor/winter-sparkle.jpg" alt="Winter Sparkle">
+          <div class="card-body">
+            <div class="card-title">Winter Sparkle</div>
+            <div class="card-price">$4,900</div>
+            <div class="card-scarcity">Only 4 slots left</div>
+            <a href="https://buy.stripe.com/6oUeVcb8D2PS0rzdXEeEo00" class="btn btn-primary" target="_blank">Secure 50% Deposit – $2,450</a>
+          </div>
+        </div>
+        <div class="card">
+          <img src="images/decor/evergreen-estate.jpg" alt="Evergreen Estate">
+          <div class="card-body">
+            <div class="card-title">Evergreen Estate</div>
+            <div class="card-price">$7,900</div>
+            <div class="card-scarcity">Only 3 slots left</div>
+            <a href="https://buy.stripe.com/9B6aEW7Wrcqs6PX4n4eEo06" class="btn btn-primary" target="_blank">Secure 50% Deposit – $3,950</a>
+          </div>
+        </div>
+        <div class="card">
+          <img src="images/decor/christmas-royale.jpg" alt="Christmas Royale">
+          <div class="card-body">
+            <div class="card-title">Christmas Royale</div>
+            <div class="card-price">$12,900+</div>
+            <div class="card-scarcity">Only 2 slots left</div>
+            <a href="https://buy.stripe.com/cNi9AS4Kf2PS8Y55r8eEo07" class="btn btn-primary" target="_blank">Secure 50% Deposit – $6,450</a>
+          </div>
+        </div>
+      </div>
+      <div class="cta-center">
+        <a class="btn btn-primary" href="https://calendly.com/hello-curatoratelier/30min" target="_blank">Book Décor Consultation</a>
+      </div>
+    </section>
 
-            <div class="collection-grid">
-                <!-- Card 1 -->
-                <article class="product-card">
-                    <div class="product-media">
-                        <img src="https://placehold.co/400x300/111812/C9A24B?text=Classic+Volume" alt="Hamper No.01 Classic Volume" />
-                    </div>
-                    <div class="product-body">
-                        <div class="product-name">Hamper 01 · Classic Volume</div>
-                        <div class="product-meta">
-                            <span>High-volume staff & teacher gifts.</span>
-                            <span class="product-price">$149</span>
-                        </div>
-                    </div>
-                </article>
+    <footer>
+      © <span id="year"></span> Curator Atelier · DMV Luxury Christmas Décor & Gift Hampers<br>
+      301-636-7663 · hello@curatoratelier.com
+    </footer>
+  </div>
 
-                <!-- Card 2 -->
-                <article class="product-card">
-                    <div class="product-media">
-                        <img src="https://placehold.co/400x300/111812/C9A24B?text=Velvet+Noir" alt="Hamper No.02 Velvet Noir" />
-                    </div>
-                    <div class="product-body">
-                        <div class="product-name">Hamper 02 · Velvet Noir</div>
-                        <div class="product-meta">
-                            <span>Elegant gifting for neighbors & staff.</span>
-                            <span class="product-price">$195</span>
-                        </div>
-                    </div>
-                </article>
+  <a class="whatsapp-float" href="https://wa.me/13016367663" target="_blank">
+    <svg viewBox="0 0 32 32" width="34" height="34" fill="#fff"><path d="M16.003 4C9.376 4 4 9.373 4 15.997c0 2.823.98 5.432 2.632 7.5L4 28l4.71-1.55A11.94 11.94 0 0 0 16.003 28C22.63 28 28 22.627 28 16.003 28 9.379 22.63 4 16.003 4zm0 2.133c5.1 0 9.238 4.135 9.238 9.87 0 5.732-4.138 9.867-9.238 9.867-1.62 0-3.21-.39-4.63-1.136l-.33-.17-2.8.92.92-2.73-.18-.29A9.27 9.27 0 0 1 6.76 16c0-5.735 4.144-9.867 9.243-9.867zm-4.27 4.61c-.19 0-.5-.012-.77-.012-.26 0-.68.098-1.04.49-.36.39-1.36 1.328-1.36 3.24 0 1.91 1.4 3.758 1.6 4.02.2.26 2.68 4.285 6.64 5.832 3.96 1.547 3.96 1.035 4.67.97.71-.065 2.3-.94 2.63-1.85.33-.91.33-1.69.23-1.85-.1-.16-.36-.26-.75-.46-.39-.2-2.3-1.13-2.66-1.26-.36-.13-.63-.2-.9.2-.26.39-1.03 1.26-1.26 1.52-.23.26-.46.29-.85.1-.39-.2-1.63-.6-3.11-1.9-1.15-.98-1.93-2.19-2.16-2.55-.23-.39-.02-.6.17-.79.17-.17.39-.46.59-.69.2-.23.26-.39.39-.65.13-.26.06-.49-.03-.69-.09-.2-.79-1.96-1.08-2.69-.27-.65-.55-.67-.75-.68z"/></svg>
+  </a>
 
-                <!-- Card 3 -->
-                <article class="product-card">
-                    <div class="product-media">
-                        <img src="https://placehold.co/400x300/111812/C9A24B?text=Midnight+Gold" alt="Hamper No.03 Midnight Gold" />
-                    </div>
-                    <div class="product-body">
-                        <div class="product-name">Hamper 03 · Midnight Gold</div>
-                        <div class="product-meta">
-                            <span>Managers, key clients & hosts.</span>
-                            <span class="product-price">$295</span>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Card 4 -->
-                <article class="product-card">
-                    <div class="product-media">
-                        <img src="https://placehold.co/400x300/111812/C9A24B?text=Champagne+Royale" alt="Hamper No.04 Champagne Royale" />
-                    </div>
-                    <div class="product-body">
-                        <div class="product-name">Hamper 04 · Champagne Royale</div>
-                        <div class="product-meta">
-                            <span>VIP closings & executive gifting.</span>
-                            <span class="product-price">$499</span> 
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Card 5 -->
-                <article class="product-card">
-                    <div class="product-media">
-                        <img src="https://placehold.co/400x300/111812/C9A24B?text=Corporate+Platinum" alt="Hamper No.05 Corporate Platinum" />
-                    </div>
-                    <div class="product-body">
-                        <div class="product-name">Hamper 05 · Corporate Platinum</div>
-                        <div class="product-meta">
-                            <span>Fully branded C-suite presentation.</span>
-                            <span class="product-price">$799</span>
-                        </div>
-                    </div>
-                </article>
-            </div>
-
-            <div class="collection-cta-wrap">
-                <a class="btn btn-primary" href="YOUR-HAMPER-CATALOG.pdf" target="_blank" rel="noopener">
-                    View Full 2025 Hamper Catalog
-                </a>
-            </div>
-        </section>
-
-        <!-- CURATED · DELIVERED -->
-        <section id="process">
-            <div class="process-panel">
-                <h2 class="process-title">Curated · Delivered</h2>
-                <p class="process-sub">
-                    Fine corporate gifting and estate décor, designed to feel bespoke — not bulk.
-                </p>
-                <div class="process-grid">
-                    <div class="process-item">
-                        <div class="process-icon">✶</div>
-                        <h3>Consultation</h3>
-                        <p>We begin with a short call to understand your home, office or recipient list, then recommend tiers and timelines.</p>
-                    </div>
-                    <div class="process-item">
-                        <div class="process-icon">🎁</div>
-                        <h3>Curation</h3>
-                        <p>From Veuve and Dom Pérignon to hand-poured candles and engraved keepsakes, every detail is selected to match your brand.</p>
-                    </div>
-                    <div class="process-item">
-                        <div class="process-icon">🚚</div>
-                        <h3>Delivery</h3>
-                        <p>White-glove delivery across the DMV, with optional address-list management and staggered shipping for national recipients.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- CONTACT / INQUIRY -->
-        <section id="contact">
-            <div class="section-eyebrow">Book & Inquire</div>
-            <h2 class="section-title">Request Your Curator Atelier 2025 Quote.</h2>
-            <p class="section-intro">
-                Share a few details and our team will reply within 1–3 business hours with availability, recommended packages and next steps.
-            </p>
-
-            <div class="contact-wrap">
-                <form method="POST" action="https://formspree.io/f/xblwkzyq">
-                    <div class="form-grid">
-                        <div>
-                            <label for="name">Full Name</label>
-                            <input id="name" name="name" required />
-                        </div>
-                        <div>
-                            <label for="email">Email</label>
-                            <input id="email" name="email" type="email" required />
-                        </div>
-                        <div>
-                            <label for="phone">Phone</label>
-                            <input id="phone" name="phone" />
-                        </div>
-                        <div>
-                            <label for="interest">I’m interested in</label>
-                            <select id="interest" name="interest">
-                                <option>Luxury Décor Installations</option>
-                                <option>Corporate Hampers</option>
-                                <option>Both Décor & Hampers</option>
-                                <option>Santa Visits / Seasonal Experience</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="form-grid" style="margin-top:.8rem;">
-                        <div>
-                            <label for="budget">Estimated Budget</label>
-                            <input id="budget" name="budget" placeholder="$9,000 décor, $15,000 hampers, etc." />
-                        </div>
-                        <div>
-                            <label for="timeline">Ideal Install / Delivery Window</label>
-                            <input id="timeline" name="timeline" placeholder="e.g., Dec 3–7, office hours only" />
-                        </div>
-                    </div>
-
-                    <div style="margin-top:.8rem;">
-                        <label for="message">Tell us a bit more</label>
-                        <textarea id="message" name="message" placeholder="Home size, number of recipients, brand, special requests…"></textarea>
-                    </div>
-
-                    <div class="contact-footer">
-                        <button type="submit" class="btn btn-primary">Submit Inquiry</button>
-                        <div>
-                            Prefer email? 
-                            <a href="mailto:hello@curatoratelier.com"><strong>hello@curatoratelier.com</strong></a><br/>
-                            Or call/text <a href="tel:13016367663" class="footer-phone">301-636-7663</a><br/>
-                            Potomac-based · Serving Maryland, Northern Virginia & Washington DC.
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </section>
-
-        <!-- FOOTER -->
-        <footer>
-            <footer-top>© <span id="year"></span> Curator Atelier. All rights reserved.</footer-top>
-            <div>
-                Quiet-luxury Christmas décor and gifting atelier for the DMV’s most discerning homes and corporate clients.
-                · Phone: <a href="tel:13016367663" class="footer-phone">301-636-7663</a>
-            </div>
-        </footer>
-    </div>
-
-    <!-- FLOATING WHATSAPP BUTTON -->
-    <a 
-        href="https://wa.me/13016367663" 
-        class="whatsapp-float" 
-        target="_blank" 
-        rel="noopener"
-        aria-label="Chat with Curator Atelier on WhatsApp"
-    >
-        <!-- simple WhatsApp icon using SVG path or an image -->
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
-    </a>
-
-    <script>
-        document.getElementById('year').textContent = new Date().getFullYear();
-    </script>
+  <script>document.getElementById('year').textContent=new Date().getFullYear();</script>
 </body>
 </html>
