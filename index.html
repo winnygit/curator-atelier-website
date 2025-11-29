@@ -1,22 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-  <!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '2038632733615730');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=2038632733615730&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
 <head>
   <meta charset="UTF-8" />
   <title>Curator Atelier · Luxury Holiday Décor & Gift Hampers</title>
@@ -532,6 +515,65 @@ src="https://www.facebook.com/tr?id=2038632733615730&ev=PageView&noscript=1"
       }
     }
   </style>
+   <!-- Meta Pixel Code -curator atelier llc->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '2038632733615730');
+fbq('track', 'PageView');
+  fbq('track', 'ViewContent')
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=2038632733615730&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+  <!-- Curator Atelier – Custom Event Helpers -->
+<script>
+// 🔔 Track contact intent (calls, WhatsApp, email clicks)
+function trackContact() {
+if (typeof fbq !== 'undefined') {
+fbq('track', 'Contact');
+}
+}
+
+// 📩 Track serious inquiries (form submissions)
+function trackLead() {
+if (typeof fbq !== 'undefined') {
+fbq('track', 'Lead');
+}
+}
+
+// 🛒 Optional: track hamper click-throughs as AddToCart
+function trackAddToCart(sku, value) {
+if (typeof fbq !== 'undefined') {
+fbq('track', 'AddToCart', {
+content_ids: [sku],
+content_type: 'product',
+value: value,
+currency: 'USD'
+});
+}
+}
+
+// 💳 Optional: track completed orders (if you add a thank-you page later)
+function trackPurchase(orderId, value) {
+if (typeof fbq !== 'undefined') {
+fbq('track', 'Purchase', {
+contents: [{id: orderId, quantity: 1}],
+content_type: 'product',
+value: value,
+currency: 'USD'
+});
+}
+}
+</script>
+<!-- End Curator Atelier Pixel Helpers -->
 </head>
 <body>
   <div class="page">
@@ -580,7 +622,7 @@ src="https://www.facebook.com/tr?id=2038632733615730&ev=PageView&noscript=1"
         </div>
         <div class="hero-cta-row">
           <a class="btn btn-outline" href="tel:+13016367663">Call Now – 301-636-7663</a>
-          <a class="btn btn-whatsapp" href="https://wa.me/13016367663?text=Hi%20Curator%20Atelier%2C%20I%E2%80%99m%20ready%20to%20book%20holiday%20d%C3%A9cor%20or%20hampers." target="_blank">
+          <a class="btn btn-whatsapp" href="https://wa.me/13016367663?text=Hi%20Curator%20Atelier%2C%20I%E2%80%99m%20ready%20to%20book%20holiday%20d%C3%A9cor%20or%20hampers." target="_blank" onclick="trackContact()">
             💬 Text/WhatsApp Now
           </a>
         </div>
@@ -630,7 +672,7 @@ src="https://www.facebook.com/tr?id=2038632733615730&ev=PageView&noscript=1"
               Curated chocolates, biscuits and seasonal treats designed for teams and high-volume lists.
             </p>
             <div class="product-cta-row">
-              <a class="btn btn-primary" href="https://buy.stripe.com/8x2cN4foTcqs5LTg5MeEo05" target="_blank" rel="noopener">
+              <a class="btn btn-primary" href="https://buy.stripe.com/8x2cN4foTcqs5LTg5MeEo05" target="_blank" rel="noopener" onclick="trackAddToCart('classic-volume', 149)">
                 Order Classic Volume
               </a>
             </div>
@@ -652,7 +694,7 @@ src="https://www.facebook.com/tr?id=2038632733615730&ev=PageView&noscript=1"
               A rich mix of sparkling beverages, artisan sweets and savouries in our signature black box.
             </p>
             <div class="product-cta-row">
-              <a class="btn btn-primary" href="https://buy.stripe.com/6oU7sK2C7fCEa293j0eEo04" target="_blank" rel="noopener">
+              <a class="btn btn-primary" href="https://buy.stripe.com/6oU7sK2C7fCEa293j0eEo04" target="_blank" rel="noopener" onclick="trackAddToCart('velvet-noir', 195)">
                 Order Velvet Noir
               </a>
             </div>
@@ -674,7 +716,7 @@ src="https://www.facebook.com/tr?id=2038632733615730&ev=PageView&noscript=1"
               Champagne, truffle honey, European chocolates and keepsake pieces that feel truly special.
             </p>
             <div class="product-cta-row">
-              <a class="btn btn-primary" href="https://buy.stripe.com/00w6oG2C77683DL4n4eEo03" target="_blank" rel="noopener">
+              <a class="btn btn-primary" href="https://buy.stripe.com/00w6oG2C77683DL4n4eEo03" target="_blank" rel="noopener" onclick="trackAddToCart('midnight-gold', 295)">
                 Order Midnight Gold
               </a>
             </div>
@@ -696,7 +738,7 @@ src="https://www.facebook.com/tr?id=2038632733615730&ev=PageView&noscript=1"
               Premium champagne, artisanal delicacies and engraved elements crafted for your most important relationships.
             </p>
             <div class="product-cta-row">
-              <a class="btn btn-primary" href="https://buy.stripe.com/28E14m1y37687U1bPweEo02" target="_blank" rel="noopener">
+              <a class="btn btn-primary" href="https://buy.stripe.com/28E14m1y37687U1bPweEo02" target="_blank" rel="noopener" onclick="trackAddToCart('champagne-royale', 499)">
                 Order Champagne Royale
               </a>
             </div>
@@ -718,7 +760,7 @@ src="https://www.facebook.com/tr?id=2038632733615730&ev=PageView&noscript=1"
               White-glove, logo-forward gifting for boards and C-suite — ideal for 10–50 top-tier recipients.
             </p>
             <div class="product-cta-row">
-              <a class="btn btn-primary" href="https://buy.stripe.com/8x28wOb8D768a291aSeEo01" target="_blank" rel="noopener">
+              <a class="btn btn-primary" href="https://buy.stripe.com/8x28wOb8D768a291aSeEo01" target="_blank" rel="noopener" onclick="trackAddToCart('corporate-platinum', 799)">
                 Order Corporate Platinum
               </a>
             </div>
@@ -727,7 +769,7 @@ src="https://www.facebook.com/tr?id=2038632733615730&ev=PageView&noscript=1"
       </div>
 
       <div class="collection-cta-wrap">
-        <a class="btn btn-outline" href="custom-gifting.html">
+        <a class="btn btn-outline" href="custom-gifting.html" onclick="trackContact()">
           Need 20+ or branding? → Custom Quote
         </a>
       </div>
@@ -764,7 +806,7 @@ src="https://www.facebook.com/tr?id=2038632733615730&ev=PageView&noscript=1"
               7–8 ft flocked Fraser fir, mantel & entry styling, scent diffusers and LED candles.
             </p>
             <div class="product-cta-row">
-              <a class="btn btn-primary" href="https://buy.stripe.com/6oUeVcb8D2PS0rzdXEeEo00" target="_blank" rel="noopener">
+              <a class="btn btn-primary" href="https://buy.stripe.com/6oUeVcb8D2PS0rzdXEeEo00" target="_blank" rel="noopener" onclick="trackAddToCart('winter-sparkle', 4900)">
                 Reserve Winter Sparkle (50% Deposit)
               </a>
             </div>
@@ -786,7 +828,7 @@ src="https://www.facebook.com/tr?id=2038632733615730&ev=PageView&noscript=1"
               9–10 ft premium tree, full staircase garland, double mantel, dining table and window candles.
             </p>
             <div class="product-cta-row">
-              <a class="btn btn-primary" href="https://buy.stripe.com/9B6aEW7Wrcqs6PX4n4eEo06" target="_blank" rel="noopener">
+              <a class="btn btn-primary" href="https://buy.stripe.com/9B6aEW7Wrcqs6PX4n4eEo06" target="_blank" rel="noopener" onclick="trackAddToCart('evergreen-estate', 7900)">
                 Reserve Evergreen Estate (50% Deposit)
               </a>
             </div>
@@ -808,7 +850,7 @@ src="https://www.facebook.com/tr?id=2038632733615730&ev=PageView&noscript=1"
               10–12 ft statement tree or dual trees, full banister wrap, kitchen island garland and monogrammed stockings.
             </p>
             <div class="product-cta-row">
-              <a class="btn btn-primary" href="https://buy.stripe.com/cNi9AS4Kf2PS8Y55r8eEo07" target="_blank" rel="noopener">
+              <a class="btn btn-primary" href="https://buy.stripe.com/cNi9AS4Kf2PS8Y55r8eEo07" target="_blank" rel="noopener" onclick="trackAddToCart('christmas-royale', 12900)">
                 Reserve Christmas Royale (50% Deposit)
               </a>
             </div>
@@ -817,12 +859,12 @@ src="https://www.facebook.com/tr?id=2038632733615730&ev=PageView&noscript=1"
       </div>
 
       <div class="collection-cta-wrap">
-      <a class="btn btn-outline" href="tel:+13016367663">
+      <a class="btn btn-outline" href="tel:+13016367663" onclick="trackContact()">
   Not sure which tier? Call for a 3-min consult.
 </a>
 <p style="margin-top:0.4rem;font-size:0.75rem;color:var(--muted);">
   Prefer to schedule? 
-  <a href="https://calendly.com/hello-curatoratelier/30min" target="_blank" style="color:var(--accent);">
+  <a href="https://calendly.com/hello-curatoratelier/30min" target="_blank" style="color:var(--accent);" onclick="trackContact()">
     Click here to book a time.
   </a>
 </p>
@@ -865,7 +907,7 @@ src="https://www.facebook.com/tr?id=2038632733615730&ev=PageView&noscript=1"
       </p>
 
       <div class="contact-wrap">
-        <form method="POST" action="https://formspree.io/f/xblwkzyq">
+        <form method="POST" action="https://formspree.io/f/xblwkzyq" onsubmit="tracklead()">
           <div class="form-grid">
             <div>
               <label for="name">Full Name</label>
@@ -910,8 +952,8 @@ src="https://www.facebook.com/tr?id=2038632733615730&ev=PageView&noscript=1"
             <button type="submit" class="btn btn-primary">Submit Inquiry</button>
             <div>
               Prefer email? Contact us at
-              <strong><a href="mailto:hello@curatoratelier.com">hello@curatoratelier.com</a></strong><br/>
-              Or call/text <strong><a href="tel:+13016367663">301-636-7663</a></strong> for time-sensitive requests.<br/>
+              <strong><a href="mailto:hello@curatoratelier.com" onclick="trackContact()">hello@curatoratelier.com</a></strong><br/>
+              Or call/text <strong><a href="tel:+13016367663" onclick="trackContact()">301-636-7663</a></strong> for time-sensitive requests.<br/>
               Potomac-based · Serving Maryland, Northern Virginia & Washington DC.
             </div>
           </div>
@@ -924,15 +966,16 @@ src="https://www.facebook.com/tr?id=2038632733615730&ev=PageView&noscript=1"
       <footer-top>© <span id="year"></span> Curator Atelier. All rights reserved.</footer-top>
       <div>Quiet-luxury Christmas décor and gifting atelier for the DMV’s most discerning homes and corporate clients.</div>
       <div class="footer-contact">
-        Phone: <a href="tel:+13016367663">301-636-7663</a> · Email:
-        <a href="mailto:hello@curatoratelier.com">hello@curatoratelier.com</a>
+        Phone: <a href="tel:+13016367663" onclick="trackContact()">301-636-7663</a> · Email:
+        <a href="mailto:hello@curatoratelier.com" onclick="trackContact()">hello@curatoratelier.com</a>
       </div>
     </footer>
   </div>
 
   <!-- FLOATING WHATSAPP BUTTON -->
   <div class="wa-floating">
-    <a class="wa-btn" href="https://wa.me/13016367663?text=Hi%20Curator%20Atelier%2C%20I%E2%80%99d%20love%20to%20book%20holiday%20d%C3%A9cor%20or%20hampers." target="_blank" rel="noopener" aria-label="Chat with Curator Atelier on WhatsApp">
+    <a class="wa-btn" href="https://wa.me/13016367663?text=Hi%20Curator%20Atelier%2C%20I%E2%80%99d%20love%20to%20book%20holiday%20d%C3%A9cor%20or%20hampers." target="_blank" rel="noopener" aria-label="Chat with Curator Atelier on WhatsApp"
+      onclick="trackContact()">
       <span>🟢</span>
     </a>
     <div class="wa-hint">Instant reply on WhatsApp</div>
