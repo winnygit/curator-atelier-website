@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Thank You · Curator Atelier</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Thank you for your Curator Atelier holiday décor or hamper order." />
+
+  <!-- Meta Pixel Code -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src='https://connect.facebook.net/en_US/fbevents.js';
+    s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '2038632733615730');  /*  ← replace with your actual Pixel ID  */
+    fbq('track', 'PageView');
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID_HERE&ev=PageView&noscript=1"/>
+  </noscript>
+
+  <!-- Purchase Event (no value for now – safe for custom pricing) -->
+  <script>
+    fbq('track', 'Purchase');
+  </script>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#040908;
+      --bg-alt:#081613;
+      --panel:#0b1915;
+      --accent:#c9a24b;
+      --accent-soft:rgba(201,162,75,.14);
+      --text:#f6f1e5;
+      --muted:#a7b0aa;
+      --border:#22302a;
+    }
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{
+      font-family:'Inter',system-ui,-apple-system,BlinkMacSystemFont,sans-serif;
+      background:radial-gradient(circle at top,#172620 0,#020504 55%,#010303 100%);
+      color:var(--text);
+      line-height:1.6;
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    a{text-decoration:none;color:inherit;}
+    img{max-width:100%;display:block;}
+
+    .page{
+      max-width:720px;
+      width:100%;
+      margin:0 auto;
+      padding:2.5rem 1.5rem 3.5rem;
+    }
+
+    .card{
+      border-radius:24px;
+      background:var(--panel);
+      border:1px solid var(--border);
+      padding:2rem 1.75rem 2.2rem;
+      box-shadow:0 26px 70px rgba(0,0,0,.85);
+    }
+
+    .logo-wrap{
+      display:flex;
+      align-items:center;
+      gap:.75rem;
+      margin-bottom:1.8rem;
+    }
+    .logo-img{
+      height:42px;
+      width:auto;
+    }
+    .logo-text-block{
+      display:flex;
+      flex-direction:column;
+      gap:0.12rem;
+    }
+    .logo-main{
+      font-family:'Playfair Display',serif;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      font-size:.86rem;
+    }
+    .logo-sub{
+      font-size:.68rem;
+      color:var(--muted);
+      letter-spacing:.16em;
+      text-transform:uppercase;
+    }
+
+    .eyebrow{
+      font-size:.75rem;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      color:var(--muted);
+      margin-bottom:.35rem;
+    }
+    .title{
+      font-family:'Playfair Display',serif;
+      font-size:1.9rem;
+      letter-spacing:.06em;
+      text-transform:uppercase;
+      color:var(--accent);
+      margin-bottom:.6rem;
+    }
+    .subtitle{
+      font-size:.96rem;
+      color:var(--muted);
+      margin-bottom:1.3rem;
+    }
+
+    .highlight-box{
+      border-radius:16px;
+      border:1px dashed var(--border);
+      background:rgba(4,9,8,.85);
+      padding:1rem 1.1rem;
+      font-size:.84rem;
+      color:var(--muted);
+      margin-bottom:1.4rem;
+    }
+    .highlight-box strong{
+      color:var(--accent);
+      font-weight:500;
+    }
+
+    .two-col{
+      display:grid;
+      grid-template-columns:minmax(0,1.4fr) minmax(0,1.1fr);
+      gap:1.6rem;
+      margin-bottom:1.7rem;
+      font-size:.83rem;
+      color:var(--muted);
+    }
+    .two-col h3{
+      font-family:'Playfair Display',serif;
+      font-size:.98rem;
+      color:var(--accent);
+      margin-bottom:.4rem;
+    }
+    .two-col ul{
+      list-style:none;
+      padding-left:0;
+    }
+    .two-col li{
+      margin-bottom:.3rem;
+    }
+
+    .cta-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:.7rem;
+      margin-bottom:.9rem;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      border-radius:999px;
+      padding:.55rem 1.3rem;
+      border:1px solid transparent;
+      font-size:.78rem;
+      letter-spacing:.1em;
+      text-transform:uppercase;
+      cursor:pointer;
+      transition:all .18s ease-out;
+      white-space:nowrap;
+    }
+    .btn-primary{
+      background:linear-gradient(135deg,#c9a24b,#f4e0a4);
+      color:#151109;
+      font-weight:500;
+      box-shadow:0 0 0 1px rgba(0,0,0,.3),0 8px 25px rgba(0,0,0,.6);
+    }
+    .btn-primary:hover{
+      filter:brightness(1.04);
+      transform:translateY(-1px);
+      box-shadow:0 12px 32px rgba(0,0,0,.75);
+    }
+    .btn-outline{
+      border-color:var(--border);
+      background:transparent;
+      color:var(--text);
+    }
+    .btn-outline:hover{
+      border-color:var(--accent);
+      background:rgba(201,162,75,.06);
+    }
+    .btn-soft{
+      border-color:var(--border);
+      background:rgba(0,0,0,.45);
+      color:var(--muted);
+    }
+    .btn-soft:hover{
+      border-color:var(--accent-soft);
+      background:rgba(201,162,75,.10);
+      color:var(--text);
+    }
+
+    .note{
+      font-size:.78rem;
+      color:var(--muted);
+      margin-top:.6rem;
+    }
+    .note strong{
+      color:var(--accent);
+    }
+
+    .footer-copy{
+      margin-top:1.8rem;
+      font-size:.74rem;
+      color:var(--muted);
+      text-align:center;
+    }
+    .footer-copy a{
+      color:var(--accent);
+    }
+
+    @media (max-width: 720px){
+      body{
+        align-items:flex-start;
+      }
+      .page{
+        padding:1.8rem 1.1rem 2.4rem;
+      }
+      .card{
+        padding:1.6rem 1.25rem 1.9rem;
+      }
+      .two-col{
+        grid-template-columns:1fr;
+      }
+      .title{
+        font-size:1.6rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="card">
+      <!-- Logo -->
+      <div class="logo-wrap">
+        <!-- Adjust src if your logo path is different -->
+        <img src="assets/img/curator-logo-gold.png" alt="Curator Atelier" class="logo-img" />
+        <div class="logo-text-block">
+          <div class="logo-main">CURATOR ATELIER</div>
+          <div class="logo-sub">Luxury Décor · Hampers</div>
+        </div>
+      </div>
+
+      <!-- Main Copy -->
+      <div class="eyebrow">Order Confirmed</div>
+      <h1 class="title">Thank You for Your Booking.</h1>
+      <p class="subtitle">
+        Your holiday order has been received. A member of our atelier will review the details and follow up
+        with you shortly to confirm scheduling, delivery and any custom requests.
+      </p>
+
+      <div class="highlight-box">
+        <strong>What happens next:</strong><br/>
+        For décor installations, we’ll confirm your installation window, palette and any add-on spaces.<br/>
+        For hampers, we’ll verify quantities, recipient details and branding elements before we begin packing.
+      </div>
+
+      <!-- Two Column: Décor vs Hampers -->
+      <div class="two-col">
+        <div>
+          <h3>If you booked Décor</h3>
+          <ul>
+            <li>• Expect a call/text within <strong>1–3 business hours</strong> to confirm your install date.</li>
+            <li>• A digital summary of your package and palette will be sent via email.</li>
+            <li>• Our team will share exact arrival window and building requirements (if applicable).</li>
+          </ul>
+        </div>
+        <div>
+          <h3>If you ordered Hampers</h3>
+          <ul>
+            <li>• You’ll receive an email with your hamper summary and any customization notes.</li>
+            <li>• For bulk/corporate lists, we’ll request your recipient spreadsheet for shipping.</li>
+            <li>• Tracking details or delivery schedule will be provided once your order is packed.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- CTAs -->
+      <div class="cta-row">
+        <a class="btn btn-primary" href="index.html">Return to Main Site</a>
+        <a class="btn btn-outline" href="tel:+13016367663">Call Our Atelier · 301-636-7663</a>
+        <a class="btn btn-soft" href="https://wa.me/13016367663?text=Hi%20Curator%20Atelier%2C%20I%20just%20completed%20a%20booking%20and%20had%20a%20quick%20question." target="_blank" rel="noopener">
+          Text/WhatsApp About My Order
+        </a>
+      </div>
+
+      <p class="note">
+        <strong>Urgent timelines?</strong> For installs or deliveries needed within the next 72 hours, please
+        call or text <a href="tel:+13016367663">301-636-7663</a> after completing your order so we can prioritize your booking.
+      </p>
+
+      <div class="footer-copy">
+        Potomac-based · Serving Maryland, Northern Virginia & Washington DC.<br/>
+        Questions? Email <a href="mailto:hello@curatoratelier.com">hello@curatoratelier.com</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
