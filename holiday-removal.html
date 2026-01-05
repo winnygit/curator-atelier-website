@@ -8,7 +8,7 @@
 
   <!-- Open Graph -->
   <meta property="og:title" content="White-Glove Holiday Décor Removal · Curator Atelier" />
-  <meta property="og:description" content="Careful removal, packing support, and clean finish — by inquiry only. Text-first follow-up." />
+  <meta property="og:description" content="Careful removal, packing support, and a clean finish — by inquiry only. Text-first follow-up." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="assets/img/hero-decor-and-hampers.jpg" />
 
@@ -237,11 +237,16 @@
       border-color:var(--accent);
       box-shadow:0 0 0 1px var(--accent-soft);
     }
+
     .form-grid{
       display:grid;
-      grid-template-columns:repeat(3,minmax(0,1fr));
+      grid-template-columns:repeat(2,minmax(0,1fr));
       gap:.8rem;
     }
+    .full-row{
+      grid-column:1 / -1;
+    }
+
     .micro{
       margin-top:.6rem;
       font-size:.75rem;
@@ -270,6 +275,7 @@
     @media (max-width: 860px){
       .hero{grid-template-columns:1fr;}
       .form-grid{grid-template-columns:1fr;}
+      .full-row{grid-column:auto;}
     }
   </style>
 
@@ -352,13 +358,16 @@
 
     <section class="panel" id="form">
       <h2>Request Availability</h2>
-      <p>Please share the essentials. We’ll text you first to confirm pricing and schedule options.</p>
+      <p>Please share the essentials. We’ll text you first to confirm scope and schedule options.</p>
 
       <!-- Reuse your existing Formspree endpoint, or create a new one for takedown leads -->
       <form method="POST" action="https://formspree.io/f/xblwkzyq" onsubmit="trackLead()">
         <!-- Helpful hidden fields to identify this landing page lead -->
         <input type="hidden" name="lead_source" value="Holiday Removal Landing Page" />
         <input type="hidden" name="service" value="Holiday Decor Takedown" />
+
+        <!-- Formspree Email Subject Line -->
+        <input type="hidden" name="_subject" value="Holiday Removal Lead — Full Address Submitted" />
 
         <!-- OPTIONAL: If you want a redirect after submit, uncomment and set your thank-you URL -->
         <!-- <input type="hidden" name="_redirect" value="https://YOURDOMAIN/thank-you.html" /> -->
@@ -369,20 +378,25 @@
             <input id="name" name="name" required autocomplete="name" />
           </div>
 
-            <div>
-    <label for="address">Full Address</label>
-    <input
-      id="address"
-      name="address"
-      required
-      autocomplete="street-address"
-      placeholder="Street, City, State, ZIP"
-    />
-  </div>
-
           <div>
             <label for="phone">Phone Number</label>
-            <input id="phone" name="phone" required inputmode="tel" autocomplete="tel" placeholder="Text-first follow-up" />
+            <input id="phone" name="phone" required inputmode="tel" autocomplete="tel" placeholder="We’ll text first" />
+          </div>
+
+          <div class="full-row">
+            <label for="address">Full Address</label>
+            <input
+              id="address"
+              name="address"
+              required
+              autocomplete="street-address"
+              placeholder="Street, City, State, ZIP"
+            />
+          </div>
+
+          <div class="full-row">
+            <label for="scope">What needs to be removed? (optional)</label>
+            <input id="scope" name="scope" placeholder="Tree only, tree + mantel, full interior, etc." />
           </div>
         </div>
 
