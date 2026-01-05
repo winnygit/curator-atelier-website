@@ -369,10 +369,16 @@
             <input id="name" name="name" required autocomplete="name" />
           </div>
 
-          <div>
-            <label for="zip">ZIP Code</label>
-            <input id="zip" name="zip" required inputmode="numeric" autocomplete="postal-code" placeholder="e.g., 20854" />
-          </div>
+            <div>
+    <label for="address">Full Address</label>
+    <input
+      id="address"
+      name="address"
+      required
+      autocomplete="street-address"
+      placeholder="Street, City, State, ZIP"
+    />
+  </div>
 
           <div>
             <label for="phone">Phone Number</label>
