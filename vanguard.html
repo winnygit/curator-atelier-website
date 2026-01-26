@@ -27,6 +27,33 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <!-- ========================= -->
+  <!-- META PIXEL -->
+  <!-- ========================= -->
+  <script>
+  !function(f,b,e,v,n,t,s){
+    if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)
+  }(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', 'YOUR_PIXEL_ID'); /* TODO */
+  fbq('track', 'PageView');
+  </script>
+
+  <!-- ========================= -->
+  <!-- GOOGLE ANALYTICS -->
+  <!-- ========================= -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXX'); /* TODO */
+  </script>
+
+  <!-- ========================= -->
   <!-- SEO SCHEMA -->
   <!-- ========================= -->
   <script type="application/ld+json">
@@ -36,12 +63,7 @@
     "name": "Curator Atelier",
     "url": "https://www.curatoratelier.com",
     "logo": "https://www.curatoratelier.com/assets/img/curator-logo-gold.png",
-    "description": "A private execution platform for corporate, private, and institutional relationships.",
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "telephone": "+1-301-636-7663",
-      "contactType": "customer service"
-    }
+    "description": "A private execution platform for corporate, private, and institutional relationships."
   }
   </script>
 
@@ -182,6 +204,11 @@
       border:1px solid var(--border);
       border-radius:18px;
       padding:1.3rem 1.4rem;
+      transition:transform .25s ease,border-color .25s ease;
+    }
+    .system-card:hover{
+      transform:translateY(-3px);
+      border-color:var(--accent);
     }
     .system-card h3{
       font-family:'Playfair Display',serif;
@@ -204,9 +231,11 @@
       font-size:.82rem;
       color:var(--muted);
     }
-    .cta a{
-      color:var(--accent);
-      font-weight:500;
+    .cta a{color:var(--accent);font-weight:500;}
+    .cta-note{
+      margin-top:.6rem;
+      font-size:.72rem;
+      color:var(--muted);
     }
 
     /* FOOTER */
@@ -217,7 +246,17 @@
       color:var(--muted);
     }
 
-    /* MOBILE */
+    /* FADE IN */
+    .fade-in{
+      opacity:0;
+      transform:translateY(18px);
+      transition:opacity .8s ease, transform .8s ease;
+    }
+    .fade-in.visible{
+      opacity:1;
+      transform:none;
+    }
+
     @media(max-width:768px){
       .hero{grid-template-columns:1fr;}
       .nav{flex-direction:column;align-items:flex-start;gap:.6rem;}
@@ -226,27 +265,29 @@
   </style>
 
   <!-- ========================= -->
-  <!-- META + GA + CALENDLY EVENTS -->
+  <!-- EVENT HELPERS -->
   <!-- ========================= -->
   <script>
+    function trackSystem(system){
+      if (typeof fbq !== 'undefined') fbq('trackCustom','VanguardSystemClick',{system});
+      if (typeof gtag !== 'undefined') gtag('event','vanguard_system_click',{system});
+    }
     function trackContact(){
       if (typeof fbq !== 'undefined') fbq('track','Contact');
       if (typeof gtag !== 'undefined') gtag('event','contact_click');
     }
-
     function trackCalendly(){
       if (typeof fbq !== 'undefined') fbq('track','Schedule');
       if (typeof gtag !== 'undefined') gtag('event','schedule_consult');
     }
   </script>
-
 </head>
 
 <body>
 
 <div class="page">
 
-<header class="nav">
+<header class="nav fade-in">
   <div class="logo-wrap">
     <img src="assets/img/curator-logo-gold.png" class="logo-image" alt="Curator Atelier logo">
     <div>
@@ -260,7 +301,7 @@
   </nav>
 </header>
 
-<section class="hero">
+<section class="hero fade-in">
   <div>
     <div class="hero-eyebrow">Operating Doctrine</div>
     <h1 class="hero-title">The Vanguard</h1>
@@ -278,7 +319,7 @@
   </div>
 </section>
 
-<section>
+<section class="fade-in">
   <div class="section-eyebrow">The Reality</div>
   <h2 class="section-title">Most Failures Are Predictable</h2>
   <p class="section-copy">
@@ -287,7 +328,7 @@
   </p>
 </section>
 
-<section>
+<section class="fade-in">
   <div class="section-eyebrow">The Belief</div>
   <h2 class="section-title">Control Beats Creativity Under Pressure</h2>
   <p class="section-copy">
@@ -297,37 +338,44 @@
   </p>
 </section>
 
-<section>
+<section class="fade-in">
   <div class="section-eyebrow">The System</div>
   <h2 class="section-title">Three Controlled Pathways</h2>
 
   <div class="system-grid">
-    <div class="system-card">
+    <a href="corporate-shield.html" class="system-card" onclick="trackSystem('corporate_shield')">
       <h3>Corporate Shield</h3>
       <p>Structured gifting and recognition for organizations where optics and consistency matter.</p>
-    </div>
-    <div class="system-card">
+    </a>
+
+    <a href="private-intake.html" class="system-card" onclick="trackSystem('prestige_concierge')">
       <h3>Prestige Concierge</h3>
       <p>Private milestone execution for individuals with reputational and relational stakes.</p>
-    </div>
-    <div class="system-card">
+    </a>
+
+    <a href="relationship-insurance.html" class="system-card" onclick="trackSystem('relationship_insurance')">
       <h3>Relationship Insurance</h3>
       <p>Long-term assurance across critical dates and relationship moments.</p>
+    </a>
+  </div>
+</section>
+
+<section id="access" class="fade-in">
+  <div class="cta">
+    Engagement is intentional. Capacity is limited.<br/>
+    To inquire, contact us at
+    <a href="mailto:hello@curatoratelier.com" onclick="trackContact()">hello@curatoratelier.com</a>
+    or schedule a brief conversation
+    <a href="https://calendly.com/hello-curatoratelier/30min"
+       target="_blank"
+       onclick="trackCalendly()">here</a>.
+    <div class="cta-note">
+      All inquiries are reviewed within one business day. Approved engagements proceed to private scoping.
     </div>
   </div>
 </section>
 
-<section id="access">
-  <div class="cta">
-    Engagement is intentional. Capacity is limited.<br/>
-    To inquire, contact us directly at
-    <a href="mailto:hello@curatoratelier.com" onclick="trackContact()">hello@curatoratelier.com</a>
-    or schedule a brief conversation
-    <a href="https://calendly.com/hello-curatoratelier/30min" target="_blank" onclick="trackCalendly()">here</a>.
-  </div>
-</section>
-
-<footer>
+<footer class="fade-in">
   © <span id="year"></span> Curator Atelier · The Vanguard
 </footer>
 
@@ -335,6 +383,22 @@
 
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
+
+  /* Fade-in observer */
+  const observer = new IntersectionObserver(
+    entries => entries.forEach(e => e.isIntersecting && e.target.classList.add('visible')),
+    { threshold:0.12 }
+  );
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  /* Scroll depth */
+  let depthTracked=false;
+  window.addEventListener('scroll',()=>{
+    if(!depthTracked && window.scrollY/(document.body.scrollHeight-window.innerHeight)>.75){
+      depthTracked=true;
+      if (typeof gtag !== 'undefined') gtag('event','vanguard_scroll_75');
+    }
+  });
 </script>
 
 </body>
