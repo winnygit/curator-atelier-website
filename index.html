@@ -1,445 +1,395 @@
-<!-- ========================= -->
-<!-- HERO -->
-<!-- ========================= -->
-<section class="hero fade-in" id="top">
-  <div>
-    <div class="hero-copy-eyebrow">
-      Private & Corporate · DMV & Nationwide
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Curator Atelier · Controlled Execution Platform</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Curator Atelier is a private execution platform delivering flawless outcomes for corporate, private, and institutional engagements." />
+
+  <!-- ========================= -->
+  <!-- FONTS -->
+  <!-- ========================= -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- ========================= -->
+  <!-- FULL CSS -->
+  <!-- ========================= -->
+  <style>
+    :root{
+      --bg: #040908;
+      --bg-alt: #081613;
+      --panel: #0b1915;
+      --accent: #c9a24b;
+      --accent-soft: rgba(201,162,75,.14);
+      --text: #f6f1e5;
+      --muted: #a7b0aa;
+      --border: #22302a;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{
+      font-family:'Inter',sans-serif;
+      background:radial-gradient(circle at top,#172620 0,#020504 55%,#010303 100%);
+      color:var(--text);
+      line-height:1.6;
+    }
+    a{color:inherit;text-decoration:none;}
+    img{max-width:100%;display:block;}
+
+    .page{
+      max-width:1180px;
+      margin:0 auto;
+      padding:2.5rem 1.25rem 4rem;
+    }
+
+    /* ========================= */
+    /* NAV / HEADER */
+    /* ========================= */
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:1.5rem;
+      padding:0.75rem 0 1.2rem;
+      border-bottom:1px solid rgba(255,255,255,0.05);
+      margin-bottom:2rem;
+    }
+    .logo-wrap{
+      display:flex;
+      align-items:center;
+      gap:.75rem;
+    }
+    .logo-image{
+      height:44px;
+      width:auto;
+    }
+    .logo-main{
+      font-family:'Playfair Display',serif;
+      letter-spacing:0.18em;
+      text-transform:uppercase;
+      font-size:.9rem;
+    }
+    .logo-sub{
+      font-size:.68rem;
+      color:var(--muted);
+      letter-spacing:.16em;
+      text-transform:uppercase;
+    }
+    .nav-links{
+      display:flex;
+      gap:2rem;
+      font-size:.8rem;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+    }
+    .nav-links a:hover{color:var(--accent);}
+
+    /* ========================= */
+    /* BUTTONS */
+    /* ========================= */
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      border-radius:999px;
+      padding:.55rem 1.35rem;
+      border:1px solid transparent;
+      font-size:.78rem;
+      letter-spacing:.1em;
+      text-transform:uppercase;
+      cursor:pointer;
+      transition:.25s ease;
+      white-space:nowrap;
+    }
+    .btn-primary{
+      background:linear-gradient(135deg,#c9a24b,#f4e0a4);
+      color:#151109;
+      font-weight:500;
+    }
+    .btn-outline{
+      border-color:var(--border);
+      color:var(--text);
+      background:transparent;
+    }
+    .btn:hover{transform:translateY(-2px);}
+    .btn-outline:hover{
+      border-color:var(--accent);
+      background:rgba(201,162,75,.06);
+    }
+
+    /* ========================= */
+    /* HERO */
+    /* ========================= */
+    .hero{
+      display:grid;
+      grid-template-columns:1.2fr 1fr;
+      gap:2.5rem;
+      margin-bottom:2.5rem;
+    }
+    .hero-copy-eyebrow{
+      font-size:.75rem;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      color:var(--muted);
+      margin-bottom:.6rem;
+    }
+    .hero-title{
+      font-family:'Playfair Display',serif;
+      font-size:clamp(2.4rem,3.2vw,3rem);
+      line-height:1.1;
+      letter-spacing:.06em;
+      text-transform:uppercase;
+      margin-bottom:1rem;
+      color:var(--accent);
+    }
+    .hero-sub{
+      font-size:.95rem;
+      color:var(--muted);
+      max-width:34rem;
+      margin-bottom:1.4rem;
+    }
+    .hero-cta-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:.75rem;
+      margin-bottom:1rem;
+    }
+    .hero-note{
+      font-size:.78rem;
+      color:var(--muted);
+    }
+    .hero-image{
+      border-radius:22px;
+      background:#050707;
+      border:1px solid rgba(255,255,255,.06);
+      box-shadow:0 26px 70px rgba(0,0,0,.8);
+      min-height:320px;
+      position:relative;
+      overflow:hidden;
+    }
+    .hero-image-overlay{
+      position:absolute;
+      inset:0;
+      background:linear-gradient(to top,rgba(0,0,0,.75),rgba(0,0,0,.15));
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      padding:1.3rem;
+    }
+    .hero-image-caption{
+      font-family:'Playfair Display',serif;
+      font-size:.85rem;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+    }
+    .hero-image-bottom{
+      font-size:.8rem;
+      color:var(--muted);
+    }
+
+    /* ========================= */
+    /* SECTIONS */
+    /* ========================= */
+    section{margin-bottom:2.6rem;}
+    .section-eyebrow{
+      font-size:.75rem;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      color:var(--muted);
+      margin-bottom:.35rem;
+    }
+    .section-title{
+      font-family:'Playfair Display',serif;
+      font-size:1.55rem;
+      margin-bottom:.8rem;
+      color:var(--accent);
+    }
+    .section-intro{
+      font-size:.9rem;
+      color:var(--muted);
+      max-width:42rem;
+    }
+
+    .btn-pill-soft{
+      display:inline-block;
+      padding:.3rem .75rem;
+      border-radius:999px;
+      border:1px solid var(--border);
+      font-size:.7rem;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      color:var(--muted);
+      margin-right:.4rem;
+    }
+
+    /* ========================= */
+    /* TOP BANNER */
+    /* ========================= */
+    .top-banner{
+      background:rgba(0,0,0,.6);
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.08);
+      padding:.45rem 1.2rem;
+      font-size:.74rem;
+      color:var(--muted);
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:.8rem;
+    }
+    .top-banner strong{color:var(--accent);}
+
+    /* ========================= */
+    /* FORM */
+    /* ========================= */
+    .contact-wrap{
+      border-radius:22px;
+      background:var(--panel);
+      border:1px solid var(--border);
+      padding:1.4rem;
+    }
+    .form-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:.8rem;
+    }
+    label{
+      font-size:.75rem;
+      color:var(--muted);
+      margin-bottom:.2rem;
+      display:block;
+    }
+    input,select,textarea{
+      width:100%;
+      border-radius:10px;
+      border:1px solid var(--border);
+      background:#030505;
+      color:var(--text);
+      padding:.6rem .8rem;
+      font-size:.8rem;
+    }
+    textarea{min-height:90px;}
+    input:focus,select:focus,textarea:focus{
+      border-color:var(--accent);
+      outline:none;
+    }
+    .contact-footer{
+      margin-top:1rem;
+      display:flex;
+      flex-wrap:wrap;
+      gap:.75rem;
+      justify-content:space-between;
+      font-size:.78rem;
+      color:var(--muted);
+    }
+
+    /* ========================= */
+    /* FOOTER */
+    /* ========================= */
+    footer{
+      border-top:1px solid rgba(255,255,255,.05);
+      padding-top:2rem;
+      font-size:.75rem;
+      color:var(--muted);
+    }
+    .footer-contact a{color:var(--accent);}
+
+    /* ========================= */
+    /* ANIMATIONS */
+    /* ========================= */
+    .fade-in{
+      opacity:0;
+      transform:translateY(18px);
+      transition:.8s ease;
+    }
+    .fade-in.visible{
+      opacity:1;
+      transform:none;
+    }
+
+    @media(max-width:768px){
+      .hero{grid-template-columns:1fr;}
+      .nav{flex-direction:column;align-items:flex-start;}
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="page">
+
+<header class="nav">
+  <div class="logo-wrap">
+    <img src="assets/img/curator-logo-gold.png" alt="Curator Atelier logo" class="logo-image">
+    <div>
+      <div class="logo-main">CURATOR ATELIER</div>
+      <div class="logo-sub">Controlled Execution · Gifting · Concierge</div>
     </div>
-
-    <h1 class="hero-title">
-      Flawless Outcomes.<br/>
-      No Margin for Error.
-    </h1>
-
-    <p class="hero-sub">
-      Curator Atelier architects and conducts controlled executions across corporate relationships,
-      private milestones, and institutional moments — precision-led, discreet, and engineered to succeed the first time.
-    </p>
-
-    <div class="hero-cta-row">
-      <a class="btn btn-primary lift" href="vanguard.html">
-        Explore The Vanguard
-      </a>
-      <a class="btn btn-outline lift" href="#current-focus">
-        View Current Focus
-      </a>
-    </div>
-
-    <p class="hero-note">
-      Engagements are limited by design. Capacity is allocated — never rushed.
-    </p>
   </div>
+  <nav class="nav-links">
+    <a href="vanguard.html">The Vanguard</a>
+    <a href="#">Shop</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
 
+<section class="hero fade-in">
+  <div>
+    <div class="hero-copy-eyebrow">Private & Corporate · DMV & Nationwide</div>
+    <h1 class="hero-title">Flawless Outcomes.<br>No Margin for Error.</h1>
+    <p class="hero-sub">Curator Atelier architects and conducts controlled executions across corporate relationships, private milestones, and institutional moments — precision-led, discreet, and engineered to succeed the first time.</p>
+    <div class="hero-cta-row">
+      <a class="btn btn-primary" href="vanguard.html">Explore The Vanguard</a>
+      <a class="btn btn-outline" href="#current-focus">View Current Focus</a>
+    </div>
+    <p class="hero-note">Engagements are limited by design. Capacity is allocated — never rushed.</p>
+  </div>
   <aside class="hero-image">
     <div class="hero-image-overlay">
-      <div class="hero-image-caption">
-        Controlled · Conducted · Delivered
-      </div>
-      <div class="hero-image-bottom">
-        Outcomes are engineered — not improvised.
-      </div>
+      <div class="hero-image-caption">Controlled · Conducted · Delivered</div>
+      <div class="hero-image-bottom">Outcomes are engineered — not improvised.</div>
     </div>
   </aside>
 </section>
 
-<!-- ========================= -->
-<!-- POSITIONING INTRO -->
-<!-- ========================= -->
-<section class="fade-in delay-1">
-  <p class="section-intro" style="max-width:44rem;">
-    <strong>We are not a gift company.</strong><br/><br/>
-    We operate as a private execution desk — removing uncertainty from moments
-    where reputation, relationships, and timing matter most.
-  </p>
-</section>
-
-<!-- ========================= -->
-<!-- CURRENT FOCUS (MODULAR) -->
-<!-- ========================= -->
-<section id="current-focus" class="fade-in delay-2">
-  <div class="section-eyebrow">Current Focus</div>
-  <h2 class="section-title">Valentine’s 2026 Allocations</h2>
-
-  <p class="section-intro">
-    A small number of engagements are currently reserved for Valentine’s across
-    executive, corporate, and private contexts. Once capacity is filled, scheduling closes.
-  </p>
-
-  <div class="section-badge-row">
-    <span class="btn-pill-soft">Corporate Shield — retention & executive gifting</span>
-    <span class="btn-pill-soft">Prestige Concierge — private milestone execution</span>
-  </div>
-
-  <div class="hero-cta-row">
-    <a class="btn btn-outline lift" href="mailto:hello@curatoratelier.com">
-      Corporate Desk
-    </a>
-    <a class="btn btn-primary lift" href="private-intake.html">
-      Request Private Allocation
-    </a>
-  </div>
-</section>
-
-<!-- ========================= -->
-<!-- 3-MIN CONSULT CTA -->
-<!-- ========================= -->
-<section style="margin-top:2.4rem;" class="fade-in delay-3">
-  <div class="top-banner">
-    <strong>Need Clarity?</strong>
-    <span>Speak with our team briefly to determine the correct pathway and timing.</span>
-    <span>
-      Prefer to schedule?
-      <a href="https://calendly.com/hello-curatoratelier/30min"
-         style="color:var(--accent);"
-         onclick="trackContact()"
-         target="_blank">
-        Reserve a consultation.
-      </a>
-    </span>
-  </div>
-</section>
-
-<!-- ========================= -->
-<!-- BOOK & INQUIRE -->
-<!-- ========================= -->
-<section id="contact" class="fade-in delay-4">
+<section id="contact" class="fade-in">
   <div class="section-eyebrow">Initiate</div>
   <h2 class="section-title">Request an Engagement</h2>
-
-  <p class="section-intro">
-    Provide a brief overview. We assess fit, scope, and timing within one business day.
-    Approved engagements receive a dedicated execution plan and reserved capacity.
-  </p>
-
   <div class="contact-wrap">
-    <form method="POST"
-          action="https://formspree.io/f/xblwkzyq"
-          onsubmit="trackLead()">
-
+    <form method="POST" action="https://formspree.io/f/xblwkzyq">
       <div class="form-grid">
+        <div><label>Name</label><input required></div>
+        <div><label>Email</label><input type="email" required></div>
+        <div><label>Phone</label><input></div>
         <div>
-          <label for="name">Full Name</label>
-          <input id="name" name="name" required />
-        </div>
-
-        <div>
-          <label for="email">Email</label>
-          <input id="email" name="email" type="email" required />
-        </div>
-
-        <div>
-          <label for="phone">Phone</label>
-          <input id="phone" name="phone" />
-        </div>
-
-        <div>
-          <label for="interest">Engagement Type</label>
-          <select id="interest" name="interest">
+          <label>Engagement Type</label>
+          <select>
             <option>Corporate Gifting</option>
-            <option>Private Concierge Execution</option>
+            <option>Private Concierge</option>
             <option>Relationship Insurance</option>
-            <option>Unsure / Need Guidance</option>
           </select>
         </div>
       </div>
-
-      <div class="form-grid" style="margin-top:.8rem;">
-        <div>
-          <label for="budget">Working Budget Range</label>
-          <input id="budget" name="budget"
-                 placeholder="$5,000 – $15,000+, etc." />
-        </div>
-
-        <div>
-          <label for="timeline">Deadline or Event Date</label>
-          <input id="timeline" name="timeline"
-                 placeholder="e.g., February 14 or fixed milestone" />
-        </div>
-      </div>
-
-      <div style="margin-top:.8rem;">
-        <label for="message">Context & Requirements</label>
-        <textarea id="message" name="message"
-          placeholder="Objectives, recipients, scale, sensitivities, special considerations…"></textarea>
-      </div>
-
       <div class="contact-footer">
-        <button type="submit" class="btn btn-primary lift">
-          Request Allocation
-        </button>
-
-        <div>
-          Prefer direct contact?
-          <strong>
-            <a href="mailto:hello@curatoratelier.com"
-               onclick="trackContact()">hello@curatoratelier.com</a>
-          </strong><br/>
-          Or call/text
-          <strong>
-            <a href="tel:+13016367663"
-               onclick="trackContact()">301-636-7663</a>
-          </strong>
-          for time-sensitive matters.<br/>
-          Potomac-based · Serving Maryland, Northern Virginia & Washington DC · Nationwide fulfillment.
-        </div>
+        <button class="btn btn-primary">Request Allocation</button>
+        <div>hello@curatoratelier.com · 301-636-7663</div>
       </div>
     </form>
   </div>
 </section>
 
-<!-- ========================= -->
-<!-- FOOTER -->
-<!-- ========================= -->
-<footer class="fade-in delay-5">
-  <footer-top>
-    © <span id="year"></span> Curator Atelier. All rights reserved.
-  </footer-top>
-
-  <div>
-    A private execution platform for corporate, private, and institutional relationships.
-    By referral and limited allocation.
-  </div>
-
-  <div class="footer-contact">
-    Phone:
-    <a href="tel:+13016367663" onclick="trackContact()">301-636-7663</a>
-    · Email:
-    <a href="mailto:hello@curatoratelier.com"
-       onclick="trackContact()">hello@curatoratelier.com</a>
-  </div>
+<footer>
+  © <span id="year"></span> Curator Atelier · A private execution platform for corporate, private, and institutional relationships.
 </footer>
 
-
-<!-- ========================= -->
-<!-- MICRO-ANIMATIONS / UX POLISH -->
-<!-- ========================= -->
-<style>
-/* Subtle luxury motion — slow, controlled, never flashy */
-.fade-in {
-  opacity: 0;
-  transform: translateY(18px);
-  transition: opacity .8s ease, transform .8s ease;
-}
-
-.fade-in.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.delay-1 { transition-delay: .1s; }
-.delay-2 { transition-delay: .2s; }
-.delay-3 { transition-delay: .3s; }
-.delay-4 { transition-delay: .4s; }
-.delay-5 { transition-delay: .5s; }
-
-/* Button micro-lift */
-.lift {
-  transition: transform .25s ease, box-shadow .25s ease;
-}
-
-.lift:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 22px rgba(0,0,0,.12);
-}
-
-/* Form focus refinement */
-input:focus, textarea:focus, select:focus {
-  outline: none;
-  border-color: var(--accent);
-  box-shadow: 0 0 0 2px rgba(0,0,0,.06);
-}
-
-/* Smooth anchor scrolling */
-html {
-  scroll-behavior: smooth;
-}
-</style>
+</div>
 
 <script>
-// Intersection-based reveal (premium, subtle)
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) entry.target.classList.add('visible');
-  });
-}, { threshold: 0.12 });
-
-window.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-
-// Dynamic year
-const y = document.getElementById('year');
-if (y) y.textContent = new Date().getFullYear();
-// -------------------------
-// Subtle hero parallax (slow, premium)
-// -------------------------
-const heroImage = document.querySelector('.hero-image');
-window.addEventListener('scroll', () => {
-  if (!heroImage) return;
-  const offset = window.scrollY * 0.18; // very subtle
-  heroImage.style.transform = `translateY(${offset}px)`;
-});
-
-// -------------------------
-// Scroll progress bar
-// -------------------------
-const progressBar = document.createElement('div');
-progressBar.style.position = 'fixed';
-progressBar.style.top = '0';
-progressBar.style.left = '0';
-progressBar.style.height = '3px';
-progressBar.style.width = '0%';
-progressBar.style.zIndex = '9999';
-progressBar.style.background = 'var(--accent)';
-progressBar.style.transition = 'width .15s linear';
-document.body.appendChild(progressBar);
-
-window.addEventListener('scroll', () => {
-  const scrollTop = window.scrollY;
-  const height = document.documentElement.scrollHeight - window.innerHeight;
-  const progress = (scrollTop / height) * 100;
-  progressBar.style.width = progress + '%';
-});
-
-// -------------------------
-// Minimal loading shimmer on submit
-// -------------------------
-const form = document.querySelector('form');
-if (form) {
-  form.addEventListener('submit', () => {
-    const btn = form.querySelector('button[type="submit"]');
-    if (!btn) return;
-
-    btn.disabled = true;
-    btn.classList.add('loading');
-    btn.textContent = 'Processing…';
-  });
-}
+  document.getElementById('year').textContent = new Date().getFullYear();
+  const obs = new IntersectionObserver(e=>e.forEach(x=>x.isIntersecting&&x.target.classList.add('visible')));
+  document.querySelectorAll('.fade-in').forEach(el=>obs.observe(el));
 </script>
 
-<style>
-/* -------------------------
-   Loading shimmer
-------------------------- */
-button.loading {
-  position: relative;
-  overflow: hidden;
-}
-
-button.loading::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -150%;
-  width: 120%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,.25), transparent);
-  animation: shimmer 1.2s infinite;
-}
-
-@keyframes shimmer {
-  100% { left: 150%; }
-}
-
-/* Slight GPU hint for parallax smoothness */
-.hero-image {
-  will-change: transform;
-}
-</style>
-
-
-<!-- ========================= -->
-<!-- ADVANCED POLISH ADD-ONS -->
-<!-- ========================= -->
-<style>
-/* Staggered form field reveal */
-.form-grid > div,
-#message,
-.contact-footer {
-  opacity: 0;
-  transform: translateY(10px);
-  transition: opacity .5s ease, transform .5s ease;
-}
-
-.form-grid > div.visible,
-#message.visible,
-.contact-footer.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Hero blur → sharp reveal */
-.hero-image {
-  filter: blur(12px);
-  opacity: .85;
-  transition: filter 1.4s ease, opacity 1.4s ease, transform .2s linear;
-}
-
-.hero-image.loaded {
-  filter: blur(0);
-  opacity: 1;
-}
-
-/* Capacity badge */
-.capacity-badge {
-  display: inline-block;
-  margin-top: 1rem;
-  padding: .35rem .7rem;
-  font-size: .72rem;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  border: 1px solid rgba(0,0,0,.15);
-  border-radius: 999px;
-  opacity: .8;
-}
-</style>
-
-<script>
-// Form stagger animation
-const formFields = document.querySelectorAll('.form-grid > div, #message, .contact-footer');
-const formObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      formFields.forEach((el, i) => setTimeout(() => el.classList.add('visible'), i * 70));
-      formObserver.disconnect();
-    }
-  });
-}, { threshold: 0.2 });
-
-const contactSection = document.querySelector('#contact');
-if (contactSection) formObserver.observe(contactSection);
-
-// Hero blur → sharp on load
-window.addEventListener('load', () => {
-  const hero = document.querySelector('.hero-image');
-  if (hero) hero.classList.add('loaded');
-});
-
-// Capacity badge toggle — set <body data-season="true"> when active
-if (document.body.dataset.season === 'true') {
-  const badge = document.createElement('div');
-  badge.className = 'capacity-badge';
-  badge.textContent = 'Capacity closing soon';
-  const target = document.querySelector('#current-focus .section-title');
-  if (target) target.after(badge);
-}
-
-// Premium tactile click sound
-const clickCtx = new (window.AudioContext || window.webkitAudioContext)();
-function softClick() {
-  const osc = clickCtx.createOscillator();
-  const gain = clickCtx.createGain();
-  osc.frequency.value = 160;
-  gain.gain.value = 0.02;
-  osc.connect(gain);
-  gain.connect(clickCtx.destination);
-  osc.start();
-  osc.stop(clickCtx.currentTime + 0.15);
-}
-
-document.querySelectorAll('.btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    if (clickCtx.state === 'suspended') clickCtx.resume();
-    softClick();
-  });
-});
-</script>
+</body>
+</html>
