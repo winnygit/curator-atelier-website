@@ -1,997 +1,445 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>Curator Atelier · Luxury Holiday Décor & Gift Hampers</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Curator Atelier curates luxury Christmas décor installations and corporate gift hampers for the DMV and beyond." />
-
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-
-  <style>
-    :root{
-      --bg: #040908;
-      --bg-alt: #081613;
-      --panel: #0b1915;
-      --accent: #c9a24b;
-      --accent-soft: rgba(201,162,75,.14);
-      --text: #f6f1e5;
-      --muted: #a7b0aa;
-      --border: #22302a;
-    }
-
-    *{box-sizing:border-box;margin:0;padding:0;}
-    body{
-      font-family:'Inter',sans-serif;
-      background:radial-gradient(circle at top,#172620 0,#020504 55%,#010303 100%);
-      color:var(--text);
-      line-height:1.6;
-    }
-    a{color:inherit;text-decoration:none;}
-    img{max-width:100%;display:block;}
-
-    .page{
-      max-width:1180px;
-      margin:0 auto;
-      padding:2.5rem 1.25rem 4rem;
-    }
-
-    /* TOP BANNER */
-    .top-banner{
-      background:rgba(0,0,0,.7);
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.08);
-      padding:.4rem 1.3rem;
-      font-size:.74rem;
-      color:var(--muted);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      gap:.9rem;
-      margin-bottom:1rem;
-    }
-    .top-banner strong{
-      color:var(--accent);
-      text-transform:uppercase;
-      letter-spacing:.14em;
-      font-size:.7rem;
-    }
-
-    /* NAV */
-    .nav{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:1.75rem;
-      padding:0.75rem 0 1.2rem;
-      border-bottom:1px solid rgba(255,255,255,0.05);
-      box-shadow:0 10px 30px rgba(0,0,0,0.4);
-    }
-    .logo-wrap{
-      display:flex;
-      align-items:center;
-      gap:0.75rem;
-    }
-    .logo-image{
-      height:44px;
-      width:auto;
-    }
-    .logo-text-block{
-      display:flex;
-      flex-direction:column;
-      gap:0.12rem;
-    }
-    .logo-main{
-      font-family:'Playfair Display',serif;
-      letter-spacing:0.18em;
-      text-transform:uppercase;
-      font-size:0.9rem;
-    }
-    .logo-sub{
-      font-size:0.68rem;
-      color:var(--muted);
-      letter-spacing:0.16em;
-      text-transform:uppercase;
-    }
-    .nav-links{
-      display:flex;
-      gap:2.1rem;
-      font-size:0.82rem;
-      letter-spacing:0.16em;
-      text-transform:uppercase;
-      color:var(--text);
-    }
-    .nav-links a:hover{color:var(--accent);}
-
-    /* BUTTONS */
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      border-radius:999px;
-      padding:.55rem 1.35rem;
-      border:1px solid transparent;
-      font-size:.78rem;
-      letter-spacing:.1em;
-      text-transform:uppercase;
-      transition:all .18s ease-out;
-      cursor:pointer;
-      white-space:nowrap;
-    }
-    .btn-primary{
-      background:linear-gradient(135deg,#c9a24b,#f4e0a4);
-      color:#151109;
-      font-weight:500;
-      box-shadow:0 0 0 1px rgba(0,0,0,.3),0 10px 26px rgba(0,0,0,.6);
-    }
-    .btn-primary:hover{
-      filter:brightness(1.05);
-      transform:translateY(-1px);
-      box-shadow:0 14px 36px rgba(0,0,0,.75);
-    }
-    .btn-outline{
-      border-color:var(--border);
-      background:transparent;
-      color:var(--text);
-    }
-    .btn-outline:hover{
-      border-color:var(--accent);
-      background:rgba(201,162,75,.06);
-    }
-    /* FIX: real WhatsApp button style */
-    .btn-whatsapp{
-      border-color:#25D366;
-      background:rgba(37,211,102,.06);
-      color:#e5fff0;
-    }
-    .btn-whatsapp:hover{
-      background:rgba(37,211,102,.16);
-      box-shadow:0 0 0 1px rgba(37,211,102,0.35);
-    }
-
-    /* Pill badges used in sections */
-    .btn-pill-soft{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      padding:.3rem .8rem;
-      border-radius:999px;
-      border:1px solid var(--border);
-      background:rgba(4,9,8,.85);
-      font-size:.7rem;
-      letter-spacing:.08em;
-      text-transform:uppercase;
-      color:var(--muted);
-    }
-
-    /* HERO */
-    .hero{
-      display:grid;
-      grid-template-columns:minmax(0,1.3fr) minmax(0,1.35fr);
-      gap:2.2rem;
-      padding:1rem 0 2.3rem;
-      border-bottom:1px solid rgba(255,255,255,.05);
-    }
-    .hero-copy-eyebrow{
-      font-size:.75rem;
-      text-transform:uppercase;
-      letter-spacing:.16em;
-      color:var(--muted);
-      margin-bottom:.6rem;
-    }
-    .hero-title{
-      font-family:'Playfair Display',serif;
-      font-size:clamp(2.4rem,3.1vw,3rem);
-      line-height:1.1;
-      letter-spacing:.06em;
-      text-transform:uppercase;
-      margin-bottom:1rem;
-      color:var(--accent);
-    }
-    .hero-sub{
-      font-size:.95rem;
-      color:var(--muted);
-      max-width:32rem;
-      margin-bottom:1.5rem;
-    }
-    .hero-cta-row{
-      display:flex;
-      flex-wrap:wrap;
-      gap:.8rem;
-      margin-bottom:1rem;
-    }
-    .hero-note{
-      font-size:.78rem;
-      color:var(--muted);
-    }
-    .hero-note strong{
-      color:var(--accent);
-      font-weight:500;
-    }
-
-    .hero-image{
-      position:relative;
-      border-radius:24px;
-      overflow:hidden;
-      border:1px solid rgba(255,255,255,.06);
-      box-shadow:0 26px 70px rgba(0,0,0,.8);
-      background:#040606 url("assets/img/hero-decor-and-hampers.jpg") center/cover no-repeat;
-      min-height:320px;
-    }
-    .hero-image-overlay{
-      position:absolute;
-      inset:0;
-      background:linear-gradient(to top,rgba(0,0,0,.78),rgba(0,0,0,.1));
-      display:flex;
-      flex-direction:column;
-      justify-content:space-between;
-      padding:1.3rem 1.5rem;
-    }
-    .hero-image-caption{
-      font-family:'Playfair Display',serif;
-      font-size:.9rem;
-      letter-spacing:.14em;
-      text-transform:uppercase;
-      color:rgba(246,241,229,.9);
-    }
-    .hero-image-bottom{
-      font-size:.8rem;
-      color:var(--muted);
-    }
-
-    /* SECTIONS */
-    section{padding:2.4rem 0 0;}
-
-    .section-eyebrow{
-      font-size:.75rem;
-      letter-spacing:.16em;
-      text-transform:uppercase;
-      color:var(--muted);
-      margin-bottom:.35rem;
-    }
-    .section-title{
-      font-family:'Playfair Display',serif;
-      font-size:1.55rem;
-      margin-bottom:.9rem;
-      color:var(--accent);
-    }
-    .section-intro{
-      font-size:.9rem;
-      color:var(--muted);
-      max-width:40rem;
-      margin-bottom:1.1rem;
-    }
-    .section-badge-row{
-      display:flex;
-      flex-wrap:wrap;
-      gap:.6rem;
-      margin-bottom:1.4rem;
-    }
-
-    /* GRID + CARDS */
-    .collection-grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-      gap:1.2rem;
-    }
-    .product-card{
-      border-radius:18px;
-      background:var(--panel);
-      border:1px solid var(--border);
-      overflow:hidden;
-      display:flex;
-      flex-direction:column;
-    }
-    .product-media{
-      background:#020403;
-      aspect-ratio:4/3;
-      overflow:hidden;
-    }
-    .product-media img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-    }
-    .product-body{
-      padding:0.9rem 1rem 1rem;
-      display:flex;
-      flex-direction:column;
-      gap:.5rem;
-    }
-    .product-name{
-      font-family:'Playfair Display',serif;
-      font-size:.98rem;
-    }
-    .product-meta{
-      display:flex;
-      justify-content:space-between;
-      align-items:baseline;
-      font-size:.8rem;
-      color:var(--muted);
-      gap:.4rem;
-    }
-    .product-price{
-      color:var(--accent);
-      font-weight:500;
-      font-size:.86rem;
-    }
-    .product-copy{
-      font-size:.82rem;
-      color:var(--muted);
-    }
-    .product-cta-row{
-      margin-top:.5rem;
-      display:flex;
-      flex-wrap:wrap;
-      gap:.4rem;
-    }
-    .collection-cta-wrap{
-      text-align:center;
-      margin-top:1.8rem;
-    }
-
-    /* PROCESS */
-    .process-panel{
-      margin-top:2.4rem;
-      border-radius:22px;
-      background:#050707;
-      border:1px solid var(--border);
-      padding:1.4rem 1.5rem 1.6rem;
-    }
-    .process-title{
-      font-family:'Playfair Display',serif;
-      font-size:1.4rem;
-      text-align:center;
-      margin-bottom:.3rem;
-      color:var(--accent);
-    }
-    .process-sub{
-      font-size:.86rem;
-      text-align:center;
-      color:var(--muted);
-      margin-bottom:1.1rem;
-    }
-    .process-grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
-      gap:1rem;
-    }
-    .process-item{
-      text-align:center;
-      font-size:.83rem;
-    }
-    .process-icon{
-      width:40px;
-      height:40px;
-      border-radius:999px;
-      border:1px solid var(--accent-soft);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      margin:0 auto .5rem;
-      color:var(--accent);
-      font-size:1.1rem;
-      background:rgba(0,0,0,.35);
-    }
-    .process-item h3{
-      font-family:'Playfair Display',serif;
-      font-size:.95rem;
-      margin-bottom:.25rem;
-    }
-    .process-item p{
-      color:var(--muted);
-      font-size:.8rem;
-    }
-
-    /* CONTACT */
-    .contact-wrap{
-      border-radius:22px;
-      background:var(--bg-alt);
-      border:1px solid var(--border);
-      padding:1.3rem 1.4rem 1.5rem;
-      margin-top:1.2rem;
-    }
-    .form-grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-      gap:.8rem;
-      margin-top:.7rem;
-    }
-    label{
-      font-size:.75rem;
-      color:var(--muted);
-      margin-bottom:.18rem;
-      display:block;
-    }
-    input,select,textarea{
-      width:100%;
-      border-radius:10px;
-      border:1px solid var(--border);
-      background:rgba(3,5,5,.95);
-      color:var(--text);
-      padding:.6rem .8rem;
-      font-size:.8rem;
-      outline:none;
-    }
-    textarea{min-height:90px;resize:vertical;}
-    input:focus,select:focus,textarea:focus{
-      border-color:var(--accent);
-      box-shadow:0 0 0 1px var(--accent-soft);
-    }
-    .contact-footer{
-      margin-top:1rem;
-      display:flex;
-      flex-wrap:wrap;
-      gap:.75rem;
-      align-items:center;
-      justify-content:space-between;
-      font-size:.78rem;
-      color:var(--muted);
-    }
-    .contact-footer strong{
-      color:var(--accent);
-    }
-
-    /* FOOTER */
-    footer{
-      padding:2.2rem 0 0.4rem;
-      font-size:.74rem;
-      color:var(--muted);
-      border-top:1px solid rgba(255,255,255,.04);
-      margin-top:2.4rem;
-    }
-    footer-top{
-      display:block;
-      margin-bottom:.5rem;
-    }
-    .footer-contact{
-      margin-top:.5rem;
-      font-size:.76rem;
-    }
-    .footer-contact a{
-      color:var(--accent);
-    }
-
-    /* FLOATING WHATSAPP */
-    .wa-floating{
-      position:fixed;
-      right:1.2rem;
-      bottom:1.2rem;
-      z-index:50;
-    }
-    .wa-btn{
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      width:52px;
-      height:52px;
-      border-radius:50%;
-      background:#25D366;
-      box-shadow:0 10px 26px rgba(0,0,0,.6);
-      border:none;
-      cursor:pointer;
-    }
-    .wa-btn span{
-      font-size:1.5rem;
-      color:#fff;
-    }
-    .wa-hint{
-      position:absolute;
-      right:60px;
-      bottom:12px;
-      background:rgba(0,0,0,.85);
-      color:var(--text);
-      font-size:.7rem;
-      padding:.4rem .7rem;
-      border-radius:999px;
-      white-space:nowrap;
-      border:1px solid rgba(255,255,255,.12);
-    }
-
-    @media (max-width: 768px) {
-      .nav {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.6rem;
-        padding-bottom: 0.75rem;
-        box-shadow: none;
-      }
-      .nav-links {
-        gap: 1.4rem;
-        flex-wrap: wrap;
-        font-size: 0.78rem;
-      }
-      .hero{
-        grid-template-columns:1fr;
-      }
-      .hero-image{
-        order:-1;
-        margin-top:1.4rem;
-      }
-      .top-banner{
-        border-radius:14px;
-        flex-wrap:wrap;
-      }
-    }
-  </style>
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '2038632733615730');
-fbq('track', 'PageView');
-fbq('track', 'ViewContent');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=2038632733615730&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
-<script>
-// 🔔 Track contact intent (calls, WhatsApp, email clicks)
-function trackContact() {
-if (typeof fbq !== 'undefined') {
-fbq('track', 'Contact');
-}
-}
-
-// 📩 Track serious inquiries (form submissions)
-function trackLead() {
-if (typeof fbq !== 'undefined') {
-fbq('track', 'Lead');
-}
-}
-
-// 🛒 Optional: track hamper click-throughs as AddToCart
-function trackAddToCart(sku, value) {
-if (typeof fbq !== 'undefined') {
-fbq('track', 'AddToCart', {
-content_ids: [sku],
-content_type: 'product',
-value: value,
-currency: 'USD'
-});
-}
-}
-
-// 💳 Optional: track completed orders (if you add a thank-you page later)
-function trackPurchase(orderId, value) {
-if (typeof fbq !== 'undefined') {
-fbq('track', 'Purchase', {
-contents: [{id: orderId, quantity: 1}],
-content_type: 'product',
-value: value,
-currency: 'USD'
-});
-}
-}
-</script>
-  <!-- End Curator Atelier Pixel Helpers -->
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17851433116">
-</script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'AW-17851433116');
-</script>
-</head>
-<body>
-  <div class="page">
-
-    <!-- TOP BANNER -->
-    <div class="top-banner">
-      <strong>Complimentary Delivery</strong>
-      <span>Free white-glove delivery within the DMV on décor installs & hampers over $250.</span>
-      <span>December install calendar is <strong>limited</strong> — reserve your date early.</span>
+<!-- ========================= -->
+<!-- HERO -->
+<!-- ========================= -->
+<section class="hero fade-in" id="top">
+  <div>
+    <div class="hero-copy-eyebrow">
+      Private & Corporate · DMV & Nationwide
     </div>
 
-    <!-- NAV -->
-    <header class="nav">
-      <div class="logo-wrap">
-        <img src="assets/img/curator-logo-gold.png" alt="Curator Atelier logo" class="logo-image" />
-        <div class="logo-text-block">
-          <div class="logo-main">CURATOR ATELIER</div>
-          <div class="logo-sub">Luxury Décor · Hampers</div>
-        </div>
-      </div>
+    <h1 class="hero-title">
+      Flawless Outcomes.<br/>
+      No Margin for Error.
+    </h1>
 
-      <nav class="nav-links">
-        <a href="#collection">Holiday Hampers</a>
-        <a href="#decor">Interior Décor</a>
-        <a href="custom-gifting.html">Custom Gifting</a>
-        <a href="ordering-details.html">Ordering Details</a>
-      </nav>
-    </header>
+    <p class="hero-sub">
+      Curator Atelier architects and conducts controlled executions across corporate relationships,
+      private milestones, and institutional moments — precision-led, discreet, and engineered to succeed the first time.
+    </p>
 
-    <!-- HERO -->
-    <section class="hero" id="top">
-      <div>
-        <div class="hero-copy-eyebrow">DMV · Potomac · Bethesda · McLean · Great Falls</div>
-        <h1 class="hero-title">
-          Tailored.<br/>
-          Impeccable.<br/>
-          Unforgettable.
-        </h1>
-        <p class="hero-sub">
-          Curator Atelier designs quiet-luxury Christmas décor and delivers fully branded holiday hampers for
-          executives, teams and VIP clients across the DMV.
-        </p>
-        <div class="hero-cta-row">
-          <a class="btn btn-primary" href="#collection">Shop Holiday Hampers</a>
-          <a class="btn btn-outline" href="#decor">View Décor Packages</a>
-        </div>
-        <div class="hero-cta-row">
-          <a class="btn btn-outline" href="tel:+13016367663">Call Now – 301-636-7663</a>
-          <a class="btn btn-whatsapp" href="https://wa.me/13016367663?text=Hi%20Curator%20Atelier%2C%20I%E2%80%99m%20ready%20to%20book%20holiday%20d%C3%A9cor%20or%20hampers." target="_blank" onclick="trackContact()">
-            💬 Text/WhatsApp Now
-          </a>
-        </div>
-        <p class="hero-note">
-          <strong>Install & delivery window:</strong> November 18 – December 24 · 50% deposit secures your décor date.
-        </p>
-      </div>
+    <div class="hero-cta-row">
+      <a class="btn btn-primary lift" href="vanguard.html">
+        Explore The Vanguard
+      </a>
+      <a class="btn btn-outline lift" href="#current-focus">
+        View Current Focus
+      </a>
+    </div>
 
-      <aside class="hero-image">
-        <div class="hero-image-overlay">
-          <div class="hero-image-caption">2025 Holiday Atelier</div>
-          <div class="hero-image-bottom">
-            Hand-styled installations and hampers — curated, packed and delivered by our in-house team.
-          </div>
-        </div>
-      </aside>
-    </section>
-
-    <!-- HAMPERS COLLECTION -->
-    <section id="collection">
-      <div class="section-eyebrow">Holiday Collection</div>
-      <h2 class="section-title">Luxury Hampers for Staff, Clients & C-Suite.</h2>
-      <p class="section-intro">
-        Each hamper arrives in a matte-black box with gold-foil logo, velvet ribbon, custom tag and fresh pine sprig.
-        Curated for effortless corporate gifting and unforgettable unboxing moments.
-      </p>
-
-      <div class="section-badge-row">
-        <span class="btn-pill-soft">Complimentary DMV delivery on 10+ hampers</span>
-        <span class="btn-pill-soft">Free nationwide insured shipping</span>
-        <span class="btn-pill-soft">Limited holiday quantities — reserve early</span>
-      </div>
-
-      <div class="collection-grid">
-        <!-- Classic Volume -->
-        <article class="product-card">
-          <div class="product-media">
-            <img src="assets/img/hampers/classic-volume.jpg" alt="Hamper 01 Classic Volume" />
-          </div>
-          <div class="product-body">
-            <div class="product-name">Hamper 01 · Classic Volume</div>
-            <div class="product-meta">
-              <span>High-volume staff & teacher gifts.</span>
-              <span class="product-price">$149</span>
-            </div>
-            <p class="product-copy">
-              Curated chocolates, biscuits and seasonal treats designed for teams and high-volume lists.
-            </p>
-            <div class="product-cta-row">
-              <a class="btn btn-primary" href="https://buy.stripe.com/8x2cN4foTcqs5LTg5MeEo05" target="_blank" rel="noopener" onclick="trackAddToCart('classic-volume', 149)">
-                Order Classic Volume
-              </a>
-            </div>
-          </div>
-        </article>
-
-        <!-- Velvet Noir -->
-        <article class="product-card">
-          <div class="product-media">
-            <img src="assets/img/hampers/velvet-noir.jpg" alt="Hamper 02 Velvet Noir" />
-          </div>
-          <div class="product-body">
-            <div class="product-name">Hamper 02 · Velvet Noir</div>
-            <div class="product-meta">
-              <span>Elegant gifting for neighbors & staff.</span>
-              <span class="product-price">$195</span>
-            </div>
-            <p class="product-copy">
-              A rich mix of sparkling beverages, artisan sweets and savouries in our signature black box.
-            </p>
-            <div class="product-cta-row">
-              <a class="btn btn-primary" href="https://buy.stripe.com/6oU7sK2C7fCEa293j0eEo04" target="_blank" rel="noopener" onclick="trackAddToCart('velvet-noir', 195)">
-                Order Velvet Noir
-              </a>
-            </div>
-          </div>
-        </article>
-
-        <!-- Midnight Gold -->
-        <article class="product-card">
-          <div class="product-media">
-            <img src="assets/img/hampers/midnight-gold.jpg" alt="Hamper 03 Midnight Gold" />
-          </div>
-          <div class="product-body">
-            <div class="product-name">Hamper 03 · Midnight Gold</div>
-            <div class="product-meta">
-              <span>Managers, key clients & hosts.</span>
-              <span class="product-price">$295</span>
-            </div>
-            <p class="product-copy">
-              Champagne, truffle honey, European chocolates and keepsake pieces that feel truly special.
-            </p>
-            <div class="product-cta-row">
-              <a class="btn btn-primary" href="https://buy.stripe.com/00w6oG2C77683DL4n4eEo03" target="_blank" rel="noopener" onclick="trackAddToCart('midnight-gold', 295)">
-                Order Midnight Gold
-              </a>
-            </div>
-          </div>
-        </article>
-
-        <!-- Champagne Royale -->
-        <article class="product-card">
-          <div class="product-media">
-            <img src="assets/img/hampers/champagne-royale.jpg" alt="Hamper 04 Champagne Royale" />
-          </div>
-          <div class="product-body">
-            <div class="product-name">Hamper 04 · Champagne Royale</div>
-            <div class="product-meta">
-              <span>VIP closings & executive gifting.</span>
-              <span class="product-price">$499</span>
-            </div>
-            <p class="product-copy">
-              Premium champagne, artisanal delicacies and engraved elements crafted for your most important relationships.
-            </p>
-            <div class="product-cta-row">
-              <a class="btn btn-primary" href="https://buy.stripe.com/28E14m1y37687U1bPweEo02" target="_blank" rel="noopener" onclick="trackAddToCart('champagne-royale', 499)">
-                Order Champagne Royale
-              </a>
-            </div>
-          </div>
-        </article>
-
-        <!-- Corporate Platinum -->
-        <article class="product-card">
-          <div class="product-media">
-            <img src="assets/img/hampers/corporate-platinum.jpg" alt="Hamper 05 Corporate Platinum" />
-          </div>
-          <div class="product-body">
-            <div class="product-name">Hamper 05 · Corporate Platinum</div>
-            <div class="product-meta">
-              <span>Fully branded C-suite presentation.</span>
-              <span class="product-price">$799</span>
-            </div>
-            <p class="product-copy">
-              White-glove, logo-forward gifting for boards and C-suite — ideal for 10–50 top-tier recipients.
-            </p>
-            <div class="product-cta-row">
-              <a class="btn btn-primary" href="https://buy.stripe.com/8x28wOb8D768a291aSeEo01" target="_blank" rel="noopener" onclick="trackAddToCart('corporate-platinum', 799)">
-                Order Corporate Platinum
-              </a>
-            </div>
-          </div>
-        </article>
-      </div>
-
-      <div class="collection-cta-wrap">
-        <a class="btn btn-outline" href="custom-gifting.html" onclick="trackContact()">
-          Need 20+ or branding? → Custom Quote
-        </a>
-      </div>
-    </section>
-
-    <!-- INTERIOR DÉCOR PACKAGES -->
-    <section id="decor">
-      <div class="section-eyebrow">Interior Décor</div>
-      <h2 class="section-title">Luxury Christmas Installations.</h2>
-      <p class="section-intro">
-        Full-service, white-glove interior styling for Potomac, Bethesda, McLean, Great Falls and beyond.
-        Installed in as little as 48 hours · Optional January takedown.
-      </p>
-
-      <div class="section-badge-row">
-        <span class="btn-pill-soft">Only a limited number of estates accepted per season</span>
-        <span class="btn-pill-soft">50% deposit holds your install date</span>
-        <span class="btn-pill-soft">Free delivery & installation included</span>
-      </div>
-
-      <div class="collection-grid">
-        <!-- Winter Sparkle -->
-        <article class="product-card">
-          <div class="product-media">
-            <img src="assets/img/decor/winter-sparkle.jpg" alt="Winter Sparkle décor package" />
-          </div>
-          <div class="product-body">
-            <div class="product-name">Winter Sparkle</div>
-            <div class="product-meta">
-              <span>Up to 4,500 sq ft homes</span>
-              <span class="product-price">$4,900</span>
-            </div>
-            <p class="product-copy">
-              7–8 ft flocked Fraser fir, mantel & entry styling, scent diffusers and LED candles.
-            </p>
-            <div class="product-cta-row">
-              <a class="btn btn-primary" href="https://buy.stripe.com/6oUeVcb8D2PS0rzdXEeEo00" target="_blank" rel="noopener" onclick="trackAddToCart('winter-sparkle', 4900)">
-                Reserve Winter Sparkle (50% Deposit)
-              </a>
-            </div>
-          </div>
-        </article>
-
-        <!-- Evergreen Estate -->
-        <article class="product-card">
-          <div class="product-media">
-            <img src="assets/img/decor/evergreen-estate.jpg" alt="Evergreen Estate décor package" />
-          </div>
-          <div class="product-body">
-            <div class="product-name">Evergreen Estate</div>
-            <div class="product-meta">
-              <span>Most popular · 4,500–7,000 sq ft</span>
-              <span class="product-price">$7,900</span>
-            </div>
-            <p class="product-copy">
-              9–10 ft premium tree, full staircase garland, double mantel, dining table and window candles.
-            </p>
-            <div class="product-cta-row">
-              <a class="btn btn-primary" href="https://buy.stripe.com/9B6aEW7Wrcqs6PX4n4eEo06" target="_blank" rel="noopener" onclick="trackAddToCart('evergreen-estate', 7900)">
-                Reserve Evergreen Estate (50% Deposit)
-              </a>
-            </div>
-          </div>
-        </article>
-
-        <!-- Christmas Royale -->
-        <article class="product-card">
-          <div class="product-media">
-            <img src="assets/img/decor/christmas-royale.jpg" alt="Christmas Royale décor package" />
-          </div>
-          <div class="product-body">
-            <div class="product-name">Christmas Royale</div>
-            <div class="product-meta">
-              <span>Estate homes 7,000 sq ft+</span>
-              <span class="product-price">$12,900+</span>
-            </div>
-            <p class="product-copy">
-              10–12 ft statement tree or dual trees, full banister wrap, kitchen island garland and monogrammed stockings.
-            </p>
-            <div class="product-cta-row">
-              <a class="btn btn-primary" href="https://buy.stripe.com/cNi9AS4Kf2PS8Y55r8eEo07" target="_blank" rel="noopener" onclick="trackAddToCart('christmas-royale', 12900)">
-                Reserve Christmas Royale (50% Deposit)
-              </a>
-            </div>
-          </div>
-        </article>
-      </div>
-
-      <div class="collection-cta-wrap">
-      <a class="btn btn-outline" href="tel:+13016367663" onclick="trackContact()">
-  Not sure which tier? Call for a 3-min consult.
-</a>
-<p style="margin-top:0.4rem;font-size:0.75rem;color:var(--muted);">
-  Prefer to schedule? 
-  <a href="https://calendly.com/hello-curatoratelier/30min" target="_blank" style="color:var(--accent);" onclick="trackContact()">
-    Click here to book a time.
-  </a>
-</p>
-      </div>
-    </section>
-
-    <!-- CURATED · DELIVERED -->
-    <section id="process">
-      <div class="process-panel">
-        <h2 class="process-title">Curated · Delivered</h2>
-        <p class="process-sub">
-          Fine corporate gifting and estate décor, designed to feel bespoke — not bulk.
-        </p>
-        <div class="process-grid">
-          <div class="process-item">
-            <div class="process-icon">✶</div>
-            <h3>Consultation</h3>
-            <p>We begin with a short call to understand your home, office or recipient list, then recommend tiers and timelines.</p>
-          </div>
-          <div class="process-item">
-            <div class="process-icon">🎁</div>
-            <h3>Curation</h3>
-            <p>From Veuve and Dom Pérignon to hand-poured candles and engraved keepsakes, every detail is selected to match your brand.</p>
-          </div>
-          <div class="process-item">
-            <div class="process-icon">🚚</div>
-            <h3>Delivery</h3>
-            <p>White-glove delivery across the DMV, with optional address-list management and staggered shipping for national recipients.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACT / INQUIRY -->
-    <section id="contact">
-      <div class="section-eyebrow">Book & Inquire</div>
-      <h2 class="section-title">Request Your Curator Atelier 2025 Quote.</h2>
-      <p class="section-intro">
-        Share a few details and our team will reply within 1–3 business hours with availability, recommended packages and next steps.
-      </p>
-
-      <div class="contact-wrap">
-        <form method="POST" action="https://formspree.io/f/xblwkzyq" onsubmit="tracklead()">
-          <div class="form-grid">
-            <div>
-              <label for="name">Full Name</label>
-              <input id="name" name="name" required />
-            </div>
-            <div>
-              <label for="email">Email</label>
-              <input id="email" name="email" type="email" required />
-            </div>
-            <div>
-              <label for="phone">Phone</label>
-              <input id="phone" name="phone" />
-            </div>
-            <div>
-              <label for="interest">I’m interested in</label>
-              <select id="interest" name="interest">
-                <option>Luxury Décor Installations</option>
-                <option>Corporate Hampers</option>
-                <option>Both Décor & Hampers</option>
-                <option>Santa Visits / Seasonal Experience</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="form-grid" style="margin-top:.8rem;">
-            <div>
-              <label for="budget">Estimated Budget</label>
-              <input id="budget" name="budget" placeholder="$9,000 décor, $15,000 hampers, etc." />
-            </div>
-            <div>
-              <label for="timeline">Ideal Install / Delivery Window</label>
-              <input id="timeline" name="timeline" placeholder="e.g., Dec 3–7, office hours only" />
-            </div>
-          </div>
-
-          <div style="margin-top:.8rem;">
-            <label for="message">Tell us a bit more</label>
-            <textarea id="message" name="message" placeholder="Home size, number of recipients, brand, special requests…"></textarea>
-          </div>
-
-          <div class="contact-footer">
-            <button type="submit" class="btn btn-primary">Submit Inquiry</button>
-            <div>
-              Prefer email? Contact us at
-              <strong><a href="mailto:hello@curatoratelier.com" onclick="trackContact()">hello@curatoratelier.com</a></strong><br/>
-              Or call/text <strong><a href="tel:+13016367663" onclick="trackContact()">301-636-7663</a></strong> for time-sensitive requests.<br/>
-              Potomac-based · Serving Maryland, Northern Virginia & Washington DC.
-            </div>
-          </div>
-        </form>
-      </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer>
-      <footer-top>© <span id="year"></span> Curator Atelier. All rights reserved.</footer-top>
-      <div>Quiet-luxury Christmas décor and gifting atelier for the DMV’s most discerning homes and corporate clients.</div>
-      <div class="footer-contact">
-        Phone: <a href="tel:+13016367663" onclick="trackContact()">301-636-7663</a> · Email:
-        <a href="mailto:hello@curatoratelier.com" onclick="trackContact()">hello@curatoratelier.com</a>
-      </div>
-    </footer>
+    <p class="hero-note">
+      Engagements are limited by design. Capacity is allocated — never rushed.
+    </p>
   </div>
 
-  <!-- FLOATING WHATSAPP BUTTON -->
-  <div class="wa-floating">
-    <a class="wa-btn" href="https://wa.me/13016367663?text=Hi%20Curator%20Atelier%2C%20I%E2%80%99d%20love%20to%20book%20holiday%20d%C3%A9cor%20or%20hampers." target="_blank" rel="noopener" aria-label="Chat with Curator Atelier on WhatsApp"
-      onclick="trackContact()">
-      <span>🟢</span>
+  <aside class="hero-image">
+    <div class="hero-image-overlay">
+      <div class="hero-image-caption">
+        Controlled · Conducted · Delivered
+      </div>
+      <div class="hero-image-bottom">
+        Outcomes are engineered — not improvised.
+      </div>
+    </div>
+  </aside>
+</section>
+
+<!-- ========================= -->
+<!-- POSITIONING INTRO -->
+<!-- ========================= -->
+<section class="fade-in delay-1">
+  <p class="section-intro" style="max-width:44rem;">
+    <strong>We are not a gift company.</strong><br/><br/>
+    We operate as a private execution desk — removing uncertainty from moments
+    where reputation, relationships, and timing matter most.
+  </p>
+</section>
+
+<!-- ========================= -->
+<!-- CURRENT FOCUS (MODULAR) -->
+<!-- ========================= -->
+<section id="current-focus" class="fade-in delay-2">
+  <div class="section-eyebrow">Current Focus</div>
+  <h2 class="section-title">Valentine’s 2026 Allocations</h2>
+
+  <p class="section-intro">
+    A small number of engagements are currently reserved for Valentine’s across
+    executive, corporate, and private contexts. Once capacity is filled, scheduling closes.
+  </p>
+
+  <div class="section-badge-row">
+    <span class="btn-pill-soft">Corporate Shield — retention & executive gifting</span>
+    <span class="btn-pill-soft">Prestige Concierge — private milestone execution</span>
+  </div>
+
+  <div class="hero-cta-row">
+    <a class="btn btn-outline lift" href="mailto:hello@curatoratelier.com">
+      Corporate Desk
     </a>
-    <div class="wa-hint">Instant reply on WhatsApp</div>
+    <a class="btn btn-primary lift" href="private-intake.html">
+      Request Private Allocation
+    </a>
+  </div>
+</section>
+
+<!-- ========================= -->
+<!-- 3-MIN CONSULT CTA -->
+<!-- ========================= -->
+<section style="margin-top:2.4rem;" class="fade-in delay-3">
+  <div class="top-banner">
+    <strong>Need Clarity?</strong>
+    <span>Speak with our team briefly to determine the correct pathway and timing.</span>
+    <span>
+      Prefer to schedule?
+      <a href="https://calendly.com/hello-curatoratelier/30min"
+         style="color:var(--accent);"
+         onclick="trackContact()"
+         target="_blank">
+        Reserve a consultation.
+      </a>
+    </span>
+  </div>
+</section>
+
+<!-- ========================= -->
+<!-- BOOK & INQUIRE -->
+<!-- ========================= -->
+<section id="contact" class="fade-in delay-4">
+  <div class="section-eyebrow">Initiate</div>
+  <h2 class="section-title">Request an Engagement</h2>
+
+  <p class="section-intro">
+    Provide a brief overview. We assess fit, scope, and timing within one business day.
+    Approved engagements receive a dedicated execution plan and reserved capacity.
+  </p>
+
+  <div class="contact-wrap">
+    <form method="POST"
+          action="https://formspree.io/f/xblwkzyq"
+          onsubmit="trackLead()">
+
+      <div class="form-grid">
+        <div>
+          <label for="name">Full Name</label>
+          <input id="name" name="name" required />
+        </div>
+
+        <div>
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" required />
+        </div>
+
+        <div>
+          <label for="phone">Phone</label>
+          <input id="phone" name="phone" />
+        </div>
+
+        <div>
+          <label for="interest">Engagement Type</label>
+          <select id="interest" name="interest">
+            <option>Corporate Gifting</option>
+            <option>Private Concierge Execution</option>
+            <option>Relationship Insurance</option>
+            <option>Unsure / Need Guidance</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-grid" style="margin-top:.8rem;">
+        <div>
+          <label for="budget">Working Budget Range</label>
+          <input id="budget" name="budget"
+                 placeholder="$5,000 – $15,000+, etc." />
+        </div>
+
+        <div>
+          <label for="timeline">Deadline or Event Date</label>
+          <input id="timeline" name="timeline"
+                 placeholder="e.g., February 14 or fixed milestone" />
+        </div>
+      </div>
+
+      <div style="margin-top:.8rem;">
+        <label for="message">Context & Requirements</label>
+        <textarea id="message" name="message"
+          placeholder="Objectives, recipients, scale, sensitivities, special considerations…"></textarea>
+      </div>
+
+      <div class="contact-footer">
+        <button type="submit" class="btn btn-primary lift">
+          Request Allocation
+        </button>
+
+        <div>
+          Prefer direct contact?
+          <strong>
+            <a href="mailto:hello@curatoratelier.com"
+               onclick="trackContact()">hello@curatoratelier.com</a>
+          </strong><br/>
+          Or call/text
+          <strong>
+            <a href="tel:+13016367663"
+               onclick="trackContact()">301-636-7663</a>
+          </strong>
+          for time-sensitive matters.<br/>
+          Potomac-based · Serving Maryland, Northern Virginia & Washington DC · Nationwide fulfillment.
+        </div>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- ========================= -->
+<!-- FOOTER -->
+<!-- ========================= -->
+<footer class="fade-in delay-5">
+  <footer-top>
+    © <span id="year"></span> Curator Atelier. All rights reserved.
+  </footer-top>
+
+  <div>
+    A private execution platform for corporate, private, and institutional relationships.
+    By referral and limited allocation.
   </div>
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
-</body>
-</html>
+  <div class="footer-contact">
+    Phone:
+    <a href="tel:+13016367663" onclick="trackContact()">301-636-7663</a>
+    · Email:
+    <a href="mailto:hello@curatoratelier.com"
+       onclick="trackContact()">hello@curatoratelier.com</a>
+  </div>
+</footer>
+
+
+<!-- ========================= -->
+<!-- MICRO-ANIMATIONS / UX POLISH -->
+<!-- ========================= -->
+<style>
+/* Subtle luxury motion — slow, controlled, never flashy */
+.fade-in {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity .8s ease, transform .8s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.delay-1 { transition-delay: .1s; }
+.delay-2 { transition-delay: .2s; }
+.delay-3 { transition-delay: .3s; }
+.delay-4 { transition-delay: .4s; }
+.delay-5 { transition-delay: .5s; }
+
+/* Button micro-lift */
+.lift {
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(0,0,0,.12);
+}
+
+/* Form focus refinement */
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px rgba(0,0,0,.06);
+}
+
+/* Smooth anchor scrolling */
+html {
+  scroll-behavior: smooth;
+}
+</style>
+
+<script>
+// Intersection-based reveal (premium, subtle)
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add('visible');
+  });
+}, { threshold: 0.12 });
+
+window.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// Dynamic year
+const y = document.getElementById('year');
+if (y) y.textContent = new Date().getFullYear();
+// -------------------------
+// Subtle hero parallax (slow, premium)
+// -------------------------
+const heroImage = document.querySelector('.hero-image');
+window.addEventListener('scroll', () => {
+  if (!heroImage) return;
+  const offset = window.scrollY * 0.18; // very subtle
+  heroImage.style.transform = `translateY(${offset}px)`;
+});
+
+// -------------------------
+// Scroll progress bar
+// -------------------------
+const progressBar = document.createElement('div');
+progressBar.style.position = 'fixed';
+progressBar.style.top = '0';
+progressBar.style.left = '0';
+progressBar.style.height = '3px';
+progressBar.style.width = '0%';
+progressBar.style.zIndex = '9999';
+progressBar.style.background = 'var(--accent)';
+progressBar.style.transition = 'width .15s linear';
+document.body.appendChild(progressBar);
+
+window.addEventListener('scroll', () => {
+  const scrollTop = window.scrollY;
+  const height = document.documentElement.scrollHeight - window.innerHeight;
+  const progress = (scrollTop / height) * 100;
+  progressBar.style.width = progress + '%';
+});
+
+// -------------------------
+// Minimal loading shimmer on submit
+// -------------------------
+const form = document.querySelector('form');
+if (form) {
+  form.addEventListener('submit', () => {
+    const btn = form.querySelector('button[type="submit"]');
+    if (!btn) return;
+
+    btn.disabled = true;
+    btn.classList.add('loading');
+    btn.textContent = 'Processing…';
+  });
+}
+</script>
+
+<style>
+/* -------------------------
+   Loading shimmer
+------------------------- */
+button.loading {
+  position: relative;
+  overflow: hidden;
+}
+
+button.loading::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 120%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.25), transparent);
+  animation: shimmer 1.2s infinite;
+}
+
+@keyframes shimmer {
+  100% { left: 150%; }
+}
+
+/* Slight GPU hint for parallax smoothness */
+.hero-image {
+  will-change: transform;
+}
+</style>
+
+
+<!-- ========================= -->
+<!-- ADVANCED POLISH ADD-ONS -->
+<!-- ========================= -->
+<style>
+/* Staggered form field reveal */
+.form-grid > div,
+#message,
+.contact-footer {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity .5s ease, transform .5s ease;
+}
+
+.form-grid > div.visible,
+#message.visible,
+.contact-footer.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Hero blur → sharp reveal */
+.hero-image {
+  filter: blur(12px);
+  opacity: .85;
+  transition: filter 1.4s ease, opacity 1.4s ease, transform .2s linear;
+}
+
+.hero-image.loaded {
+  filter: blur(0);
+  opacity: 1;
+}
+
+/* Capacity badge */
+.capacity-badge {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: .35rem .7rem;
+  font-size: .72rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  border: 1px solid rgba(0,0,0,.15);
+  border-radius: 999px;
+  opacity: .8;
+}
+</style>
+
+<script>
+// Form stagger animation
+const formFields = document.querySelectorAll('.form-grid > div, #message, .contact-footer');
+const formObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      formFields.forEach((el, i) => setTimeout(() => el.classList.add('visible'), i * 70));
+      formObserver.disconnect();
+    }
+  });
+}, { threshold: 0.2 });
+
+const contactSection = document.querySelector('#contact');
+if (contactSection) formObserver.observe(contactSection);
+
+// Hero blur → sharp on load
+window.addEventListener('load', () => {
+  const hero = document.querySelector('.hero-image');
+  if (hero) hero.classList.add('loaded');
+});
+
+// Capacity badge toggle — set <body data-season="true"> when active
+if (document.body.dataset.season === 'true') {
+  const badge = document.createElement('div');
+  badge.className = 'capacity-badge';
+  badge.textContent = 'Capacity closing soon';
+  const target = document.querySelector('#current-focus .section-title');
+  if (target) target.after(badge);
+}
+
+// Premium tactile click sound
+const clickCtx = new (window.AudioContext || window.webkitAudioContext)();
+function softClick() {
+  const osc = clickCtx.createOscillator();
+  const gain = clickCtx.createGain();
+  osc.frequency.value = 160;
+  gain.gain.value = 0.02;
+  osc.connect(gain);
+  gain.connect(clickCtx.destination);
+  osc.start();
+  osc.stop(clickCtx.currentTime + 0.15);
+}
+
+document.querySelectorAll('.btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    if (clickCtx.state === 'suspended') clickCtx.resume();
+    softClick();
+  });
+});
+</script>
