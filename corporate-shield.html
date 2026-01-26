@@ -4,91 +4,276 @@
   <meta charset="UTF-8" />
   <title>Corporate Shield · Curator Atelier</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Corporate Shield is Curator Atelier’s structured gifting and recognition program for organizations." />
+  <meta name="description" content="Corporate Shield is Curator Atelier’s controlled gifting and recognition system for organizations where optics, timing, and consistency matter." />
 
+  <!-- ========================= -->
+  <!-- OPEN GRAPH -->
+  <!-- ========================= -->
+  <meta property="og:title" content="Corporate Shield · Curator Atelier" />
+  <meta property="og:description" content="A structured gifting and recognition system for organizations that cannot afford to miss." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.curatoratelier.com/corporate-shield.html" />
+  <meta property="og:image" content="https://www.curatoratelier.com/assets/img/og-corporate-shield.jpg" />
+  <!-- TODO: Replace og image -->
+
+  <!-- ========================= -->
+  <!-- FONTS -->
+  <!-- ========================= -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
+  <!-- ========================= -->
+  <!-- FULL CSS -->
+  <!-- ========================= -->
   <style>
     :root{
-      --bg:#040908;--panel:#0b1915;--accent:#c9a24b;
-      --text:#f6f1e5;--muted:#a7b0aa;--border:#22302a;
+      --bg:#040908;
+      --panel:#0b1915;
+      --accent:#c9a24b;
+      --accent-soft:rgba(201,162,75,.14);
+      --text:#f6f1e5;
+      --muted:#a7b0aa;
+      --border:#22302a;
     }
+
+    *{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
     body{
       font-family:'Inter',sans-serif;
       background:radial-gradient(circle at top,#172620 0,#020504 55%,#010303 100%);
-      color:var(--text);line-height:1.6;
+      color:var(--text);
+      line-height:1.65;
     }
-    .page{max-width:980px;margin:0 auto;padding:2.6rem 1.25rem 4rem}
-    h1,h2{font-family:'Playfair Display',serif;color:var(--accent);letter-spacing:.06em;text-transform:uppercase}
-    h1{font-size:2.1rem;margin-bottom:.8rem}
-    h2{font-size:1.4rem;margin-bottom:.6rem}
+    a{text-decoration:none;color:inherit;}
 
-    .copy{font-size:.9rem;color:var(--muted);max-width:46rem}
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.2rem;margin-top:1.6rem}
+    .page{
+      max-width:980px;
+      margin:0 auto;
+      padding:2.6rem 1.25rem 4rem;
+    }
 
-    .card{
+    /* NAV */
+    .nav{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin-bottom:2.6rem;
+      padding-bottom:1rem;
+      border-bottom:1px solid rgba(255,255,255,.06);
+    }
+    .logo-wrap{display:flex;gap:.7rem;align-items:center;}
+    .logo-image{height:42px;}
+    .logo-main{
+      font-family:'Playfair Display',serif;
+      letter-spacing:.18em;
+      font-size:.85rem;
+      text-transform:uppercase;
+    }
+    .logo-sub{
+      font-size:.65rem;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      color:var(--muted);
+    }
+    .nav-links{
+      display:flex;
+      gap:1.6rem;
+      font-size:.75rem;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+    }
+    .nav-links a:hover{color:var(--accent);}
+
+    /* HEADINGS */
+    h1,h2{
+      font-family:'Playfair Display',serif;
+      color:var(--accent);
+      letter-spacing:.06em;
+      text-transform:uppercase;
+    }
+    h1{font-size:2.2rem;margin-bottom:.8rem;}
+    h2{font-size:1.35rem;margin-bottom:.6rem;}
+
+    /* INTRO */
+    .intro{
+      font-size:.95rem;
+      color:var(--muted);
+      max-width:46rem;
+      margin-bottom:2.4rem;
+    }
+
+    /* PANEL */
+    .panel{
       background:var(--panel);
       border:1px solid var(--border);
+      border-radius:22px;
+      padding:1.6rem;
+      margin-bottom:2.4rem;
+    }
+
+    /* SYSTEM GRID */
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+      gap:1.2rem;
+      margin-top:1.2rem;
+    }
+    .card{
+      border:1px solid var(--border);
       border-radius:18px;
-      padding:1.3rem;
+      padding:1.3rem 1.4rem;
+      background:rgba(0,0,0,.25);
+    }
+    .card h3{
+      font-family:'Playfair Display',serif;
+      font-size:.95rem;
+      margin-bottom:.35rem;
+    }
+    .card p{
+      font-size:.82rem;
+      color:var(--muted);
+    }
+
+    /* CTA */
+    .cta{
+      margin-top:1.6rem;
+      text-align:center;
+      font-size:.82rem;
+      color:var(--muted);
+    }
+    .cta a{color:var(--accent);font-weight:500;}
+
+    .cta-note{
+      margin-top:.6rem;
+      font-size:.72rem;
+      color:var(--muted);
+    }
+
+    /* FADE-IN */
+    .fade-in{
+      opacity:0;
+      transform:translateY(18px);
+      transition:opacity .8s ease, transform .8s ease;
+    }
+    .fade-in.visible{
+      opacity:1;
+      transform:none;
+    }
+
+    /* FOOTER */
+    footer{
+      margin-top:3rem;
+      padding-top:2rem;
+      border-top:1px solid rgba(255,255,255,.06);
+      font-size:.72rem;
+      color:var(--muted);
+    }
+
+    @media(max-width:768px){
+      .nav{flex-direction:column;align-items:flex-start;gap:.6rem;}
     }
   </style>
 
+  <!-- ========================= -->
+  <!-- ANALYTICS HELPERS -->
+  <!-- ========================= -->
   <script>
-    function trackCorporate(){
-      if (typeof fbq !== 'undefined') fbq('track','Lead',{content_name:'Corporate Shield'});
-      if (typeof gtag !== 'undefined') gtag('event','corporate_inquiry');
+    function trackCorporateInquiry(){
+      if (typeof fbq !== 'undefined') fbq('trackCustom','CorporateShieldInquiry');
+      if (typeof gtag !== 'undefined') gtag('event','corporate_shield_inquiry');
+    }
+    function trackCalendly(){
+      if (typeof fbq !== 'undefined') fbq('track','Schedule');
+      if (typeof gtag !== 'undefined') gtag('event','schedule_consult');
     }
   </script>
 </head>
 
 <body>
+
 <div class="page">
 
-<h1>Corporate Shield</h1>
-<p class="copy">
-Corporate Shield is a structured gifting and recognition program
-designed for organizations where optics, consistency, and reliability matter.
-</p>
-
-<div class="grid">
-  <div class="card">
-    <h2>Who It’s For</h2>
-    <p class="copy">
-      HR teams, executive offices, dealerships, professional services,
-      healthcare groups, and institutions.
-    </p>
+<header class="nav fade-in">
+  <div class="logo-wrap">
+    <img src="assets/img/curator-logo-gold.png" class="logo-image" alt="Curator Atelier logo">
+    <div>
+      <div class="logo-main">CURATOR ATELIER</div>
+      <div class="logo-sub">Corporate Shield</div>
+    </div>
   </div>
+  <nav class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="vanguard.html">The Vanguard</a>
+  </nav>
+</header>
 
-  <div class="card">
-    <h2>Why It Exists</h2>
-    <p class="copy">
-      To eliminate last-minute scrambling, vendor inconsistency,
-      and reputational risk around gifting and recognition.
-    </p>
-  </div>
-
-  <div class="card">
-    <h2>How It Works</h2>
-    <p class="copy">
-      Annual or campaign-based programs with defined SKUs,
-      controlled fulfillment, and predictable outcomes.
-    </p>
-  </div>
-</div>
-
-<div style="margin-top:2rem">
-  <p class="copy">
-    To discuss volumes, timelines, or internal approval needs,
-    contact our corporate desk.
+<section class="fade-in">
+  <h1>Corporate Shield</h1>
+  <p class="intro">
+    Corporate Shield is Curator Atelier’s structured gifting and recognition system
+    for organizations where missed moments, inconsistency, or poor optics
+    are not acceptable outcomes.
   </p>
-  <p class="copy" style="margin-top:.5rem">
-    <a href="mailto:hello@curatoratelier.com"
-       onclick="trackCorporate()"
-       style="color:var(--accent)">hello@curatoratelier.com</a>
+</section>
+
+<section class="panel fade-in">
+  <h2>Why Corporate Shield Exists</h2>
+  <p class="intro">
+    Internal recognition and external gifting fail not because of intent,
+    but because they are handled reactively.
+    Corporate Shield replaces improvisation with a controlled, repeatable system.
   </p>
-</div>
+
+  <div class="grid">
+    <div class="card">
+      <h3>Retention Optics</h3>
+      <p>Ensure key moments reflect leadership competence, not last-minute scrambling.</p>
+    </div>
+    <div class="card">
+      <h3>Standardization</h3>
+      <p>Consistent quality across offices, teams, and recipients.</p>
+    </div>
+    <div class="card">
+      <h3>Reduced Load</h3>
+      <p>Zero mental overhead for HR, Admin, or Ops teams.</p>
+    </div>
+  </div>
+</section>
+
+<section class="fade-in">
+  <h2>How Engagements Begin</h2>
+  <p class="intro">
+    Corporate Shield engagements begin with a short alignment conversation.
+    Scope, volume, and timing are confirmed before any allocation is made.
+  </p>
+
+  <div class="cta">
+    To initiate, email
+    <a href="mailto:hello@curatoratelier.com" onclick="trackCorporateInquiry()">hello@curatoratelier.com</a>
+    or schedule a brief call
+    <a href="https://calendly.com/hello-curatoratelier/30min"
+       target="_blank"
+       onclick="trackCalendly()">here</a>.
+    <div class="cta-note">
+      Inquiries are reviewed within one business day. Approved engagements proceed to private scoping.
+    </div>
+  </div>
+</section>
+
+<footer class="fade-in">
+  © <span id="year"></span> Curator Atelier · Corporate Shield
+</footer>
 
 </div>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  const observer = new IntersectionObserver(
+    entries => entries.forEach(e => e.isIntersecting && e.target.classList.add('visible')),
+    { threshold:0.12 }
+  );
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
 </body>
 </html>
