@@ -23,19 +23,57 @@
       t.src=v;s=b.getElementsByTagName(e)[0];
       s.parentNode.insertBefore(t,s)
     }(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', 'YOUR_PIXEL_ID'); /* TODO */
+    fbq('init', '2038632733615730'); /* TODO */
     fbq('track', 'PageView');
   </script>
+// 🔔 Track contact intent (calls, WhatsApp, email clicks)
+function trackContact() {
+if (typeof fbq !== 'undefined') {
+fbq('track', 'Contact');
+}
+}
 
+// 📩 Track serious inquiries (form submissions)
+function trackLead() {
+if (typeof fbq !== 'undefined') {
+fbq('track', 'Lead');
+}
+}
+
+// 🛒 Optional: track hamper click-throughs as AddToCart
+function trackAddToCart(sku, value) {
+if (typeof fbq !== 'undefined') {
+fbq('track', 'AddToCart', {
+content_ids: [sku],
+content_type: 'product',
+value: value,
+currency: 'USD'
+});
+}
+}
+
+// 💳 Optional: track completed orders (if you add a thank-you page later)
+function trackPurchase(orderId, value) {
+if (typeof fbq !== 'undefined') {
+fbq('track', 'Purchase', {
+contents: [{id: orderId, quantity: 1}],
+content_type: 'product',
+value: value,
+currency: 'USD'
+});
+}
+}
+</script>
+  <!-- End Curator Atelier Pixel Helpers -->
   <!-- ========================= -->
   <!-- GOOGLE ANALYTICS (GA4) -->
   <!-- ========================= -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17851433116"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-XXXXXXX'); /* TODO */
+    gtag('config', 'AW-17851433116'); /* TODO */
   </script>
 
   <!-- ========================= -->
