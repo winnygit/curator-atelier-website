@@ -5,6 +5,7 @@
   <title>Corporate Shield · Curator Atelier</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Corporate Shield provides structured, compliant execution for executive retention, partner recognition, and high-visibility corporate engagements." />
+<meta name="description" content="Corporate Shield provides structured, compliant execution for executive retention, partner recognition, and enterprise-scale engagements.">
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -156,7 +157,7 @@
 
     .cell {
       border: 1px solid var(--border);
-      padding: 2rem;
+      padding: 2.5rem;
       border-radius: 4px;
       color: var(--muted);
       transition: all .4s ease;
@@ -167,6 +168,15 @@
       background: rgba(255, 255, 255, 0.03);
       border-color: var(--accent);
       color: var(--text);
+    }
+
+    .cell strong {
+      display: block;
+      color: var(--accent);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: 0.8rem;
     }
 
     /* ---------------- metrics ---------------- */
@@ -245,18 +255,17 @@
 
   <!-- NAV -->
   <header class="nav">
-    <div class="logo-wrap">
+    <a href="index.html" class="logo-wrap">
       <img src="assets/img/curator-logo-gold.png" alt="Curator Atelier" class="logo-image" onerror="this.style.opacity='0'">
       <div>
         <div class="logo-main">CURATOR ATELIER</div>
         <div class="logo-sub">Corporate Shield</div>
       </div>
-    </div>
+    </a>
     <nav class="nav-links">
       <a href="index.html">Home</a>
       <a href="vanguard.html">Vanguard</a>
-      <a href="#principles">Principles</a>
-      <a href="#engagements">Reserve</a>
+      <a href="private_intake.html">Private Intake</a>
     </nav>
   </header>
 
@@ -285,14 +294,17 @@
   </section>
 
   <!-- PRINCIPLES -->
-  <section id="principles" class="panel reveal">
+  <section id="principles" class="panel reveal" style="margin-top: 6rem;">
     <div class="eyebrow">Operational Principles</div>
     <h2 class="title" style="font-size: 1.8rem;">Compliance & Volatility Control</h2>
     <div class="grid">
       <div class="cell">Procurement‑safe sourcing and vendor vetting</div>
       <div class="cell">Strict budget controls & approval thresholds</div>
       <div class="cell">Centralized logistics with real-time tracking</div>
-      <div class="cell">Mandatory 50% contingency buffer for high-volatility regions (including Nigeria contracts)</div>
+      <div class="cell" style="border-color: var(--accent);">
+        <strong>Protocol 2026-A13</strong>
+        Mandatory 50% contingency buffer applied to all high-volatility regions (including Nigeria) to ensure uninterrupted delivery.
+      </div>
     </div>
   </section>
 
