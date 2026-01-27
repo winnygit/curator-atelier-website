@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Private Intake · Curator Atelier</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Eligibility intake for private concierge engagements. Not all submissions are accepted." />
+  <meta name="robots" content="noindex, nofollow" />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #040908;
+      --panel: #0b1915;
+      --accent: #c9a24b;
+      --text: #f6f1e5;
+      --muted: #a7b0aa;
+      --border: #22302a;
+      --transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      background: radial-gradient(circle at top, #172620 0, #020504 55%, #010303 100%);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .frame {
+      width: 100%;
+      max-width: 620px;
+      padding: 2.5rem 1.5rem;
+      perspective: 1000px;
+    }
+
+    .card {
+      background: rgba(11, 25, 21, 0.65);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 3.5rem 3rem;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+      position: relative;
+    }
+
+    /* Animation */
+    .step-content {
+      animation: slideUp 0.6s ease forwards;
+    }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .eyebrow {
+      font-size: 0.65rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.2rem;
+      font-weight: 500;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.4rem;
+      margin-bottom: 1.2rem;
+      font-weight: 500;
+      line-height: 1.2;
+    }
+
+    p {
+      color: var(--muted);
+      font-size: 1rem;
+      margin-bottom: 2.5rem;
+      font-weight: 300;
+    }
+
+    .options-container {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+
+    .option {
+      border: 1px solid var(--border);
+      padding: 1.2rem 1.5rem;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: var(--transition);
+      font-size: 0.95rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(255,255,255,0.02);
+    }
+
+    .option:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: rgba(201, 162, 75, 0.05);
+      transform: translateX(8px);
+    }
+
+    .option::after {
+      content: '→';
+      opacity: 0;
+      transform: translateX(-10px);
+      transition: var(--transition);
+    }
+
+    .option:hover::after {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .hidden { display: none; }
+
+    .cta {
+      margin-top: 3rem;
+      text-align: center;
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--accent);
+      color: #040908;
+      padding: 1.1rem 2.8rem;
+      font-size: 0.75rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: var(--transition);
+      text-decoration: none;
+    }
+
+    .btn:hover {
+      background: #fff;
+      box-shadow: 0 0 20px rgba(201, 162, 75, 0.2);
+    }
+
+    .nav-tools {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 3rem;
+    }
+
+    .back-btn {
+      background: none;
+      border: none;
+      color: var(--muted);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      cursor: pointer;
+      padding: 0.5rem;
+      transition: color 0.3s;
+    }
+
+    .back-btn:hover {
+      color: var(--text);
+    }
+
+    .progress {
+      display: flex;
+      gap: 8px;
+    }
+
+    .dot {
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--border);
+      transition: background 0.3s;
+    }
+
+    .dot.active {
+      background: var(--accent);
+      box-shadow: 0 0 8px var(--accent);
+    }
+
+    .quiet {
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      opacity: 0.5;
+      margin-top: 2rem;
+      text-align: center;
+    }
+
+    @media (max-width: 480px) {
+      .card { padding: 2.5rem 1.5rem; }
+      h1 { font-size: 1.8rem; }
+    }
+  </style>
+</head>
+
+<body>
+<div class="frame">
+  <div class="card">
+    
+    <!-- STEP 0: INTRO -->
+    <div id="step-0" class="step-content">
+      <div class="eyebrow">Private Intake</div>
+      <h1>Eligibility Review</h1>
+      <p>
+        This intake determines eligibility for private concierge engagements.<br>
+        Selection is curated based on capacity and creative alignment.
+      </p>
+      <div class="cta">
+        <button class="btn" onclick="nextStep(1)">Begin Inquiry</button>
+      </div>
+    </div>
+
+    <!-- STEP 1: CONTEXT -->
+    <div id="step-1" class="hidden step-content">
+      <div class="eyebrow">Context / 01</div>
+      <h1>Current Dynamic</h1>
+      <p>Describe the nature of your current engagement.</p>
+      <div class="options-container">
+        <div class="option" onclick="handleChoice('context', 'Long-term', 2)">Long-term partner or spouse</div>
+        <div class="option" onclick="handleChoice('context', 'New', 2)">New relationship (under 12 months)</div>
+        <div class="option" onclick="handleChoice('context', 'Amends', 2)">Repairing a miss / making amends</div>
+        <div class="option" onclick="handleChoice('context', 'Milestone', 2)">High-stakes milestone</div>
+      </div>
+      <div class="nav-tools">
+        <button class="back-btn" onclick="nextStep(0)">← Back</button>
+        <div class="progress">
+          <div class="dot active"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 2: TASTE -->
+    <div id="step-2" class="hidden step-content">
+      <div class="eyebrow">Aesthetic / 02</div>
+      <h1>Her World</h1>
+      <p>Identify the environment that best reflects her sensibilities.</p>
+      <div class="options-container">
+        <div class="option" onclick="handleChoice('taste', 'Understated', 3)">Quiet luxury / understated</div>
+        <div class="option" onclick="handleChoice('taste', 'Romantic', 3)">Romantic / expressive</div>
+        <div class="option" onclick="handleChoice('taste', 'Iconic', 3)">Iconic / cinematic</div>
+        <div class="option" onclick="handleChoice('taste', 'Intimate', 3)">Private / intimate</div>
+      </div>
+      <div class="nav-tools">
+        <button class="back-btn" onclick="nextStep(1)">← Back</button>
+        <div class="progress">
+          <div class="dot"></div>
+          <div class="dot active"></div>
+          <div class="dot"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 3: TIMING -->
+    <div id="step-3" class="hidden step-content">
+      <div class="eyebrow">Timeline / 03</div>
+      <h1>The Horizon</h1>
+      <p>Define the window of execution.</p>
+      <div class="options-container">
+        <div class="option" onclick="handleChoice('timing', 'Immediate', 'result')">Immediate / high-urgency</div>
+        <div class="option" onclick="handleChoice('timing', '7 Days', 'result')">Within 7 days</div>
+        <div class="option" onclick="handleChoice('timing', '10 Days', 'result')">Within 10 days</div>
+        <div class="option" onclick="handleChoice('timing', 'V-Day', 'result')">Valentine’s Day</div>
+      </div>
+      <div class="nav-tools">
+        <button class="back-btn" onclick="nextStep(2)">← Back</button>
+        <div class="progress">
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot active"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP: RESULT -->
+    <div id="result" class="hidden step-content">
+      <div class="eyebrow">Assessment Complete</div>
+      <h1>Prestige Reserve</h1>
+      <p id="result-text">
+        Based on your requirements, your engagement requires controlled execution and priority access. 
+        <br><br>
+       Certain engagements require a non-refundable Reserve Deposit to secure priority access. If applicable, this will be confirmed after review.
+      </p>
+
+      <div class="cta">
+        <a class="btn" 
+           href="https://calendly.com/hello-curatoratelier/30min" 
+           target="_blank">
+          Secure Prestige Reserve
+        </a>
+      </div>
+
+      <div class="quiet">
+        Capacity is limited · Directives are prioritized by reserve date
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  let userData = {
+    context: '',
+    taste: '',
+    timing: ''
+  };
+
+  function nextStep(n) {
+    // Hide all
+    document.querySelectorAll('.step-content').forEach(s => s.classList.add('hidden'));
+    
+    // Determine target
+    const targetId = (typeof n === 'number') ? 'step-' + n : n;
+    const target = document.getElementById(targetId);
+    
+    if(target) {
+      target.classList.remove('hidden');
+    }
+  }
+
+  function handleChoice(key, value, next) {
+    userData[key] = value;
+    
+    // Optional: Log selection for debugging
+    console.log('User Progress:', userData);
+    
+    // Special logic for the result page if needed
+    if(next === 'result') {
+      if(userData.timing === 'Immediate') {
+        document.getElementById('result-text').innerHTML = "<strong>Urgent Advisory:</strong> Your timeline requires immediate intervention. We have reserved an emergency slot for your intake.<br><br>To secure this window, proceed to Prestige Reserve.";
+      }
+    }
+
+    nextStep(next);
+  }
+</script>
+</body>
+</html>
