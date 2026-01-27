@@ -19,11 +19,9 @@
       --text: #f6f1e5;
       --muted: #a7b0aa;
       --border: #22302a;
-      --gold-gradient: linear-gradient(135deg, #c9a24b 0%, #ecd29a 50%, #c9a24b 100%);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    
     html { scroll-behavior: smooth; }
 
     body {
@@ -39,51 +37,33 @@
 
     .page { max-width: 1180px; margin: 0 auto; padding: 0 1.5rem 4rem; }
 
-    /* NAV */
+    /* ---------------- NAV ---------------- */
     .nav {
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      padding: 1.5rem 0;
-      margin-bottom: 2rem;
-      border-bottom: 1px solid rgba(255, 255, 255, .05);
-    }
-    
-    .logo-wrap { display: flex; gap: 1rem; align-items: center; }
-    .logo-image { height: 44px; filter: brightness(1.1); }
-    
-    .logo-text-group { display: flex; flex-direction: column; }
-    .logo-main {
-      font-family: 'Playfair Display', serif;
-      letter-spacing: .2em;
-      text-transform: uppercase;
-      font-size: .9rem;
-      font-weight: 600;
-    }
-    .logo-sub {
-      font-size: .6rem;
-      color: var(--muted);
-      letter-spacing: .18em;
-      text-transform: uppercase;
-      margin-top: 2px;
+      justify-content: space-between;
+      padding: 1.2rem 1.25rem;
+      margin: 0 -1.25rem 2.2rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(12px) saturate(160%);
+      background: rgba(4, 9, 8, 0.92);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     }
 
-    .nav-links {
-      display: flex;
-      gap: 2.5rem;
-      font-size: .7rem;
-      letter-spacing: .15em;
-      text-transform: uppercase;
-      font-weight: 500;
-    }
-    .nav-links a { color: var(--muted); }
+    .logo-wrap { display: flex; align-items: center; gap: .75rem; }
+    .logo-image { height: 42px; }
+    .logo-main { font-family: 'Playfair Display', serif; letter-spacing: .18em; text-transform: uppercase; font-size: .9rem; }
+    .logo-sub { font-size: .68rem; color: var(--muted); letter-spacing: .16em; text-transform: uppercase; }
+    .nav-links { display: flex; gap: 2rem; font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; }
     .nav-links a:hover { color: var(--accent); }
 
-    /* HERO WITH BACKGROUND IMAGE */
+    /* ---------------- HERO ---------------- */
     .hero {
       position: relative;
       width: 100%;
-      min-height: 500px;
+      min-height: 520px;
       margin-bottom: 6rem;
       border-radius: 4px;
       overflow: hidden;
@@ -93,20 +73,26 @@
       padding: 4rem;
       border: 1px solid rgba(255, 255, 255, 0.05);
     }
-    
+
     .hero-bg {
       position: absolute;
       inset: 0;
       z-index: 1;
     }
-    
+
     .hero-bg img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       filter: brightness(0.4) contrast(1.1);
+      transform: scale(1.02);
+      transition: transform 8s ease;
     }
-    
+
+    .hero:hover .hero-bg img {
+      transform: scale(1.06); /* slow luxury drift */
+    }
+
     .hero-bg::after {
       content: '';
       position: absolute;
@@ -128,6 +114,7 @@
       margin-bottom: 1rem;
       font-weight: 600;
     }
+
     .hero-title {
       font-family: 'Playfair Display', serif;
       font-size: clamp(2.4rem, 5vw, 3.8rem);
@@ -137,6 +124,7 @@
       line-height: 1.1;
       color: #fff;
     }
+
     .hero-sub {
       font-size: 1.1rem;
       color: var(--muted);
@@ -144,8 +132,9 @@
       font-weight: 300;
     }
 
-    /* SECTION BASICS */
+    /* ---------------- SECTIONS ---------------- */
     section { margin-bottom: 8rem; }
+
     .section-eyebrow {
       font-size: .7rem;
       letter-spacing: .25em;
@@ -153,19 +142,35 @@
       color: var(--accent);
       margin-bottom: 1rem;
     }
+
     .section-title {
       font-family: 'Playfair Display', serif;
       font-size: 2.2rem;
       margin-bottom: 1.5rem;
       font-weight: 500;
     }
+
     .section-copy {
       font-size: 1.05rem;
       color: var(--muted);
       max-width: 44rem;
     }
 
-    /* LANES */
+    /* ---------------- MOTION (subtle fades) ---------------- */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      filter: blur(6px);
+      transition: opacity 1.2s ease, transform 1.2s ease, filter 1.2s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+      filter: blur(0);
+    }
+
+    /* ---------------- LANES ---------------- */
     .lane {
       display: grid;
       grid-template-columns: 1.1fr 0.9fr;
@@ -173,6 +178,7 @@
       align-items: center;
       margin-top: 5rem;
     }
+
     .lane.reverse { grid-template-columns: 0.9fr 1.1fr; }
     .lane.reverse .lane-copy { order: 1; }
     .lane.reverse .lane-image { order: 2; }
@@ -181,34 +187,29 @@
       border-radius: 4px;
       overflow: hidden;
       border: 1px solid rgba(255, 255, 255, .1);
-      position: relative;
     }
-    .lane-image::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to bottom, transparent 60%, rgba(4,9,8,0.4));
-    }
+
     .lane-image img {
       width: 100%;
       height: 500px;
       object-fit: cover;
-      transition: transform 1s ease;
+      transition: transform 6s ease;
     }
-    .lane:hover .lane-image img { transform: scale(1.03); }
+
+    .lane:hover .lane-image img { transform: scale(1.04); }
 
     .lane-copy h3 {
       font-family: 'Playfair Display', serif;
       font-size: 1.6rem;
-      color: var(--text);
       margin-bottom: 1rem;
-      letter-spacing: 0.02em;
     }
+
     .lane-copy p {
       font-size: .95rem;
       color: var(--muted);
       margin-bottom: 1.2rem;
     }
+
     .lane-copy .note {
       font-size: .8rem;
       color: var(--accent);
@@ -218,49 +219,46 @@
       opacity: 0.9;
     }
 
-    /* CTA STRIP */
+    /* ---------------- CTA (hidden luxury) ---------------- */
     .cta {
       border: 1px solid var(--border);
       border-radius: 4px;
       padding: 4rem 2rem;
       background: rgba(11, 25, 21, 0.4);
       text-align: center;
-      backdrop-filter: blur(10px);
     }
+
     .cta-heading {
       font-family: 'Playfair Display', serif;
       font-size: 1.8rem;
       margin-bottom: 1.5rem;
     }
+
     .cta p {
       font-size: 1rem;
       color: var(--muted);
-      margin-bottom: 1.5rem;
+      margin-bottom: 2.5rem;
       max-width: 30rem;
       margin-left: auto;
       margin-right: auto;
     }
-    .cta-links {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      margin-top: 2rem;
-    }
-    .btn {
-      padding: 0.8rem 1.8rem;
-      border: 1px solid var(--accent);
-      color: var(--accent);
-      font-size: 0.75rem;
-      letter-spacing: 0.15em;
+
+    .micro-cta {
+      font-size: .72rem;
+      letter-spacing: .28em;
       text-transform: uppercase;
-      font-weight: 600;
-    }
-    .btn:hover {
-      background: var(--accent);
-      color: var(--bg);
+      color: var(--muted);
+      opacity: .55;
+      border-bottom: 1px solid rgba(255,255,255,.15);
+      padding-bottom: .4rem;
     }
 
-    /* FOOTER */
+    .micro-cta:hover {
+      opacity: 1;
+      color: var(--accent);
+      border-color: var(--accent);
+    }
+
     footer {
       border-top: 1px solid rgba(255, 255, 255, .05);
       padding: 4rem 0;
@@ -274,8 +272,6 @@
     @media (max-width: 900px) {
       .hero { padding: 2.5rem; min-height: 400px; }
       .lane, .lane.reverse { grid-template-columns: 1fr; gap: 2rem; }
-      .lane.reverse .lane-copy { order: 2; }
-      .lane.reverse .lane-image { order: 1; }
       .lane-image img { height: 350px; }
       .nav-links { display: none; }
     }
@@ -285,11 +281,10 @@
 <body>
 <div class="page">
 
-  <!-- NAV -->
   <header class="nav">
     <div class="logo-wrap">
       <img src="assets/img/curator-logo-gold.png" alt="Curator Atelier" class="logo-image" onerror="this.style.opacity='0'">
-      <div class="logo-text-group">
+      <div>
         <div class="logo-main">CURATOR ATELIER</div>
         <div class="logo-sub">The Vanguard</div>
       </div>
@@ -301,92 +296,68 @@
     </nav>
   </header>
 
-  <!-- HERO WITH BACKGROUND OVERLAY -->
-  <section class="hero">
+  <section class="hero reveal">
     <div class="hero-bg">
-      <!-- Sophisticated architectural/strategic imagery -->
       <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=1600" alt="Operational Background">
     </div>
     <div class="hero-content">
       <div class="hero-eyebrow">Operating Doctrine</div>
       <h1 class="hero-title">High-Stakes<br>Controlled Execution.</h1>
-      <p class="hero-sub">
-        The Vanguard is our internal mandate for absolute delivery. We specialize in engagements where improvisation is not an option and misalignment is a catastrophic risk.
-      </p>
+      <p class="hero-sub">The Vanguard is our internal mandate for absolute delivery. We specialize in engagements where improvisation is not an option and misalignment is a catastrophic risk.</p>
     </div>
   </section>
 
-  <!-- PHILOSOPHY -->
-  <section id="philosophy">
+  <section id="philosophy" class="reveal">
     <div class="section-eyebrow">The Mandate</div>
     <h2 class="section-title">Zero-Error Coordination</h2>
-    <p class="section-copy">
-      Most failures are structural, not conceptual. The Vanguard removes operational uncertainty through early lock-in, disciplined scope, and a protocol-driven approach to complex logistics.
-    </p>
+    <p class="section-copy">Most failures are structural, not conceptual. The Vanguard removes operational uncertainty through early lock-in, disciplined scope, and protocol-driven execution.</p>
   </section>
 
-  <!-- LANES -->
-  <section id="lanes">
+  <section id="lanes" class="reveal">
     <div class="section-eyebrow">Execution Lanes</div>
     <h2 class="section-title">Specialized Strategic Pathways</h2>
 
-    <!-- Corporate Shield -->
     <div class="lane">
       <div class="lane-image">
         <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1200" alt="Institutional Architecture">
       </div>
       <div class="lane-copy">
         <h3>Corporate Shield</h3>
-        <p>
-          Structured execution for organizations where optics, consistency, and timing are paramount. We manage executive retention initiatives, partner recognition protocols, and high-visibility board-level moments.
-        </p>
-        <p class="note">Designed for scale, governed by institutional discipline.</p>
+        <p>Procurement-safe execution for organizations where optics, consistency, and timing are paramount. Structured outcomes, governed scope, measurable ROI.</p>
+        <p class="note">Designed for scale. Built for compliance.</p>
       </div>
     </div>
 
-    <!-- Prestige Concierge -->
     <div class="lane reverse">
       <div class="lane-image">
         <img src="https://images.unsplash.com/photo-1574362848149-11496d93a7c7?auto=format&fit=crop&q=80&w=1200" alt="Exclusive Interior">
       </div>
       <div class="lane-copy">
         <h3>Prestige Concierge</h3>
-        <p>
-          Private milestone execution for individuals with significant reputational and relational stakes. We handle every detail end-to-end, maintaining absolute discretion and a singular focus on the intended outcome.
-        </p>
-        <p class="note">Private engagement. No public disclosure.</p>
+        <p>Private milestone execution for individuals with significant reputational and relational stakes. Absolute discretion. Singular accountability. End-to-end orchestration.</p>
+        <p class="note">Private engagement only.</p>
       </div>
     </div>
 
-    <!-- Relationship Insurance -->
     <div class="lane">
       <div class="lane-image">
         <img src="https://images.unsplash.com/photo-1454165833767-027ffea9e77b?auto=format&fit=crop&q=80&w=1200" alt="Detail Planning">
       </div>
       <div class="lane-copy">
         <h3>Relationship Insurance</h3>
-        <p>
-          Long-term assurance across critical dates and life-stages. We remove the mental load of relationship management before it becomes a risk. 
-        </p>
-        <p>
-          Our protocol includes a mandatory 50% contingency buffer for all high-volatility operational regions (including Nigeria contracts) to ensure delivery regardless of unexpected billing or local fluctuations.
-        </p>
-        <p class="note">Selective enrollment only. 50% buffer mandate active.</p>
+        <p>Long-term assurance across critical dates and life stages. We remove mental load and operational risk before they materialize.</p>
+        <p class="note">Selective enrollment · Contingency-backed delivery</p>
       </div>
     </div>
   </section>
 
-  <!-- ACCESS -->
-  <section id="access">
+  <section id="access" class="reveal">
     <div class="cta">
       <h3 class="cta-heading">Inquiry & Access</h3>
-      <p>
-        The Vanguard is not accessed casually. Each engagement is reviewed for fit, timing, and operational capacity.
-      </p>
-      <div class="cta-links">
-        <a href="mailto:hello@curatoratelier.com" class="btn">Email Inquiry</a>
-        <a href="https://calendly.com/hello-curatoratelier/30min" target="_blank" class="btn">Schedule Brief</a>
-      </div>
+      <p>Engagements are reviewed for strategic fit and capacity.</p>
+
+      <!-- hidden-feeling luxury CTA -->
+      <a href="mailto:hello@curatoratelier.com?subject=Vanguard%20Private%20Inquiry" class="micro-cta">By Invitation Only</a>
     </div>
   </section>
 
@@ -398,6 +369,15 @@
 
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
+
+  /* slow fade / blur reveal */
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) e.target.classList.add('visible');
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 </script>
 </body>
 </html>
