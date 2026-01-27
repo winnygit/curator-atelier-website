@@ -45,7 +45,7 @@
       justify-content: space-between;
       align-items: center;
       padding: 1.5rem 0;
-      margin-bottom: 4rem;
+      margin-bottom: 2rem;
       border-bottom: 1px solid rgba(255, 255, 255, .05);
     }
     
@@ -79,12 +79,47 @@
     .nav-links a { color: var(--muted); }
     .nav-links a:hover { color: var(--accent); }
 
-    /* HERO */
+    /* HERO WITH BACKGROUND IMAGE */
     .hero {
-      max-width: 850px;
+      position: relative;
+      width: 100%;
+      min-height: 500px;
       margin-bottom: 6rem;
-      padding-top: 2rem;
+      border-radius: 4px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 4rem;
+      border: 1px solid rgba(255, 255, 255, 0.05);
     }
+    
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+    }
+    
+    .hero-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.4) contrast(1.1);
+    }
+    
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(75deg, rgba(4, 9, 8, 0.95) 0%, rgba(4, 9, 8, 0.6) 60%, transparent 100%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 650px;
+    }
+
     .hero-eyebrow {
       font-size: .75rem;
       letter-spacing: .3em;
@@ -95,16 +130,17 @@
     }
     .hero-title {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(2.8rem, 6vw, 4.2rem);
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
       text-transform: uppercase;
       letter-spacing: .08em;
       margin-bottom: 1.5rem;
       line-height: 1.1;
+      color: #fff;
     }
     .hero-sub {
-      font-size: 1.15rem;
+      font-size: 1.1rem;
       color: var(--muted);
-      max-width: 38rem;
+      max-width: 34rem;
       font-weight: 300;
     }
 
@@ -236,12 +272,11 @@
     }
 
     @media (max-width: 900px) {
+      .hero { padding: 2.5rem; min-height: 400px; }
       .lane, .lane.reverse { grid-template-columns: 1fr; gap: 2rem; }
       .lane.reverse .lane-copy { order: 2; }
       .lane.reverse .lane-image { order: 1; }
       .lane-image img { height: 350px; }
-      .hero { text-align: center; margin-left: auto; margin-right: auto; }
-      .hero-sub { margin-left: auto; margin-right: auto; }
       .nav-links { display: none; }
     }
   </style>
@@ -251,14 +286,14 @@
 <div class="page">
 
   <!-- NAV -->
-    <header class="nav">
+  <header class="nav">
     <div class="logo-wrap">
       <img src="assets/img/curator-logo-gold.png" alt="Curator Atelier" class="logo-image" onerror="this.style.opacity='0'">
-      <div>
       <div class="logo-text-group">
         <div class="logo-main">CURATOR ATELIER</div>
         <div class="logo-sub">The Vanguard</div>
       </div>
+    </div>
     <nav class="nav-links">
       <a href="#lanes">Lanes</a>
       <a href="#philosophy">Philosophy</a>
@@ -266,13 +301,19 @@
     </nav>
   </header>
 
-  <!-- HERO -->
+  <!-- HERO WITH BACKGROUND OVERLAY -->
   <section class="hero">
-    <div class="hero-eyebrow">Operating Doctrine</div>
-    <h1 class="hero-title">High-Stakes<br>Controlled Execution.</h1>
-    <p class="hero-sub">
-      The Vanguard is our internal mandate for absolute delivery. We specialize in engagements where improvisation is not an option and misalignment is a catastrophic risk.
-    </p>
+    <div class="hero-bg">
+      <!-- Sophisticated architectural/strategic imagery -->
+      <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=1600" alt="Operational Background">
+    </div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">Operating Doctrine</div>
+      <h1 class="hero-title">High-Stakes<br>Controlled Execution.</h1>
+      <p class="hero-sub">
+        The Vanguard is our internal mandate for absolute delivery. We specialize in engagements where improvisation is not an option and misalignment is a catastrophic risk.
+      </p>
+    </div>
   </section>
 
   <!-- PHILOSOPHY -->
