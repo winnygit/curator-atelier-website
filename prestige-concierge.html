@@ -28,9 +28,73 @@
       color:var(--text);
       min-height:100vh;
       display:flex;
+      flex-direction: column;
       align-items:center;
-      justify-content:center;
+      justify-content:flex-start;
       line-height:1.6;
+    }
+
+    /* ---------- Brand Header ---------- */
+
+    .nav {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.2rem 2.5rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(12px) saturate(160%);
+      background: rgba(4, 9, 8, 0.85);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .logo-link {
+      text-decoration: none;
+      color: inherit;
+      transition: var(--transition);
+    }
+
+    .logo-link:hover {
+      opacity: 0.8;
+    }
+
+    .logo-wrap { 
+      display: flex; 
+      align-items: center; 
+      gap: .85rem; 
+    }
+
+    .logo-image { 
+      height: 42px; 
+      transition: var(--transition);
+    }
+
+    .logo-main { 
+      font-family: 'Playfair Display', serif; 
+      letter-spacing: .22em; 
+      text-transform: uppercase; 
+      font-size: .85rem; 
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    .logo-sub { 
+      font-size: .62rem; 
+      color: var(--muted); 
+      letter-spacing: .18em; 
+      text-transform: uppercase; 
+      margin-top: 1px;
+    }
+
+    /* ---------- Container ---------- */
+
+    .page {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      padding-top: 2rem;
     }
 
     .frame{
@@ -137,6 +201,7 @@
       border:none;
       cursor:pointer;
       transition:var(--transition);
+      text-decoration: none;
     }
 
     .btn:hover{background:#fff}
@@ -162,106 +227,122 @@
     }
 
     @media(max-width:480px){
+      .nav { padding: 1.2rem 1.5rem; }
       .card{padding:2.4rem 1.6rem}
       h1{font-size:1.7rem}
+      .logo-main { font-size: .75rem; }
     }
   </style>
 </head>
 
 <body>
-<div class="frame">
-  <div class="card">
 
-    <!-- STEP 0 -->
-    <div id="step-0" class="step-content">
-      <div class="eyebrow">Private Intake</div>
-      <h1>Eligibility Review</h1>
-      <p>
-        This intake determines eligibility for private concierge engagements. Selection is curated based on capacity and creative alignment.
-      </p>
-      <button class="btn" onclick="nextStep(1)">Begin Inquiry</button>
-    </div>
-
-    <!-- STEP 1 -->
-    <div id="step-1" class="hidden step-content">
-      <div class="eyebrow">Context / 01</div>
-      <h1>Current Dynamic</h1>
-      <div class="options">
-        <div class="option" onclick="choose('context','Long‑term',2)">Long‑term partner or spouse</div>
-        <div class="option" onclick="choose('context','New',2)">New relationship</div>
-        <div class="option" onclick="choose('context','Amends',2)">Repairing a miss</div>
-        <div class="option" onclick="choose('context','Milestone',2)">High‑stakes milestone</div>
+<header class="nav">
+  <a href="index.html" class="logo-link">
+    <div class="logo-wrap">
+      <img src="assets/img/curator-logo-gold.png" alt="Curator Atelier" class="logo-image" onerror="this.style.opacity='0'">
+      <div>
+        <div class="logo-main">CURATOR ATELIER</div>
+        <div class="logo-sub">The PRESTIGE CONCIERGE</div>
       </div>
     </div>
+  </a>
+</header>
 
-    <!-- STEP 2 -->
-    <div id="step-2" class="hidden step-content">
-      <div class="eyebrow">Aesthetic / 02</div>
-      <h1>Her World</h1>
-      <div class="options">
-        <div class="option" onclick="choose('taste','Understated',3)">Quiet luxury / understated</div>
-        <div class="option" onclick="choose('taste','Romantic',3)">Romantic / expressive</div>
-        <div class="option" onclick="choose('taste','Iconic',3)">Iconic / cinematic</div>
-        <div class="option" onclick="choose('taste','Intimate',3)">Private / intimate</div>
+<div class="page">
+  <div class="frame">
+    <div class="card">
+
+      <!-- STEP 0 -->
+      <div id="step-0" class="step-content">
+        <div class="eyebrow">Private Intake</div>
+        <h1>Eligibility Review</h1>
+        <p>
+          This intake determines eligibility for private concierge engagements. Selection is curated based on capacity and creative alignment.
+        </p>
+        <button class="btn" onclick="nextStep(1)">Begin Inquiry</button>
       </div>
+
+      <!-- STEP 1 -->
+      <div id="step-1" class="hidden step-content">
+        <div class="eyebrow">Context / 01</div>
+        <h1>Current Dynamic</h1>
+        <div class="options">
+          <div class="option" onclick="choose('context','Long‑term',2)">Long‑term partner or spouse</div>
+          <div class="option" onclick="choose('context','New',2)">New relationship</div>
+          <div class="option" onclick="choose('context','Amends',2)">Repairing a miss</div>
+          <div class="option" onclick="choose('context','Milestone',2)">High‑stakes milestone</div>
+        </div>
+      </div>
+
+      <!-- STEP 2 -->
+      <div id="step-2" class="hidden step-content">
+        <div class="eyebrow">Aesthetic / 02</div>
+        <h1>Her World</h1>
+        <div class="options">
+          <div class="option" onclick="choose('taste','Understated',3)">Quiet luxury / understated</div>
+          <div class="option" onclick="choose('taste','Romantic',3)">Romantic / expressive</div>
+          <div class="option" onclick="choose('taste','Iconic',3)">Iconic / cinematic</div>
+          <div class="option" onclick="choose('taste','Intimate',3)">Private / intimate</div>
+        </div>
+      </div>
+
+      <!-- STEP 3 -->
+      <div id="step-3" class="hidden step-content">
+        <div class="eyebrow">Timeline / 03</div>
+        <h1>The Horizon</h1>
+        <div class="options">
+          <div class="option" onclick="choose('timing','Immediate',4)">Immediate / high‑urgency</div>
+          <div class="option" onclick="choose('timing','7 Days',4)">Within 7 days</div>
+          <div class="option" onclick="choose('timing','10 Days',4)">Within 10 days</div>
+          <div class="option" onclick="choose('timing','Valentine',4)">Valentine’s Day</div>
+        </div>
+      </div>
+
+      <!-- STEP 4: CONTACT CAPTURE -->
+      <div id="step-4" class="hidden step-content">
+        <div class="eyebrow">Contact / 04</div>
+        <h1>Where should we send your brief?</h1>
+        <p>Approved engagements receive confirmation and next steps directly.</p>
+
+        <div class="field">
+          <label>Full Name</label>
+          <input id="name" type="text" placeholder="Your name" />
+        </div>
+
+        <div class="field">
+          <label>Email</label>
+          <input id="email" type="email" placeholder="name@email.com" />
+        </div>
+
+        <div class="field">
+          <label>Phone</label>
+          <input id="phone" type="tel" placeholder="Mobile number" />
+        </div>
+
+        <button class="btn" onclick="captureContact()">Continue</button>
+
+        <div class="tier">
+          Engagements typically range from <strong>private four‑figure gestures</strong> to <strong>multi‑day five‑figure productions</strong>, depending on scope, sourcing, and discretion requirements.
+        </div>
+      </div>
+
+      <!-- RESULT -->
+      <div id="result" class="hidden step-content">
+        <div class="eyebrow">Assessment Complete</div>
+        <h1>Prestige Reserve</h1>
+        <p id="result-text">
+          Your intake has been logged. Based on your requirements, your engagement requires controlled execution and priority allocation.
+        </p>
+
+        <a class="btn" href="https://calendly.com/hello-curatoratelier/30min" target="_blank">
+          Reserve Execution Window
+        </a>
+
+        <div class="quiet">Capacity is limited · Directives prioritized by reserve date</div>
+      </div>
+
     </div>
-
-    <!-- STEP 3 -->
-    <div id="step-3" class="hidden step-content">
-      <div class="eyebrow">Timeline / 03</div>
-      <h1>The Horizon</h1>
-      <div class="options">
-        <div class="option" onclick="choose('timing','Immediate',4)">Immediate / high‑urgency</div>
-        <div class="option" onclick="choose('timing','7 Days',4)">Within 7 days</div>
-        <div class="option" onclick="choose('timing','10 Days',4)">Within 10 days</div>
-        <div class="option" onclick="choose('timing','Valentine',4)">Valentine’s Day</div>
-      </div>
-    </div>
-
-    <!-- STEP 4: CONTACT CAPTURE (NEW) -->
-    <div id="step-4" class="hidden step-content">
-      <div class="eyebrow">Contact / 04</div>
-      <h1>Where should we send your brief?</h1>
-      <p>Approved engagements receive confirmation and next steps directly.</p>
-
-      <div class="field">
-        <label>Full Name</label>
-        <input id="name" type="text" placeholder="Your name" />
-      </div>
-
-      <div class="field">
-        <label>Email</label>
-        <input id="email" type="email" placeholder="name@email.com" />
-      </div>
-
-      <div class="field">
-        <label>Phone</label>
-        <input id="phone" type="tel" placeholder="Mobile number" />
-      </div>
-
-      <button class="btn" onclick="captureContact()">Continue</button>
-
-      <!-- Tier anchoring -->
-      <div class="tier">
-        Engagements typically range from <strong>private four‑figure gestures</strong> to <strong>multi‑day five‑figure productions</strong>, depending on scope, sourcing, and discretion requirements.
-      </div>
-    </div>
-
-    <!-- RESULT -->
-    <div id="result" class="hidden step-content">
-      <div class="eyebrow">Assessment Complete</div>
-      <h1>Prestige Reserve</h1>
-      <p id="result-text">
-        Your intake has been logged. Based on your requirements, your engagement requires controlled execution and priority allocation.
-      </p>
-
-      <a class="btn" href="https://calendly.com/hello-curatoratelier/30min" target="_blank">
-        Reserve Execution Window
-      </a>
-
-      <div class="quiet">Capacity is limited · Directives prioritized by reserve date</div>
-    </div>
-
   </div>
 </div>
 
@@ -278,7 +359,6 @@
     nextStep(next);
   }
 
-  // --- NEW: silent Formspree submission (no redirect) ---
   async function sendToFormspree(payload){
     try{
       await fetch('https://formspree.io/f/xaqolkol',{
@@ -290,7 +370,7 @@
         body: JSON.stringify(payload)
       });
     }catch(err){
-      console.log('Formspree submit failed (non-blocking):', err);
+      console.log('Formspree submit failed:', err);
     }
   }
 
@@ -304,7 +384,6 @@
       return;
     }
 
-    // Send silently to Formspree (does NOT reroute user)
     await sendToFormspree({
       name: userData.name,
       email: userData.email,
@@ -316,13 +395,11 @@
       submitted_at: new Date().toISOString()
     });
 
-    // Personalization logic
     if(userData.timing==='Immediate'){
       document.getElementById('result-text').innerHTML =
         '<strong>Urgent Advisory:</strong> Your timeline qualifies for immediate intervention. A priority window has been provisionally held.';
     }
 
-    // Continue normally to Calendly step (no redirect interruption)
     nextStep('result');
   }
 </script>
