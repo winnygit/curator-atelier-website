@@ -2,239 +2,286 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Relationship Insurance · Curator Atelier</title>
+  <title>Relationship Insurance · Continuity Assurance · Curator Atelier</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Relationship Insurance is Curator Atelier’s continuity assurance for critical personal and professional relationship moments." />
+  <meta name="description" content="Continuity assurance for critical personal and professional relationship moments. Discreet management of foresight and execution." />
 
-  <!-- ========================= -->
-  <!-- OPEN GRAPH -->
-  <!-- ========================= -->
-  <meta property="og:title" content="Relationship Insurance · Curator Atelier" />
-  <meta property="og:description" content="Continuity assurance for relationships where failure is not an option." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://www.curatoratelier.com/relationship-insurance.html" />
-  <meta property="og:image" content="https://www.curatoratelier.com/assets/img/og-relationship-insurance.jpg" />
-  <!-- TODO: Replace OG image -->
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-  <!-- ========================= -->
-  <!-- FONTS -->
-  <!-- ========================= -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-
-  <!-- ========================= -->
-  <!-- FULL CSS -->
-  <!-- ========================= -->
   <style>
-    :root{
-      --bg:#040908;
-      --panel:#0b1915;
-      --accent:#c9a24b;
-      --accent-soft:rgba(201,162,75,.14);
-      --text:#f6f1e5;
-      --muted:#a7b0aa;
-      --border:#22302a;
+    :root {
+      --bg: #040908;
+      --panel: #0b1915;
+      --accent: #c9a24b;
+      --text: #f6f1e5;
+      --muted: #a7b0aa;
+      --border: #22302a;
     }
 
-    *{box-sizing:border-box;margin:0;padding:0;}
-    html{scroll-behavior:smooth;}
-    body{
-      font-family:'Inter',sans-serif;
-      background:radial-gradient(circle at top,#172620 0,#020504 55%,#010303 100%);
-      color:var(--text);
-      line-height:1.65;
-    }
-    a{text-decoration:none;color:inherit;}
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
 
-    .page{
-      max-width:860px;
-      margin:0 auto;
-      padding:2.6rem 1.25rem 4rem;
+    body {
+      font-family: 'Inter', sans-serif;
+      background: radial-gradient(circle at top, #172620 0, #020504 55%, #010303 100%);
+      color: var(--text);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
     }
 
-    /* NAV */
-    .nav{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      margin-bottom:2.6rem;
-      padding-bottom:1rem;
-      border-bottom:1px solid rgba(255,255,255,.06);
-    }
-    .logo-wrap{display:flex;gap:.7rem;align-items:center;}
-    .logo-image{height:42px;}
-    .logo-main{
-      font-family:'Playfair Display',serif;
-      letter-spacing:.18em;
-      font-size:.85rem;
-      text-transform:uppercase;
-    }
-    .logo-sub{
-      font-size:.65rem;
-      letter-spacing:.14em;
-      text-transform:uppercase;
-      color:var(--muted);
-    }
-    .nav-links{
-      display:flex;
-      gap:1.6rem;
-      font-size:.75rem;
-      letter-spacing:.14em;
-      text-transform:uppercase;
-    }
-    .nav-links a:hover{color:var(--accent);}
+    a { color: inherit; text-decoration: none; transition: 0.3s ease; }
 
-    /* HEADINGS */
-    h1,h2{
-      font-family:'Playfair Display',serif;
-      color:var(--accent);
-      letter-spacing:.06em;
-      text-transform:uppercase;
-    }
-    h1{font-size:2.1rem;margin-bottom:.8rem;}
-    h2{font-size:1.3rem;margin-bottom:.6rem;}
+    .page { max-width: 900px; margin: 0 auto; padding: 0 1.5rem 5rem; }
 
-    /* COPY */
-    .copy{
-      font-size:.9rem;
-      color:var(--muted);
-      max-width:44rem;
+    /* ---------------- NAV ---------------- */
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.2rem 1.25rem;
+      margin: 0 -1.25rem 2.2rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(12px) saturate(160%);
+      background: rgba(4, 9, 8, 0.92);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     }
 
-    /* PANEL */
-    .panel{
-      background:var(--panel);
-      border:1px solid var(--border);
-      border-radius:18px;
-      padding:1.6rem;
-      margin-top:1.8rem;
+    .logo-wrap { display: flex; align-items: center; gap: .75rem; }
+    .logo-main { font-family: 'Playfair Display', serif; letter-spacing: .18em; text-transform: uppercase; font-size: .9rem; }
+    .logo-sub { font-size: .68rem; color: var(--muted); letter-spacing: .16em; text-transform: uppercase; }
+
+    /* ---------------- HERO ---------------- */
+    .hero {
+      position: relative;
+      min-height: 400px;
+      margin-bottom: 4rem;
+      border-radius: 4px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      padding: 3.5rem;
+      border: 1px solid rgba(255, 255, 255, .05);
     }
 
-    /* CTA */
-    .cta{
-      margin-top:2rem;
-      text-align:center;
-      font-size:.82rem;
-      color:var(--muted);
-    }
-    .cta a{color:var(--accent);font-weight:500;}
-    .cta-note{
-      margin-top:.6rem;
-      font-size:.72rem;
-      color:var(--muted);
+    .hero img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(.3) grayscale(0.2);
+      transform: scale(1.02);
+      transition: transform 20s linear;
     }
 
-    /* FADE-IN */
-    .fade-in{
-      opacity:0;
-      transform:translateY(18px);
-      transition:opacity .8s ease, transform .8s ease;
-    }
-    .fade-in.visible{
-      opacity:1;
-      transform:none;
+    .hero:hover img { transform: scale(1.1); }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(4, 9, 8, 0.98) 0%, rgba(4, 9, 8, 0.4) 80%, transparent 100%);
     }
 
-    /* FOOTER */
-    footer{
-      margin-top:3rem;
-      padding-top:2rem;
-      border-top:1px solid rgba(255,255,255,.06);
-      font-size:.72rem;
-      color:var(--muted);
+    .hero-inner { position: relative; z-index: 2; max-width: 540px; }
+
+    .eyebrow {
+      font-size: .7rem;
+      letter-spacing: .3em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+      font-weight: 600;
     }
 
-    @media(max-width:768px){
-      .nav{flex-direction:column;align-items:flex-start;gap:.6rem;}
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      margin-bottom: 1.5rem;
+      letter-spacing: .04em;
+      line-height: 1.1;
+    }
+
+    .hero-copy { color: var(--muted); font-size: 1.1rem; font-weight: 300; }
+
+    /* ---------------- REVEAL MOTION ---------------- */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      filter: blur(4px);
+      transition: opacity 1s ease, transform 1s ease, filter 1s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+      filter: blur(0);
+    }
+
+    /* ---------------- CONTENT SECTIONS ---------------- */
+    .section-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 5rem;
+    }
+
+    .content-block h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      margin-bottom: 1.2rem;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .content-block p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+    }
+
+    /* ---------------- ACCESS PANEL ---------------- */
+    .access-panel {
+      background: rgba(11, 25, 21, 0.4);
+      border: 1px solid var(--border);
+      padding: 4rem;
+      text-align: center;
+      border-radius: 4px;
+      position: relative;
+    }
+
+    .access-panel h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .access-panel p {
+      max-width: 600px;
+      margin: 0 auto 2.5rem;
+      color: var(--muted);
+    }
+
+    .cta-box {
+      border: 1px solid var(--accent);
+      padding: 2rem;
+      display: inline-block;
+      max-width: 450px;
+    }
+
+    .cta-title {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.25em;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+
+    .cta-text {
+      font-size: 0.85rem;
+      color: var(--text);
+    }
+
+    footer {
+      padding: 5rem 0 3rem;
+      font-size: .65rem;
+      color: var(--muted);
+      text-align: center;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      opacity: 0.7;
+    }
+
+    @media (max-width: 768px) {
+      .hero { padding: 2.5rem; min-height: 320px; }
+      .section-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .access-panel { padding: 2.5rem 1.5rem; }
     }
   </style>
-
-  <!-- ========================= -->
-  <!-- ANALYTICS HELPERS -->
-  <!-- ========================= -->
-  <script>
-    function trackRelationshipInquiry(){
-      if (typeof fbq !== 'undefined') fbq('trackCustom','RelationshipInsuranceInterest');
-      if (typeof gtag !== 'undefined') gtag('event','relationship_insurance_interest');
-    }
-  </script>
 </head>
 
 <body>
-
 <div class="page">
 
-<header class="nav fade-in">
-  <div class="logo-wrap">
-    <img src="assets/img/curator-logo-gold.png" class="logo-image" alt="Curator Atelier logo">
-    <div>
-      <div class="logo-main">CURATOR ATELIER</div>
-      <div class="logo-sub">Relationship Insurance</div>
+  <!-- NAV -->
+  <header class="nav">
+    <div class="logo-wrap">
+      <div>
+        <div class="logo-main">CURATOR ATELIER</div>
+        <div class="logo-sub">Relationship Insurance</div>
+      </div>
+    </div>
+    <div style="font-size: .7rem; letter-spacing: .2em; text-transform: uppercase; color: var(--muted);">
+      <a href="prestige_concierge.html" style="margin-right: 1.5rem">Concierge</a>
+      <a href="vanguard.html">Vanguard</a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero reveal">
+    <img src="https://images.unsplash.com/photo-1519222970733-f546218fa6d7?auto=format&fit=crop&q=80&w=1600" alt="Continuity and Time">
+    <div class="hero-inner">
+      <div class="eyebrow">Continuity Assurance</div>
+      <h1>Eliminating Mental Load</h1>
+      <p class="hero-copy">
+        A predictive framework designed to protect critical personal and professional relationships from the risks of oversight and rushed decisions.
+      </p>
+    </div>
+  </section>
+
+  <!-- CORE LOGIC -->
+  <div class="section-grid reveal">
+    <div class="content-block">
+      <h2>The Mandate</h2>
+      <p>Relationship Insurance is not a luxury service; it is a continuity protocol. It exists to ensure that your most vital connections—those where failure is not an option—are nurtured with consistent foresight and absolute discretion.</p>
+      <p>We manage the calendar, the context, and the execution, allowing you to inhabit the moment without the burden of the logistics.</p>
+    </div>
+    <div class="content-block">
+      <h2>Operational Scope</h2>
+      <p>From the seamless orchestration of multi-city milestones to the quiet acquisition of significant tokens, we operate as an invisible extension of your personal office.</p>
+      <p>One structure. Multiple dates. Zero scrambling. We provide the "insurance" that your reputation remains intact through consistent, high-fidelity personal engagement.</p>
     </div>
   </div>
-  <nav class="nav-links">
-    <a href="index.html">Home</a>
-    <a href="vanguard.html">The Vanguard</a>
-  </nav>
-</header>
 
-<section class="fade-in">
-  <h1>Relationship Insurance</h1>
-  <p class="copy">
-    Relationship Insurance exists to eliminate mental load around
-    critical relationship moments — before missed dates, forgotten gestures,
-    or rushed decisions become reputational or personal failures.
-  </p>
-</section>
+  <!-- ACCESS SECTION -->
+  <section class="reveal">
+    <div class="access-panel">
+      <h2>Access Protocol</h2>
+      <p>Relationship Insurance is a restricted invitation service. It is not available for public enrollment or independent initiation.</p>
+      
+      <div class="cta-box">
+        <span class="cta-title">Eligibility Status</span>
+        <p class="cta-text">Continuity is introduced exclusively following a successful primary engagement through <a href="corporate_shield.html" style="color: var(--accent); text-decoration: underline;">Corporate Shield</a> or <a href="prestige_concierge.html" style="color: var(--accent); text-decoration: underline;">Prestige Concierge</a>.</p>
+      </div>
 
-<section class="panel fade-in">
-  <h2>What It Is</h2>
-  <p class="copy">
-    Relationship Insurance is a continuity assurance framework.
-    It ensures that important personal and professional relationships
-    are maintained with foresight, discretion, and consistency.
-  </p>
-
-  <p class="copy" style="margin-top:.8rem">
-    This is not a public subscription.
-    It is an internal system extended selectively to aligned clients.
-  </p>
-
-  <p class="copy" style="margin-top:.8rem">
-    One structure. Multiple dates. Zero scrambling.
-  </p>
-</section>
-
-<section class="fade-in">
-  <h2>How Access Works</h2>
-  <p class="copy">
-    Relationship Insurance is not initiated independently.
-    It is discussed privately after a successful engagement
-    through Corporate Shield or Prestige Concierge.
-  </p>
-
-  <div class="cta">
-    If relevant, availability is introduced directly by our team.<br/>
-    There is no public enrollment.
-    <div class="cta-note">
-      Continuity is offered only when alignment and trust are established.
+      <div style="margin-top: 2.5rem; font-size: 0.7rem; letter-spacing: 0.15em; color: var(--muted); text-transform: uppercase;">
+        Trust is established first. Continuity follows.
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<footer class="fade-in">
-  © <span id="year"></span> Curator Atelier · Relationship Insurance
-</footer>
+  <footer>
+    &copy; 2026 Curator Atelier · Relationship Insurance · All Rights Reserved
+  </footer>
 
 </div>
 
 <script>
-  document.getElementById('year').textContent = new Date().getFullYear();
+  /* Reveal Logic */
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) e.target.classList.add('visible');
+    });
+  }, { threshold: 0.1 });
 
-  const observer = new IntersectionObserver(
-    entries => entries.forEach(e => e.isIntersecting && e.target.classList.add('visible')),
-    { threshold:0.12 }
-  );
-  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 </script>
 
 </body>
