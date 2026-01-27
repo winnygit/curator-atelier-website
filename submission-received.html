@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Submission Received · Curator Atelier</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Your request has been received and is under review by Curator Atelier." />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#040908;
+      --panel:#0b1915;
+      --accent:#c9a24b;
+      --text:#f6f1e5;
+      --muted:#a7b0aa;
+      --border:#22302a;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+
+    body{
+      font-family:'Inter',sans-serif;
+      background:radial-gradient(circle at top,#172620 0,#020504 55%,#010303 100%);
+      color:var(--text);
+      line-height:1.7;
+      -webkit-font-smoothing:antialiased;
+    }
+
+    .page{
+      max-width:860px;
+      margin:0 auto;
+      padding:5.5rem 1.5rem 6rem;
+    }
+
+    /* ---------------- HEADER ---------------- */
+
+    .eyebrow{
+      font-size:.7rem;
+      letter-spacing:.28em;
+      text-transform:uppercase;
+      color:var(--accent);
+      margin-bottom:.9rem;
+      opacity:.9;
+    }
+
+    h1{
+      font-family:'Playfair Display',serif;
+      font-size:clamp(2.2rem,4vw,2.6rem);
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      margin-bottom:1.3rem;
+    }
+
+    .lead{
+      color:var(--muted);
+      font-size:1rem;
+      max-width:46rem;
+      margin-bottom:1.2rem;
+    }
+
+    /* ---------------- STATUS CARD ---------------- */
+
+    .panel{
+      margin-top:2.8rem;
+      background:rgba(11,25,21,.55);
+      border:1px solid var(--border);
+      border-radius:8px;
+      padding:2.4rem;
+      backdrop-filter:blur(10px);
+    }
+
+    .check{
+      width:42px;
+      height:42px;
+      border-radius:50%;
+      border:1px solid var(--accent);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:1rem;
+      color:var(--accent);
+      margin-bottom:1.3rem;
+    }
+
+    .divider{
+      height:1px;
+      background:var(--border);
+      margin:1.8rem 0;
+    }
+
+    /* ---------------- CTA ---------------- */
+
+    .cta-wrap{
+      margin-top:.6rem;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:.9rem 1.9rem;
+      border-radius:4px;
+      font-size:.75rem;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      background:var(--accent);
+      color:#0b0906;
+      border:none;
+      cursor:pointer;
+      transition:transform .25s ease, opacity .25s ease;
+    }
+
+    .btn:hover{ transform:translateY(-2px); opacity:.9 }
+
+    .note{
+      font-size:.75rem;
+      color:var(--muted);
+      margin-top:1rem;
+      max-width:36rem;
+    }
+
+    /* ---------------- TIMELINE ---------------- */
+
+    .timeline{
+      display:grid;
+      gap:1.1rem;
+      margin-top:1.6rem;
+      color:var(--muted);
+      font-size:.9rem;
+    }
+
+    .timeline span{
+      color:var(--text);
+      font-weight:500;
+    }
+
+    footer{
+      margin-top:5rem;
+      font-size:.7rem;
+      color:var(--muted);
+      border-top:1px solid rgba(255,255,255,.05);
+      padding-top:1.8rem;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+    }
+
+    a{color:var(--accent);text-decoration:none}
+  </style>
+</head>
+
+<body>
+<div class="page">
+
+  <div class="eyebrow">Intake Confirmed</div>
+  <h1>Submission Received</h1>
+
+  <p class="lead">
+    Thank You, your request has entered review. Our team evaluates every engagement for strategic fit, timing, and execution feasibility before allocation.
+  </p>
+
+  <p class="lead">
+    If aligned, you’ll receive next steps directly by email within <strong>one business day</strong>.
+  </p>
+
+  <!-- STATUS PANEL -->
+  <div class="panel">
+
+    <div class="check">✓</div>
+
+    <div class="timeline">
+      <div><span>Step 1:</span> Scope & feasibility review</div>
+      <div><span>Step 2:</span> Capacity allocation</div>
+      <div><span>Step 3:</span> Confirmation & execution brief</div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="eyebrow">Time‑Sensitive?</div>
+    <p class="lead" style="font-size:.95rem; margin-bottom:.8rem">
+      If your request requires immediate clarification or accelerated timing, you may reserve a brief consultation.
+    </p>
+
+    <div class="cta-wrap">
+      <a class="btn"
+         href="https://calendly.com/hello-curatoratelier/30min"
+         target="_blank">
+        Reserve Consultation
+      </a>
+    </div>
+
+    <p class="note">
+      Scheduling does not guarantee acceptance. Engagements are confirmed only after internal review and capacity approval.
+    </p>
+
+  </div>
+
+  <footer>
+    Curator Atelier · Controlled Execution Platform<br/><br/>
+    <a href="index.html">Return to Home</a>
+  </footer>
+
+</div>
+</body>
+</html>
