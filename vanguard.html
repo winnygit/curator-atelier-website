@@ -275,6 +275,51 @@
       .lane, .lane.reverse { grid-template-columns: 1fr; gap: 2rem; }
       .lane-image img { height: 350px; }
       .nav-links { display: none; }
+      
+      /* Ensure the logo link is clickable and styled */
+.logo-link { text-decoration: none; color: inherit; display: flex; align-items: center; }
+
+/* The Menu Button Styling */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 25px;
+  height: 1px;
+  background-color: var(--text);
+  transition: 0.3s;
+}
+
+@media (max-width: 900px) {
+  .menu-toggle { display: flex; } /* Show button on mobile */
+
+  .nav-links {
+    display: none; /* Hide standard links */
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: var(--panel);
+    padding: 2rem;
+    gap: 1.5rem;
+    border-bottom: 1px solid var(--border);
+    text-align: center;
+  }
+
+  /* When the menu is open */
+  .nav-links.active {
+    display: flex;
+  }
+}
     }
   </style>
 </head>
@@ -282,7 +327,8 @@
 <body>
 <div class="page">
 
-  <header class="nav">
+<header class="nav">
+  <a href="index.html" class="logo-link">
     <div class="logo-wrap">
       <img src="assets/img/curator-logo-gold.png" alt="Curator Atelier" class="logo-image" onerror="this.style.opacity='0'">
       <div>
@@ -290,12 +336,21 @@
         <div class="logo-sub">The Vanguard</div>
       </div>
     </div>
-    <nav class="nav-links">
-      <a href="#philosophy">Philosophy</a>
-      <a href="#lanes">Lanes</a>
-      <a href="#access">Access</a>
-    </nav>
-  </header>
+  </a>
+
+  <button class="menu-toggle" id="menuToggle" aria-label="Open Menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <nav class="nav-links" id="navLinks">
+    <a href="#philosophy">Philosophy</a>
+    <a href="#lanes">Lanes</a>
+    <a href="#access">Access</a>
+  </nav>
+</header>
+  
 
   <section class="hero reveal">
     <div class="hero-bg">
