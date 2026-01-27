@@ -4,276 +4,332 @@
   <meta charset="UTF-8" />
   <title>Corporate Shield · Curator Atelier</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Corporate Shield is Curator Atelier’s controlled gifting and recognition system for organizations where optics, timing, and consistency matter." />
+  <meta name="description" content="Corporate Shield provides structured, compliant execution for executive retention, partner recognition, and high-visibility corporate engagements." />
 
-  <!-- ========================= -->
-  <!-- OPEN GRAPH -->
-  <!-- ========================= -->
-  <meta property="og:title" content="Corporate Shield · Curator Atelier" />
-  <meta property="og:description" content="A structured gifting and recognition system for organizations that cannot afford to miss." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://www.curatoratelier.com/corporate-shield.html" />
-  <meta property="og:image" content="https://www.curatoratelier.com/assets/img/og-corporate-shield.jpg" />
-  <!-- TODO: Replace og image -->
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-  <!-- ========================= -->
-  <!-- FONTS -->
-  <!-- ========================= -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-
-  <!-- ========================= -->
-  <!-- FULL CSS -->
-  <!-- ========================= -->
   <style>
-    :root{
-      --bg:#040908;
-      --panel:#0b1915;
-      --accent:#c9a24b;
-      --accent-soft:rgba(201,162,75,.14);
-      --text:#f6f1e5;
-      --muted:#a7b0aa;
-      --border:#22302a;
+    :root {
+      --bg: #040908;
+      --panel: #0b1915;
+      --accent: #c9a24b;
+      --text: #f6f1e5;
+      --muted: #a7b0aa;
+      --border: #22302a;
     }
 
-    *{box-sizing:border-box;margin:0;padding:0;}
-    html{scroll-behavior:smooth;}
-    body{
-      font-family:'Inter',sans-serif;
-      background:radial-gradient(circle at top,#172620 0,#020504 55%,#010303 100%);
-      color:var(--text);
-      line-height:1.65;
-    }
-    a{text-decoration:none;color:inherit;}
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
 
-    .page{
-      max-width:980px;
-      margin:0 auto;
-      padding:2.6rem 1.25rem 4rem;
+    body {
+      font-family: 'Inter', sans-serif;
+      background: radial-gradient(circle at top, #172620 0, #020504 55%, #010303 100%);
+      color: var(--text);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
     }
 
-    /* NAV */
-    .nav{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      margin-bottom:2.6rem;
-      padding-bottom:1rem;
-      border-bottom:1px solid rgba(255,255,255,.06);
-    }
-    .logo-wrap{display:flex;gap:.7rem;align-items:center;}
-    .logo-image{height:42px;}
-    .logo-main{
-      font-family:'Playfair Display',serif;
-      letter-spacing:.18em;
-      font-size:.85rem;
-      text-transform:uppercase;
-    }
-    .logo-sub{
-      font-size:.65rem;
-      letter-spacing:.14em;
-      text-transform:uppercase;
-      color:var(--muted);
-    }
-    .nav-links{
-      display:flex;
-      gap:1.6rem;
-      font-size:.75rem;
-      letter-spacing:.14em;
-      text-transform:uppercase;
-    }
-    .nav-links a:hover{color:var(--accent);}
+    a { color: inherit; text-decoration: none; transition: 0.3s ease; }
+    img { max-width: 100%; display: block; }
 
-    /* HEADINGS */
-    h1,h2{
-      font-family:'Playfair Display',serif;
-      color:var(--accent);
-      letter-spacing:.06em;
-      text-transform:uppercase;
-    }
-    h1{font-size:2.2rem;margin-bottom:.8rem;}
-    h2{font-size:1.35rem;margin-bottom:.6rem;}
+    .page { max-width: 1180px; margin: 0 auto; padding: 0 1.5rem 4rem; }
 
-    /* INTRO */
-    .intro{
-      font-size:.95rem;
-      color:var(--muted);
-      max-width:46rem;
-      margin-bottom:2.4rem;
+    /* ---------------- NAV (Synced with Vanguard) ---------------- */
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.2rem 1.25rem;
+      margin: 0 -1.25rem 2.2rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(12px) saturate(160%);
+      background: rgba(4, 9, 8, 0.92);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     }
 
-    /* PANEL */
-    .panel{
-      background:var(--panel);
-      border:1px solid var(--border);
-      border-radius:22px;
-      padding:1.6rem;
-      margin-bottom:2.4rem;
+    .logo-wrap { display: flex; align-items: center; gap: .75rem; }
+    .logo-image { height: 42px; }
+    .logo-main { font-family: 'Playfair Display', serif; letter-spacing: .18em; text-transform: uppercase; font-size: .9rem; }
+    .logo-sub { font-size: .68rem; color: var(--muted); letter-spacing: .16em; text-transform: uppercase; }
+    .nav-links { display: flex; gap: 2rem; font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; }
+    .nav-links a:hover { color: var(--accent); }
+
+    /* ---------------- HERO ---------------- */
+    .hero {
+      position: relative;
+      min-height: 460px;
+      margin-bottom: 6rem;
+      border-radius: 4px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      padding: 4rem;
+      border: 1px solid rgba(255, 255, 255, .05);
     }
 
-    /* SYSTEM GRID */
-    .grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-      gap:1.2rem;
-      margin-top:1.2rem;
-    }
-    .card{
-      border:1px solid var(--border);
-      border-radius:18px;
-      padding:1.3rem 1.4rem;
-      background:rgba(0,0,0,.25);
-    }
-    .card h3{
-      font-family:'Playfair Display',serif;
-      font-size:.95rem;
-      margin-bottom:.35rem;
-    }
-    .card p{
-      font-size:.82rem;
-      color:var(--muted);
+    .hero img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(.4) contrast(1.1);
+      transform: scale(1.02);
+      transition: transform 10s ease;
     }
 
-    /* CTA */
-    .cta{
-      margin-top:1.6rem;
-      text-align:center;
-      font-size:.82rem;
-      color:var(--muted);
-    }
-    .cta a{color:var(--accent);font-weight:500;}
+    .hero:hover img { transform: scale(1.06); }
 
-    .cta-note{
-      margin-top:.6rem;
-      font-size:.72rem;
-      color:var(--muted);
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(4, 9, 8, 0.98) 0%, rgba(4, 9, 8, 0.7) 60%, transparent 100%);
     }
 
-    /* FADE-IN */
-    .fade-in{
-      opacity:0;
-      transform:translateY(18px);
-      transition:opacity .8s ease, transform .8s ease;
-    }
-    .fade-in.visible{
-      opacity:1;
-      transform:none;
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 600px;
     }
 
-    /* FOOTER */
-    footer{
-      margin-top:3rem;
-      padding-top:2rem;
-      border-top:1px solid rgba(255,255,255,.06);
-      font-size:.72rem;
-      color:var(--muted);
+    /* ---------------- reveal motion ---------------- */
+    .reveal {
+      opacity: 0;
+      transform: translateY(26px);
+      filter: blur(6px);
+      transition: opacity 1.2s ease, transform 1.2s ease, filter 1.2s ease;
     }
 
-    @media(max-width:768px){
-      .nav{flex-direction:column;align-items:flex-start;gap:.6rem;}
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+      filter: blur(0);
+    }
+
+    /* ---------------- typography ---------------- */
+    .eyebrow {
+      font-size: .7rem;
+      letter-spacing: .3em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+
+    .title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      margin-bottom: 1.5rem;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      line-height: 1.1;
+    }
+
+    .copy {
+      color: var(--muted);
+      max-width: 44rem;
+      font-size: 1.05rem;
+      font-weight: 300;
+    }
+
+    /* ---------------- panels ---------------- */
+    .panel {
+      background: rgba(11, 25, 21, 0.4);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 3rem;
+      backdrop-filter: blur(10px);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .cell {
+      border: 1px solid var(--border);
+      padding: 2rem;
+      border-radius: 4px;
+      color: var(--muted);
+      transition: all .4s ease;
+      font-size: 0.95rem;
+    }
+
+    .cell:hover {
+      background: rgba(255, 255, 255, .03);
+      border-color: var(--accent);
+      color: var(--text);
+    }
+
+    /* ---------------- metrics ---------------- */
+    .metric {
+      text-align: center;
+      border: 1px solid var(--border);
+      padding: 2.5rem 1rem;
+      border-radius: 4px;
+      background: rgba(4, 9, 8, 0.3);
+    }
+
+    .metric strong {
+      display: block;
+      font-family: 'Playfair Display', serif;
+      font-size: 2.4rem;
+      color: var(--accent);
+      margin-bottom: .5rem;
+      letter-spacing: 0.05em;
+    }
+
+    .metric span {
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* ---------------- luxury micro CTA ---------------- */
+    .micro-cta {
+      display: inline-block;
+      margin-top: 3rem;
+      font-size: .72rem;
+      letter-spacing: .28em;
+      text-transform: uppercase;
+      color: var(--muted);
+      opacity: .55;
+      border-bottom: 1px solid rgba(255, 255, 255, .15);
+      padding-bottom: .4rem;
+      cursor: pointer;
+    }
+
+    .micro-cta:hover {
+      opacity: 1;
+      color: var(--accent);
+      border-color: var(--accent);
+    }
+
+    footer {
+      border-top: 1px solid rgba(255, 255, 255, .05);
+      padding: 4rem 0;
+      font-size: .7rem;
+      color: var(--muted);
+      text-align: center;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 900px) {
+      .hero { padding: 2.5rem; min-height: 380px; }
+      .nav-links { display: none; }
+      .panel { padding: 2rem 1.5rem; }
     }
   </style>
-
-  <!-- ========================= -->
-  <!-- ANALYTICS HELPERS -->
-  <!-- ========================= -->
-  <script>
-    function trackCorporateInquiry(){
-      if (typeof fbq !== 'undefined') fbq('trackCustom','CorporateShieldInquiry');
-      if (typeof gtag !== 'undefined') gtag('event','corporate_shield_inquiry');
-    }
-    function trackCalendly(){
-      if (typeof fbq !== 'undefined') fbq('track','Schedule');
-      if (typeof gtag !== 'undefined') gtag('event','schedule_consult');
-    }
-  </script>
 </head>
 
 <body>
-
 <div class="page">
 
-<header class="nav fade-in">
-  <div class="logo-wrap">
-    <img src="assets/img/curator-logo-gold.png" class="logo-image" alt="Curator Atelier logo">
-    <div>
-      <div class="logo-main">CURATOR ATELIER</div>
-      <div class="logo-sub">Corporate Shield</div>
+  <!-- NAV -->
+  <header class="nav">
+    <div class="logo-wrap">
+      <img src="assets/img/curator-logo-gold.png" alt="Curator Atelier" class="logo-image" onerror="this.style.opacity='0'">
+      <div>
+        <div class="logo-main">CURATOR ATELIER</div>
+        <div class="logo-sub">Corporate Shield</div>
+      </div>
     </div>
-  </div>
-  <nav class="nav-links">
-    <a href="index.html">Home</a>
-    <a href="vanguard.html">The Vanguard</a>
-  </nav>
-</header>
+    <nav class="nav-links">
+      <a href="vanguard.html">Vanguard Doctrine</a>
+      <a href="#principles">Principles</a>
+      <a href="#contact">Access</a>
+    </nav>
+  </header>
 
-<section class="fade-in">
-  <h1>Corporate Shield</h1>
-  <p class="intro">
-    Corporate Shield is Curator Atelier’s structured gifting and recognition system
-    for organizations where missed moments, inconsistency, or poor optics
-    are not acceptable outcomes.
-  </p>
-</section>
-
-<section class="panel fade-in">
-  <h2>Why Corporate Shield Exists</h2>
-  <p class="intro">
-    Internal recognition and external gifting fail not because of intent,
-    but because they are handled reactively.
-    Corporate Shield replaces improvisation with a controlled, repeatable system.
-  </p>
-
-  <div class="grid">
-    <div class="card">
-      <h3>Retention Optics</h3>
-      <p>Ensure key moments reflect leadership competence, not last-minute scrambling.</p>
+  <!-- HERO -->
+  <section class="hero reveal">
+    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1600" alt="Corporate architecture" />
+    <div class="hero-inner">
+      <div class="eyebrow">Institutional Lane</div>
+      <h1 class="title">Corporate<br>Shield</h1>
+      <p class="copy">
+        A controlled execution lane for organizations where optics, compliance, and timing are non‑negotiable. We remove variability and deliver outcomes with absolute discipline.
+      </p>
     </div>
-    <div class="card">
-      <h3>Standardization</h3>
-      <p>Consistent quality across offices, teams, and recipients.</p>
+  </section>
+
+  <!-- DESIGNED FOR -->
+  <section class="reveal">
+    <div class="eyebrow">Engagement Scope</div>
+    <h2 class="title" style="font-size: 2rem;">Designed For</h2>
+    <div class="grid">
+      <div class="cell">Executive retention & recognition programs</div>
+      <div class="cell">Board, investor, and partner milestones</div>
+      <div class="cell">Scaled corporate gifting initiatives</div>
+      <div class="cell">Time‑sensitive or reputation‑sensitive moments</div>
     </div>
-    <div class="card">
-      <h3>Reduced Load</h3>
-      <p>Zero mental overhead for HR, Admin, or Ops teams.</p>
+  </section>
+
+  <!-- PRINCIPLES -->
+  <section id="principles" class="panel reveal">
+    <div class="eyebrow">Operational Principles</div>
+    <h2 class="title" style="font-size: 1.8rem;">Compliance & Control</h2>
+    <div class="grid">
+      <div class="cell">Procurement‑safe sourcing and vendor vetting</div>
+      <div class="cell">Strict budget controls & approval thresholds</div>
+      <div class="cell">Centralized logistics with real-time tracking</div>
+      <div class="cell">Documented execution protocols for audit safety</div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="fade-in">
-  <h2>How Engagements Begin</h2>
-  <p class="intro">
-    Corporate Shield engagements begin with a short alignment conversation.
-    Scope, volume, and timing are confirmed before any allocation is made.
-  </p>
+  <!-- CASE SNAPSHOT -->
+  <section class="reveal" style="text-align:center; margin-top: 8rem;">
+    <div class="eyebrow">Case Snapshot</div>
+    <h2 class="title" style="font-size: 1.8rem;">Global Workforce Recognition</h2>
+    <p class="copy" style="margin: 0 auto 3rem;">
+      A multi‑location corporate appreciation initiative executed under fixed timelines and procurement controls. 
+    </p>
 
-  <div class="cta">
-    To initiate, email
-    <a href="mailto:hello@curatoratelier.com" onclick="trackCorporateInquiry()">hello@curatoratelier.com</a>
-    or schedule a brief call
-    <a href="https://calendly.com/hello-curatoratelier/30min"
-       target="_blank"
-       onclick="trackCalendly()">here</a>.
-    <div class="cta-note">
-      Inquiries are reviewed within one business day. Approved engagements proceed to private scoping.
+    <div class="grid" style="max-width: 900px; margin: 0 auto;">
+      <div class="metric"><strong>1,240</strong><span>Stakeholders</span></div>
+      <div class="metric"><strong>9</strong><span>Global Regions</span></div>
+      <div class="metric"><strong>72h</strong><span>Deployment</span></div>
+      <div class="metric"><strong>0</strong><span>Incidents</span></div>
     </div>
-  </div>
-</section>
+  </section>
 
-<footer class="fade-in">
-  © <span id="year"></span> Curator Atelier · Corporate Shield
-</footer>
+  <!-- ACCESS -->
+  <section id="contact" class="panel reveal" style="text-align:center; margin-top: 8rem;">
+    <div class="eyebrow">Access Protocol</div>
+    <p class="copy" style="margin: 0 auto;">
+      Corporate Shield engagements are reviewed for strategic alignment. Approved organizations receive reserved execution bandwidth and priority logistics handling.
+    </p>
 
+    <a href="mailto:hello@curatoratelier.com?subject=Corporate%20Shield%20Inquiry" class="micro-cta">
+      Inquiry by Invitation
+    </a>
+  </section>
+
+  <footer>
+    &copy; <span id="year"></span> Curator Atelier · Corporate Shield · Controlled Execution
+  </footer>
 </div>
 
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
 
-  const observer = new IntersectionObserver(
-    entries => entries.forEach(e => e.isIntersecting && e.target.classList.add('visible')),
-    { threshold:0.12 }
-  );
-  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-</script>
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) e.target.classList.add('visible');
+    });
+  }, { threshold: 0.1 });
 
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
 </body>
 </html>
