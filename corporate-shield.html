@@ -37,7 +37,7 @@
 
     .page { max-width: 1180px; margin: 0 auto; padding: 0 1.5rem 4rem; }
 
-    /* ---------------- NAV (Synced with Vanguard) ---------------- */
+    /* ---------------- NAV ---------------- */
     .nav {
       display: flex;
       align-items: center;
@@ -124,7 +124,7 @@
 
     .title {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      font-size: clamp(2.2rem, 5vw, 3.4rem);
       margin-bottom: 1.5rem;
       letter-spacing: .06em;
       text-transform: uppercase;
@@ -164,7 +164,7 @@
     }
 
     .cell:hover {
-      background: rgba(255, 255, 255, .03);
+      background: rgba(255, 255, 255, 0.03);
       border-color: var(--accent);
       color: var(--text);
     }
@@ -176,12 +176,14 @@
       padding: 2.5rem 1rem;
       border-radius: 4px;
       background: rgba(4, 9, 8, 0.3);
+      transition: transform 0.6s ease;
     }
+    .metric:hover { transform: translateY(-3px); }
 
     .metric strong {
       display: block;
       font-family: 'Playfair Display', serif;
-      font-size: 2.4rem;
+      font-size: 2.2rem;
       color: var(--accent);
       margin-bottom: .5rem;
       letter-spacing: 0.05em;
@@ -194,7 +196,18 @@
       color: var(--muted);
     }
 
-    /* ---------------- luxury micro CTA ---------------- */
+    /* ---------------- snapshots ---------------- */
+    .snapshot { display: none; opacity: 0; transition: opacity .8s ease; }
+    .snapshot.active { display: block; opacity: 1; }
+
+    .dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: rgba(255, 255, 255, .25); cursor: pointer;
+      transition: background .3s ease, transform .3s ease;
+    }
+    .dot.active { background: var(--accent); transform: scale(1.2); }
+
+    /* ---------------- micro CTA ---------------- */
     .micro-cta {
       display: inline-block;
       margin-top: 3rem;
@@ -207,12 +220,7 @@
       padding-bottom: .4rem;
       cursor: pointer;
     }
-
-    .micro-cta:hover {
-      opacity: 1;
-      color: var(--accent);
-      border-color: var(--accent);
-    }
+    .micro-cta:hover { opacity: 1; color: var(--accent); border-color: var(--accent); }
 
     footer {
       border-top: 1px solid rgba(255, 255, 255, .05);
@@ -245,9 +253,10 @@
       </div>
     </div>
     <nav class="nav-links">
-      <a href="vanguard.html">Vanguard Doctrine</a>
+      <a href="Index.html">Home</a>
+      <a href="vanguard.html">Vanguard</a>
       <a href="#principles">Principles</a>
-      <a href="#contact">Access</a>
+      <a href="#engagements">Reserve</a>
     </nav>
   </header>
 
@@ -258,7 +267,7 @@
       <div class="eyebrow">Institutional Lane</div>
       <h1 class="title">Corporate<br>Shield</h1>
       <p class="copy">
-        A controlled execution lane for organizations where optics, compliance, and timing are non‑negotiable. We remove variability and deliver outcomes with absolute discipline.
+        A controlled execution lane for organizations where optics, compliance, and timing are non‑negotiable. We remove variability and deliver outcomes with institutional discipline.
       </p>
     </div>
   </section>
@@ -266,7 +275,7 @@
   <!-- DESIGNED FOR -->
   <section class="reveal">
     <div class="eyebrow">Engagement Scope</div>
-    <h2 class="title" style="font-size: 2rem;">Designed For</h2>
+    <h2 class="title" style="font-size: 2rem;">Strategic Mandates</h2>
     <div class="grid">
       <div class="cell">Executive retention & recognition programs</div>
       <div class="cell">Board, investor, and partner milestones</div>
@@ -278,28 +287,58 @@
   <!-- PRINCIPLES -->
   <section id="principles" class="panel reveal">
     <div class="eyebrow">Operational Principles</div>
-    <h2 class="title" style="font-size: 1.8rem;">Compliance & Control</h2>
+    <h2 class="title" style="font-size: 1.8rem;">Compliance & Volatility Control</h2>
     <div class="grid">
       <div class="cell">Procurement‑safe sourcing and vendor vetting</div>
       <div class="cell">Strict budget controls & approval thresholds</div>
       <div class="cell">Centralized logistics with real-time tracking</div>
-      <div class="cell">Documented execution protocols for audit safety</div>
+      <div class="cell">Mandatory 50% contingency buffer for high-volatility regions (including Nigeria contracts)</div>
     </div>
   </section>
 
-  <!-- CASE SNAPSHOT -->
-  <section class="reveal" style="text-align:center; margin-top: 8rem;">
-    <div class="eyebrow">Case Snapshot</div>
-    <h2 class="title" style="font-size: 1.8rem;">Global Workforce Recognition</h2>
-    <p class="copy" style="margin: 0 auto 3rem;">
-      A multi‑location corporate appreciation initiative executed under fixed timelines and procurement controls. 
-    </p>
+  <!-- ROTATING CASE SNAPSHOTS -->
+  <section id="engagements" class="panel reveal" style="text-align:center; margin-top: 8rem;">
+    <div class="eyebrow">Selected Engagements</div>
+    <div class="snapshot-wrap" style="position:relative; max-width:920px; margin:0 auto">
 
-    <div class="grid" style="max-width: 900px; margin: 0 auto;">
-      <div class="metric"><strong>1,240</strong><span>Stakeholders</span></div>
-      <div class="metric"><strong>9</strong><span>Global Regions</span></div>
-      <div class="metric"><strong>72h</strong><span>Deployment</span></div>
-      <div class="metric"><strong>0</strong><span>Incidents</span></div>
+      <!-- slide 1 -->
+      <div class="snapshot active">
+        <h2 class="title" style="font-size:1.6rem; margin-bottom:1rem">Seasonal Workforce Recognition</h2>
+        <p class="copy" style="margin:0 auto 2.2rem">Multi‑location appreciation initiative executed under fixed timelines and procurement controls.</p>
+        <div class="grid">
+          <div class="metric"><strong>850</strong><span>Employees</span></div>
+          <div class="metric"><strong>5</strong><span>Locations</span></div>
+          <div class="metric"><strong>72h</strong><span>Deployment</span></div>
+          <div class="metric"><strong>0</strong><span>Incidents</span></div>
+        </div>
+      </div>
+
+      <!-- slide 2 -->
+      <div class="snapshot">
+        <h2 class="title" style="font-size:1.6rem; margin-bottom:1rem">New‑Hire Onboarding Kits</h2>
+        <p class="copy" style="margin:0 auto 2.2rem">Standardized onboarding distribution across quarterly hiring waves with centralized tracking.</p>
+        <div class="grid">
+          <div class="metric"><strong>6,500+</strong><span>Kits Deployed</span></div>
+          <div class="metric"><strong>14</strong><span>Regions</span></div>
+          <div class="metric"><strong>72h</strong><span>Turnaround</span></div>
+          <div class="metric"><strong>100%</strong><span>Confirmation</span></div>
+        </div>
+      </div>
+
+      <!-- slide 3 -->
+      <div class="snapshot">
+        <h2 class="title" style="font-size:1.6rem; margin-bottom:1rem">Executive Retreat Protocol</h2>
+        <p class="copy" style="margin:0 auto 2.2rem">White‑glove coordination for leadership offsites with discrete, end‑to‑end oversight.</p>
+        <div class="grid">
+          <div class="metric"><strong>115</strong><span>Executives</span></div>
+          <div class="metric"><strong>3</strong><span>Countries</span></div>
+          <div class="metric"><strong>6★</strong><span>Partners</span></div>
+          <div class="metric"><strong>0</strong><span>Escalations</span></div>
+        </div>
+      </div>
+
+      <!-- indicators -->
+      <div class="snapshot-dots" style="display:flex; gap:.6rem; justify-content:center; margin-top:2.2rem"></div>
     </div>
   </section>
 
@@ -330,6 +369,32 @@
   }, { threshold: 0.1 });
 
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  /* Rotating snapshots logic */
+  const snaps = document.querySelectorAll('.snapshot');
+  const dotWrap = document.querySelector('.snapshot-dots');
+  let idx = 0;
+
+  snaps.forEach((_, i) => {
+    const d = document.createElement('div');
+    d.className = 'dot' + (i === 0 ? ' active' : '');
+    d.onclick = () => showSnap(i);
+    dotWrap.appendChild(d);
+  });
+
+  const dots = document.querySelectorAll('.dot');
+
+  function showSnap(i) {
+    snaps[idx].classList.remove('active');
+    dots[idx].classList.remove('active');
+    idx = i;
+    snaps[idx].classList.add('active');
+    dots[idx].classList.add('active');
+  }
+
+  setInterval(() => {
+    showSnap((idx + 1) % snaps.length);
+  }, 6000);
 </script>
 </body>
 </html>
