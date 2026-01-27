@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <title>Curator Atelier · Controlled Execution Platform</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Curator Atelier is a private execution platform delivering flawless outcomes for corporate, private, and institutional engagements." />
 
   <!-- Fonts -->
@@ -47,6 +47,9 @@
       line-height: 1.6;
     }
 
+    /* Global Link Reset */
+    a { color: inherit; text-decoration: none; transition: color 0.3s ease; }
+
     .page { max-width: 1180px; margin: 0 auto; padding: 0 1.25rem 4rem; }
 
     /* NAV - Dark Glass Theme */
@@ -75,11 +78,14 @@
     .logo-image { height: 42px; }
     .logo-main { font-family: 'Playfair Display', serif; letter-spacing: .18em; text-transform: uppercase; font-size: .9rem; }
     .logo-sub { font-size: .68rem; color: var(--muted); letter-spacing: .16em; text-transform: uppercase; }
+    
     .nav-links { display: flex; gap: 2rem; font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; }
-    .nav-links a:hover { color: var(--accent); }
+    /* Fix for the blue link issue */
+    .nav-links a { color: var(--text); opacity: 0.85; } 
+    .nav-links a:hover { color: var(--accent); opacity: 1; }
 
     /* Buttons */
-.btn {
+    .btn {
       display: inline-flex; align-items: center; justify-content: center;
       border-radius: 4px; padding: .7rem 1.6rem;
       font-size: .76rem; letter-spacing: .12em;
@@ -91,12 +97,8 @@
     .btn-primary { background: linear-gradient(135deg, #c9a24b, #f4e0a4); color: #151109; font-weight: 600; }
     .btn-outline { border: 1px solid var(--border); background: transparent; color: var(--text); }
     .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
-    .lift:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.3);
- }
-.btn:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 3px;
-}
+    .lift:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.3); }
+    .btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 
     /* Hero */
     .hero { display: grid; grid-template-columns: 1.2fr 1fr; gap: 2.5rem; margin-bottom: 3.5rem; align-items: center; }
@@ -131,38 +133,38 @@
       background: rgba(255,255,255,0.03);
     }
 
- /* PROCESS STRIP */
-        .process-container {
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 3rem 2rem 4rem;
-            background: rgba(5, 10, 9, 0.4);
-            text-align: center;
-            margin-bottom: 5rem;
-        }
-        .process-header h2 { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--accent); margin-bottom: 0.75rem; }
-        .process-header p { font-size: 0.95rem; color: var(--muted); margin-bottom: 3.5rem; }
-        .process-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
-        .process-item { display: flex; flex-direction: column; align-items: center; }
-        .process-icon { font-size: 1.6rem; margin-bottom: 1.25rem; display: flex; align-items: center; justify-content: center; width: 50px; height: 50px; background: rgba(255,255,255,0.03); border-radius: 50%; }
-        .process-item h3 { font-weight: 600; font-size: 1.1rem; margin-bottom: 1rem; color: #fff; }
-        .process-item p { font-size: 0.88rem; color: var(--muted); line-height: 1.7; max-width: 320px; }
+    /* PROCESS STRIP */
+    .process-container {
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 3rem 2rem 4rem;
+        background: rgba(5, 10, 9, 0.4);
+        text-align: center;
+        margin-bottom: 5rem;
+    }
+    .process-header h2 { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--accent); margin-bottom: 0.75rem; }
+    .process-header p { font-size: 0.95rem; color: var(--muted); margin-bottom: 3.5rem; }
+    .process-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+    .process-item { display: flex; flex-direction: column; align-items: center; }
+    .process-icon { font-size: 1.6rem; margin-bottom: 1.25rem; display: flex; align-items: center; justify-content: center; width: 50px; height: 50px; background: rgba(255,255,255,0.03); border-radius: 50%; }
+    .process-item h3 { font-weight: 600; font-size: 1.1rem; margin-bottom: 1rem; color: #fff; }
+    .process-item p { font-size: 0.88rem; color: var(--muted); line-height: 1.7; max-width: 320px; }
 
-        /* DIRECTION BANNER */
-        .need-direction-banner {
-            background: rgba(11, 25, 21, 0.6);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 1.25rem 2rem;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            font-size: 0.95rem;
-            margin-bottom: 5rem;
-        }
-        .need-direction-banner strong { font-weight: 600; color: #fff; }
-        .need-direction-banner span { color: var(--muted); }
-        .need-direction-banner a { color: var(--accent); text-decoration: underline; }
+    /* DIRECTION BANNER */
+    .need-direction-banner {
+        background: rgba(11, 25, 21, 0.6);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 1.25rem 2rem;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        font-size: 0.95rem;
+        margin-bottom: 5rem;
+    }
+    .need-direction-banner strong { font-weight: 600; color: #fff; }
+    .need-direction-banner span { color: var(--muted); }
+    .need-direction-banner a { color: var(--accent); text-decoration: underline; }
 
     /* Cards & Form */
     .contact-wrap { border-radius: 4px; background: var(--panel); border: 1px solid var(--border); padding: 2.5rem; }
@@ -187,25 +189,15 @@
     /* Animations */
     .fade-in { opacity: 0; transform: translateY(20px); transition: all .8s cubic-bezier(0.4, 0, 0.2, 1); }
     .fade-in.visible { opacity: 1; transform: translateY(0); }
-    .delay-1 { transition-delay: .1s; }
-    .delay-2 { transition-delay: .2s; }
-    .delay-3 { transition-delay: .3s; }
+    .stagger { opacity: 0; transform: translateY(12px); transition: opacity .6s ease, transform .6s ease; }
+    .stagger.visible { opacity: 1; transform: translateY(0); }
 
     @media(max-width:768px){
-.process-grid {
       .hero { grid-template-columns: 1fr; }
       .nav { padding: 1rem; }
-      .nav-links { display: none; } /* Mobile nav could be added here */
+      .nav-links { display: none; }
+      .process-grid { grid-template-columns: 1fr; gap: 3rem; }
     }
-.stagger {
-  opacity: 0;
-  transform: translateY(12px);
-  transition: opacity .6s ease, transform .6s ease;
-}
-.stagger.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
   </style>
 </head>
 <body>
@@ -254,17 +246,17 @@
     </aside>
   </section>
 
-<!-- POSITIONING -->
-    <section class="fade-in">
-        <div class="section-eyebrow">The Mandate</div>
-        <h2 class="section-title" style="max-width:35rem;">We are not a gift company. We are an execution desk.</h2>
-        <p class="section-intro" style="max-width:44rem;">
-            Curator Atelier is trusted by executives and institutions to manage high‑stakes moments where reputation and timing cannot fail. From boardroom retention to discreet milestones, we remove uncertainty and assume full responsibility for the outcome.
-        </p>
-    </section>
+  <!-- POSITIONING -->
+  <section class="fade-in">
+      <div class="section-eyebrow">The Mandate</div>
+      <h2 class="section-title" style="max-width:35rem;">We are not a gift company. We are an execution desk.</h2>
+      <p class="section-intro" style="max-width:44rem;">
+          Curator Atelier is trusted by executives and institutions to manage high‑stakes moments where reputation and timing cannot fail. From boardroom retention to discreet milestones, we remove uncertainty and assume full responsibility for the outcome.
+      </p>
+  </section>
 
   <!-- METRICS -->
-  <div class="metrics-row fade-in delay-1" data-metrics>
+  <div class="metrics-row fade-in" data-metrics>
     <div class="metric-card">
       <div class="metric-value" data-count="deliveries">1200</div>
       <div class="section-eyebrow" style="margin:0; font-size:0.6rem;">Deliveries Executed</div>
@@ -296,7 +288,7 @@
   </section>
 
   <!-- CURRENT FOCUS -->
-  <section id="current-focus" class="fade-in delay-2">
+  <section id="current-focus" class="fade-in">
     <div class="contact-wrap" style="border-left: 3px solid var(--accent); background: rgba(201,162,75,0.03);">
       <div class="section-eyebrow">Status: Active</div>
       <h2 class="section-title">Valentine’s 2026 Allocations</h2>
@@ -311,41 +303,40 @@
     </div>
   </section>
 
-<!-- NEED DIRECTION BANNER -->
-    <section class="fade-in">
-        <div class="need-direction-banner">
-            <strong>Need Direction?</strong>
-            <span>Speak with us briefly to determine the right pathway. Prefer to schedule? <a href="https://calendly.com/hello-curatoratelier/30min" target="_blank">Book a time.</a>
-</span>
-        </div>
-    </section>
+  <!-- NEED DIRECTION BANNER -->
+  <section class="fade-in">
+      <div class="need-direction-banner">
+          <strong>Need Direction?</strong>
+          <span>Speak with us briefly to determine the right pathway. Prefer to schedule? <a href="https://calendly.com/hello-curatoratelier/30min" target="_blank">Book a time.</a></span>
+      </div>
+  </section>
 
-    <!-- PROCESS STRIP -->
-    <section class="fade-in">
-        <div class="process-container">
-            <div class="process-header">
-                <h2>Curated · Delivered</h2>
-                <p>Fine corporate gifting and estate décor, designed to feel bespoke — not bulk.</p>
-            </div>
-            <div class="process-grid">
-                <div class="process-item">
-                    <div class="process-icon">✦</div>
-                    <h3>Consultation</h3>
-                    <p>A short conversation to understand objectives, recipients, and timing. We define scope before anything moves.</p>
-                </div>
-                <div class="process-item">
-                    <div class="process-icon">🎁</div>
-                    <h3>Curation</h3>
-                    <p>Every element is intentionally selected to align with your brand and relationship goals.</p>
-                </div>
-                <div class="process-item">
-                    <div class="process-icon">🚚</div>
-                    <h3>Delivery</h3>
-                    <p>White-glove delivery across the DMV, with optional tracking and national fulfillment.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+  <!-- PROCESS STRIP -->
+  <section class="fade-in">
+      <div class="process-container">
+          <div class="process-header">
+              <h2>Curated · Delivered</h2>
+              <p>Fine corporate gifting and estate décor, designed to feel bespoke — not bulk.</p>
+          </div>
+          <div class="process-grid">
+              <div class="process-item">
+                  <div class="process-icon">✦</div>
+                  <h3>Consultation</h3>
+                  <p>A short conversation to understand objectives, recipients, and timing. We define scope before anything moves.</p>
+              </div>
+              <div class="process-item">
+                  <div class="process-icon">🎁</div>
+                  <h3>Curation</h3>
+                  <p>Every element is intentionally selected to align with your brand and relationship goals.</p>
+              </div>
+              <div class="process-item">
+                  <div class="process-icon">🚚</div>
+                  <h3>Delivery</h3>
+                  <p>White-glove delivery across the DMV, with optional tracking and national fulfillment.</p>
+              </div>
+          </div>
+      </div>
+  </section>
 
   <!-- CONTACT / INTAKE -->
   <section id="contact" class="fade-in">
@@ -371,7 +362,7 @@
           <label>Context & Objectives</label>
           <textarea name="message" placeholder="Briefly describe the scale, recipients, and timing requirements..."></textarea>
         </div>
-        <div class="contact-footer stagger" style="margin-top:2rem; align-items:center;">
+        <div class="contact-footer stagger" style="margin-top:2rem; display:flex; justify-content:space-between; align-items:center;">
           <button type="submit" class="btn btn-primary lift" style="padding: 1rem 2.5rem;">Submit Request</button>
           <div style="text-align:right;">
             <a href="mailto:hello@curatoratelier.com" onclick="trackContact()" style="color:var(--accent); display:block; font-weight:600;">hello@curatoratelier.com</a>
@@ -394,11 +385,9 @@ const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.classList.add('visible');
-      // Trigger staggered items if it's the contact section
       if (entry.target.id === 'contact') {
         entry.target.querySelectorAll('.stagger').forEach((el, i) => {
-setTimeout(() => el.classList.add('visible'), i * 100);
-
+          setTimeout(() => el.classList.add('visible'), i * 100);
         });
       }
     }
@@ -415,11 +404,9 @@ const progress = document.getElementById('scroll-progress');
 window.addEventListener('scroll', () => {
   const scrollTop = window.scrollY;
   const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-if (docHeight > 0) {
-  progress.style.width = (scrollTop / docHeight) * 100 + '%';
-}
-
-  
+  if (docHeight > 0) {
+    progress.style.width = (scrollTop / docHeight) * 100 + '%';
+  }
   if (scrollTop > 20) nav.classList.add('scrolled');
   else nav.classList.remove('scrolled');
 });
@@ -447,15 +434,13 @@ const metricsObserver = new IntersectionObserver((entries) => {
         }
         requestAnimationFrame(update);
       });
-setTimeout(() => metricsObserver.disconnect(), 2000);
-;
+      setTimeout(() => metricsObserver.disconnect(), 2000);
     }
   });
 }, { threshold: 0.5 });
 const metricsSection = document.querySelector('[data-metrics]');
 if (metricsSection) metricsObserver.observe(metricsSection);
 
-/* Tracking (Global) */
 function trackContact() {
   if (typeof fbq !== 'undefined') fbq('track', 'Contact');
   if (typeof gtag !== 'undefined') gtag('event', 'contact_click');
@@ -474,11 +459,6 @@ if (form) {
     btn.textContent = 'Processing...';
     btn.style.opacity = '0.7';
   });
-}
-
-/* Reduced Motion Check */
-if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-  document.querySelectorAll('.hero-image-inner').forEach(el => el.style.animation = 'none');
 }
 </script>
 
