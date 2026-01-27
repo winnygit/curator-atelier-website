@@ -1,219 +1,260 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <title>Curator Atelier · Controlled Execution Platform</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Curator Atelier is a private execution platform delivering flawless outcomes for corporate, private, and institutional engagements." />
+  <meta charset="UTF-8" />
+  <title>Curator Atelier · Controlled Execution Platform</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Curator Atelier is a private execution platform delivering flawless outcomes for corporate, private, and institutional engagements." />
 
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-    <!-- Meta Pixel -->
-    <script>
-        !function(f,b,e,v,n,t,s){
-            if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-            n.queue=[];t=b.createElement(e);t.async=!0;
-            t.src=v;s=b.getElementsByTagName(e)[0];
-            s.parentNode.insertBefore(t,s)
-        }(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
-        fbq('init', '2038632733615730'); 
-        fbq('track', 'PageView');
-    </script>
+  <!-- Tracking Codes -->
+  <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)
+    }(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '2038632733615730'); fbq('track', 'PageView');
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17851433116"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-17851433116');
+  </script>
+
+  <style>
+    :root {
+      --bg: #040908;
+      --bg-alt: #081613;
+      --panel: #0b1915;
+      --accent: #c9a24b;
+      --accent-soft: rgba(201,162,75,.14);
+      --text: #f6f1e5;
+      --muted: #a7b0aa;
+      --border: #22302a;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: radial-gradient(circle at top, #172620 0, #020504 55%, #010303 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .page { max-width: 1180px; margin: 0 auto; padding: 0 1.25rem 4rem; }
+
+    /* NAV - Dark Glass Theme */
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.2rem 1.25rem;
+      margin: 0 -1.25rem 2.2rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(12px) saturate(160%);
+      -webkit-backdrop-filter: blur(12px) saturate(160%);
+      background: rgba(4, 9, 8, 0.7);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      transition: .3s ease;
+    }
+    .nav.scrolled {
+      background: rgba(4, 9, 8, 0.95);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+      padding: 0.9rem 1.25rem;
+    }
+
+    .logo-wrap { display: flex; align-items: center; gap: .75rem; }
+    .logo-image { height: 42px; }
+    .logo-main { font-family: 'Playfair Display', serif; letter-spacing: .18em; text-transform: uppercase; font-size: .9rem; }
+    .logo-sub { font-size: .68rem; color: var(--muted); letter-spacing: .16em; text-transform: uppercase; }
+    .nav-links { display: flex; gap: 2rem; font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; }
+    .nav-links a:hover { color: var(--accent); }
+
+    /* Buttons */
+.btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      border-radius: 4px; padding: .7rem 1.6rem;
+      font-size: .76rem; letter-spacing: .12em;
+      text-transform: uppercase; cursor: pointer;
+      border: 1px solid transparent; transition: .25s cubic-bezier(0.4, 0, 0.2, 1);
+      text-decoration: none !important;
+      color: var(--text);
+    }
+    .btn-primary { background: linear-gradient(135deg, #c9a24b, #f4e0a4); color: #151109; font-weight: 600; }
+    .btn-outline { border: 1px solid var(--border); background: transparent; color: var(--text); }
+    .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+    .lift:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+ }
+.btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+    /* Hero */
+    .hero { display: grid; grid-template-columns: 1.2fr 1fr; gap: 2.5rem; margin-bottom: 3.5rem; align-items: center; }
+    .hero-copy-eyebrow { font-size: .72rem; letter-spacing: .2em; text-transform: uppercase; color: var(--accent); margin-bottom: .8rem; font-weight: 600; }
+    .hero-title { font-family: 'Playfair Display', serif; font-size: clamp(2.4rem, 4vw, 3.2rem); line-height: 1.1; letter-spacing: .04em; text-transform: uppercase; margin-bottom: 1.2rem; color: #fff; }
+    .hero-sub { font-size: .95rem; color: var(--muted); max-width: 34rem; margin-bottom: 2rem; }
+    .hero-cta-row { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.2rem; }
     
-    <!-- GA4 -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17851433116"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'AW-17851433116');
-    </script>
+    .hero-image {
+      border-radius: 4px; background: #050707;
+      border: 1px solid rgba(255,255,255,.06);
+      min-height: 400px; position: relative; overflow: hidden;
+      will-change: transform;
+    }
+    .hero-image-inner {
+      position: absolute; inset: 0;
+      background: url('https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&q=80&w=1000') center/cover no-repeat;
+      animation: heroZoom 28s ease-in-out infinite alternate;
+      filter: contrast(1.1) brightness(0.8);
+    }
+    @keyframes heroZoom { from { transform: scale(1); } to { transform: scale(1.08); } }
 
-    <style>
-        :root {
-            --bg: #040908;
-            --bg-alt: #081613;
-            --panel: #0b1915;
-            --accent: #c9a24b;
-            --accent-soft: rgba(201,162,75,.14);
-            --text: #f6f1e5;
-            --muted: #a7b0aa;
-            --border: #22302a;
+    /* Sections & Typography */
+    section { margin-bottom: 5rem; }
+    .section-eyebrow { font-size: .7rem; letter-spacing: .25em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; font-weight: 600; }
+    .section-title { font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 1.2rem; color: #fff; }
+    .section-intro { font-size: 1rem; color: var(--muted); max-width: 44rem; margin-bottom: 1.5rem; }
+    .btn-pill-soft {
+      display: inline-block; padding: .4rem .9rem; border-radius: 2px;
+      border: 1px solid var(--border); font-size: .65rem;
+      letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin: 0 .5rem .5rem 0;
+      background: rgba(255,255,255,0.03);
+    }
+
+ /* PROCESS STRIP */
+        .process-container {
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 3rem 2rem 4rem;
+            background: rgba(5, 10, 9, 0.4);
+            text-align: center;
+            margin-bottom: 5rem;
         }
+        .process-header h2 { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--accent); margin-bottom: 0.75rem; }
+        .process-header p { font-size: 0.95rem; color: var(--muted); margin-bottom: 3.5rem; }
+        .process-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+        .process-item { display: flex; flex-direction: column; align-items: center; }
+        .process-icon { font-size: 1.6rem; margin-bottom: 1.25rem; display: flex; align-items: center; justify-content: center; width: 50px; height: 50px; background: rgba(255,255,255,0.03); border-radius: 50%; }
+        .process-item h3 { font-weight: 600; font-size: 1.1rem; margin-bottom: 1rem; color: #fff; }
+        .process-item p { font-size: 0.88rem; color: var(--muted); line-height: 1.7; max-width: 320px; }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        html { scroll-behavior: smooth; }
-        body {
-            font-family: 'Inter', sans-serif;
-            background: radial-gradient(circle at top, #172620 0, #020504 55%, #010303 100%);
-            color: var(--text);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-        a { color: inherit; text-decoration: none; }
-        img { max-width: 100%; display: block; }
-
-        .page { max-width: 1180px; margin: 0 auto; padding: 0 1.25rem 4rem; }
-
-        /* NAV */
-        .nav {
+        /* DIRECTION BANNER */
+        .need-direction-banner {
+            background: rgba(11, 25, 21, 0.6);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.25rem 2rem;
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            padding: 1.5rem 1.25rem;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            backdrop-filter: blur(12px) saturate(160%);
-            -webkit-backdrop-filter: blur(12px) saturate(160%);
-            background: rgba(4, 9, 8, 0.75);
-            border-bottom: 1px solid rgba(201, 162, 75, 0.1);
-            margin: 0 -1.25rem 2rem;
-            transition: all 0.4s ease;
+            gap: 1rem;
+            font-size: 0.95rem;
+            margin-bottom: 5rem;
         }
-        .nav.scrolled {
-            background: rgba(4, 9, 8, 0.95);
-            padding: 1rem 1.25rem;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        }
-        .logo-wrap { display: flex; align-items: center; gap: .75rem; }
-        .logo-image { height: 44px; }
-        .logo-main { font-family: 'Playfair Display', serif; letter-spacing: .18em; text-transform: uppercase; font-size: .9rem; }
-        .logo-sub { font-size: .68rem; color: var(--muted); letter-spacing: .16em; text-transform: uppercase; }
-        .nav-links { display: flex; gap: 2rem; font-size: .8rem; letter-spacing: .14em; text-transform: uppercase; }
-        .nav-links a:hover { color: var(--accent); }
+        .need-direction-banner strong { font-weight: 600; color: #fff; }
+        .need-direction-banner span { color: var(--muted); }
+        .need-direction-banner a { color: var(--accent); text-decoration: underline; }
 
-        /* BUTTONS */
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 4px;
-            padding: .75rem 1.75rem;
-            font-size: .78rem;
-            letter-spacing: .12em;
-            text-transform: uppercase;
-            cursor: pointer;
-            transition: all .3s cubic-bezier(0.4, 0, 0.2, 1);
-            white-space: nowrap;
-            border: 1px solid transparent;
-        }
-        .btn-primary { background: var(--accent); color: #151109; font-weight: 600; }
-        .btn-outline { border-color: var(--border); background: transparent; color: var(--text); }
-        .lift:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.3); }
-        .btn-primary:hover { background: #e0b65a; }
+    /* Cards & Form */
+    .contact-wrap { border-radius: 4px; background: var(--panel); border: 1px solid var(--border); padding: 2.5rem; }
+    .form-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; }
+    label { font-size: .75rem; color: var(--accent); margin-bottom: .6rem; display: block; text-transform: uppercase; letter-spacing: .1em; }
+    input, select, textarea {
+      width: 100%; border-radius: 2px; border: 1px solid var(--border);
+      background: #030505; color: var(--text); padding: 1rem; font-size: .9rem;
+      transition: border-color 0.3s ease;
+    }
+    input:focus, textarea:focus { border-color: var(--accent); outline: none; }
+    textarea { min-height: 120px; }
 
-        /* HERO */
-        .hero { display: grid; grid-template-columns: 1.2fr 1fr; gap: 3rem; margin-bottom: 4rem; align-items: center; }
-        .hero-title { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 4vw, 3.5rem); line-height: 1.1; letter-spacing: .04em; text-transform: uppercase; margin-bottom: 1.5rem; color: var(--accent); }
-        .hero-sub { font-size: 1rem; color: var(--muted); max-width: 34rem; margin-bottom: 2rem; }
-        .hero-cta-row { display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 1rem; }
-        
-        .hero-image {
-            border-radius: 4px;
-            background: #050707;
-            border: 1px solid rgba(201, 162, 75, 0.15);
-            min-height: 450px;
-            position: relative;
-            overflow: hidden;
-            will-change: transform;
-        }
-        .hero-image-inner {
-            position: absolute;
-            inset: 0;
-            background: url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1200') center/cover no-repeat;
-            animation: heroZoom 28s ease-in-out infinite alternate;
-            filter: grayscale(0.5) contrast(1.1);
-        }
-        @keyframes heroZoom {
-            from { transform: scale(1); }
-            to { transform: scale(1.1); }
-        }
-        .hero-image-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to top, rgba(4,9,8,0.9), transparent);
-            padding: 2rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-        }
+    /* Metrics Strip */
+    .metrics-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1.5rem; margin-bottom: 4rem; }
+    .metric-card { text-align: center; padding: 2rem 1rem; border: 1px solid var(--border); border-radius: 4px; background: rgba(255,255,255,0.02); }
+    .metric-value { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--accent); margin-bottom: .5rem; }
 
-        /* SECTIONS */
-        section { margin-bottom: 5rem; }
-        .section-eyebrow { font-size: .7rem; letter-spacing: .25em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; font-weight: 600; }
-        .section-title { font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 1.5rem; color: #fff; }
-        .section-intro { font-size: 1rem; color: var(--muted); line-height: 1.8; }
-        .btn-pill-soft { display: inline-block; padding: .4rem .9rem; border-radius: 2px; border: 1px solid var(--border); font-size: .65rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin: 0 .5rem .5rem 0; background: rgba(255,255,255,0.03); }
+    /* Footer */
+    footer { border-top: 1px solid rgba(255,255,255,.05); padding: 3rem 0; font-size: .75rem; color: var(--muted); text-align: center; }
+    
+    /* Animations */
+    .fade-in { opacity: 0; transform: translateY(20px); transition: all .8s cubic-bezier(0.4, 0, 0.2, 1); }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+    .delay-1 { transition-delay: .1s; }
+    .delay-2 { transition-delay: .2s; }
+    .delay-3 { transition-delay: .3s; }
 
-        /* CASE CARDS */
-        .case-grid { display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
-        .contact-wrap { border-radius: 4px; background: var(--panel); border: 1px solid var(--border); padding: 2rem; transition: border-color 0.3s ease; }
-        .contact-wrap:hover { border-color: var(--accent); }
-
-        /* FORM */
-        .form-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; }
-        label { font-size: .7rem; color: var(--accent); margin-bottom: .5rem; display: block; text-transform: uppercase; letter-spacing: .1em; }
-        input, select, textarea { width: 100%; border-radius: 2px; border: 1px solid var(--border); background: rgba(0,0,0,0.3); color: var(--text); padding: .8rem; font-size: .9rem; transition: all 0.3s ease; }
-        input:focus { border-color: var(--accent); outline: none; background: rgba(201,162,75,0.05); }
-        
-        /* BANNER */
-        .top-banner { background: var(--panel); border-left: 3px solid var(--accent); padding: 1.5rem; display: flex; flex-direction: column; gap: .5rem; font-size: .9rem; }
-
-        /* FADES */
-        .fade-in { opacity: 0; transform: translateY(25px); transition: all .9s cubic-bezier(0.215, 0.61, 0.355, 1); }
-        .fade-in.visible { opacity: 1; transform: translateY(0); }
-
-        @media(max-width:768px){
-            .hero { grid-template-columns: 1fr; gap: 2rem; }
-            .nav { flex-direction: column; gap: 1rem; }
-            .hero-image { min-height: 300px; }
-        }
-    </style>
+    @media(max-width:768px){
+.process-grid {
+      .hero { grid-template-columns: 1fr; }
+      .nav { padding: 1rem; }
+      .nav-links { display: none; } /* Mobile nav could be added here */
+    }
+.stagger {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity .6s ease, transform .6s ease;
+}
+.stagger.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+  </style>
 </head>
 <body>
 
+<!-- Progress Bar -->
+<div id="scroll-progress" style="position:fixed; top:0; left:0; height:3px; background:var(--accent); width:0%; z-index:1001; transition:width 0.1s;"></div>
+
 <div class="page">
-    <header class="nav">
-        <div class="logo-wrap">
-            <img src="assets/img/curator-logo-gold.png" alt="Curator Atelier" class="logo-image" onerror="this.style.opacity='0'">
-            <div class="logo-text-block">
-                <div class="logo-main">CURATOR ATELIER</div>
-                <div class="logo-sub">Controlled Execution · Gifting · Concierge</div>
-            </div>
-        </div>
-        <nav class="nav-links">
-            <a href="vanguard.html">The Vanguard</a>
-            <a href="https://shop.curatoratelier.com" target="_blank">Shop</a>
-            <a href="#contact">Contact</a>
-        </nav>
-    </header>
+  <header class="nav">
+    <div class="logo-wrap">
+      <img src="assets/img/curator-logo-gold.png" alt="Curator Atelier" class="logo-image" onerror="this.style.opacity='0'">
+      <div>
+        <div class="logo-main">CURATOR ATELIER</div>
+        <div class="logo-sub">Controlled Execution · Gifting · Concierge</div>
+      </div>
+    </div>
+    <nav class="nav-links">
+      <a href="vanguard.html">The Vanguard</a>
+      <a href="https://shop.curatoratelier.com" target="_blank">Shop</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
-    <!-- HERO -->
-    <section class="hero fade-in" id="top">
-        <div>
-            <div class="section-eyebrow">Private & Corporate · DMV & Nationwide</div>
-            <h1 class="hero-title">Flawless Outcomes.<br/>No Margin for Error.</h1>
-            <p class="hero-sub">Architecting controlled executions across corporate relationships and private milestones — precision-led, discreet, and engineered to succeed the first time.</p>
-            <div class="hero-cta-row">
-                <a class="btn btn-primary lift" href="vanguard.html" onclick="trackContact()">Explore The Vanguard</a>
-                <a class="btn btn-outline lift" href="#current-focus">View Current Focus</a>
-            </div>
-            <p style="font-size: .75rem; color: var(--muted); margin-top: 1rem;">Engagements are limited by design. Capacity is allocated — never rushed.</p>
-        </div>
-        <aside class="hero-image">
-            <div class="hero-image-inner"></div>
-            <div class="hero-image-overlay">
-                <div style="font-family:'Playfair Display',serif; color:var(--accent); letter-spacing:.1em; margin-bottom:.5rem;">CONTROLLED · CONDUCTED</div>
-                <div style="font-size:.8rem; opacity:.7;">Outcomes are engineered — not improvised.</div>
-            </div>
-        </aside>
-    </section>
+  <!-- HERO -->
+  <section class="hero fade-in">
+    <div>
+      <div class="hero-copy-eyebrow">Private & Corporate · DMV & Nationwide</div>
+      <h1 class="hero-title">Flawless Outcomes.<br>No Margin for Error.</h1>
+      <p class="hero-sub">
+        Curator Atelier architects and conducts controlled executions across corporate relationships,
+        private milestones, and institutional moments — precision-led, discreet, and engineered to succeed the first time.
+      </p>
+      <div class="hero-cta-row">
+        <a class="btn btn-primary lift" href="vanguard.html">Explore The Vanguard</a>
+        <a class="btn btn-outline lift" href="#current-focus">View Current Focus</a>
+      </div>
+      <p style="font-size:.78rem; color:var(--muted); opacity: 0.8;">Engagements are limited by design. Capacity is allocated, never rushed.</p>
+    </div>
 
-    <!-- POSITIONING -->
+    <aside class="hero-image">
+      <div class="hero-image-inner"></div>
+      <div style="position:absolute; inset:0; background:linear-gradient(transparent, rgba(4,9,8,0.9)); display:flex; flex-direction:column; justify-content:flex-end; padding:2rem;">
+        <div style="font-family:'Playfair Display', serif; color:var(--accent); font-size:1.1rem;">PRECISION · DISCRETION</div>
+        <div style="font-size:.8rem; color:var(--muted);">Engineering outcomes since 2020.</div>
+      </div>
+    </aside>
+  </section>
+
+<!-- POSITIONING -->
     <section class="fade-in">
         <div class="section-eyebrow">The Mandate</div>
         <h2 class="section-title" style="max-width:35rem;">We are not a gift company. We are an execution desk.</h2>
@@ -222,140 +263,223 @@
         </p>
     </section>
 
-    <!-- METRICS -->
+  <!-- METRICS -->
+  <div class="metrics-row fade-in delay-1" data-metrics>
+    <div class="metric-card">
+      <div class="metric-value" data-count="deliveries">1200</div>
+      <div class="section-eyebrow" style="margin:0; font-size:0.6rem;">Deliveries Executed</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-value" data-count="deadlines">0</div>
+      <div class="section-eyebrow" style="margin:0; font-size:0.6rem;">Missed Deadlines</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-value" data-count="turnaround" data-suffix="h">48</div>
+      <div class="section-eyebrow" style="margin:0; font-size:0.6rem;">Avg Turnaround</div>
+    </div>
+  </div>
+
+  <!-- THE VANGUARD PREVIEW -->
+  <section class="fade-in">
+    <div class="section-eyebrow">The Vanguard</div>
+    <h2 class="section-title">Where Precision Matters Most</h2>
+    <div class="form-grid">
+      <div class="contact-wrap" style="padding:1.5rem;">
+        <h3 style="color:var(--accent); margin-bottom:.5rem; font-size:1.1rem;">Corporate Shield</h3>
+        <p style="font-size:.85rem; color:var(--muted);">Executive retention and relationship management at scale. Discreet, high-impact gifting conducted with institutional rigor.</p>
+      </div>
+      <div class="contact-wrap" style="padding:1.5rem;">
+        <h3 style="color:var(--accent); margin-bottom:.5rem; font-size:1.1rem;">Prestige Concierge</h3>
+        <p style="font-size:.85rem; color:var(--muted);">Private milestones and high-stakes personal events. End-to-end management from sourcing to final execution.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CURRENT FOCUS -->
+  <section id="current-focus" class="fade-in delay-2">
+    <div class="contact-wrap" style="border-left: 3px solid var(--accent); background: rgba(201,162,75,0.03);">
+      <div class="section-eyebrow">Status: Active</div>
+      <h2 class="section-title">Valentine’s 2026 Allocations</h2>
+      <p class="section-intro">
+        A small number of engagements are currently reserved for late Q1. Approved engagements receive a dedicated execution plan and priority logistics.
+      </p>
+      <div style="margin-bottom:1.5rem;">
+        <span class="btn-pill-soft">Limited Availability</span>
+        <span class="btn-pill-soft">Nationwide Reach</span>
+      </div>
+      <a class="btn btn-primary lift" href="#contact">Request Allocation</a>
+    </div>
+  </section>
+
+<!-- NEED DIRECTION BANNER -->
     <section class="fade-in">
-        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:1.5rem;">
-            <div class="contact-wrap" style="text-align:center;">
-                <div style="font-family:'Playfair Display',serif; font-size:2rem; color:var(--accent); margin-bottom:.5rem;">1,200+</div>
-                <div style="font-size:.7rem; letter-spacing:.15em; text-transform:uppercase; color:var(--muted);">Deliveries Executed</div>
-            </div>
-            <div class="contact-wrap" style="text-align:center;">
-                <div style="font-family:'Playfair Display',serif; font-size:2rem; color:var(--accent); margin-bottom:.5rem;">0</div>
-                <div style="font-size:.7rem; letter-spacing:.15em; text-transform:uppercase; color:var(--muted);">Missed Deadlines</div>
-            </div>
-            <div class="contact-wrap" style="text-align:center;">
-                <div style="font-family:'Playfair Display',serif; font-size:2rem; color:var(--accent); margin-bottom:.5rem;">48h</div>
-                <div style="font-size:.7rem; letter-spacing:.15em; text-transform:uppercase; color:var(--muted);">Avg Turnaround</div>
-            </div>
+        <div class="need-direction-banner">
+            <strong>Need Direction?</strong>
+            <span>Speak with us briefly to determine the right pathway. Prefer to schedule? <a href="https://calendly.com/hello-curatoratelier/30min" target="_blank">Book a time.</a>
+</span>
         </div>
     </section>
 
-    <!-- CASE STUDIES -->
+    <!-- PROCESS STRIP -->
     <section class="fade-in">
-        <div class="section-eyebrow">Selected Engagements</div>
-        <h2 class="section-title">Quietly Executed. Precisely Delivered.</h2>
-        <div class="case-grid">
-            <div class="contact-wrap">
-                <div class="section-eyebrow">Global Tech Firm</div>
-                <p style="font-weight:600; margin-bottom:.5rem;">Objective: Executive Retention</p>
-                <p class="section-intro" style="font-size:.9rem;">Designed and executed white‑glove delivery for 40 senior leaders across 7 states within 72 hours. 100% confirmation.</p>
+        <div class="process-container">
+            <div class="process-header">
+                <h2>Curated · Delivered</h2>
+                <p>Fine corporate gifting and estate décor, designed to feel bespoke — not bulk.</p>
             </div>
-            <div class="contact-wrap">
-                <div class="section-eyebrow">Private Family Office</div>
-                <p style="font-weight:600; margin-bottom:.5rem;">Objective: Milestone Concierge</p>
-                <p class="section-intro" style="font-size:.9rem;">Sourced rare assets and managed end‑to‑end venue logistics end‑to‑end — executed without client involvement on event day.</p>
+            <div class="process-grid">
+                <div class="process-item">
+                    <div class="process-icon">✦</div>
+                    <h3>Consultation</h3>
+                    <p>A short conversation to understand objectives, recipients, and timing. We define scope before anything moves.</p>
+                </div>
+                <div class="process-item">
+                    <div class="process-icon">🎁</div>
+                    <h3>Curation</h3>
+                    <p>Every element is intentionally selected to align with your brand and relationship goals.</p>
+                </div>
+                <div class="process-item">
+                    <div class="process-icon">🚚</div>
+                    <h3>Delivery</h3>
+                    <p>White-glove delivery across the DMV, with optional tracking and national fulfillment.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- CURRENT FOCUS -->
-    <section id="current-focus" class="fade-in">
-        <div class="contact-wrap" style="border-left: 4px solid var(--accent);">
-            <div class="section-eyebrow">Seasonal Allocation</div>
-            <h2 class="section-title">Valentine’s 2026 Allocations</h2>
-            <p class="section-intro" style="margin-bottom:1.5rem;">Reserved for executive, corporate, and private contexts. Once capacity is filled, scheduling closes.</p>
-            <div style="margin-bottom:2rem;">
-                <span class="btn-pill-soft">Corporate Shield</span>
-                <span class="btn-pill-soft">Prestige Concierge</span>
-            </div>
-            <div class="hero-cta-row">
-                <a class="btn btn-primary lift" href="#contact">Request Private Allocation</a>
-                <a class="btn btn-outline lift" href="mailto:hello@curatoratelier.com">Corporate Desk</a>
-            </div>
+  <!-- CONTACT / INTAKE -->
+  <section id="contact" class="fade-in">
+    <div class="section-eyebrow">Initiate</div>
+    <h2 class="section-title">Request an Engagement</h2>
+    <div class="contact-wrap">
+      <form method="POST" action="https://formspree.io/f/xblwkzyq" onsubmit="trackLead()">
+        <div class="form-grid">
+          <div class="stagger"><label>Full Name</label><input name="name" required placeholder="John Doe"></div>
+          <div class="stagger"><label>Email Address</label><input type="email" name="email" required placeholder="name@firm.com"></div>
+          <div class="stagger"><label>Phone (Optional)</label><input name="phone" placeholder="+1 (301) 000-0000"></div>
+          <div class="stagger">
+            <label>Engagement Type</label>
+            <select name="interest">
+              <option>Corporate Gifting</option>
+              <option>Private Concierge</option>
+              <option>Relationship Insurance</option>
+              <option>Other / Unsure</option>
+            </select>
+          </div>
         </div>
-    </section>
-
-    <!-- FORM -->
-    <section id="contact" class="fade-in">
-        <div class="section-eyebrow">Initiate</div>
-        <h2 class="section-title">Request an Engagement</h2>
-        <div class="contact-wrap">
-            <form method="POST" action="https://formspree.io/f/xblwkzyq" onsubmit="trackLead()">
-                <div class="form-grid">
-                    <div>
-                        <label>Full Name</label>
-                        <input name="name" required placeholder="John Doe">
-                    </div>
-                    <div>
-                        <label>Email</label>
-                        <input type="email" name="email" required placeholder="executive@firm.com">
-                    </div>
-                    <div>
-                        <label>Engagement Type</label>
-                        <select name="interest">
-                            <option>Corporate Gifting</option>
-                            <option>Private Concierge</option>
-                            <option>Relationship Insurance</option>
-                        </select>
-                    </div>
-                </div>
-                <div style="margin-top:1.5rem;">
-                    <label>Context & Requirements</label>
-                    <textarea name="message" rows="4" placeholder="Briefly describe the objective, scale, and timeline..."></textarea>
-                </div>
-                <div style="margin-top:2rem; display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:1.5rem;">
-                    <button type="submit" class="btn btn-primary lift">Request Allocation</button>
-                    <div style="font-size:.8rem; color:var(--muted);">
-                        Direct: <a href="mailto:hello@curatoratelier.com" style="color:var(--accent);">hello@curatoratelier.com</a> · 301-636-7663
-                    </div>
-                </div>
-            </form>
+        <div style="margin-top:1.5rem;" class="stagger">
+          <label>Context & Objectives</label>
+          <textarea name="message" placeholder="Briefly describe the scale, recipients, and timing requirements..."></textarea>
         </div>
-    </section>
+        <div class="contact-footer stagger" style="margin-top:2rem; align-items:center;">
+          <button type="submit" class="btn btn-primary lift" style="padding: 1rem 2.5rem;">Submit Request</button>
+          <div style="text-align:right;">
+            <a href="mailto:hello@curatoratelier.com" onclick="trackContact()" style="color:var(--accent); display:block; font-weight:600;">hello@curatoratelier.com</a>
+            <a href="tel:+13016367663" onclick="trackContact()" style="opacity:0.7;">301-636-7663</a>
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
 
-    <footer style="padding:4rem 0; border-top:1px solid var(--border); font-size:.75rem; color:var(--muted); text-align:center;">
-        <p>© <span id="year"></span> Curator Atelier. Potomac-based · Serving DMV & Nationwide.</p>
-    </footer>
+  <footer>
+    <div style="margin-bottom:1rem;">© <span id="year"></span> Curator Atelier. Potomac-based · Serving Maryland, VA & DC.</div>
+    <div style="opacity:0.5; font-size:0.65rem; letter-spacing:0.1em; text-transform:uppercase;">Confidentiality Guaranteed · Precision Engineering</div>
+  </footer>
 </div>
 
 <script>
-    // Reveal Observer
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) entry.target.classList.add('visible');
+/* Intersection reveal */
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      // Trigger staggered items if it's the contact section
+      if (entry.target.id === 'contact') {
+        entry.target.querySelectorAll('.stagger').forEach((el, i) => {
+setTimeout(() => el.classList.add('visible'), i * 100);
+
         });
-    }, { threshold: 0.1 });
+      }
+    }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+/* Year Update */
+document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Nav Scroll Effect
-    window.addEventListener('scroll', () => {
-        const nav = document.querySelector('.nav');
-        if (window.scrollY > 50) nav.classList.add('scrolled');
-        else nav.classList.remove('scrolled');
-    });
+/* Nav & Scroll Progress */
+const nav = document.querySelector('.nav');
+const progress = document.getElementById('scroll-progress');
+window.addEventListener('scroll', () => {
+  const scrollTop = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+if (docHeight > 0) {
+  progress.style.width = (scrollTop / docHeight) * 100 + '%';
+}
 
-    // Tracking Helpers
-    function trackLead() { if (typeof fbq !== 'undefined') fbq('track', 'Lead'); }
-    function trackContact() { if (typeof fbq !== 'undefined') fbq('track', 'Contact'); }
+  
+  if (scrollTop > 20) nav.classList.add('scrolled');
+  else nav.classList.remove('scrolled');
+});
 
-    document.getElementById('year').textContent = new Date().getFullYear();
+/* Metrics Count-up */
+const metricMap = { deliveries: 1900, deadlines: 0, turnaround: 72 };
+const metricsObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const els = entry.target.querySelectorAll('[data-count]');
+      els.forEach(el => {
+        const key = el.dataset.count;
+        const endValue = metricMap[key];
+        const suffix = el.dataset.suffix || '';
+        let start = 0;
+        const duration = 1500;
+        const startTime = performance.now();
+        
+        function update(now) {
+          const elapsed = now - startTime;
+          const progress = Math.min(elapsed / duration, 1);
+          const current = Math.floor(progress * endValue);
+          el.textContent = current.toLocaleString() + suffix;
+          if (progress < 1) requestAnimationFrame(update);
+        }
+        requestAnimationFrame(update);
+      });
+setTimeout(() => metricsObserver.disconnect(), 2000);
+;
+    }
+  });
+}, { threshold: 0.5 });
+const metricsSection = document.querySelector('[data-metrics]');
+if (metricsSection) metricsObserver.observe(metricsSection);
 
-    // Tactile Click Feedback
-    const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-    document.querySelectorAll('.btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-            if (audioCtx.state === 'suspended') audioCtx.resume();
-            const osc = audioCtx.createOscillator();
-            const gain = audioCtx.createGain();
-            osc.frequency.value = 150;
-            gain.gain.value = 0.01;
-            osc.connect(gain);
-            gain.connect(audioCtx.destination);
-            osc.start();
-            osc.stop(audioCtx.currentTime + 0.1);
-        });
-    });
+/* Tracking (Global) */
+function trackContact() {
+  if (typeof fbq !== 'undefined') fbq('track', 'Contact');
+  if (typeof gtag !== 'undefined') gtag('event', 'contact_click');
+}
+function trackLead() {
+  if (typeof fbq !== 'undefined') fbq('track', 'Lead');
+  if (typeof gtag !== 'undefined') gtag('event', 'lead_submit');
+}
+
+/* Form Polish */
+const form = document.querySelector('form');
+if (form) {
+  form.addEventListener('submit', () => {
+    const btn = form.querySelector('button');
+    btn.disabled = true;
+    btn.textContent = 'Processing...';
+    btn.style.opacity = '0.7';
+  });
+}
+
+/* Reduced Motion Check */
+if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  document.querySelectorAll('.hero-image-inner').forEach(el => el.style.animation = 'none');
+}
 </script>
 
 </body>
