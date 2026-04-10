@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Curator Atelier · The Delivery Experience</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Curator Atelier helps dealerships transform the vehicle delivery moment into a premium, memorable experience." />
+
+  <!-- Tracking — reuse existing codes -->
+  <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)
+    }(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '2038632733615730'); fbq('track', 'PageView');
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17851433116"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-17851433116');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #040908;
+      --bg-alt: #081613;
+      --panel: #0b1915;
+      --accent: #c9a24b;
+      --accent-soft: rgba(201,162,75,.14);
+      --text: #f6f1e5;
+      --muted: #a7b0aa;
+      --border: #22302a;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: radial-gradient(circle at top, #172620 0, #020504 55%, #010303 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; transition: color 0.3s ease; }
+    .page { max-width: 1180px; margin: 0 auto; padding: 0 1.25rem 4rem; }
+
+    /* NAV */
+    .nav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.2rem 1.25rem; margin: 0 -1.25rem 2.2rem;
+      position: sticky; top: 0; z-index: 1000;
+      backdrop-filter: blur(12px) saturate(160%);
+      -webkit-backdrop-filter: blur(12px) saturate(160%);
+      background: rgba(4, 9, 8, 0.7);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      transition: .3s ease;
+    }
+    .nav.scrolled { background: rgba(4,9,8,0.95); box-shadow: 0 8px 32px rgba(0,0,0,0.4); padding: 0.9rem 1.25rem; }
+    .logo-wrap { display: flex; align-items: center; gap: .75rem; }
+    .logo-image { height: 42px; }
+    .logo-main { font-family: 'Playfair Display', serif; letter-spacing: .18em; text-transform: uppercase; font-size: .9rem; }
+    .logo-sub { font-size: .68rem; color: var(--muted); letter-spacing: .16em; text-transform: uppercase; }
+    .nav-links { display: flex; gap: 2rem; font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; }
+    .nav-links a { color: var(--text); opacity: 0.85; }
+    .nav-links a:hover { color: var(--accent); opacity: 1; }
+
+    /* BUTTONS */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      border-radius: 4px; padding: .7rem 1.6rem;
+      font-size: .76rem; letter-spacing: .12em; text-transform: uppercase;
+      cursor: pointer; border: 1px solid transparent;
+      transition: .25s cubic-bezier(0.4,0,0.2,1);
+      text-decoration: none !important; color: var(--text);
+    }
+    .btn-primary { background: linear-gradient(135deg, #c9a24b, #f4e0a4); color: #151109; font-weight: 600; }
+    .btn-outline { border: 1px solid var(--border); background: transparent; color: var(--text); }
+    .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+    .lift:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.3); }
+
+    /* HERO */
+    .hero {
+      display: grid; grid-template-columns: 1.2fr 1fr;
+      gap: 2.5rem; margin-bottom: 4rem; align-items: center;
+    }
+    .hero-eyebrow { font-size: .72rem; letter-spacing: .2em; text-transform: uppercase; color: var(--accent); margin-bottom: .8rem; font-weight: 600; }
+    .hero-title { font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 4vw, 3rem); line-height: 1.1; letter-spacing: .04em; text-transform: uppercase; margin-bottom: 1.2rem; color: #fff; }
+    .hero-sub { font-size: .95rem; color: var(--muted); max-width: 34rem; margin-bottom: 2rem; line-height: 1.8; }
+    .hero-cta-row { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.2rem; }
+    .hero-note { font-size: .78rem; color: var(--muted); opacity: 0.8; }
+
+    .hero-visual {
+      border-radius: 4px; background: #050707;
+      border: 1px solid rgba(255,255,255,.06);
+      min-height: 420px; position: relative; overflow: hidden;
+    }
+    .hero-visual-inner {
+      position: absolute; inset: 0;
+      background: url('https://images.unsplash.com/photo-1553440569-bcc63803a83d?auto=format&fit=crop&q=80&w=1000') center/cover no-repeat;
+      animation: heroZoom 28s ease-in-out infinite alternate;
+      filter: contrast(1.05) brightness(0.7);
+    }
+    @keyframes heroZoom { from { transform: scale(1); } to { transform: scale(1.08); } }
+    .hero-visual-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(transparent 40%, rgba(4,9,8,0.92));
+      display: flex; flex-direction: column; justify-content: flex-end; padding: 2rem;
+    }
+    .hero-visual-label { font-family: 'Playfair Display', serif; color: var(--accent); font-size: 1.1rem; }
+    .hero-visual-sub { font-size: .8rem; color: var(--muted); margin-top: .25rem; }
+
+    /* DIVIDER */
+    .divider { border: none; border-top: 1px solid var(--border); margin: 3rem 0; }
+
+    /* INSIGHT STRIP */
+    .insight-strip {
+      display: grid; grid-template-columns: repeat(3,1fr);
+      gap: 1.5rem; margin-bottom: 4rem;
+    }
+    .insight-card {
+      padding: 2rem 1.5rem; border: 1px solid var(--border);
+      border-radius: 4px; background: rgba(255,255,255,0.02);
+      position: relative; overflow: hidden;
+    }
+    .insight-card::before {
+      content: ''; position: absolute; top: 0; left: 0;
+      width: 3px; height: 100%; background: var(--accent); opacity: 0.6;
+    }
+    .insight-number { font-family: 'Playfair Display', serif; font-size: 2.2rem; color: var(--accent); margin-bottom: .5rem; }
+    .insight-label { font-size: .75rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-bottom: .75rem; }
+    .insight-desc { font-size: .85rem; color: var(--muted); line-height: 1.7; }
+
+    /* SECTION */
+    section { margin-bottom: 5rem; }
+    .section-eyebrow { font-size: .7rem; letter-spacing: .25em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; font-weight: 600; }
+    .section-title { font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 1.2rem; color: #fff; }
+    .section-intro { font-size: 1rem; color: var(--muted); max-width: 44rem; margin-bottom: 2rem; line-height: 1.8; }
+
+    /* WHAT IT LOOKS LIKE */
+    .experience-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    .experience-card {
+      padding: 2rem; border: 1px solid var(--border);
+      border-radius: 4px; background: var(--panel);
+    }
+    .experience-card-title { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--accent); margin-bottom: .75rem; }
+    .experience-card-body { font-size: .87rem; color: var(--muted); line-height: 1.8; }
+
+    /* PULL QUOTE */
+    .pull-quote {
+      border-left: 3px solid var(--accent);
+      padding: 1.5rem 2rem; margin: 2rem 0;
+      background: rgba(201,162,75,0.04);
+      border-radius: 0 4px 4px 0;
+    }
+    .pull-quote p { font-family: 'Playfair Display', serif; font-size: 1.15rem; color: var(--text); line-height: 1.7; font-style: italic; }
+
+    /* CTA BLOCK */
+    .cta-block {
+      border: 1px solid var(--border); border-radius: 4px;
+      padding: 3rem 2.5rem; background: var(--panel);
+      text-align: center;
+    }
+    .cta-block-eyebrow { font-size: .7rem; letter-spacing: .25em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; font-weight: 600; }
+    .cta-block-title { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: #fff; margin-bottom: 1rem; }
+    .cta-block-sub { font-size: .92rem; color: var(--muted); max-width: 38rem; margin: 0 auto 2rem; line-height: 1.8; }
+    .cta-row { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .cta-secondary { font-size: .8rem; color: var(--muted); margin-top: 1.25rem; }
+    .cta-secondary a { color: var(--accent); border-bottom: 1px solid rgba(201,162,75,0.3); padding-bottom: 1px; }
+    .cta-secondary a:hover { color: #f4e0a4; border-color: #f4e0a4; }
+
+    /* FOOTER */
+    footer { border-top: 1px solid rgba(255,255,255,.05); padding: 3rem 0; font-size: .75rem; color: var(--muted); text-align: center; }
+
+    /* ANIMATIONS */
+    .fade-in { opacity: 0; transform: translateY(20px); transition: all .8s cubic-bezier(0.4,0,0.2,1); }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    /* SCROLL PROGRESS */
+    #scroll-progress { position: fixed; top: 0; left: 0; height: 3px; background: var(--accent); width: 0%; z-index: 1001; transition: width 0.1s; }
+
+    @media(max-width:768px){
+      .hero { grid-template-columns: 1fr; }
+      .insight-strip { grid-template-columns: 1fr; }
+      .experience-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="scroll-progress"></div>
+
+<div class="page">
+  <header class="nav">
+    <div class="logo-wrap">
+      <img src="assets/img/curator-logo-gold.png" alt="Curator Atelier" class="logo-image" onerror="this.style.opacity='0'">
+      <div>
+        <div class="logo-main">CURATOR ATELIER</div>
+        <div class="logo-sub">The Vanguard Project · Dealership</div>
+      </div>
+    </div>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="vanguard.html">The Vanguard</a>
+      <a href="https://calendly.com/hello-curatoratelier/new-meeting" target="_blank">Book a Call</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero fade-in">
+    <div>
+      <div class="hero-eyebrow">The Vanguard Project · Vehicle Delivery</div>
+      <h1 class="hero-title">The Moment After<br>The Keys Change Hands</h1>
+      <p class="hero-sub">
+        Most dealerships invest heavily in the sale. Very few control what happens in the final sixty seconds — where buyer memory is actually formed and referrals are either earned or left behind.
+      </p>
+      <div class="hero-cta-row">
+        <a class="btn btn-primary lift" href="https://calendly.com/hello-curatoratelier/new-meeting" target="_blank" onclick="trackCTA('book_call_hero')">Schedule a Conversation</a>
+        <a class="btn btn-outline lift" href="#what-it-looks-like">See How It Works</a>
+      </div>
+      <p class="hero-note">No commitment required. 20-minute conversation.</p>
+    </div>
+    <aside class="hero-visual">
+      <div class="hero-visual-inner"></div>
+      <div class="hero-visual-overlay">
+        <div class="hero-visual-label">PRECISION · PRESENTATION</div>
+        <div class="hero-visual-sub">Engineered for the delivery moment.</div>
+      </div>
+    </aside>
+  </section>
+
+  <!-- INSIGHT STRIP -->
+  <div class="insight-strip fade-in">
+    <div class="insight-card">
+      <div class="insight-number">73%</div>
+      <div class="insight-label">of buyer reviews</div>
+      <div class="insight-desc">Reference the delivery experience specifically — not the negotiation, not the financing. The final handoff drives perception.</div>
+    </div>
+    <div class="insight-card">
+      <div class="insight-number">1</div>
+      <div class="insight-label">Moment to close the loop</div>
+      <div class="insight-desc">After the paperwork is signed, there's a single window to reinforce value. Most stores leave it undesigned.</div>
+    </div>
+    <div class="insight-card">
+      <div class="insight-number">Zero</div>
+      <div class="insight-label">Operational drag added</div>
+      <div class="insight-desc">Our delivery package integrates into your existing handoff process. No new workflow. No extra coordination.</div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- THE GAP -->
+  <section class="fade-in">
+    <div class="section-eyebrow">The Opportunity</div>
+    <h2 class="section-title">Where Most Stores Leave Value Behind</h2>
+    <p class="section-intro">
+      The sale ends at the signature. But the buyer's story about their experience — the one they tell friends, the one that becomes a review — begins at the delivery. That's the moment most dealerships treat as operational rather than relational.
+    </p>
+
+    <div class="pull-quote">
+      <p>"The delivery moment is one of the few points where a dealership can reinforce value after the paperwork is done. That's where referral momentum is either created or missed."</p>
+    </div>
+
+    <p class="section-intro" style="margin-bottom: 0;">
+      Curator Atelier helps dealerships standardize that moment with a premium delivery touch — intentional, branded, and repeatable — without adding complexity for your team.
+    </p>
+  </section>
+
+  <!-- WHAT IT LOOKS LIKE -->
+  <section id="what-it-looks-like" class="fade-in">
+    <div class="section-eyebrow">The Structure</div>
+    <h2 class="section-title">What a Structured Delivery Experience Looks Like</h2>
+    <div class="experience-grid">
+      <div class="experience-card">
+        <div class="experience-card-title">Branded Delivery Package</div>
+        <div class="experience-card-body">A curated, premium presentation delivered with every vehicle handoff. Consistent across reps, consistent across days. Your brand, elevated at the exact moment it matters most.</div>
+      </div>
+      <div class="experience-card">
+        <div class="experience-card-title">Intentional Presentation</div>
+        <div class="experience-card-body">Every element selected to feel considered, not generic. The difference between a buyer who feels processed and one who feels recognized — that gap lives in presentation.</div>
+      </div>
+      <div class="experience-card">
+        <div class="experience-card-title">Repeatable by Design</div>
+        <div class="experience-card-body">Built to run without your team having to think about it. Fulfillment handled. Inventory managed. The experience stays consistent whether it's a slow Tuesday or a high-volume Saturday.</div>
+      </div>
+      <div class="experience-card">
+        <div class="experience-card-title">Review & Referral Signal</div>
+        <div class="experience-card-body">Dealerships who standardize this part of the experience consistently see stronger review volume and more direct referrals — without changing anything else in their pipeline.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BLOCK -->
+  <section class="fade-in">
+    <div class="cta-block">
+      <div class="cta-block-eyebrow">Next Step</div>
+      <h2 class="cta-block-title">See What This Looks Like for Your Store</h2>
+      <p class="cta-block-sub">
+        A 20-minute conversation is enough to understand your current delivery process and show you exactly how this would integrate. No pitch deck. No pressure.
+      </p>
+      <div class="cta-row">
+        <a class="btn btn-primary lift" href="https://calendly.com/hello-curatoratelier/new-meeting" target="_blank" onclick="trackCTA('book_call_cta')">Schedule a Conversation</a>
+      </div>
+      <p class="cta-secondary">Prefer email? Reach us at <a href="mailto:hello@curatoratelier.com">hello@curatoratelier.com</a></p>
+    </div>
+  </section>
+
+  <footer>
+    <div style="margin-bottom:1rem;">© <span id="year"></span> Curator Atelier. Potomac-based · Serving Maryland, VA & DC.</div>
+    <div style="opacity:0.5; font-size:0.65rem; letter-spacing:0.1em; text-transform:uppercase;">Confidentiality Guaranteed · Precision Engineering</div>
+  </footer>
+</div>
+
+<script>
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+document.getElementById('year').textContent = new Date().getFullYear();
+
+const nav = document.querySelector('.nav');
+const progress = document.getElementById('scroll-progress');
+window.addEventListener('scroll', () => {
+  const scrollTop = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  if (docHeight > 0) progress.style.width = (scrollTop / docHeight) * 100 + '%';
+  nav.classList.toggle('scrolled', scrollTop > 20);
+});
+
+function trackCTA(label) {
+  if (typeof fbq !== 'undefined') fbq('track', 'Lead', { content_name: label });
+  if (typeof gtag !== 'undefined') gtag('event', 'cta_click', { event_label: label });
+}
+</script>
+</body>
+</html>
