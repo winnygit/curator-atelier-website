@@ -168,6 +168,309 @@
     /* ANIM */
     .fu{opacity:0;transform:translateY(22px);transition:opacity 0.7s ease,transform 0.7s ease;}
     .fu.visible{opacity:1;transform:translateY(0);}
+
+/* ── PARTNER STRIP ── */
+.partner-strip {
+  background: var(--dark2, #0A0806);
+  border-top: 1px solid rgba(201,162,75,0.12);
+  border-bottom: 1px solid rgba(201,162,75,0.12);
+  padding: 0;
+  overflow: hidden;
+  position: relative;
+}
+.partner-strip::before,
+.partner-strip::after {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 80px;
+  z-index: 2;
+  pointer-events: none;
+}
+.partner-strip::before { left: 0; background: linear-gradient(90deg, var(--dark2,#0A0806), transparent); }
+.partner-strip::after  { right:0; background: linear-gradient(270deg, var(--dark2,#0A0806), transparent); }
+
+.partner-strip-label {
+  text-align: center;
+  font-size: 0.58rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: rgba(201,162,75,0.45);
+  padding: 0.9rem 0 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.partner-track-wrap {
+  overflow: hidden;
+  padding: 0.7rem 0 1rem;
+}
+
+.partner-track {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  width: max-content;
+  animation: partnerScroll 32s linear infinite;
+}
+.partner-track:hover { animation-play-state: paused; }
+
+@keyframes partnerScroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.partner-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 2.5rem;
+  opacity: 0.45;
+  transition: opacity 0.3s;
+  flex-shrink: 0;
+  border-right: 1px solid rgba(201,162,75,0.08);
+}
+.partner-logo:hover { opacity: 0.85; }
+.partner-logo svg, .partner-logo span {
+  height: 22px;
+  filter: brightness(0) invert(1);
+  display: flex;
+  align-items: center;
+}
+.partner-logo .logo-text {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: #fff;
+  white-space: nowrap;
+  line-height: 22px;
+  font-family: 'Montserrat', sans-serif;
+}
+.partner-logo .logo-text.serif {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  font-size: 13px;
+}
+
+
+/* ── TRUST BAND ── */
+.trust-band {
+  background: linear-gradient(90deg, #0a0c08, #0d1209, #0a0c08);
+  border-top: 1px solid rgba(201,162,75,0.12);
+  border-bottom: 1px solid rgba(201,162,75,0.12);
+  padding: 1rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  flex-wrap: wrap;
+}
+.trust-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 1.4rem;
+  border-right: 1px solid rgba(201,162,75,0.12);
+}
+.trust-item:last-child { border-right: none; }
+.trust-icon { font-size: 13px; opacity: 0.7; }
+.trust-text {
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(201,162,75,0.7);
+  white-space: nowrap;
+  font-family: 'Montserrat', sans-serif;
+}
+@media(max-width: 640px) {
+  .trust-band { gap: 0; padding: 0.75rem 0.5rem; }
+  .trust-item { padding: 0.4rem 0.8rem; }
+  .trust-text { font-size: 0.58rem; letter-spacing: 0.1em; }
+}
+
+
+/* ── HOW WE EXECUTE ── */
+.execute-section { padding: 4.5rem 2rem; }
+.execute-steps {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0;
+  margin-top: 2rem;
+  border: 1px solid rgba(201,168,76,0.15);
+}
+@media(max-width: 900px) {
+  .execute-steps { grid-template-columns: 1fr 1fr; }
+}
+@media(max-width: 500px) {
+  .execute-steps { grid-template-columns: 1fr; }
+}
+.execute-step {
+  padding: 1.8rem 1.4rem;
+  border-right: 1px solid rgba(201,168,76,0.08);
+  background: #0A0806;
+  position: relative;
+  transition: background 0.3s;
+}
+.execute-step:hover { background: #131008; }
+.execute-step:last-child { border-right: none; }
+.execute-step::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: var(--gold, #C9A84C);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+.execute-step:hover::before { transform: scaleX(1); }
+.execute-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem;
+  color: rgba(201,168,76,0.1);
+  line-height: 1;
+  margin-bottom: 0.8rem;
+}
+.execute-icon { font-size: 1.3rem; margin-bottom: 0.6rem; display: block; }
+.execute-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.95rem;
+  color: #F0E6D0;
+  margin-bottom: 0.5rem;
+  line-height: 1.25;
+}
+.execute-desc {
+  font-size: 0.76rem;
+  color: #A89060;
+  line-height: 1.6;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+}
+
+
+/* ── SMS / WHATSAPP ── */
+.wa-float {
+  position: fixed;
+  bottom: 5.5rem;
+  left: 1.5rem;
+  z-index: 997;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.4rem;
+}
+.wa-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  background: #1a1a1a;
+  color: #25D366;
+  border: 1px solid #25D366;
+  padding: 0.6rem 1rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.25s;
+  white-space: nowrap;
+}
+.wa-btn:hover {
+  background: #25D366;
+  color: #000;
+  transform: translateY(-2px);
+}
+.wa-pulse {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: #25D366;
+  animation: waPulse 2s ease-in-out infinite;
+  flex-shrink: 0;
+}
+@keyframes waPulse {
+  0%,100% { opacity:1; transform:scale(1); }
+  50% { opacity:0.4; transform:scale(0.7); }
+}
+@media(max-width:640px) {
+  .wa-float { bottom: 5rem; left: 1rem; }
+  .wa-btn { font-size: 0.62rem; padding: 0.5rem 0.8rem; }
+}
+
+
+/* ── STICKY CTA ── */
+.sticky-cta {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 996;
+  opacity: 0;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  pointer-events: none;
+  transform: translateX(-50%) translateY(10px);
+}
+.sticky-cta.visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+.sticky-cta a {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: linear-gradient(135deg, #C9A84C, #E8CE80);
+  color: #040302;
+  padding: 0.75rem 1.8rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-family: 'Montserrat', sans-serif;
+  text-decoration: none;
+  box-shadow: 0 4px 24px rgba(201,168,76,0.4);
+  transition: all 0.25s;
+  white-space: nowrap;
+}
+.sticky-cta a:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(201,168,76,0.5);
+}
+@media(max-width:640px) {
+  .sticky-cta { bottom: 1rem; width: 90%; }
+  .sticky-cta a { justify-content: center; padding: 0.85rem 1rem; font-size: 0.68rem; }
+}
+
+
+  /* ── WC PAGE MOBILE IMPROVEMENTS ── */
+  @media(max-width:640px) {
+    .hero { padding: 4.5rem 1.25rem 3rem; }
+    .hero-title { font-size: clamp(2.2rem, 8vw, 3rem); }
+    .hero-sub { font-size: 1rem; }
+    .cta-row { flex-direction: column; }
+    .cta-row .btn { width: 100%; justify-content: center; text-align: center; }
+    .hero-stats { grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+    .wrap { padding: 3rem 1.25rem; }
+    .section-full { padding: 3rem 1.25rem; }
+    .tiers { grid-template-columns: 1fr; }
+    .pkgs { grid-template-columns: 1fr; }
+    .cal-row { grid-template-columns: 1fr; }
+    .venues { grid-template-columns: 1fr; }
+    .book-cards { grid-template-columns: 1fr; }
+    .form-wrap { padding: 2rem 1.25rem; }
+    .fgrid { grid-template-columns: 1fr; }
+    .sticky-tab { bottom: 1rem; right: 1rem; }
+    .tab-btn { font-size: 0.62rem; padding: 0.55rem 0.9rem; }
+    .h2 { font-size: 1.6rem; }
+  }
+  @media(max-width:480px) {
+    .hero-stats { grid-template-columns: 1fr 1fr; }
+    .hero-stat { border-left: 1px solid rgba(201,168,76,0.3); padding-left: 0.6rem; }
+    .two-col { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+  }
+
   </style>
 </head>
 <body>
@@ -191,7 +494,25 @@
     <a href="#calendar">Calendar</a>
     <a href="#book" class="active">Book Now</a>
   </div>
+  <a href="#book" style="display:none;" class="nav-mobile-cta" 
+       style="color:var(--gold);font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;font-family:Montserrat,sans-serif;">
+    Book
+  </a>
 </nav>
+<style>
+@media(max-width:768px) {
+  .nav-mobile-cta { display:inline-flex !important; align-items:center; }
+}
+</style>
+
+<div class="trust-band">
+  <div class="trust-item"><span class="trust-icon">🛡️</span><span class="trust-text">Fully Insured</span></div>
+  <div class="trust-item"><span class="trust-icon">✦</span><span class="trust-text">Vendor Coordinated</span></div>
+  <div class="trust-item"><span class="trust-icon">🤝</span><span class="trust-text">End-to-End Managed</span></div>
+  <div class="trust-item"><span class="trust-icon">📋</span><span class="trust-text">Contingency Planned</span></div>
+  <div class="trust-item"><span class="trust-icon">🎯</span><span class="trust-text">Concierge Support</span></div>
+  <div class="trust-item"><span class="trust-icon">⚡</span><span class="trust-text">24hr Response</span></div>
+</div>
 
 <!-- HERO -->
 <div class="hero">
@@ -207,7 +528,7 @@
       <a href="#residential" class="btn btn-outline">Resident Match Series</a>
       <button class="btn btn-muted" onclick="downloadGuide()">⬇ Download Guide</button>
     </div>
-    <div class="hero-stats">
+    <div class="hero-stats" style="display:flex;gap:1.5rem;flex-wrap:wrap;">
       <div class="hero-stat">Opening Match<span>June 11, 2026</span></div>
       <div class="hero-stat">★ Primary Corporate Slot<span>USA vs Paraguay · Jun 12 · 9pm</span></div>
       <div class="hero-stat">The Final<span>July 19, 2026</span></div>
@@ -217,6 +538,11 @@
 </div>
 
 <div class="divider"></div>
+
+<div class="partner-strip">
+  <div class="partner-strip-label">Partners · Venues · Media</div>
+  <div class="partner-track-wrap"><div class="partner-track"><div class="partner-logo" aria-label="fifa"><span class="logo-text">FIFA World Cup™ 2026</span></div><div class="partner-logo" aria-label="fox"><svg viewBox="0 0 80 28" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="80" height="28" rx="3" fill="#fff" fill-opacity="0.12"/><text x="40" y="20" fill="white" font-family="Arial Black,Arial" font-weight="900" font-size="16" text-anchor="middle" letter-spacing="1">FOX</text></svg></div><div class="partner-logo" aria-label="adidas"><svg viewBox="0 0 90 28" fill="none" xmlns="http://www.w3.org/2000/svg"><polygon points="30,24 45,4 60,24" fill="white" opacity="0.9"/><text x="45" y="28" fill="white" font-family="Arial,sans-serif" font-weight="900" font-size="11" text-anchor="middle" letter-spacing="3">ADIDAS</text></svg></div><div class="partner-logo" aria-label="skyline"><span class="logo-text serif">SKYLINE 609</span></div><div class="partner-logo" aria-label="google"><svg viewBox="0 0 80 28" xmlns="http://www.w3.org/2000/svg"><text x="40" y="20" fill="white" font-family="Arial,sans-serif" font-weight="700" font-size="15" text-anchor="middle" letter-spacing="0.5">Google</text></svg></div><div class="partner-logo" aria-label="tower"><span class="logo-text serif">TOWER CLUB</span></div><div class="partner-logo" aria-label="13th"><span class="logo-text serif">THE 13TH FLOOR</span></div><div class="partner-logo" aria-label="rooftop1"><span class="logo-text serif">PENTHOUSE DC</span></div><div class="partner-logo" aria-label="rooftop2"><span class="logo-text serif">CAPITOL SKY</span></div><div class="partner-logo" aria-label="cater1"><span class="logo-text">ELITE CATERING DMV</span></div><div class="partner-logo" aria-label="cater2"><span class="logo-text">HARBOUR HOSPITALITY</span></div><div class="partner-logo" aria-label="fifa"><span class="logo-text">FIFA World Cup™ 2026</span></div><div class="partner-logo" aria-label="fox"><svg viewBox="0 0 80 28" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="80" height="28" rx="3" fill="#fff" fill-opacity="0.12"/><text x="40" y="20" fill="white" font-family="Arial Black,Arial" font-weight="900" font-size="16" text-anchor="middle" letter-spacing="1">FOX</text></svg></div><div class="partner-logo" aria-label="adidas"><svg viewBox="0 0 90 28" fill="none" xmlns="http://www.w3.org/2000/svg"><polygon points="30,24 45,4 60,24" fill="white" opacity="0.9"/><text x="45" y="28" fill="white" font-family="Arial,sans-serif" font-weight="900" font-size="11" text-anchor="middle" letter-spacing="3">ADIDAS</text></svg></div><div class="partner-logo" aria-label="skyline"><span class="logo-text serif">SKYLINE 609</span></div><div class="partner-logo" aria-label="google"><svg viewBox="0 0 80 28" xmlns="http://www.w3.org/2000/svg"><text x="40" y="20" fill="white" font-family="Arial,sans-serif" font-weight="700" font-size="15" text-anchor="middle" letter-spacing="0.5">Google</text></svg></div><div class="partner-logo" aria-label="tower"><span class="logo-text serif">TOWER CLUB</span></div><div class="partner-logo" aria-label="13th"><span class="logo-text serif">THE 13TH FLOOR</span></div><div class="partner-logo" aria-label="rooftop1"><span class="logo-text serif">PENTHOUSE DC</span></div><div class="partner-logo" aria-label="rooftop2"><span class="logo-text serif">CAPITOL SKY</span></div><div class="partner-logo" aria-label="cater1"><span class="logo-text">ELITE CATERING DMV</span></div><div class="partner-logo" aria-label="cater2"><span class="logo-text">HARBOUR HOSPITALITY</span></div></div></div>
+</div>
 
 <!-- TWO PRODUCTS -->
 <div class="wrap fu">
@@ -609,6 +935,15 @@
   </div>
 </div>
 
+<div class="wa-float">
+  <a href="https://wa.me/13016367663?text=Hi%20Curator%20Atelier%2C%20I%27m%20interested%20in%20World%20Cup%20hospitality." 
+     target="_blank" class="wa-btn">
+    <div class="wa-pulse"></div>
+    Text Us · WhatsApp
+  </a>
+</div>
+<div class="sticky-cta" id="sticky-cta"><a href="#book">✦ &nbsp;Request a Proposal</a></div>
+
 <footer>
   <div class="foot-brand">Curator Atelier</div>
   <div class="foot-links">
@@ -642,6 +977,18 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   document.querySelectorAll('.days-counter').forEach(el => {
     el.textContent = days > 0 ? days : 'Live Now';
   });
+})();
+
+
+// Sticky CTA — show after scrolling 40% of page
+(function() {
+  const cta = document.getElementById('sticky-cta');
+  if (!cta) return;
+  window.addEventListener('scroll', function() {
+    const scrolled = window.scrollY / (document.body.scrollHeight - window.innerHeight);
+    if (scrolled > 0.15) cta.classList.add('visible');
+    else cta.classList.remove('visible');
+  }, { passive: true });
 })();
 
 function downloadGuide(){
