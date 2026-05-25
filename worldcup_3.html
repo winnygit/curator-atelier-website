@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Curator Atelier · World Cup 2026 Hospitality</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <meta name="description" content="Private World Cup 2026 hospitality experiences. Corporate team events and luxury apartment resident series across Washington DC, Baltimore, and Northern Virginia."/>
+  <link rel="canonical" href="https://curatoratelier.com/worldcup"/>
+  <meta property="og:title" content="Curator Atelier · World Cup 2026 Private Hospitality">
+  <meta property="og:description" content="Once in Four Years. Private venues, executive gifting, full hospitality. Corporate and residential experiences across the DMV corridor.">
+  <meta property="og:type" content="website">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root{--gold:#C9A84C;--gold-lt:#E8CE80;--dark:#040302;--dark2:#0A0806;--dark3:#131008;--dark4:#1C1810;--cream:#F2E8D5;--dim:#A89060;--muted:#5A4E38;--white:#FDFAF4;--border:rgba(201,168,76,0.18);}
+    *{margin:0;padding:0;box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{background:var(--dark);color:var(--cream);font-family:'Montserrat',sans-serif;font-weight:300;overflow-x:hidden;}
+    a{color:inherit;text-decoration:none;transition:color 0.3s;}
+
+    /* NAV */
+    .nav{position:sticky;top:0;z-index:999;display:flex;align-items:center;justify-content:space-between;padding:1rem 2rem;backdrop-filter:blur(12px);background:rgba(4,3,2,0.88);border-bottom:1px solid var(--border);}
+    .nav-brand{display:flex;align-items:center;gap:10px;}
+    .nav-logo{height:36px;object-fit:contain;}
+    .nav-name{font-family:'Playfair Display',serif;font-size:0.85rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);}
+    .nav-links{display:flex;gap:1.8rem;font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;align-items:center;}
+    .nav-links a{color:var(--dim);transition:color 0.2s;}
+    .nav-links a:hover,.nav-links a.active{color:var(--gold);}
+    @media(max-width:768px){.nav-links{display:none;}}
+
+    /* STICKY TAB */
+    .sticky-tab{position:fixed;bottom:1.5rem;right:1.5rem;z-index:998;display:flex;flex-direction:column;gap:0.5rem;align-items:flex-end;}
+    .tab-btn{display:flex;align-items:center;gap:0.55rem;padding:0.65rem 1.1rem;font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;font-weight:600;font-family:'Montserrat',sans-serif;cursor:pointer;border:none;transition:all 0.25s;white-space:nowrap;}
+    .tab-btn.gold{background:var(--gold);color:var(--dark);box-shadow:0 4px 20px rgba(201,168,76,0.35);}
+    .tab-btn.gold:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(201,168,76,0.45);}
+    .tab-btn.dark{background:rgba(10,8,6,0.95);color:var(--gold);border:1px solid var(--gold);}
+    .tab-btn.dark:hover{background:rgba(201,168,76,0.1);}
+
+    /* HERO */
+    .hero{min-height:100vh;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:center;padding:6rem 2rem 4rem;}
+    .hero-bg{position:absolute;inset:0;}
+    .hero-bg img{width:100%;height:100%;object-fit:cover;opacity:0.42;}
+    .hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(4,3,2,0.96) 0%,rgba(4,3,2,0.72) 50%,rgba(4,3,2,0.35) 100%);}
+    .hero-content{position:relative;z-index:2;max-width:1100px;margin:0 auto;width:100%;}
+    .eyebrow{font-size:0.68rem;letter-spacing:0.45em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem;display:flex;align-items:center;gap:0.7rem;}
+    .live-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);animation:pulse 1.8s ease-in-out infinite;flex-shrink:0;}
+    @keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:0.3;transform:scale(0.65);}}
+    .hero-title{font-family:'Playfair Display',serif;font-size:clamp(3rem,6vw,6rem);font-weight:400;line-height:1.0;color:var(--white);margin-bottom:1.5rem;}
+    .hero-title em{font-style:italic;color:var(--gold);}
+    .hero-sub{font-family:'Cormorant Garamond',serif;font-size:clamp(1.1rem,1.8vw,1.45rem);color:var(--dim);line-height:1.65;max-width:580px;margin-bottom:2.5rem;font-style:italic;}
+    .cta-row{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:3rem;}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:0.85rem 2rem;font-size:0.75rem;letter-spacing:0.14em;text-transform:uppercase;font-family:'Montserrat',sans-serif;cursor:pointer;transition:all 0.25s;border:none;}
+    .btn-primary{background:linear-gradient(135deg,var(--gold),var(--gold-lt));color:var(--dark);font-weight:600;}
+    .btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(201,168,76,0.35);}
+    .btn-outline{border:1px solid var(--gold);background:transparent;color:var(--gold);}
+    .btn-outline:hover{background:rgba(201,168,76,0.08);transform:translateY(-2px);}
+    .btn-muted{border:1px solid rgba(201,168,76,0.25);background:rgba(10,8,6,0.7);color:var(--dim);}
+    .btn-muted:hover{border-color:var(--gold);color:var(--gold);}
+    .hero-stats{display:flex;gap:1.5rem;flex-wrap:wrap;}
+    .hero-stat{border-left:2px solid var(--gold);padding-left:0.75rem;font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);}
+    .hero-stat span{display:block;font-family:'Playfair Display',serif;font-size:0.85rem;color:var(--gold);font-style:italic;margin-top:2px;letter-spacing:0;}
+
+    /* SECTIONS */
+    .wrap{max-width:1100px;margin:0 auto;padding:5rem 2rem;}
+    .divider{width:100%;height:1px;background:linear-gradient(90deg,transparent,rgba(201,168,76,0.2),transparent);}
+    .tag{font-size:0.65rem;letter-spacing:0.4em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:0.8rem;}
+    .h2{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3vw,2.8rem);font-weight:400;color:var(--white);line-height:1.15;margin-bottom:0.8rem;}
+    .h2 em{font-style:italic;color:var(--gold);}
+    .rule{width:40px;height:1px;background:var(--gold);opacity:0.6;margin-bottom:1.5rem;}
+    .body-text{font-family:'Cormorant Garamond',serif;font-size:1.05rem;color:var(--dim);line-height:1.75;max-width:600px;}
+
+    /* PRODUCT CARDS */
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:2.5rem;}
+    @media(max-width:700px){.two-col{grid-template-columns:1fr;}}
+    .prod-card{padding:2.5rem 2rem;background:var(--dark2);border-top:2px solid transparent;transition:all 0.3s;cursor:pointer;}
+    .prod-card:hover{border-top-color:var(--gold);background:var(--dark3);}
+    .prod-card.feat{background:linear-gradient(180deg,#13100A,#0E0B07);border:1px solid rgba(201,168,76,0.2);}
+    .prod-card-tag{font-size:0.62rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:0.6rem;}
+    .prod-card-title{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--white);margin-bottom:0.5rem;}
+    .prod-card-desc{font-family:'Cormorant Garamond',serif;font-size:0.95rem;color:var(--dim);line-height:1.6;margin-bottom:1.2rem;}
+
+    /* TIERS */
+    .tiers{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--border);margin-top:2rem;}
+    @media(max-width:900px){.tiers{grid-template-columns:1fr 1fr;}}
+    @media(max-width:500px){.tiers{grid-template-columns:1fr;}}
+    .tier{padding:1.8rem 1.4rem;border-right:1px solid rgba(201,168,76,0.1);background:var(--dark2);transition:background 0.3s;}
+    .tier:last-child{border-right:none;}
+    .tier:hover{background:var(--dark3);}
+    .tier.feat{background:linear-gradient(180deg,#14110A,#0E0B07);border:1px solid rgba(201,168,76,0.22);}
+    .tier-num{font-size:0.62rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);margin-bottom:0.5rem;}
+    .tier-name{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--white);margin-bottom:0.3rem;}
+    .tier-tag{font-family:'Cormorant Garamond',serif;font-size:0.88rem;color:var(--muted);font-style:italic;margin-bottom:0.9rem;}
+    .tier-hr{width:100%;height:1px;background:rgba(201,168,76,0.1);margin:0.7rem 0;}
+    .tier-list{list-style:none;display:flex;flex-direction:column;gap:0.45rem;}
+    .tier-list li{display:flex;gap:0.45rem;font-size:0.8rem;color:var(--dim);line-height:1.4;}
+    .tier-list li::before{content:'—';color:var(--gold);flex-shrink:0;font-size:0.72rem;margin-top:1px;}
+    .tier-guests{font-size:0.65rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);margin-top:0.9rem;padding-top:0.7rem;border-top:1px solid rgba(201,168,76,0.08);}
+    .rec{background:var(--gold);color:var(--dark);font-size:0.58rem;letter-spacing:0.15em;text-transform:uppercase;font-weight:700;padding:0.22rem 0.6rem;display:inline-block;margin-bottom:0.45rem;font-family:'Montserrat',sans-serif;}
+
+    /* PACKAGES */
+    .pkgs{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--border);margin-top:2rem;}
+    @media(max-width:900px){.pkgs{grid-template-columns:1fr 1fr;}}
+    @media(max-width:500px){.pkgs{grid-template-columns:1fr;}}
+    .pkg{padding:1.8rem 1.4rem;border-right:1px solid rgba(201,168,76,0.1);background:var(--dark2);}
+    .pkg:last-child{border-right:none;}
+    .pkg.feat{background:linear-gradient(180deg,#14110A,#0E0B07);border:1px solid rgba(201,168,76,0.22);}
+    .pkg-tag{font-size:0.62rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:0.5rem;}
+    .pkg-name{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--white);margin-bottom:0.25rem;}
+    .pkg-events{font-size:0.7rem;color:var(--muted);margin-bottom:0.9rem;}
+    .pkg-num{font-family:'Playfair Display',serif;font-size:1.55rem;color:var(--gold);}
+    .pkg-numlab{font-size:0.6rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);}
+    .pkg-hr{width:100%;height:1px;background:rgba(201,168,76,0.1);margin:0.7rem 0;}
+    .pkg-list{list-style:none;display:flex;flex-direction:column;gap:0.4rem;}
+    .pkg-list li{font-size:0.78rem;color:var(--dim);display:flex;gap:0.4rem;}
+    .pkg-list li::before{content:'✓';color:var(--gold);flex-shrink:0;}
+
+    /* CALENDAR */
+    .cal{display:flex;flex-direction:column;gap:2px;margin-top:2rem;}
+    .cal-row{display:grid;grid-template-columns:180px 1fr;gap:2px;}
+    @media(max-width:600px){.cal-row{grid-template-columns:1fr;}}
+    .cal-left{background:var(--dark3);padding:1.2rem 1.4rem;display:flex;flex-direction:column;justify-content:center;}
+    .cal-left-name{font-family:'Playfair Display',serif;font-size:0.95rem;color:var(--white);margin-bottom:0.2rem;}
+    .cal-left-dates{font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);}
+    .cal-right{background:var(--dark3);padding:1.2rem 1.4rem;display:flex;flex-wrap:wrap;gap:0.55rem;align-items:center;}
+    .pill{display:flex;align-items:center;gap:0.45rem;padding:0.4rem 0.85rem;border:1px solid rgba(201,168,76,0.12);background:var(--dark);font-size:0.68rem;}
+    .pill.feat{border-color:var(--gold);background:rgba(201,168,76,0.06);}
+    .pill-d{color:var(--gold);font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;}
+    .pill-m{color:var(--cream);}
+    .cal-note{font-size:0.62rem;color:var(--muted);font-style:italic;margin-top:0.2rem;width:100%;}
+
+    /* VENUES */
+    .venues{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:2rem;}
+    @media(max-width:700px){.venues{grid-template-columns:1fr;}}
+    .venue{background:var(--dark2);padding:2rem 1.7rem;border-top:2px solid transparent;transition:all 0.3s;}
+    .venue:hover{border-top-color:var(--gold);background:var(--dark3);}
+    .venue-dot-row{display:flex;align-items:center;gap:0.5rem;margin-bottom:0.7rem;}
+    .vdot{width:5px;height:5px;border-radius:50%;background:var(--gold);}
+    .vstat{font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);}
+    .vname{font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--white);margin-bottom:0.25rem;}
+    .vsub{font-size:0.68rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:0.7rem;}
+    .vdesc{font-family:'Cormorant Garamond',serif;font-size:0.95rem;color:var(--dim);line-height:1.6;}
+
+    /* BOOKING */
+    .book-cards{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:2rem;}
+    @media(max-width:700px){.book-cards{grid-template-columns:1fr;}}
+    .book-card{background:var(--dark2);padding:2.5rem 2rem;}
+    .book-card.feat{background:linear-gradient(135deg,#13100A,#0E0B07);border:1px solid rgba(201,168,76,0.2);}
+    .bc-icon{font-size:2rem;margin-bottom:1rem;display:block;}
+    .bc-title{font-family:'Playfair Display',serif;font-size:1.25rem;color:var(--white);margin-bottom:0.5rem;}
+    .bc-desc{font-family:'Cormorant Garamond',serif;font-size:0.95rem;color:var(--dim);line-height:1.6;margin-bottom:1.5rem;}
+
+    /* FORM */
+    .form-wrap{background:var(--dark2);border:1px solid var(--border);padding:3rem 2.5rem;margin-top:2rem;}
+    .fgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1.1rem;}
+    label{font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-bottom:0.45rem;display:block;}
+    input,select,textarea{width:100%;border:1px solid rgba(201,168,76,0.15);background:rgba(4,3,2,0.8);color:var(--cream);padding:0.8rem 0.9rem;font-size:0.86rem;font-family:'Montserrat',sans-serif;font-weight:300;transition:border-color 0.3s;outline:none;}
+    input:focus,select:focus,textarea:focus{border-color:var(--gold);}
+    textarea{min-height:100px;resize:vertical;}
+    select option{background:#0A0806;}
+
+    /* FOOTER */
+    footer{border-top:1px solid rgba(201,168,76,0.1);padding:3rem 2rem;text-align:center;}
+    .foot-brand{font-family:'Playfair Display',serif;font-size:1.05rem;color:var(--gold);margin-bottom:0.75rem;letter-spacing:0.15em;}
+    .foot-links{display:flex;justify-content:center;gap:1.5rem;margin-bottom:0.75rem;flex-wrap:wrap;}
+    .foot-links a{font-size:0.68rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);transition:color 0.2s;}
+    .foot-links a:hover{color:var(--gold);}
+    .foot-copy{font-size:0.68rem;color:var(--muted);opacity:0.55;}
+
+    /* ANIM */
+    .fu{opacity:0;transform:translateY(22px);transition:opacity 0.7s ease,transform 0.7s ease;}
+    .fu.visible{opacity:1;transform:translateY(0);}
+
+/* ── PARTNER STRIP ── */
+.partner-strip {
+  background: var(--dark2, #0A0806);
+  border-top: 1px solid rgba(201,162,75,0.12);
+  border-bottom: 1px solid rgba(201,162,75,0.12);
+  padding: 0;
+  overflow: hidden;
+  position: relative;
+}
+.partner-strip::before,
+.partner-strip::after {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 80px;
+  z-index: 2;
+  pointer-events: none;
+}
+.partner-strip::before { left: 0; background: linear-gradient(90deg, var(--dark2,#0A0806), transparent); }
+.partner-strip::after  { right:0; background: linear-gradient(270deg, var(--dark2,#0A0806), transparent); }
+
+.partner-strip-label {
+  text-align: center;
+  font-size: 0.58rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: rgba(201,162,75,0.45);
+  padding: 0.9rem 0 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.partner-track-wrap {
+  overflow: hidden;
+  padding: 0.7rem 0 1rem;
+}
+
+.partner-track {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  width: max-content;
+  animation: partnerScroll 32s linear infinite;
+}
+.partner-track:hover { animation-play-state: paused; }
+
+@keyframes partnerScroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.partner-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 2.5rem;
+  opacity: 0.45;
+  transition: opacity 0.3s;
+  flex-shrink: 0;
+  border-right: 1px solid rgba(201,162,75,0.08);
+}
+.partner-logo:hover { opacity: 0.85; }
+.partner-logo svg, .partner-logo span {
+  height: 22px;
+  filter: brightness(0) invert(1);
+  display: flex;
+  align-items: center;
+}
+.partner-logo .logo-text {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: #fff;
+  white-space: nowrap;
+  line-height: 22px;
+  font-family: 'Montserrat', sans-serif;
+}
+.partner-logo .logo-text.serif {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  font-size: 13px;
+}
+
+
+/* ── TRUST BAND ── */
+.trust-band {
+  background: linear-gradient(90deg, #0a0c08, #0d1209, #0a0c08);
+  border-top: 1px solid rgba(201,162,75,0.12);
+  border-bottom: 1px solid rgba(201,162,75,0.12);
+  padding: 1rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  flex-wrap: wrap;
+}
+.trust-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 1.4rem;
+  border-right: 1px solid rgba(201,162,75,0.12);
+}
+.trust-item:last-child { border-right: none; }
+.trust-icon { font-size: 13px; opacity: 0.7; }
+.trust-text {
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(201,162,75,0.7);
+  white-space: nowrap;
+  font-family: 'Montserrat', sans-serif;
+}
+@media(max-width: 640px) {
+  .trust-band { gap: 0; padding: 0.75rem 0.5rem; }
+  .trust-item { padding: 0.4rem 0.8rem; }
+  .trust-text { font-size: 0.58rem; letter-spacing: 0.1em; }
+}
+
+
+/* ── HOW WE EXECUTE ── */
+.execute-section { padding: 4.5rem 2rem; }
+.execute-steps {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0;
+  margin-top: 2rem;
+  border: 1px solid rgba(201,168,76,0.15);
+}
+@media(max-width: 900px) {
+  .execute-steps { grid-template-columns: 1fr 1fr; }
+}
+@media(max-width: 500px) {
+  .execute-steps { grid-template-columns: 1fr; }
+}
+.execute-step {
+  padding: 1.8rem 1.4rem;
+  border-right: 1px solid rgba(201,168,76,0.08);
+  background: #0A0806;
+  position: relative;
+  transition: background 0.3s;
+}
+.execute-step:hover { background: #131008; }
+.execute-step:last-child { border-right: none; }
+.execute-step::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: var(--gold, #C9A84C);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+.execute-step:hover::before { transform: scaleX(1); }
+.execute-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem;
+  color: rgba(201,168,76,0.1);
+  line-height: 1;
+  margin-bottom: 0.8rem;
+}
+.execute-icon { font-size: 1.3rem; margin-bottom: 0.6rem; display: block; }
+.execute-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.95rem;
+  color: #F0E6D0;
+  margin-bottom: 0.5rem;
+  line-height: 1.25;
+}
+.execute-desc {
+  font-size: 0.76rem;
+  color: #A89060;
+  line-height: 1.6;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+}
+
+
+/* ── SMS / WHATSAPP ── */
+.wa-float {
+  position: fixed;
+  bottom: 5.5rem;
+  left: 1.5rem;
+  z-index: 997;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.4rem;
+}
+.wa-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  background: #1a1a1a;
+  color: #25D366;
+  border: 1px solid #25D366;
+  padding: 0.6rem 1rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.25s;
+  white-space: nowrap;
+}
+.wa-btn:hover {
+  background: #25D366;
+  color: #000;
+  transform: translateY(-2px);
+}
+.wa-pulse {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: #25D366;
+  animation: waPulse 2s ease-in-out infinite;
+  flex-shrink: 0;
+}
+@keyframes waPulse {
+  0%,100% { opacity:1; transform:scale(1); }
+  50% { opacity:0.4; transform:scale(0.7); }
+}
+@media(max-width:640px) {
+  .wa-float { bottom: 5rem; left: 1rem; }
+  .wa-btn { font-size: 0.62rem; padding: 0.5rem 0.8rem; }
+}
+
+
+/* ── STICKY CTA ── */
+.sticky-cta {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 996;
+  opacity: 0;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  pointer-events: none;
+  transform: translateX(-50%) translateY(10px);
+}
+.sticky-cta.visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+.sticky-cta a {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: linear-gradient(135deg, #C9A84C, #E8CE80);
+  color: #040302;
+  padding: 0.75rem 1.8rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-family: 'Montserrat', sans-serif;
+  text-decoration: none;
+  box-shadow: 0 4px 24px rgba(201,168,76,0.4);
+  transition: all 0.25s;
+  white-space: nowrap;
+}
+.sticky-cta a:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(201,168,76,0.5);
+}
+@media(max-width:640px) {
+  .sticky-cta { bottom: 1rem; width: 90%; }
+  .sticky-cta a { justify-content: center; padding: 0.85rem 1rem; font-size: 0.68rem; }
+}
+
+
+  /* ── WC PAGE MOBILE IMPROVEMENTS ── */
+  @media(max-width:640px) {
+    .hero { padding: 4.5rem 1.25rem 3rem; }
+    .hero-title { font-size: clamp(2.2rem, 8vw, 3rem); }
+    .hero-sub { font-size: 1rem; }
+    .cta-row { flex-direction: column; }
+    .cta-row .btn { width: 100%; justify-content: center; text-align: center; }
+    .hero-stats { grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+    .wrap { padding: 3rem 1.25rem; }
+    .section-full { padding: 3rem 1.25rem; }
+    .tiers { grid-template-columns: 1fr; }
+    .pkgs { grid-template-columns: 1fr; }
+    .cal-row { grid-template-columns: 1fr; }
+    .venues { grid-template-columns: 1fr; }
+    .book-cards { grid-template-columns: 1fr; }
+    .form-wrap { padding: 2rem 1.25rem; }
+    .fgrid { grid-template-columns: 1fr; }
+    .sticky-tab { bottom: 1rem; right: 1rem; }
+    .tab-btn { font-size: 0.62rem; padding: 0.55rem 0.9rem; }
+    .h2 { font-size: 1.6rem; }
+  }
+  @media(max-width:480px) {
+    .hero-stats { grid-template-columns: 1fr 1fr; }
+    .hero-stat { border-left: 1px solid rgba(201,168,76,0.3); padding-left: 0.6rem; }
+    .two-col { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+  }
+
+  </style>
+</head>
+<body>
+
+<!-- Sticky Tab -->
+<div class="sticky-tab">
+  <a href="https://calendly.com/hello-curatoratelier/30min" target="_blank" class="tab-btn dark">📅 Book a Call</a>
+  <button class="tab-btn gold" onclick="downloadGuide()">⬇ Download Guide</button>
+</div>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-brand">
+    <img src="assets/img/curator-logo-gold.png" alt="CA" class="nav-logo" onerror="this.style.opacity='0'">
+    <span class="nav-name">Curator Atelier</span>
+  </div>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="#corporate">Corporate</a>
+    <a href="#residential">Residential</a>
+    <a href="#calendar">Calendar</a>
+    <a href="#book" class="active">Book Now</a>
+  </div>
+  <a href="#book" style="display:none;" class="nav-mobile-cta" 
+       style="color:var(--gold);font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;font-family:Montserrat,sans-serif;">
+    Book
+  </a>
+</nav>
+<style>
+@media(max-width:768px) {
+  .nav-mobile-cta { display:inline-flex !important; align-items:center; }
+}
+</style>
+
+<div class="trust-band">
+  <div class="trust-item"><span class="trust-icon">🛡️</span><span class="trust-text">Fully Insured</span></div>
+  <div class="trust-item"><span class="trust-icon">✦</span><span class="trust-text">Vendor Coordinated</span></div>
+  <div class="trust-item"><span class="trust-icon">🤝</span><span class="trust-text">End-to-End Managed</span></div>
+  <div class="trust-item"><span class="trust-icon">📋</span><span class="trust-text">Contingency Planned</span></div>
+  <div class="trust-item"><span class="trust-icon">🎯</span><span class="trust-text">Concierge Support</span></div>
+  <div class="trust-item"><span class="trust-icon">⚡</span><span class="trust-text">24hr Response</span></div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-bg">
+    <img src="assets/img/hero-rooftop.jpg" alt="World Cup 2026 Hospitality"/>
+  </div>
+  <div class="hero-content fu">
+    <div class="eyebrow"><div class="live-dot"></div>FIFA World Cup 2026 &nbsp;·&nbsp; Washington DC &nbsp;·&nbsp; Baltimore &nbsp;·&nbsp; Northern Virginia</div>
+    <h1 class="hero-title">Once in Four Years.<br>The Biggest Event<br><em>in the World.</em></h1>
+    <p class="hero-sub">Private hospitality experiences for corporate teams and luxury apartment residents. Premium venues. Executive gifting. Everything managed.</p>
+    <div class="cta-row">
+      <a href="#corporate" class="btn btn-primary">Corporate Experiences</a>
+      <a href="#residential" class="btn btn-outline">Resident Match Series</a>
+      <button class="btn btn-muted" onclick="downloadGuide()">⬇ Download Guide</button>
+    </div>
+    <div class="hero-stats" style="display:flex;gap:1.5rem;flex-wrap:wrap;">
+      <div class="hero-stat">Opening Match<span>June 11, 2026</span></div>
+      <div class="hero-stat">★ Primary Corporate Slot<span>USA vs Paraguay · Jun 12 · 9pm</span></div>
+      <div class="hero-stat">The Final<span>July 19, 2026</span></div>
+      <div class="hero-stat">Availability<span>Limited · Act Now</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<div class="partner-strip">
+  <div class="partner-strip-label">Partners · Venues · Media</div>
+  <div class="partner-track-wrap"><div class="partner-track"><div class="partner-logo" aria-label="fifa"><span class="logo-text">FIFA World Cup™ 2026</span></div><div class="partner-logo" aria-label="fox"><svg viewBox="0 0 80 28" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="80" height="28" rx="3" fill="#fff" fill-opacity="0.12"/><text x="40" y="20" fill="white" font-family="Arial Black,Arial" font-weight="900" font-size="16" text-anchor="middle" letter-spacing="1">FOX</text></svg></div><div class="partner-logo" aria-label="adidas"><svg viewBox="0 0 90 28" fill="none" xmlns="http://www.w3.org/2000/svg"><polygon points="30,24 45,4 60,24" fill="white" opacity="0.9"/><text x="45" y="28" fill="white" font-family="Arial,sans-serif" font-weight="900" font-size="11" text-anchor="middle" letter-spacing="3">ADIDAS</text></svg></div><div class="partner-logo" aria-label="skyline"><span class="logo-text serif">SKYLINE 609</span></div><div class="partner-logo" aria-label="google"><svg viewBox="0 0 80 28" xmlns="http://www.w3.org/2000/svg"><text x="40" y="20" fill="white" font-family="Arial,sans-serif" font-weight="700" font-size="15" text-anchor="middle" letter-spacing="0.5">Google</text></svg></div><div class="partner-logo" aria-label="tower"><span class="logo-text serif">TOWER CLUB</span></div><div class="partner-logo" aria-label="13th"><span class="logo-text serif">THE 13TH FLOOR</span></div><div class="partner-logo" aria-label="rooftop1"><span class="logo-text serif">PENTHOUSE DC</span></div><div class="partner-logo" aria-label="rooftop2"><span class="logo-text serif">CAPITOL SKY</span></div><div class="partner-logo" aria-label="cater1"><span class="logo-text">ELITE CATERING DMV</span></div><div class="partner-logo" aria-label="cater2"><span class="logo-text">HARBOUR HOSPITALITY</span></div><div class="partner-logo" aria-label="fifa"><span class="logo-text">FIFA World Cup™ 2026</span></div><div class="partner-logo" aria-label="fox"><svg viewBox="0 0 80 28" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="80" height="28" rx="3" fill="#fff" fill-opacity="0.12"/><text x="40" y="20" fill="white" font-family="Arial Black,Arial" font-weight="900" font-size="16" text-anchor="middle" letter-spacing="1">FOX</text></svg></div><div class="partner-logo" aria-label="adidas"><svg viewBox="0 0 90 28" fill="none" xmlns="http://www.w3.org/2000/svg"><polygon points="30,24 45,4 60,24" fill="white" opacity="0.9"/><text x="45" y="28" fill="white" font-family="Arial,sans-serif" font-weight="900" font-size="11" text-anchor="middle" letter-spacing="3">ADIDAS</text></svg></div><div class="partner-logo" aria-label="skyline"><span class="logo-text serif">SKYLINE 609</span></div><div class="partner-logo" aria-label="google"><svg viewBox="0 0 80 28" xmlns="http://www.w3.org/2000/svg"><text x="40" y="20" fill="white" font-family="Arial,sans-serif" font-weight="700" font-size="15" text-anchor="middle" letter-spacing="0.5">Google</text></svg></div><div class="partner-logo" aria-label="tower"><span class="logo-text serif">TOWER CLUB</span></div><div class="partner-logo" aria-label="13th"><span class="logo-text serif">THE 13TH FLOOR</span></div><div class="partner-logo" aria-label="rooftop1"><span class="logo-text serif">PENTHOUSE DC</span></div><div class="partner-logo" aria-label="rooftop2"><span class="logo-text serif">CAPITOL SKY</span></div><div class="partner-logo" aria-label="cater1"><span class="logo-text">ELITE CATERING DMV</span></div><div class="partner-logo" aria-label="cater2"><span class="logo-text">HARBOUR HOSPITALITY</span></div></div></div>
+</div>
+
+<!-- TWO PRODUCTS -->
+<div class="wrap fu">
+  <span class="tag">Two Products. One World Cup.</span>
+  <h2 class="h2">Choose your <em>experience.</em></h2>
+  <div class="rule"></div>
+  <p class="body-text">Whether entertaining your team and key partners or activating your building's rooftop for residents — Curator Atelier designs and delivers. You show up. We handle everything else.</p>
+  <div class="two-col">
+    <a href="#corporate">
+      <div class="prod-card feat">
+        <span class="prod-card-tag">Corporate</span>
+        <div class="prod-card-title">Corporate Hospitality</div>
+        <p class="prod-card-desc">One exceptional evening for your team and key partners. Private venue. Full hospitality. Executive gifting. Any match, any stage. From $15,000.</p>
+        <span class="btn btn-outline" style="font-size:0.7rem;padding:0.55rem 1.1rem;">View Tiers →</span>
+      </div>
+    </a>
+    <a href="#residential">
+      <div class="prod-card">
+        <span class="prod-card-tag">Residential</span>
+        <div class="prod-card-title">Resident Match Series</div>
+        <p class="prod-card-desc">Fully curated World Cup programming for luxury apartment communities. Rooftop activations, cocktail bar, resident gifting. Your space, our execution. From $8,000/event.</p>
+        <span class="btn btn-outline" style="font-size:0.7rem;padding:0.55rem 1.1rem;">View Packages →</span>
+      </div>
+    </a>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- CORPORATE -->
+<div id="corporate" class="wrap fu">
+  <span class="tag">Corporate Hospitality</span>
+  <h2 class="h2">Private experiences for your<br><em>team and partners.</em></h2>
+  <div class="rule"></div>
+  <p class="body-text">One exceptional evening. Premium private venue, curated hospitality, Curator Atelier executive gifting, and white-glove hosting. Your team shows up. We handle everything. Any match, any stage.</p>
+
+  <div style="margin-top:1.5rem;padding:0.9rem 1.4rem;border:1px solid rgba(201,168,76,0.3);background:rgba(201,168,76,0.04);display:inline-flex;align-items:center;gap:0.7rem;">
+    <div class="live-dot"></div>
+    <span style="font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);">★ Primary Slot — USA vs Paraguay &nbsp;·&nbsp; Friday June 12 &nbsp;·&nbsp; 9pm ET &nbsp;·&nbsp; Private DC Rooftop</span>
+  </div>
+
+  <!-- Four experience cards — emotion first, no pricing, no hard guest numbers -->
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:2px;border:1px solid var(--border);margin-top:2.5rem;">
+
+    <div style="padding:1.8rem 1.4rem;background:var(--dark2);border-top:3px solid #4A6FA5;transition:background 0.3s;">
+      <div style="font-size:0.62rem;letter-spacing:0.3em;text-transform:uppercase;color:#4A6FA5;margin-bottom:0.5rem;">Tier 01</div>
+      <div style="font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--white);margin-bottom:0.3rem;">The Introduction</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:0.88rem;color:var(--muted);font-style:italic;margin-bottom:0.9rem;">Premium access. Curated atmosphere.</div>
+      <div style="width:100%;height:1px;background:rgba(201,168,76,0.1);margin-bottom:0.8rem;"></div>
+      <ul style="list-style:none;display:flex;flex-direction:column;gap:0.45rem;">
+        <li style="display:flex;gap:0.45rem;font-size:0.8rem;color:var(--dim);line-height:1.4;"><span style="color:#4A6FA5;flex-shrink:0;">—</span>Semi-private premium venue</li>
+        <li style="display:flex;gap:0.45rem;font-size:0.8rem;color:var(--dim);line-height:1.4;"><span style="color:#4A6FA5;flex-shrink:0;">—</span>Curated food &amp; beverage service</li>
+        <li style="display:flex;gap:0.45rem;font-size:0.8rem;color:var(--dim);line-height:1.4;"><span style="color:#4A6FA5;flex-shrink:0;">—</span>Curator Atelier hospitality gift — every guest</li>
+        <li style="display:flex;gap:0.45rem;font-size:0.8rem;color:var(--dim);line-height:1.4;"><span style="color:#4A6FA5;flex-shrink:0;">—</span>Premium AV match viewing</li>
+        <li style="display:flex;gap:0.45rem;font-size:0.8rem;color:var(--dim);line-height:1.4;"><span style="color:#4A6FA5;flex-shrink:0;">—</span>Subtle branding &amp; décor</li>
+      </ul>
+      <div style="margin-top:1rem;padding-top:0.7rem;border-top:1px solid rgba(201,168,76,0.08);font-size:0.7rem;color:var(--muted);font-family:'Cormorant Garamond',serif;font-style:italic;">Typically curated for intimate executive groups</div>
+    </div>
+
+    <div style="padding:1.8rem 1.4rem;background:var(--dark2);border-top:3px solid #2E7D5E;transition:background 0.3s;">
+      <div style="font-size:0.62rem;letter-spacing:0.3em;text-transform:uppercase;color:#2E7D5E;margin-bottom:0.5rem;">Tier 02</div>
+      <div style="font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--white);margin-bottom:0.3rem;">The Statement</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:0.88rem;color:var(--muted);font-style:italic;margin-bottom:0.9rem;">Elevated. Private. Fully hosted.</div>
+      <div style="width:100%;height:1px;background:rgba(201,168,76,0.1);margin-bottom:0.8rem;"></div>
+      <ul style="list-style:none;display:flex;flex-direction:column;gap:0.45rem;">
+        <li style="display:flex;gap:0.45rem;font-size:0.8rem;color:var(--dim);line-height:1.4;"><span style="color:#2E7D5E;flex-shrink:0;">—</span>Full private venue — exclusively yours</li>
+        <li style="display:flex;gap:0.45rem;font-size:0.8rem;color:var(--dim);line-height:1.4;"><span style="color:#2E7D5E;flex-shrink:0;">—</span>Elevated food &amp; hosted premium bar</li>
+        <li style="display:flex;gap:0.45rem;font-size:0.8rem;color:var(--dim);line-height:1.4;"><span style="color:#2E7D5E;flex-shrink:0;">—</span>Curator Atelier executive gifting — every guest</li>
+        <li style="display:flex;gap:0.45rem;font-size:0.8rem;color:var(--dim);line-height:1.4;"><span style="color:#2E7D5E;flex-shrink:0;">—</span>Dedicated host &amp; structured experience</li>
+        <li style="display:flex;gap:0.45rem;font-size:0.8rem;color:var(--dim);line-height:1.4;"><span style="color:#2E7D5E;flex-shrink:0;">—</span>Enhanced branding &amp; personalisation</li>
+      </ul>
+      <div style="margin-top:1rem;padding-top:0.7rem;border-top:1px solid rgba(201,168,76,0.08);font-size:0.7rem;color:var(--muted);font-family:'Cormorant Garamond',serif;font-style:italic;">Ideal for private client and leadership groups</div>
+    </div>
+
+    <div style="padding:1.8rem 1.4rem;background:linear-gradient(180deg,#14110A,#0E0B07);border:1px solid rgba(201,168,76,0.22);border-top:3px solid var(--gold);position:relative;">
+      <div style="background:var(--gold);color:var(--dark);font-size:0.58rem;letter-spacing:0.15em;text-transform:uppercase;font-weight:700;padding:0.22rem 0.6rem;display:inline-block;margin-bottom:0.45rem;font-family:'Montserrat',sans-serif;">Most Selected</div>
+      <div style="font-size:0.62rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);margin-bottom:0.5rem;">Tier 03</div>
+      <div style="font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--white);margin-bottom:0.3rem;">The Signature</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:0.88rem;color:var(--muted);font-style:italic;margin-bottom:0.9rem;">Fully private. Fully yours. Unforgettable.</div>
+      <div style="width:100%;height:1px;background:rgba(201,168,76,0.1);margin-bottom:0.8rem;"></div>
+      <ul style="list-style:none;display:flex;flex-direction:column;gap:0.45rem;">
+        <li style="display:flex;gap:0.45rem;font-size:0.8rem;color:var(--dim);line-height:1.4;"><span style="color:var(--gold);flex-shrink:0;">—</span>Premium private rooftop or penthouse</li>
+        <li style="display:flex;gap:0.45rem;font-size:0.8rem;color:var(--dim);line-height:1.4;"><span style="color:var(--gold);flex-shrink:0;">—</span>Multi-course catering &amp; open premium bar</li>
+        <li style="display:flex;gap:0.45rem;font-size:0.8rem;color:var(--dim);line-height:1.4;"><span style="color:var(--gold);flex-shrink:0;">—</span>Bespoke Curator Atelier VIP gifting</li>
+        <li style="display:flex;gap:0.45rem;font-size:0.8rem;color:var(--dim);line-height:1.4;"><span style="color:var(--gold);flex-shrink:0;">—</span>White-glove host &amp; full branding rights</li>
+        <li style="display:flex;gap:0.45rem;font-size:0.8rem;color:var(--dim);line-height:1.4;"><span style="color:var(--gold);flex-shrink:0;">—</span>Professional photography &amp; content capture</li>
+        <li style="display:flex;gap:0.45rem;font-size:0.8rem;color:var(--dim);line-height:1.4;"><span style="color:var(--gold);flex-shrink:0;">—</span>Optional: company branding on gifting</li>
+      </ul>
+      <div style="margin-top:1rem;padding-top:0.7rem;border-top:1px solid rgba(201,168,76,0.08);font-size:0.7rem;color:var(--gold);font-family:'Cormorant Garamond',serif;font-style:italic;">Designed for elevated hospitality &amp; strategic entertainment groups</div>
+    </div>
+
+    <div style="padding:1.8rem 1.4rem;background:linear-gradient(180deg,#100A14,#0A0610);border:1px solid rgba(123,79,160,0.3);border-top:3px solid #7B4FA0;position:relative;">
+      <div style="background:rgba(123,79,160,0.15);border:1px solid rgba(123,79,160,0.4);color:#B890D8;font-size:0.58rem;letter-spacing:0.15em;text-transform:uppercase;font-weight:600;padding:0.22rem 0.6rem;display:inline-block;margin-bottom:0.45rem;font-family:'Montserrat',sans-serif;">★ Flagship · By Invitation</div>
+      <div style="font-size:0.62rem;letter-spacing:0.3em;text-transform:uppercase;color:#7B4FA0;margin-bottom:0.5rem;">Tier 04</div>
+      <div style="font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--white);margin-bottom:0.3rem;">The Masterpiece</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:0.88rem;color:var(--muted);font-style:italic;margin-bottom:0.9rem;">A cultural production. A business asset.</div>
+      <div style="width:100%;height:1px;background:rgba(123,79,160,0.2);margin-bottom:0.8rem;"></div>
+      <ul style="list-style:none;display:flex;flex-direction:column;gap:0.45rem;">
+        <li style="display:flex;gap:0.45rem;font-size:0.8rem;color:var(--dim);line-height:1.4;"><span style="color:#7B4FA0;flex-shrink:0;">—</span>Exclusive sole-use venue — full production</li>
+        <li style="display:flex;gap:0.45rem;font-size:0.8rem;color:var(--dim);line-height:1.4;"><span style="color:#7B4FA0;flex-shrink:0;">—</span>Bespoke chef menu &amp; top-shelf open bar</li>
+        <li style="display:flex;gap:0.45rem;font-size:0.8rem;color:var(--dim);line-height:1.4;"><span style="color:#7B4FA0;flex-shrink:0;">—</span><strong style="color:var(--cream);font-weight:400;">Company-branded luxury gifting — your logo on every gift</strong></li>
+        <li style="display:flex;gap:0.45rem;font-size:0.8rem;color:var(--dim);line-height:1.4;"><span style="color:#7B4FA0;flex-shrink:0;">—</span><strong style="color:var(--cream);font-weight:400;">Live artist — original World Cup canvas created in real time</strong></li>
+        <li style="display:flex;gap:0.45rem;font-size:0.8rem;color:var(--dim);line-height:1.4;"><span style="color:#7B4FA0;flex-shrink:0;">—</span><strong style="color:var(--cream);font-weight:400;">Dedicated videographer — highlight reel for LinkedIn &amp; recruitment</strong></li>
+        <li style="display:flex;gap:0.45rem;font-size:0.8rem;color:var(--dim);line-height:1.4;"><span style="color:#7B4FA0;flex-shrink:0;">—</span>MC host · pre-event courier delivery to offices</li>
+      </ul>
+      <div style="margin-top:1rem;padding:0.6rem 0.8rem;background:rgba(123,79,160,0.1);border:1px solid rgba(123,79,160,0.25);">
+        <div style="font-size:0.68rem;color:#B890D8;line-height:1.5;font-family:'Cormorant Garamond',serif;font-style:italic;">The only tier that generates lasting business assets — branded gifts, video content, and original artwork — that continue working for your firm after the final whistle.</div>
+      </div>
+      <div style="margin-top:0.8rem;font-size:0.65rem;color:#7B4FA0;font-family:'Cormorant Garamond',serif;font-style:italic;">Reserved for flagship hospitality — limited availability, select dates only</div>
+    </div>
+
+  </div>
+
+  <div style="margin-top:1.8rem;display:flex;gap:1rem;flex-wrap:wrap;align-items:center;">
+    <a href="#book" class="btn btn-primary">Request a Tailored Proposal</a>
+    <button class="btn btn-outline" onclick="downloadGuide()">⬇ Download Full Guide</button>
+    <span style="font-size:0.7rem;color:var(--muted);font-family:'Cormorant Garamond',serif;font-style:italic;">Pricing and details shared in conversation.</span>
+  </div>
+</div>
+
+<!-- GIFTING BREAK -->
+<div class="divider"></div>
+<div style="position:relative;overflow:hidden;max-height:360px;">
+  <img src="assets/img/gifting.jpg" alt="Curator Atelier Gifting" style="width:100%;height:360px;object-fit:cover;display:block;opacity:0.65;"/>
+  <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(4,3,2,0.96) 0%,rgba(4,3,2,0.55) 45%,rgba(4,3,2,0.15) 100%);display:flex;align-items:center;padding:3rem 2.5rem;">
+    <div style="max-width:480px;">
+      <span style="font-size:0.62rem;letter-spacing:0.35em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:0.7rem;">Curator Atelier Gifting</span>
+      <div style="font-family:'Playfair Display',serif;font-size:clamp(1.4rem,2.5vw,2.1rem);color:var(--white);line-height:1.2;font-style:italic;margin-bottom:0.7rem;">"The World Cup Experience.<br>Curated to Perfection."</div>
+      <p style="font-family:'Cormorant Garamond',serif;font-size:0.98rem;color:var(--dim);line-height:1.65;">Every guest receives a Curator Atelier executive gift on arrival. Not a giveaway. A hospitality moment that defines the evening.</p>
+    </div>
+  </div>
+</div>
+<div class="divider"></div>
+
+<!-- RESIDENTIAL -->
+<div id="residential" class="wrap fu">
+  <span class="tag">Resident Match Series</span>
+  <h2 class="h2">Bringing the World Cup<br><em>to your residents.</em></h2>
+  <p style="font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-bottom:0.5rem;margin-top:-0.5rem;">From $8,000 per event &nbsp;·&nbsp; Series packages available</p>
+  <div class="rule"></div>
+  <p class="body-text">A fully curated World Cup programme for luxury apartment communities. Your building provides the rooftop or amenity space. We deliver everything — catering, cocktail bar, resident gifting, World Cup atmosphere, professional hosting. Zero effort for building management. Unforgettable for residents.</p>
+
+  <div class="pkgs">
+    <div class="pkg">
+      <span class="pkg-tag">Single Match</span>
+      <div class="pkg-name">Single Match Experience</div>
+      <div class="pkg-events">One premium event</div>
+      <div class="pkg-num" style="font-size:1.1rem;color:var(--dim);">Full Price</div>
+      <div class="pkg-numlab">À la carte</div>
+      <div class="pkg-hr"></div>
+      <ul class="pkg-list">
+        <li>One curated match experience</li>
+        <li>All core hospitality inclusions</li>
+        <li>Full service delivery</li>
+      </ul>
+    </div>
+    <div class="pkg">
+      <span class="pkg-tag">Twin Package</span>
+      <div class="pkg-name">Twin Match Package</div>
+      <div class="pkg-events">Two curated events</div>
+      <div class="pkg-num">8.5%</div>
+      <div class="pkg-numlab">Value Advantage</div>
+      <div class="pkg-hr"></div>
+      <ul class="pkg-list">
+        <li>Two premium match experiences</li>
+        <li>Enhanced planning support</li>
+        <li>Priority scheduling</li>
+      </ul>
+    </div>
+    <div class="pkg feat">
+      <div class="rec">Most Recommended</div>
+      <span class="pkg-tag">Four-Event Series</span>
+      <div class="pkg-name">Resident Match Series</div>
+      <div class="pkg-events">Four premium events</div>
+      <div class="pkg-num">15%</div>
+      <div class="pkg-numlab">Value Advantage</div>
+      <div class="pkg-hr"></div>
+      <ul class="pkg-list">
+        <li>Four match experiences</li>
+        <li>Priority date selection</li>
+        <li>Seasonal branding &amp; continuity</li>
+        <li>Resident RSVP coordination</li>
+        <li>Post-season highlight assets</li>
+      </ul>
+    </div>
+    <div class="pkg">
+      <span class="pkg-tag">6+ Events</span>
+      <div class="pkg-name">Full Season Partnership</div>
+      <div class="pkg-events">Six or more events</div>
+      <div class="pkg-num">19.5%</div>
+      <div class="pkg-numlab">Value Advantage</div>
+      <div class="pkg-hr"></div>
+      <ul class="pkg-list">
+        <li>Six+ curated experiences</li>
+        <li>Dedicated partnership support</li>
+        <li>Premium seasonal branding</li>
+        <li>Final match upgrade eligibility</li>
+        <li>Marketing integration</li>
+      </ul>
+    </div>
+  </div>
+  <div style="margin-top:1.8rem;display:flex;gap:1rem;flex-wrap:wrap;">
+    <a href="#book" class="btn btn-primary">Enquire for Your Building</a>
+    <a href="https://calendly.com/hello-curatoratelier/30min" target="_blank" class="btn btn-outline">Schedule a Call</a>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- CALENDAR -->
+<div id="calendar" class="wrap fu">
+  <span class="tag">Match Windows</span>
+  <h2 class="h2">Any match. <em>Any stage.</em><br>We build around you.</h2>
+  <div class="rule"></div>
+  <p class="body-text">Select the match that works for your team or community. We confirm your venue, build the experience, and handle everything from setup to breakdown.</p>
+  <div class="cal">
+    <div class="cal-row">
+      <div class="cal-left"><div class="cal-left-name">Opening Week</div><div class="cal-left-dates">June 11–15</div></div>
+      <div class="cal-right">
+        <div class="pill"><div class="pill-d">Thu Jun 11</div><div class="pill-m">Mexico vs South Africa · 3pm ET</div></div>
+        <div class="pill feat"><div class="pill-d">★ Fri Jun 12</div><div class="pill-m">USA vs Paraguay · 9pm ET — Primary Corporate Slot</div></div>
+        <div class="pill feat"><div class="pill-d">Fri Jun 12</div><div class="pill-m">Canada vs opponent · 3pm ET</div></div>
+        <div class="pill"><div class="pill-d">Sat Jun 13</div><div class="pill-m">Brazil vs Morocco</div></div>
+        <div class="cal-note">★ Opening week is your highest-demand window. June 12 evening slots are filling fast.</div>
+      </div>
+    </div>
+    <div class="cal-row">
+      <div class="cal-left"><div class="cal-left-name">Group Stage</div><div class="cal-left-dates">June 16–27</div></div>
+      <div class="cal-right">
+        <div class="pill feat"><div class="pill-d">Thu Jun 19</div><div class="pill-m">USA vs Australia — 2nd Group Match</div></div>
+        <div class="pill feat"><div class="pill-d">Wed Jun 25</div><div class="pill-m">USA — Final Group Stage Match</div></div>
+        <div class="pill"><div class="pill-d">Weekends</div><div class="pill-m">France · England · Brazil · Argentina and more</div></div>
+      </div>
+    </div>
+    <div class="cal-row">
+      <div class="cal-left"><div class="cal-left-name">Knockouts</div><div class="cal-left-dates">Jun 28 – Jul 5</div></div>
+      <div class="cal-right">
+        <div class="pill"><div class="pill-d">Jun 28 – Jul 1</div><div class="pill-m">Round of 16</div></div>
+        <div class="pill feat"><div class="pill-d">★ Jul 4–5</div><div class="pill-m">Quarter Finals — Independence Day Weekend</div></div>
+      </div>
+    </div>
+    <div class="cal-row">
+      <div class="cal-left" style="background:linear-gradient(135deg,#13100A,#0E0B07);border-left:2px solid var(--gold);"><div class="cal-left-name" style="color:var(--gold);">The Final</div><div class="cal-left-dates">July 19, 2026</div></div>
+      <div class="cal-right" style="background:linear-gradient(90deg,rgba(201,168,76,0.06),var(--dark3));border:1px solid rgba(201,168,76,0.15);">
+        <div class="pill feat" style="flex:1;border-color:var(--gold);"><div class="pill-d">★ Sun Jul 19</div><div class="pill-m" style="font-family:'Playfair Display',serif;font-size:0.82rem;color:var(--cream);">FIFA World Cup Final 2026 — One Game. Legends Made.</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- USA VISUAL -->
+<div class="divider"></div>
+<div style="position:relative;overflow:hidden;max-height:380px;">
+  <img src="assets/img/usa-match.jpg" alt="USA Match Experience" style="width:100%;height:380px;object-fit:cover;display:block;opacity:0.72;"/>
+  <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(4,3,2,0.05) 0%,rgba(4,3,2,0.6) 45%,rgba(4,3,2,0.96) 100%);display:flex;align-items:center;justify-content:flex-end;padding:3rem 2.5rem;">
+    <div style="text-align:right;max-width:400px;">
+      <span style="font-size:0.62rem;letter-spacing:0.35em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:0.55rem;">Primary Corporate Slot</span>
+      <div style="font-family:'Playfair Display',serif;font-size:clamp(1.5rem,3vw,2.4rem);color:var(--white);line-height:1.1;margin-bottom:0.45rem;">USA vs Paraguay</div>
+      <div style="font-size:0.78rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;">Friday · June 12 · 9pm ET</div>
+      <p style="font-family:'Cormorant Garamond',serif;font-size:0.98rem;color:var(--dim);line-height:1.6;margin-bottom:1.4rem;">The United States plays their first World Cup match in years. Friday evening. Private rooftop. Capitol Hill. This is the evening your team will talk about for years.</p>
+      <a href="#book" class="btn btn-primary" style="font-size:0.7rem;">Secure This Date →</a>
+    </div>
+  </div>
+</div>
+<div class="divider"></div>
+
+<!-- VENUES -->
+<div class="wrap fu">
+  <span class="tag">Our Venue Partners</span>
+  <h2 class="h2">Premium private spaces.<br><em>Curated for your group.</em></h2>
+  <div class="rule"></div>
+  <p class="body-text">A curated selection of private rooftops, sky lounges, and penthouse spaces across Washington DC and the Baltimore corridor — confirmed and managed by Curator Atelier.</p>
+  <div class="venues">
+    <div class="venue">
+      <div class="venue-dot-row"><div class="vdot"></div><div class="vstat">Washington DC</div></div>
+      <div class="vname">Capitol &amp; Downtown</div>
+      <div class="vsub">Rooftops · Sky Lounges · Private Clubs</div>
+      <p class="vdesc">Premium private venues in the heart of DC — Capitol Hill, Downtown, and waterfront. Panoramic views. Full private hire. Opening week evening slots available.</p>
+    </div>
+    <div class="venue">
+      <div class="venue-dot-row"><div class="vdot"></div><div class="vstat">Baltimore Corridor</div></div>
+      <div class="vname">Baltimore City</div>
+      <div class="vsub">Elevated Lounges · Waterfront</div>
+      <p class="vdesc">Premier elevated spaces across Baltimore — Inner Harbor, Downtown, and waterfront. Full AV and bar infrastructure in place. Multiple dates available.</p>
+    </div>
+    <div class="venue">
+      <div class="venue-dot-row"><div class="vdot"></div><div class="vstat">Northern Virginia</div></div>
+      <div class="vname">Tysons &amp; Arlington</div>
+      <div class="vsub">Private Clubs · High-Rise Spaces</div>
+      <p class="vdesc">Premium club and high-rise spaces in Northern Virginia — ideal for defense, government, and financial sector groups. Select dates available.</p>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- BOOK -->
+<div id="book" class="wrap fu">
+  <span class="tag">Book · Download · Connect</span>
+  <h2 class="h2">Ready to <em>secure your slot?</em></h2>
+  <div class="rule"></div>
+  <div class="book-cards" style="margin-bottom:2rem;">
+    <div class="book-card feat">
+      <span class="bc-icon">📅</span>
+      <div class="bc-title">Schedule a 15-Minute Call</div>
+      <p class="bc-desc">Fastest way to confirm availability, get a tailored quote, and lock your preferred match date. We respond within 2 hours.</p>
+      <a href="https://calendly.com/hello-curatoratelier/30min" target="_blank" class="btn btn-primary" style="font-size:0.7rem;">Book on Calendly →</a>
+    </div>
+    <div class="book-card">
+      <span class="bc-icon">⬇</span>
+      <div class="bc-title">Download the Full Experience Guide</div>
+      <p class="bc-desc">The complete Corporate Hospitality Guide — all four tiers, pricing, match windows, venues, and terms. Share with your team before reaching out.</p>
+      <button class="btn btn-outline" onclick="downloadGuide()" style="font-size:0.7rem;">Download PDF Guide</button>
+    </div>
+  </div>
+
+  <div class="form-wrap">
+    <div style="margin-bottom:1.8rem;">
+      <span style="font-size:0.65rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:0.5rem;">Enquiry Form</span>
+      <div style="font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--white);">Tell us about your experience</div>
+    </div>
+    <form method="POST" action="https://formspree.io/f/xblwkzyq" onsubmit="trackLead()">
+      <div class="fgrid">
+        <div><label>Full Name</label><input name="name" required placeholder="Jane Smith"/></div>
+        <div><label>Company / Building</label><input name="company" placeholder="Firm or Building Name"/></div>
+        <div><label>Email Address</label><input type="email" name="email" required placeholder="name@firm.com"/></div>
+        <div><label>Phone</label><input name="phone" placeholder="+1 (301) 000-0000"/></div>
+        <div>
+          <label>Experience Type</label>
+          <select name="type">
+            <option>Corporate — Team &amp; Partners</option>
+            <option>Residential — Resident Match Series</option>
+            <option>Both — Corporate + Residential</option>
+            <option>Unsure — I'd like guidance</option>
+          </select>
+        </div>
+        <div>
+          <label>Preferred Match / Date</label>
+          <select name="match">
+            <option>★ USA vs Paraguay — Jun 12 Fri 9pm (Primary)</option>
+            <option>Opening Match — Jun 11 Thursday</option>
+            <option>Brazil vs Morocco — Jun 13 Saturday</option>
+            <option>USA 2nd Match — Jun 19 Thursday</option>
+            <option>USA 3rd Match — Jun 25 Wednesday</option>
+            <option>Quarter Finals — Jul 4–5</option>
+            <option>Semi Finals — Jul 14–15</option>
+            <option>The Final — Jul 19</option>
+            <option>Open to recommendation</option>
+          </select>
+        </div>
+        <div>
+          <label>Approximate Guests</label>
+          <select name="guests">
+            <option>8–15 guests</option>
+            <option>16–30 guests</option>
+            <option>31–65 guests</option>
+            <option>65+ guests (residential)</option>
+            <option>Not yet decided</option>
+          </select>
+        </div>
+        <div>
+          <label>Tier / Package Interest</label>
+          <select name="tier">
+            <option>The Introduction (from $15K)</option>
+            <option>The Statement (from $20K)</option>
+            <option>The Signature (from $35K)</option>
+            <option>The Masterpiece (from $50K+)</option>
+            <option>Residential Series</option>
+            <option>Not sure — advise me</option>
+          </select>
+        </div>
+      </div>
+      <div style="margin-top:1.1rem;"><label>Additional Context</label><textarea name="message" placeholder="Any specific requirements, preferred venues, or context that helps us prepare the right proposal..."></textarea></div>
+      <div style="margin-top:1.8rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;">
+        <button type="submit" class="btn btn-primary" style="padding:0.9rem 2.4rem;">Submit Enquiry</button>
+        <div style="text-align:right;">
+          <a href="mailto:worldcup@curatoratelier.com" style="color:var(--gold);display:block;font-weight:500;font-size:0.83rem;">worldcup@curatoratelier.com</a>
+          <a href="tel:+13016367663" style="color:var(--dim);font-size:0.78rem;">301-636-7663</a>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- QUOTE STRIP -->
+<div style="position:relative;overflow:hidden;max-height:260px;">
+  <img src="assets/img/flow.jpg" alt="The Experience" style="width:100%;height:260px;object-fit:cover;display:block;opacity:0.55;"/>
+  <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(4,3,2,0.45),rgba(4,3,2,0.88));display:flex;align-items:flex-end;padding:2rem 2.5rem;">
+    <div style="font-family:'Playfair Display',serif;font-size:clamp(1.1rem,2vw,1.7rem);color:var(--gold);font-style:italic;">"More than a watch party. A legacy of moments."</div>
+  </div>
+</div>
+
+<div class="wa-float">
+  <a href="https://wa.me/13016367663?text=Hi%20Curator%20Atelier%2C%20I%27m%20interested%20in%20World%20Cup%20hospitality." 
+     target="_blank" class="wa-btn">
+    <div class="wa-pulse"></div>
+    Text Us · WhatsApp
+  </a>
+</div>
+<div class="sticky-cta" id="sticky-cta"><a href="#book">✦ &nbsp;Request a Proposal</a></div>
+
+<footer>
+  <div class="foot-brand">Curator Atelier</div>
+  <div class="foot-links">
+    <a href="index.html">Home</a>
+    <a href="#corporate">Corporate</a>
+    <a href="#residential">Residential</a>
+    <a href="#calendar">Match Calendar</a>
+    <a href="#book">Book Now</a>
+    <a href="mailto:worldcup@curatoratelier.com">worldcup@curatoratelier.com</a>
+  </div>
+  <div class="foot-copy">© <span id="yr"></span> Curator Atelier &nbsp;·&nbsp; Washington DC · Baltimore · Northern Virginia &nbsp;·&nbsp; 39 Days · 104 Matches · One World</div>
+</footer>
+
+<script>
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+},{threshold:0.15});
+document.querySelectorAll('.fu').forEach(el => obs.observe(el));
+document.getElementById('yr').textContent = new Date().getFullYear();
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const t = document.querySelector(a.getAttribute('href'));
+    if(t){ e.preventDefault(); t.scrollIntoView({behavior:'smooth',block:'start'}); }
+  });
+});
+// Dynamic days to kickoff
+(function() {
+  const kickoff = new Date('2026-06-11T00:00:00');
+  const today = new Date();
+  const days = Math.ceil((kickoff - today) / (1000 * 60 * 60 * 24));
+  document.querySelectorAll('.days-counter').forEach(el => {
+    el.textContent = days > 0 ? days : 'Live Now';
+  });
+})();
+
+
+// Sticky CTA — show after scrolling 40% of page
+(function() {
+  const cta = document.getElementById('sticky-cta');
+  if (!cta) return;
+  window.addEventListener('scroll', function() {
+    const scrolled = window.scrollY / (document.body.scrollHeight - window.innerHeight);
+    if (scrolled > 0.15) cta.classList.add('visible');
+    else cta.classList.remove('visible');
+  }, { passive: true });
+})();
+
+function downloadGuide(){
+  // Try hosted PDF first, fallback to Calendly booking
+  const pdfUrl = 'assets/Curator_Atelier_Corporate_Hospitality_Guide_2026.pdf';
+  fetch(pdfUrl, {method:'HEAD'})
+    .then(r => {
+      if(r.ok) { window.open(pdfUrl,'_blank'); }
+      else { window.open('https://calendly.com/hello-curatoratelier/30min','_blank'); }
+    })
+    .catch(() => { window.open('https://calendly.com/hello-curatoratelier/30min','_blank'); });
+}
+function trackLead(){
+  if(typeof fbq!=='undefined') fbq('track','Lead');
+  if(typeof gtag!=='undefined') gtag('event','wc_lead_submit');
+  const btn = document.querySelector('#book button[type=submit]');
+  if(btn){btn.disabled=true;btn.textContent='Processing...';btn.style.opacity='0.7';}
+}
+</script>
+</body>
+</html>
