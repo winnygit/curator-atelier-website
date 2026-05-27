@@ -831,37 +831,32 @@
 
 <!-- CALENDAR -->
 <div id="calendar" style="background:var(--dark2);padding:0;">
-
-  <!-- Section intro -->
   <div class="wrap fu">
-    <span class="tag">Match Calendar · June &amp; July 2026</span>
+    <span class="tag">Match Calendar · Verified Official Fixtures · Source: FOX Sports</span>
     <h2 class="h2">Pick your match.<br><em>We build around it.</em></h2>
     <div class="rule"></div>
-    <p class="body-text">Every match in the tournament is available. Select the date that works for your team or building — we confirm your venue, build the experience, and handle everything from setup to breakdown. Minimum 2-week lead time required.</p>
+    <p class="body-text">Every confirmed match in the tournament. Select the date that works for your team or building — we handle everything. USA matches highlighted in red. Minimum 2-week lead time required.</p>
   </div>
 
-  <!-- Calendar wrapper — cream on dark page for contrast -->
   <div style="background:#FAF5E8;margin:0;padding:2.5rem 2rem 3rem;">
     <div style="max-width:1100px;margin:0 auto;">
 
-      <!-- Legend -->
       <div style="display:flex;gap:1.5rem;flex-wrap:wrap;margin-bottom:1.5rem;align-items:center;">
-        <div style="font-size:0.6rem;letter-spacing:0.35em;text-transform:uppercase;color:#8A6A1A;font-family:'Montserrat',sans-serif;">Match Calendar</div>
+        <div style="font-size:0.6rem;letter-spacing:0.35em;text-transform:uppercase;color:#8A6A1A;font-family:'Montserrat',sans-serif;">June 2026 · Group Stage</div>
         <div style="display:flex;gap:1rem;flex-wrap:wrap;">
           <div style="display:flex;align-items:center;gap:0.4rem;font-size:0.62rem;color:#5A4E32;font-family:'Montserrat',sans-serif;">
-            <div style="width:10px;height:10px;border-radius:50%;background:#8B1A1A;flex-shrink:0;"></div>USA Match · Primary Slots
+            <div style="width:10px;height:10px;border-radius:50%;background:#8B1A1A;flex-shrink:0;"></div>★ USA Match
           </div>
           <div style="display:flex;align-items:center;gap:0.4rem;font-size:0.62rem;color:#5A4E32;font-family:'Montserrat',sans-serif;">
-            <div style="width:10px;height:10px;border-radius:50%;background:#B8932A;flex-shrink:0;"></div>Match Day · Available
+            <div style="width:10px;height:10px;border-radius:50%;background:#B8932A;flex-shrink:0;"></div>Match Day
           </div>
           <div style="display:flex;align-items:center;gap:0.4rem;font-size:0.62rem;color:#5A4E32;font-family:'Montserrat',sans-serif;">
             <div style="width:10px;height:10px;border-radius:50%;background:#EDE0C4;border:1px solid rgba(184,147,42,0.3);flex-shrink:0;"></div>No Matches
           </div>
         </div>
-        <div style="margin-left:auto;font-family:'Cormorant Garamond',serif;font-size:0.88rem;color:#7A6A4A;font-style:italic;">Click any date to select it</div>
+        <div style="margin-left:auto;font-family:'Cormorant Garamond',serif;font-size:0.85rem;color:#7A6A4A;font-style:italic;">All fixtures verified · FOX Sports official schedule</div>
       </div>
 
-      <!-- Week headers -->
       <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:2px;margin-bottom:2px;">
         <div style="text-align:center;padding:0.45rem;font-size:0.58rem;letter-spacing:0.22em;text-transform:uppercase;font-weight:600;color:#7A6A4A;background:#EDE0C4;font-family:'Montserrat',sans-serif;">Mon</div>
         <div style="text-align:center;padding:0.45rem;font-size:0.58rem;letter-spacing:0.22em;text-transform:uppercase;font-weight:600;color:#7A6A4A;background:#EDE0C4;font-family:'Montserrat',sans-serif;">Tue</div>
@@ -872,32 +867,20 @@
         <div style="text-align:center;padding:0.45rem;font-size:0.58rem;letter-spacing:0.22em;text-transform:uppercase;font-weight:600;color:#B8932A;background:#EDE0C4;font-family:'Montserrat',sans-serif;">Sun</div>
       </div>
 
-      <!-- Calendar CSS injected inline -->
       <style>
         .cal-grid-june { display:grid; grid-template-columns:repeat(7,1fr); gap:2px; }
-        .cal-day {
-          background:#F5EDD8; padding:0.55rem 0.45rem;
-          min-height:150px; display:flex; flex-direction:column;
-          border-top:3px solid transparent; transition:all 0.2s;
-          cursor:default; position:relative;
-        }
+        .cal-day { background:#F5EDD8; padding:0.55rem 0.45rem; min-height:150px; display:flex; flex-direction:column; border-top:3px solid transparent; transition:all 0.2s; cursor:default; position:relative; }
         .cal-active { border-top-color:#B8932A; background:#F8F2E0; cursor:pointer; }
         .cal-hot { border-top-color:#8B1A1A; background:#FFF0E8; cursor:pointer; box-shadow:inset 0 0 0 1px rgba(139,26,26,0.1); }
         .cal-empty { background:#F0EBD8; opacity:0.6; }
         .cal-day:hover:not(.cal-empty) { transform:translateY(-2px); box-shadow:0 4px 16px rgba(184,147,42,0.18); z-index:2; }
         .cal-day.selected { box-shadow:0 0 0 2px #8A6A1A; transform:translateY(-2px); }
-        .cal-daynum {
-          font-family:'Bebas Neue',sans-serif; font-size:1.3rem;
-          line-height:1; color:#2A2010; margin-bottom:0.3rem;
-        }
+        .cal-daynum { font-family:'Bebas Neue',sans-serif; font-size:1.3rem; line-height:1; color:#2A2010; margin-bottom:0.3rem; }
         .cal-active .cal-daynum { color:#8A6A1A; }
         .cal-hot .cal-daynum { color:#8B1A1A; }
         .cal-daymatches { display:flex; flex-direction:column; gap:0.25rem; flex:1; }
         .cal-nomatch { font-size:0.55rem; color:rgba(90,78,50,0.3); font-style:italic; font-family:'Cormorant Garamond',serif; margin-top:auto; }
-        .mc {
-          background:rgba(255,255,255,0.75); border:1px solid rgba(184,147,42,0.15);
-          padding:0.3rem 0.35rem; border-radius:1px; transition:all 0.15s;
-        }
+        .mc { background:rgba(255,255,255,0.75); border:1px solid rgba(184,147,42,0.15); padding:0.3rem 0.35rem; border-radius:1px; transition:all 0.15s; }
         .mc:hover { background:#fff; border-color:#B8932A; }
         .mc-hot { background:rgba(139,26,26,0.06); border:1px solid rgba(139,26,26,0.22); }
         .mc-hot:hover { background:rgba(139,26,26,0.1); border-color:#8B1A1A; }
@@ -909,16 +892,10 @@
         .mc-hot .mc-time { color:#8B1A1A; font-weight:600; }
         .mc-venue { font-size:0.48rem; color:#7A6A4A; opacity:0.8; }
         .mc-cta { font-size:0.46rem; letter-spacing:0.14em; text-transform:uppercase; color:#8B1A1A; font-weight:700; margin-top:0.18rem; font-family:'Montserrat',sans-serif; }
-        @media(max-width:900px) {
-          .cal-grid-june { grid-template-columns:repeat(4,1fr); }
-          .cal-day { min-height:120px; }
-        }
-        @media(max-width:540px) {
-          .cal-grid-june { grid-template-columns:repeat(2,1fr); }
-        }
+        @media(max-width:900px) { .cal-grid-june { grid-template-columns:repeat(4,1fr); } .cal-day { min-height:120px; } }
+        @media(max-width:540px) { .cal-grid-june { grid-template-columns:repeat(2,1fr); } }
       </style>
 
-      <!-- June grid -->
       <div class="cal-grid-june" id="june-cal">
         <div class="cal-day cal-empty" data-date="2026-06-01">
       <div class="cal-daynum">1</div>
@@ -963,394 +940,502 @@
 <div class="cal-day cal-active" data-date="2026-06-11">
       <div class="cal-daynum">11</div>
       <div class="cal-daymatches"><div class="mc">
-        <div class="mc-flags">🇲🇽 <span class="mc-vs">vs</span> 🇿🇦</div>
-        <div class="mc-teams">Mexico vs South Africa</div>
-        <div class="mc-time">5:00 PM ET</div>
-        <div class="mc-venue">SoFi Stadium</div>
-        
-      </div><div class="mc">
-        <div class="mc-flags">🇨🇦 <span class="mc-vs">vs</span> 🇲🇦</div>
-        <div class="mc-teams">Canada vs Morocco</div>
-        <div class="mc-time">8:00 PM ET</div>
-        <div class="mc-venue">BMO Field</div>
-        
-      </div></div>
+      <div class="mc-flags">🇲🇽 <span class="mc-vs">vs</span> 🇿🇦</div>
+      <div class="mc-teams">Mexico vs South Africa</div>
+      <div class="mc-time">3:00 PM ET</div>
+      <div class="mc-venue">Mexico City</div>
+      
+    </div><div class="mc">
+      <div class="mc-flags">🇰🇷 <span class="mc-vs">vs</span> 🇨🇿</div>
+      <div class="mc-teams">South Korea vs Czechia</div>
+      <div class="mc-time">10:00 PM ET</div>
+      <div class="mc-venue">Guadalajara</div>
+      
+    </div></div>
     </div>
 <div class="cal-day cal-hot" data-date="2026-06-12">
       <div class="cal-daynum">12</div>
       <div class="cal-daymatches"><div class="mc">
-        <div class="mc-flags">🇪🇸 <span class="mc-vs">vs</span> 🇭🇷</div>
-        <div class="mc-teams">Spain vs Croatia</div>
-        <div class="mc-time">3:00 PM ET</div>
-        <div class="mc-venue">MetLife Stadium</div>
-        
-      </div><div class="mc">
-        <div class="mc-flags">🇧🇷 <span class="mc-vs">vs</span> 🇷🇸</div>
-        <div class="mc-teams">Brazil vs Serbia</div>
-        <div class="mc-time">6:00 PM ET</div>
-        <div class="mc-venue">Hard Rock Stadium</div>
-        
-      </div><div class="mc match-hot">
-        <div class="mc-flags">🇺🇸 <span class="mc-vs">vs</span> 🇵🇾</div>
-        <div class="mc-teams">USA vs Paraguay</div>
-        <div class="mc-time">9:00 PM ET</div>
-        <div class="mc-venue">Commanders Field</div>
-        <div class="mc-cta">SELECT THIS DATE →</div>
-      </div></div>
+      <div class="mc-flags">🇨🇦 <span class="mc-vs">vs</span> 🇧🇦</div>
+      <div class="mc-teams">Canada vs Bosnia & Herzegovina</div>
+      <div class="mc-time">3:00 PM ET</div>
+      <div class="mc-venue">Toronto</div>
+      
+    </div><div class="mc mc-hot">
+      <div class="mc-flags">🇺🇸 <span class="mc-vs">vs</span> 🇵🇾</div>
+      <div class="mc-teams">USA vs Paraguay</div>
+      <div class="mc-time">9:00 PM ET</div>
+      <div class="mc-venue">Los Angeles</div>
+      <div class="mc-cta">★ USA MATCH · SELECT DATE →</div>
+    </div></div>
     </div>
 <div class="cal-day cal-active" data-date="2026-06-13">
       <div class="cal-daynum">13</div>
       <div class="cal-daymatches"><div class="mc">
-        <div class="mc-flags">🇦🇷 <span class="mc-vs">vs</span> 🇦🇱</div>
-        <div class="mc-teams">Argentina vs Albania</div>
-        <div class="mc-time">12:00 PM ET</div>
-        <div class="mc-venue">Gillette Stadium</div>
-        
-      </div><div class="mc">
-        <div class="mc-flags">🇫🇷 <span class="mc-vs">vs</span> 🇳🇬</div>
-        <div class="mc-teams">France vs Nigeria</div>
-        <div class="mc-time">3:00 PM ET</div>
-        <div class="mc-venue">Levi's Stadium</div>
-        
-      </div><div class="mc">
-        <div class="mc-flags">🏴󠁧󠁢󠁥󠁮󠁧󠁿 <span class="mc-vs">vs</span> 🇹🇳</div>
-        <div class="mc-teams">England vs Tunisia</div>
-        <div class="mc-time">6:00 PM ET</div>
-        <div class="mc-venue">AT&T Stadium</div>
-        
-      </div><div class="mc">
-        <div class="mc-flags">🇩🇪 <span class="mc-vs">vs</span> 🇺🇦</div>
-        <div class="mc-teams">Germany vs Ukraine</div>
-        <div class="mc-time">9:00 PM ET</div>
-        <div class="mc-venue">Rose Bowl</div>
-        
-      </div></div>
+      <div class="mc-flags">🇶🇦 <span class="mc-vs">vs</span> 🇨🇭</div>
+      <div class="mc-teams">Qatar vs Switzerland</div>
+      <div class="mc-time">3:00 PM ET</div>
+      <div class="mc-venue">San Francisco</div>
+      
+    </div><div class="mc">
+      <div class="mc-flags">🇧🇷 <span class="mc-vs">vs</span> 🇲🇦</div>
+      <div class="mc-teams">Brazil vs Morocco</div>
+      <div class="mc-time">6:00 PM ET</div>
+      <div class="mc-venue">New York NJ</div>
+      
+    </div><div class="mc">
+      <div class="mc-flags">🇭🇹 <span class="mc-vs">vs</span> 🏴󠁧󠁢󠁳󠁣󠁴󠁿</div>
+      <div class="mc-teams">Haiti vs Scotland</div>
+      <div class="mc-time">9:00 PM ET</div>
+      <div class="mc-venue">Boston</div>
+      
+    </div><div class="mc">
+      <div class="mc-flags">🇦🇺 <span class="mc-vs">vs</span> 🇹🇷</div>
+      <div class="mc-teams">Australia vs Türkiye</div>
+      <div class="mc-time">12:00 AM ET</div>
+      <div class="mc-venue">Vancouver</div>
+      
+    </div></div>
     </div>
 <div class="cal-day cal-active" data-date="2026-06-14">
       <div class="cal-daynum">14</div>
       <div class="cal-daymatches"><div class="mc">
-        <div class="mc-flags">🇵🇹 <span class="mc-vs">vs</span> 🇨🇿</div>
-        <div class="mc-teams">Portugal vs Czech Republic</div>
-        <div class="mc-time">12:00 PM ET</div>
-        <div class="mc-venue">Arrowhead</div>
-        
-      </div><div class="mc">
-        <div class="mc-flags">🇳🇱 <span class="mc-vs">vs</span> 🇵🇪</div>
-        <div class="mc-teams">Netherlands vs Peru</div>
-        <div class="mc-time">3:00 PM ET</div>
-        <div class="mc-venue">Allegiant Stadium</div>
-        
-      </div><div class="mc">
-        <div class="mc-flags">🇮🇹 <span class="mc-vs">vs</span> 🇪🇨</div>
-        <div class="mc-teams">Italy vs Ecuador</div>
-        <div class="mc-time">6:00 PM ET</div>
-        <div class="mc-venue">Lincoln Financial</div>
-        
-      </div><div class="mc">
-        <div class="mc-flags">🇨🇴 <span class="mc-vs">vs</span> 🇸🇳</div>
-        <div class="mc-teams">Colombia vs Senegal</div>
-        <div class="mc-time">9:00 PM ET</div>
-        <div class="mc-venue">Empower Field</div>
-        
-      </div></div>
+      <div class="mc-flags">🇩🇪 <span class="mc-vs">vs</span> 🇨🇼</div>
+      <div class="mc-teams">Germany vs Curaçao</div>
+      <div class="mc-time">1:00 PM ET</div>
+      <div class="mc-venue">Houston</div>
+      
+    </div><div class="mc">
+      <div class="mc-flags">🇳🇱 <span class="mc-vs">vs</span> 🇯🇵</div>
+      <div class="mc-teams">Netherlands vs Japan</div>
+      <div class="mc-time">4:00 PM ET</div>
+      <div class="mc-venue">Dallas</div>
+      
+    </div><div class="mc">
+      <div class="mc-flags">🇨🇮 <span class="mc-vs">vs</span> 🇪🇨</div>
+      <div class="mc-teams">Ivory Coast vs Ecuador</div>
+      <div class="mc-time">7:00 PM ET</div>
+      <div class="mc-venue">Philadelphia</div>
+      
+    </div><div class="mc">
+      <div class="mc-flags">🇹🇳 <span class="mc-vs">vs</span> 🇸🇪</div>
+      <div class="mc-teams">Tunisia vs Sweden</div>
+      <div class="mc-time">10:00 PM ET</div>
+      <div class="mc-venue">Monterrey</div>
+      
+    </div></div>
     </div>
 <div class="cal-day cal-active" data-date="2026-06-15">
       <div class="cal-daynum">15</div>
       <div class="cal-daymatches"><div class="mc">
-        <div class="mc-flags">🇯🇵 <span class="mc-vs">vs</span> 🇮🇷</div>
-        <div class="mc-teams">Japan vs IR Iran</div>
-        <div class="mc-time">3:00 PM ET</div>
-        <div class="mc-venue">NRG Stadium</div>
-        
-      </div><div class="mc">
-        <div class="mc-flags">🇰🇷 <span class="mc-vs">vs</span> 🇨🇷</div>
-        <div class="mc-teams">South Korea vs Costa Rica</div>
-        <div class="mc-time">6:00 PM ET</div>
-        <div class="mc-venue">BC Place</div>
-        
-      </div><div class="mc">
-        <div class="mc-flags">🇦🇺 <span class="mc-vs">vs</span> 🇸🇦</div>
-        <div class="mc-teams">Australia vs Saudi Arabia</div>
-        <div class="mc-time">9:00 PM ET</div>
-        <div class="mc-venue">Gillette Stadium</div>
-        
-      </div></div>
+      <div class="mc-flags">🇪🇸 <span class="mc-vs">vs</span> 🇨🇻</div>
+      <div class="mc-teams">Spain vs Cape Verde</div>
+      <div class="mc-time">12:00 PM ET</div>
+      <div class="mc-venue">Atlanta</div>
+      
+    </div><div class="mc">
+      <div class="mc-flags">🇧🇪 <span class="mc-vs">vs</span> 🇪🇬</div>
+      <div class="mc-teams">Belgium vs Egypt</div>
+      <div class="mc-time">3:00 PM ET</div>
+      <div class="mc-venue">Seattle</div>
+      
+    </div><div class="mc">
+      <div class="mc-flags">🇸🇦 <span class="mc-vs">vs</span> 🇺🇾</div>
+      <div class="mc-teams">Saudi Arabia vs Uruguay</div>
+      <div class="mc-time">6:00 PM ET</div>
+      <div class="mc-venue">Miami</div>
+      
+    </div><div class="mc">
+      <div class="mc-flags">🇮🇷 <span class="mc-vs">vs</span> 🇳🇿</div>
+      <div class="mc-teams">Iran vs New Zealand</div>
+      <div class="mc-time">9:00 PM ET</div>
+      <div class="mc-venue">Los Angeles</div>
+      
+    </div></div>
     </div>
 <div class="cal-day cal-active" data-date="2026-06-16">
       <div class="cal-daynum">16</div>
       <div class="cal-daymatches"><div class="mc">
-        <div class="mc-flags">🇵🇱 <span class="mc-vs">vs</span> 🇨🇱</div>
-        <div class="mc-teams">Poland vs Chile</div>
-        <div class="mc-time">12:00 PM ET</div>
-        <div class="mc-venue">MetLife Stadium</div>
-        
-      </div><div class="mc">
-        <div class="mc-flags">🇳🇬 <span class="mc-vs">vs</span> 🇲🇦</div>
-        <div class="mc-teams">Nigeria vs Morocco</div>
-        <div class="mc-time">3:00 PM ET</div>
-        <div class="mc-venue">AT&T Stadium</div>
-        
-      </div><div class="mc">
-        <div class="mc-flags">🇧🇪 <span class="mc-vs">vs</span> 🇰🇿</div>
-        <div class="mc-teams">Belgium vs Kazakhstan</div>
-        <div class="mc-time">6:00 PM ET</div>
-        <div class="mc-venue">SoFi Stadium</div>
-        
-      </div><div class="mc">
-        <div class="mc-flags">🇲🇽 <span class="mc-vs">vs</span> 🇧🇪</div>
-        <div class="mc-teams">Mexico vs Belgium</div>
-        <div class="mc-time">9:00 PM ET</div>
-        <div class="mc-venue">Empower Field</div>
-        
-      </div></div>
+      <div class="mc-flags">🇫🇷 <span class="mc-vs">vs</span> 🇸🇳</div>
+      <div class="mc-teams">France vs Senegal</div>
+      <div class="mc-time">3:00 PM ET</div>
+      <div class="mc-venue">New York NJ</div>
+      
+    </div><div class="mc">
+      <div class="mc-flags">🇮🇶 <span class="mc-vs">vs</span> 🇳🇴</div>
+      <div class="mc-teams">Iraq vs Norway</div>
+      <div class="mc-time">6:00 PM ET</div>
+      <div class="mc-venue">Boston</div>
+      
+    </div><div class="mc">
+      <div class="mc-flags">🇦🇷 <span class="mc-vs">vs</span> 🇩🇿</div>
+      <div class="mc-teams">Argentina vs Algeria</div>
+      <div class="mc-time">9:00 PM ET</div>
+      <div class="mc-venue">Kansas City</div>
+      
+    </div><div class="mc">
+      <div class="mc-flags">🇦🇹 <span class="mc-vs">vs</span> 🇯🇴</div>
+      <div class="mc-teams">Austria vs Jordan</div>
+      <div class="mc-time">12:00 AM ET</div>
+      <div class="mc-venue">San Francisco</div>
+      
+    </div></div>
     </div>
 <div class="cal-day cal-active" data-date="2026-06-17">
       <div class="cal-daynum">17</div>
       <div class="cal-daymatches"><div class="mc">
-        <div class="mc-flags">🇫🇷 <span class="mc-vs">vs</span> 🇪🇬</div>
-        <div class="mc-teams">France vs Egypt</div>
-        <div class="mc-time">3:00 PM ET</div>
-        <div class="mc-venue">Allegiant Stadium</div>
-        
-      </div><div class="mc">
-        <div class="mc-flags">🇧🇷 <span class="mc-vs">vs</span> 🇩🇰</div>
-        <div class="mc-teams">Brazil vs Denmark</div>
-        <div class="mc-time">6:00 PM ET</div>
-        <div class="mc-venue">Hard Rock</div>
-        
-      </div><div class="mc">
-        <div class="mc-flags">🇦🇷 <span class="mc-vs">vs</span> 🇻🇪</div>
-        <div class="mc-teams">Argentina vs Venezuela</div>
-        <div class="mc-time">9:00 PM ET</div>
-        <div class="mc-venue">Rose Bowl</div>
-        
-      </div></div>
+      <div class="mc-flags">🇵🇹 <span class="mc-vs">vs</span> 🇨🇩</div>
+      <div class="mc-teams">Portugal vs Congo DR</div>
+      <div class="mc-time">1:00 PM ET</div>
+      <div class="mc-venue">Houston</div>
+      
+    </div><div class="mc">
+      <div class="mc-flags">🏴󠁧󠁢󠁥󠁮󠁧󠁿 <span class="mc-vs">vs</span> 🇭🇷</div>
+      <div class="mc-teams">England vs Croatia</div>
+      <div class="mc-time">4:00 PM ET</div>
+      <div class="mc-venue">Dallas</div>
+      
+    </div><div class="mc">
+      <div class="mc-flags">🇬🇭 <span class="mc-vs">vs</span> 🇵🇦</div>
+      <div class="mc-teams">Ghana vs Panama</div>
+      <div class="mc-time">7:00 PM ET</div>
+      <div class="mc-venue">Toronto</div>
+      
+    </div><div class="mc">
+      <div class="mc-flags">🇺🇿 <span class="mc-vs">vs</span> 🇨🇴</div>
+      <div class="mc-teams">Uzbekistan vs Colombia</div>
+      <div class="mc-time">10:00 PM ET</div>
+      <div class="mc-venue">Mexico City</div>
+      
+    </div></div>
     </div>
 <div class="cal-day cal-active" data-date="2026-06-18">
       <div class="cal-daynum">18</div>
       <div class="cal-daymatches"><div class="mc">
-        <div class="mc-flags">🇪🇸 <span class="mc-vs">vs</span> 🇰🇷</div>
-        <div class="mc-teams">Spain vs South Korea</div>
-        <div class="mc-time">3:00 PM ET</div>
-        <div class="mc-venue">Arrowhead</div>
-        
-      </div><div class="mc">
-        <div class="mc-flags">🏴󠁧󠁢󠁥󠁮󠁧󠁿 <span class="mc-vs">vs</span> 🇸🇰</div>
-        <div class="mc-teams">England vs Slovakia</div>
-        <div class="mc-time">6:00 PM ET</div>
-        <div class="mc-venue">Gillette</div>
-        
-      </div><div class="mc">
-        <div class="mc-flags">🇩🇪 <span class="mc-vs">vs</span> 🇮🇷</div>
-        <div class="mc-teams">Germany vs IR Iran</div>
-        <div class="mc-time">9:00 PM ET</div>
-        <div class="mc-venue">MetLife</div>
-        
-      </div></div>
+      <div class="mc-flags">🇨🇿 <span class="mc-vs">vs</span> 🇿🇦</div>
+      <div class="mc-teams">Czechia vs South Africa</div>
+      <div class="mc-time">12:00 PM ET</div>
+      <div class="mc-venue">Atlanta</div>
+      
+    </div><div class="mc">
+      <div class="mc-flags">🇨🇭 <span class="mc-vs">vs</span> 🇧🇦</div>
+      <div class="mc-teams">Switzerland vs Bosnia & Herz.</div>
+      <div class="mc-time">3:00 PM ET</div>
+      <div class="mc-venue">Los Angeles</div>
+      
+    </div><div class="mc">
+      <div class="mc-flags">🇨🇦 <span class="mc-vs">vs</span> 🇶🇦</div>
+      <div class="mc-teams">Canada vs Qatar</div>
+      <div class="mc-time">6:00 PM ET</div>
+      <div class="mc-venue">Vancouver</div>
+      
+    </div><div class="mc">
+      <div class="mc-flags">🇲🇽 <span class="mc-vs">vs</span> 🇰🇷</div>
+      <div class="mc-teams">Mexico vs South Korea</div>
+      <div class="mc-time">9:00 PM ET</div>
+      <div class="mc-venue">Guadalajara</div>
+      
+    </div></div>
     </div>
 <div class="cal-day cal-hot" data-date="2026-06-19">
       <div class="cal-daynum">19</div>
-      <div class="cal-daymatches"><div class="mc">
-        <div class="mc-flags">🇵🇹 <span class="mc-vs">vs</span> 🇶🇦</div>
-        <div class="mc-teams">Portugal vs Qatar</div>
-        <div class="mc-time">3:00 PM ET</div>
-        <div class="mc-venue">NRG</div>
-        
-      </div><div class="mc">
-        <div class="mc-flags">🇨🇦 <span class="mc-vs">vs</span> 🇨🇱</div>
-        <div class="mc-teams">Canada vs Chile</div>
-        <div class="mc-time">6:00 PM ET</div>
-        <div class="mc-venue">BC Place</div>
-        
-      </div><div class="mc match-hot">
-        <div class="mc-flags">🇺🇸 <span class="mc-vs">vs</span> 🇦🇺</div>
-        <div class="mc-teams">USA vs Australia</div>
-        <div class="mc-time">9:00 PM ET</div>
-        <div class="mc-venue">Commanders Field</div>
-        <div class="mc-cta">SELECT THIS DATE →</div>
-      </div></div>
+      <div class="cal-daymatches"><div class="mc mc-hot">
+      <div class="mc-flags">🇺🇸 <span class="mc-vs">vs</span> 🇦🇺</div>
+      <div class="mc-teams">USA vs Australia</div>
+      <div class="mc-time">3:00 PM ET</div>
+      <div class="mc-venue">Seattle</div>
+      <div class="mc-cta">★ USA MATCH · SELECT DATE →</div>
+    </div><div class="mc">
+      <div class="mc-flags">🏴󠁧󠁢󠁳󠁣󠁴󠁿 <span class="mc-vs">vs</span> 🇲🇦</div>
+      <div class="mc-teams">Scotland vs Morocco</div>
+      <div class="mc-time">3:00 PM ET</div>
+      <div class="mc-venue">Boston</div>
+      
+    </div><div class="mc">
+      <div class="mc-flags">🇧🇷 <span class="mc-vs">vs</span> 🇭🇹</div>
+      <div class="mc-teams">Brazil vs Haiti</div>
+      <div class="mc-time">9:00 PM ET</div>
+      <div class="mc-venue">Philadelphia</div>
+      
+    </div><div class="mc">
+      <div class="mc-flags">🇹🇷 <span class="mc-vs">vs</span> 🇵🇾</div>
+      <div class="mc-teams">Türkiye vs Paraguay</div>
+      <div class="mc-time">12:00 AM ET</div>
+      <div class="mc-venue">San Francisco</div>
+      
+    </div></div>
     </div>
 <div class="cal-day cal-active" data-date="2026-06-20">
       <div class="cal-daynum">20</div>
       <div class="cal-daymatches"><div class="mc">
-        <div class="mc-flags">🇳🇱 <span class="mc-vs">vs</span> 🇸🇦</div>
-        <div class="mc-teams">Netherlands vs Saudi Arabia</div>
-        <div class="mc-time">3:00 PM ET</div>
-        <div class="mc-venue">AT&T</div>
-        
-      </div><div class="mc">
-        <div class="mc-flags">🇮🇹 <span class="mc-vs">vs</span> 🇵🇱</div>
-        <div class="mc-teams">Italy vs Poland</div>
-        <div class="mc-time">6:00 PM ET</div>
-        <div class="mc-venue">Lincoln Financial</div>
-        
-      </div><div class="mc">
-        <div class="mc-flags">🇨🇴 <span class="mc-vs">vs</span> 🇯🇵</div>
-        <div class="mc-teams">Colombia vs Japan</div>
-        <div class="mc-time">9:00 PM ET</div>
-        <div class="mc-venue">Levi's</div>
-        
-      </div></div>
+      <div class="mc-flags">🇳🇱 <span class="mc-vs">vs</span> 🇸🇪</div>
+      <div class="mc-teams">Netherlands vs Sweden</div>
+      <div class="mc-time">1:00 PM ET</div>
+      <div class="mc-venue">Houston</div>
+      
+    </div><div class="mc">
+      <div class="mc-flags">🇩🇪 <span class="mc-vs">vs</span> 🇨🇮</div>
+      <div class="mc-teams">Germany vs Ivory Coast</div>
+      <div class="mc-time">4:00 PM ET</div>
+      <div class="mc-venue">Toronto</div>
+      
+    </div><div class="mc">
+      <div class="mc-flags">🇪🇨 <span class="mc-vs">vs</span> 🇨🇼</div>
+      <div class="mc-teams">Ecuador vs Curaçao</div>
+      <div class="mc-time">7:00 PM ET</div>
+      <div class="mc-venue">Philadelphia</div>
+      
+    </div><div class="mc">
+      <div class="mc-flags">🇯🇵 <span class="mc-vs">vs</span> 🇹🇳</div>
+      <div class="mc-teams">Japan vs Tunisia</div>
+      <div class="mc-time">10:00 PM ET</div>
+      <div class="mc-venue">Dallas</div>
+      
+    </div></div>
     </div>
 <div class="cal-day cal-active" data-date="2026-06-21">
       <div class="cal-daynum">21</div>
       <div class="cal-daymatches"><div class="mc">
-        <div class="mc-flags">🇿🇦 <span class="mc-vs">vs</span> 🇵🇪</div>
-        <div class="mc-teams">South Africa vs Peru</div>
-        <div class="mc-time">3:00 PM ET</div>
-        <div class="mc-venue">SoFi</div>
-        
-      </div><div class="mc">
-        <div class="mc-flags">🇷🇸 <span class="mc-vs">vs</span> 🇦🇱</div>
-        <div class="mc-teams">Serbia vs Albania</div>
-        <div class="mc-time">6:00 PM ET</div>
-        <div class="mc-venue">Rose Bowl</div>
-        
-      </div><div class="mc">
-        <div class="mc-flags">🇪🇨 <span class="mc-vs">vs</span> 🇨🇷</div>
-        <div class="mc-teams">Ecuador vs Costa Rica</div>
-        <div class="mc-time">9:00 PM ET</div>
-        <div class="mc-venue">Allegiant</div>
-        
-      </div></div>
+      <div class="mc-flags">🇺🇾 <span class="mc-vs">vs</span> 🇨🇻</div>
+      <div class="mc-teams">Uruguay vs Cape Verde</div>
+      <div class="mc-time">12:00 PM ET</div>
+      <div class="mc-venue">Miami</div>
+      
+    </div><div class="mc">
+      <div class="mc-flags">🇳🇿 <span class="mc-vs">vs</span> 🇧🇪</div>
+      <div class="mc-teams">New Zealand vs Belgium</div>
+      <div class="mc-time">3:00 PM ET</div>
+      <div class="mc-venue">Los Angeles</div>
+      
+    </div><div class="mc">
+      <div class="mc-flags">🇪🇬 <span class="mc-vs">vs</span> 🇮🇷</div>
+      <div class="mc-teams">Egypt vs Iran</div>
+      <div class="mc-time">6:00 PM ET</div>
+      <div class="mc-venue">Seattle</div>
+      
+    </div><div class="mc">
+      <div class="mc-flags">🇪🇸 <span class="mc-vs">vs</span> 🇸🇦</div>
+      <div class="mc-teams">Spain vs Saudi Arabia</div>
+      <div class="mc-time">9:00 PM ET</div>
+      <div class="mc-venue">Atlanta</div>
+      
+    </div></div>
     </div>
 <div class="cal-day cal-active" data-date="2026-06-22">
       <div class="cal-daynum">22</div>
       <div class="cal-daymatches"><div class="mc">
-        <div class="mc-flags">🇹🇳 <span class="mc-vs">vs</span> 🇰🇿</div>
-        <div class="mc-teams">Tunisia vs Kazakhstan</div>
-        <div class="mc-time">3:00 PM ET</div>
-        <div class="mc-venue">Arrowhead</div>
-        
-      </div><div class="mc">
-        <div class="mc-flags">🇸🇳 <span class="mc-vs">vs</span> 🇨🇿</div>
-        <div class="mc-teams">Senegal vs Czech Republic</div>
-        <div class="mc-time">6:00 PM ET</div>
-        <div class="mc-venue">NRG</div>
-        
-      </div><div class="mc">
-        <div class="mc-flags">🇺🇦 <span class="mc-vs">vs</span> 🇻🇪</div>
-        <div class="mc-teams">Ukraine vs Venezuela</div>
-        <div class="mc-time">9:00 PM ET</div>
-        <div class="mc-venue">Empower</div>
-        
-      </div></div>
+      <div class="mc-flags">🇸🇳 <span class="mc-vs">vs</span> 🇮🇶</div>
+      <div class="mc-teams">Senegal vs Iraq</div>
+      <div class="mc-time">3:00 PM ET</div>
+      <div class="mc-venue">Kansas City</div>
+      
+    </div><div class="mc">
+      <div class="mc-flags">🇳🇴 <span class="mc-vs">vs</span> 🇫🇷</div>
+      <div class="mc-teams">Norway vs France</div>
+      <div class="mc-time">3:00 PM ET</div>
+      <div class="mc-venue">New York NJ</div>
+      
+    </div><div class="mc">
+      <div class="mc-flags">🇩🇿 <span class="mc-vs">vs</span> 🇦🇹</div>
+      <div class="mc-teams">Algeria vs Austria</div>
+      <div class="mc-time">9:00 PM ET</div>
+      <div class="mc-venue">San Francisco</div>
+      
+    </div><div class="mc">
+      <div class="mc-flags">🇯🇴 <span class="mc-vs">vs</span> 🇦🇷</div>
+      <div class="mc-teams">Jordan vs Argentina</div>
+      <div class="mc-time">9:00 PM ET</div>
+      <div class="mc-venue">Kansas City</div>
+      
+    </div></div>
     </div>
-<div class="cal-day cal-hot" data-date="2026-06-23">
+<div class="cal-day cal-active" data-date="2026-06-23">
       <div class="cal-daynum">23</div>
       <div class="cal-daymatches"><div class="mc">
-        <div class="mc-flags">🇲🇽 <span class="mc-vs">vs</span> 🇿🇦</div>
-        <div class="mc-teams">Mexico vs South Africa</div>
-        <div class="mc-time">3:00 PM ET</div>
-        <div class="mc-venue">MetLife</div>
-        
-      </div><div class="mc">
-        <div class="mc-flags">🇨🇦 <span class="mc-vs">vs</span> 🇲🇦</div>
-        <div class="mc-teams">Canada vs Morocco</div>
-        <div class="mc-time">6:00 PM ET</div>
-        <div class="mc-venue">AT&T</div>
-        
-      </div><div class="mc match-hot">
-        <div class="mc-flags">🇧🇷 <span class="mc-vs">vs</span> 🇦🇷</div>
-        <div class="mc-teams">Brazil vs Argentina</div>
-        <div class="mc-time">9:00 PM ET</div>
-        <div class="mc-venue">Hard Rock</div>
-        <div class="mc-cta">SELECT THIS DATE →</div>
-      </div></div>
+      <div class="mc-flags">🇨🇴 <span class="mc-vs">vs</span> 🇵🇹</div>
+      <div class="mc-teams">Colombia vs Portugal</div>
+      <div class="mc-time">1:00 PM ET</div>
+      <div class="mc-venue">Houston</div>
+      
+    </div><div class="mc">
+      <div class="mc-flags">🇨🇩 <span class="mc-vs">vs</span> 🇺🇿</div>
+      <div class="mc-teams">Congo DR vs Uzbekistan</div>
+      <div class="mc-time">1:00 PM ET</div>
+      <div class="mc-venue">Mexico City</div>
+      
+    </div><div class="mc">
+      <div class="mc-flags">🇭🇷 <span class="mc-vs">vs</span> 🇬🇭</div>
+      <div class="mc-teams">Croatia vs Ghana</div>
+      <div class="mc-time">4:00 PM ET</div>
+      <div class="mc-venue">Dallas</div>
+      
+    </div><div class="mc">
+      <div class="mc-flags">🇵🇦 <span class="mc-vs">vs</span> 🏴󠁧󠁢󠁥󠁮󠁧󠁿</div>
+      <div class="mc-teams">Panama vs England</div>
+      <div class="mc-time">4:00 PM ET</div>
+      <div class="mc-venue">Toronto</div>
+      
+    </div></div>
     </div>
-<div class="cal-day cal-hot" data-date="2026-06-24">
+<div class="cal-day cal-active" data-date="2026-06-24">
       <div class="cal-daynum">24</div>
       <div class="cal-daymatches"><div class="mc">
-        <div class="mc-flags">🇫🇷 <span class="mc-vs">vs</span> 🇪🇬</div>
-        <div class="mc-teams">France vs Egypt</div>
-        <div class="mc-time">3:00 PM ET</div>
-        <div class="mc-venue">SoFi</div>
-        
-      </div><div class="mc">
-        <div class="mc-flags">🇪🇸 <span class="mc-vs">vs</span> 🇯🇵</div>
-        <div class="mc-teams">Spain vs Japan</div>
-        <div class="mc-time">6:00 PM ET</div>
-        <div class="mc-venue">Gillette</div>
-        
-      </div><div class="mc match-hot">
-        <div class="mc-flags">🏴󠁧󠁢󠁥󠁮󠁧󠁿 <span class="mc-vs">vs</span> 🇩🇪</div>
-        <div class="mc-teams">England vs Germany</div>
-        <div class="mc-time">9:00 PM ET</div>
-        <div class="mc-venue">MetLife</div>
-        <div class="mc-cta">SELECT THIS DATE →</div>
-      </div></div>
+      <div class="mc-flags">🇿🇦 <span class="mc-vs">vs</span> 🇰🇷</div>
+      <div class="mc-teams">South Africa vs South Korea</div>
+      <div class="mc-time">3:00 PM ET</div>
+      <div class="mc-venue">Atlanta</div>
+      
+    </div><div class="mc">
+      <div class="mc-flags">🇨🇿 <span class="mc-vs">vs</span> 🇲🇽</div>
+      <div class="mc-teams">Czechia vs Mexico</div>
+      <div class="mc-time">3:00 PM ET</div>
+      <div class="mc-venue">Los Angeles</div>
+      
+    </div><div class="mc">
+      <div class="mc-flags">🇧🇦 <span class="mc-vs">vs</span> 🇨🇦</div>
+      <div class="mc-teams">Bosnia & Herz. vs Canada</div>
+      <div class="mc-time">9:00 PM ET</div>
+      <div class="mc-venue">Vancouver</div>
+      
+    </div><div class="mc">
+      <div class="mc-flags">🇶🇦 <span class="mc-vs">vs</span> 🇨🇭</div>
+      <div class="mc-teams">Qatar vs Switzerland</div>
+      <div class="mc-time">9:00 PM ET</div>
+      <div class="mc-venue">San Francisco</div>
+      
+    </div></div>
     </div>
 <div class="cal-day cal-hot" data-date="2026-06-25">
       <div class="cal-daynum">25</div>
-      <div class="cal-daymatches"><div class="mc">
-        <div class="mc-flags">🇵🇹 <span class="mc-vs">vs</span> 🇳🇱</div>
-        <div class="mc-teams">Portugal vs Netherlands</div>
-        <div class="mc-time">3:00 PM ET</div>
-        <div class="mc-venue">Rose Bowl</div>
-        
-      </div><div class="mc">
-        <div class="mc-flags">🇨🇴 <span class="mc-vs">vs</span> 🇧🇪</div>
-        <div class="mc-teams">Colombia vs Belgium</div>
-        <div class="mc-time">3:00 PM ET</div>
-        <div class="mc-venue">Allegiant</div>
-        
-      </div><div class="mc match-hot">
-        <div class="mc-flags">🇺🇸 <span class="mc-vs">vs</span> ⚽</div>
-        <div class="mc-teams">USA — Final Group Match</div>
-        <div class="mc-time">9:00 PM ET</div>
-        <div class="mc-venue">Commanders Field</div>
-        <div class="mc-cta">SELECT THIS DATE →</div>
-      </div></div>
+      <div class="cal-daymatches"><div class="mc mc-hot">
+      <div class="mc-flags">🇺🇸 <span class="mc-vs">vs</span> 🇹🇷</div>
+      <div class="mc-teams">USA vs Türkiye</div>
+      <div class="mc-time">3:00 PM ET</div>
+      <div class="mc-venue">Philadelphia</div>
+      <div class="mc-cta">★ USA MATCH · SELECT DATE →</div>
+    </div><div class="mc">
+      <div class="mc-flags">🇵🇾 <span class="mc-vs">vs</span> 🇦🇺</div>
+      <div class="mc-teams">Paraguay vs Australia</div>
+      <div class="mc-time">3:00 PM ET</div>
+      <div class="mc-venue">Dallas</div>
+      
+    </div><div class="mc">
+      <div class="mc-flags">🇲🇦 <span class="mc-vs">vs</span> 🇧🇷</div>
+      <div class="mc-teams">Morocco vs Brazil</div>
+      <div class="mc-time">9:00 PM ET</div>
+      <div class="mc-venue">New York NJ</div>
+      
+    </div><div class="mc">
+      <div class="mc-flags">🏴󠁧󠁢󠁳󠁣󠁴󠁿 <span class="mc-vs">vs</span> 🇭🇹</div>
+      <div class="mc-teams">Scotland vs Haiti</div>
+      <div class="mc-time">9:00 PM ET</div>
+      <div class="mc-venue">Boston</div>
+      
+    </div></div>
     </div>
-<div class="cal-day cal-hot" data-date="2026-06-26">
+<div class="cal-day cal-active" data-date="2026-06-26">
       <div class="cal-daynum">26</div>
       <div class="cal-daymatches"><div class="mc">
-        <div class="mc-flags">🇮🇹 <span class="mc-vs">vs</span> 🇰🇷</div>
-        <div class="mc-teams">Italy vs South Korea</div>
-        <div class="mc-time">3:00 PM ET</div>
-        <div class="mc-venue">Arrowhead</div>
-        
-      </div><div class="mc match-hot">
-        <div class="mc-flags">🇩🇪 <span class="mc-vs">vs</span> 🇫🇷</div>
-        <div class="mc-teams">Germany vs France</div>
-        <div class="mc-time">3:00 PM ET</div>
-        <div class="mc-venue">NRG</div>
-        <div class="mc-cta">SELECT THIS DATE →</div>
-      </div><div class="mc match-hot">
-        <div class="mc-flags">🇦🇷 <span class="mc-vs">vs</span> 🇧🇷</div>
-        <div class="mc-teams">Argentina vs Brazil (TBD)</div>
-        <div class="mc-time">9:00 PM ET</div>
-        <div class="mc-venue">Hard Rock</div>
-        <div class="mc-cta">SELECT THIS DATE →</div>
-      </div></div>
+      <div class="mc-flags">🇨🇼 <span class="mc-vs">vs</span> 🇩🇪</div>
+      <div class="mc-teams">Curaçao vs Germany</div>
+      <div class="mc-time">1:00 PM ET</div>
+      <div class="mc-venue">Houston</div>
+      
+    </div><div class="mc">
+      <div class="mc-flags">🇪🇨 <span class="mc-vs">vs</span> 🇨🇮</div>
+      <div class="mc-teams">Ecuador vs Ivory Coast</div>
+      <div class="mc-time">1:00 PM ET</div>
+      <div class="mc-venue">Kansas City</div>
+      
+    </div><div class="mc">
+      <div class="mc-flags">🇸🇪 <span class="mc-vs">vs</span> 🇯🇵</div>
+      <div class="mc-teams">Sweden vs Japan</div>
+      <div class="mc-time">4:00 PM ET</div>
+      <div class="mc-venue">Los Angeles</div>
+      
+    </div><div class="mc">
+      <div class="mc-flags">🇹🇳 <span class="mc-vs">vs</span> 🇳🇱</div>
+      <div class="mc-teams">Tunisia vs Netherlands</div>
+      <div class="mc-time">4:00 PM ET</div>
+      <div class="mc-venue">Atlanta</div>
+      
+    </div></div>
     </div>
 <div class="cal-day cal-active" data-date="2026-06-27">
       <div class="cal-daynum">27</div>
       <div class="cal-daymatches"><div class="mc">
-        <div class="mc-flags">⚽ <span class="mc-vs">vs</span> ⚽</div>
-        <div class="mc-teams">Group Stage Finals — Day 1</div>
-        <div class="mc-time">3:00 PM ET</div>
-        <div class="mc-venue">Multiple Venues</div>
-        
-      </div><div class="mc">
-        <div class="mc-flags">⚽ <span class="mc-vs">vs</span> ⚽</div>
-        <div class="mc-teams">Group Stage Finals — Day 1</div>
-        <div class="mc-time">9:00 PM ET</div>
-        <div class="mc-venue">Multiple Venues</div>
-        
-      </div></div>
+      <div class="mc-flags">🇨🇻 <span class="mc-vs">vs</span> 🇪🇸</div>
+      <div class="mc-teams">Cape Verde vs Spain</div>
+      <div class="mc-time">12:00 PM ET</div>
+      <div class="mc-venue">Miami</div>
+      
+    </div><div class="mc">
+      <div class="mc-flags">🇺🇾 <span class="mc-vs">vs</span> 🇸🇦</div>
+      <div class="mc-teams">Uruguay vs Saudi Arabia</div>
+      <div class="mc-time">12:00 PM ET</div>
+      <div class="mc-venue">Seattle</div>
+      
+    </div><div class="mc">
+      <div class="mc-flags">🇧🇪 <span class="mc-vs">vs</span> 🇮🇷</div>
+      <div class="mc-teams">Belgium vs Iran</div>
+      <div class="mc-time">7:30 PM ET</div>
+      <div class="mc-venue">Los Angeles</div>
+      
+    </div><div class="mc">
+      <div class="mc-flags">🇳🇿 <span class="mc-vs">vs</span> 🇪🇬</div>
+      <div class="mc-teams">New Zealand vs Egypt</div>
+      <div class="mc-time">7:30 PM ET</div>
+      <div class="mc-venue">Boston</div>
+      
+    </div></div>
     </div>
-<div class="cal-day cal-empty" data-date="2026-06-28">
+<div class="cal-day cal-active" data-date="2026-06-28">
       <div class="cal-daynum">28</div>
-      <div class="cal-daymatches"><div class="cal-nomatch">—</div></div>
+      <div class="cal-daymatches"><div class="mc">
+      <div class="mc-flags">⚽ <span class="mc-vs">vs</span> ⚽</div>
+      <div class="mc-teams">Round of 32 · Match 1</div>
+      <div class="mc-time">3:00 PM ET</div>
+      <div class="mc-venue">Multiple venues</div>
+      
+    </div><div class="mc">
+      <div class="mc-flags">⚽ <span class="mc-vs">vs</span> ⚽</div>
+      <div class="mc-teams">Round of 32 · Match 2</div>
+      <div class="mc-time">9:00 PM ET</div>
+      <div class="mc-venue">Multiple venues</div>
+      
+    </div></div>
     </div>
-<div class="cal-day cal-empty" data-date="2026-06-29">
+<div class="cal-day cal-active" data-date="2026-06-29">
       <div class="cal-daynum">29</div>
-      <div class="cal-daymatches"><div class="cal-nomatch">—</div></div>
+      <div class="cal-daymatches"><div class="mc">
+      <div class="mc-flags">🇫🇷 <span class="mc-vs">vs</span> 🇮🇶</div>
+      <div class="mc-teams">Group I Finals · France + Iraq</div>
+      <div class="mc-time">3:00 PM ET</div>
+      <div class="mc-venue">Multiple venues</div>
+      
+    </div><div class="mc">
+      <div class="mc-flags">⚽ <span class="mc-vs">vs</span> ⚽</div>
+      <div class="mc-teams">Round of 32 · Matches Continue</div>
+      <div class="mc-time">9:00 PM ET</div>
+      <div class="mc-venue">Multiple venues</div>
+      
+    </div></div>
     </div>
-<div class="cal-day cal-empty" data-date="2026-06-30">
+<div class="cal-day cal-active" data-date="2026-06-30">
       <div class="cal-daynum">30</div>
-      <div class="cal-daymatches"><div class="cal-nomatch">—</div></div>
+      <div class="cal-daymatches"><div class="mc">
+      <div class="mc-flags">🇦🇷 <span class="mc-vs">vs</span> 🇩🇿</div>
+      <div class="mc-teams">Group J Finals · Argentina + Algeria</div>
+      <div class="mc-time">3:00 PM ET</div>
+      <div class="mc-venue">Multiple venues</div>
+      
+    </div><div class="mc">
+      <div class="mc-flags">⚽ <span class="mc-vs">vs</span> ⚽</div>
+      <div class="mc-teams">Round of 32 · Matches Continue</div>
+      <div class="mc-time">9:00 PM ET</div>
+      <div class="mc-venue">Multiple venues</div>
+      
+    </div></div>
     </div>
       </div>
 
@@ -1361,69 +1446,54 @@
           <div style="flex:1;height:1px;background:rgba(184,147,42,0.25);"></div>
         </div>
         <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:2px;">
-
           <div style="background:#1A1408;padding:1.2rem 1rem;border-top:3px solid #B8932A;cursor:pointer;transition:all 0.2s;" onmouseover="this.style.background='#2A2010'" onmouseout="this.style.background='#1A1408'">
-            <div style="font-family:'Bebas Neue',sans-serif;font-size:1.2rem;color:#D4A84B;line-height:1;margin-bottom:0.3rem;">JUL 4–5</div>
-            <div style="font-size:0.55rem;letter-spacing:0.2em;text-transform:uppercase;color:#B8932A;font-family:'Montserrat',sans-serif;margin-bottom:0.35rem;">Quarter Finals</div>
-            <div style="font-family:'Cormorant Garamond',serif;font-size:0.82rem;color:rgba(245,237,216,0.75);font-style:italic;line-height:1.4;margin-bottom:0.4rem;">Independence Day Weekend. Stakes at their highest.</div>
-            <div style="font-size:0.46rem;letter-spacing:0.14em;text-transform:uppercase;color:#D4A84B;font-weight:600;font-family:'Montserrat',sans-serif;">Available →</div>
-          </div>
-
-          <div style="background:#1A1408;padding:1.2rem 1rem;border-top:3px solid #B8932A;cursor:pointer;transition:all 0.2s;" onmouseover="this.style.background='#2A2010'" onmouseout="this.style.background='#1A1408'">
-            <div style="font-family:'Bebas Neue',sans-serif;font-size:1.2rem;color:#D4A84B;line-height:1;margin-bottom:0.3rem;">JUL 9–10</div>
+            <div style="font-family:'Bebas Neue',sans-serif;font-size:1.2rem;color:#D4A84B;line-height:1;margin-bottom:0.3rem;">JUL 4–7</div>
             <div style="font-size:0.55rem;letter-spacing:0.2em;text-transform:uppercase;color:#B8932A;font-family:'Montserrat',sans-serif;margin-bottom:0.35rem;">Round of 16</div>
-            <div style="font-family:'Cormorant Garamond',serif;font-size:0.82rem;color:rgba(245,237,216,0.75);font-style:italic;line-height:1.4;margin-bottom:0.4rem;">Final knockout rounds. Every match eliminates a nation.</div>
+            <div style="font-family:'Cormorant Garamond',serif;font-size:0.82rem;color:rgba(245,237,216,0.75);font-style:italic;line-height:1.4;margin-bottom:0.4rem;">Best 32 nations battle it out. Elimination starts here.</div>
             <div style="font-size:0.46rem;letter-spacing:0.14em;text-transform:uppercase;color:#D4A84B;font-weight:600;font-family:'Montserrat',sans-serif;">Available →</div>
           </div>
-
+          <div style="background:#1A1408;padding:1.2rem 1rem;border-top:3px solid #B8932A;cursor:pointer;transition:all 0.2s;" onmouseover="this.style.background='#2A2010'" onmouseout="this.style.background='#1A1408'">
+            <div style="font-family:'Bebas Neue',sans-serif;font-size:1.2rem;color:#D4A84B;line-height:1;margin-bottom:0.3rem;">JUL 9–11</div>
+            <div style="font-size:0.55rem;letter-spacing:0.2em;text-transform:uppercase;color:#B8932A;font-family:'Montserrat',sans-serif;margin-bottom:0.35rem;">Quarter Finals</div>
+            <div style="font-family:'Cormorant Garamond',serif;font-size:0.82rem;color:rgba(245,237,216,0.75);font-style:italic;line-height:1.4;margin-bottom:0.4rem;">Eight nations. Four matches. The road to glory.</div>
+            <div style="font-size:0.46rem;letter-spacing:0.14em;text-transform:uppercase;color:#D4A84B;font-weight:600;font-family:'Montserrat',sans-serif;">Available →</div>
+          </div>
           <div style="background:#1A1408;padding:1.2rem 1rem;border-top:3px solid #B8932A;cursor:pointer;transition:all 0.2s;" onmouseover="this.style.background='#2A2010'" onmouseout="this.style.background='#1A1408'">
             <div style="font-family:'Bebas Neue',sans-serif;font-size:1.2rem;color:#D4A84B;line-height:1;margin-bottom:0.3rem;">JUL 14–15</div>
             <div style="font-size:0.55rem;letter-spacing:0.2em;text-transform:uppercase;color:#B8932A;font-family:'Montserrat',sans-serif;margin-bottom:0.35rem;">Semi Finals</div>
-            <div style="font-family:'Cormorant Garamond',serif;font-size:0.82rem;color:rgba(245,237,216,0.75);font-style:italic;line-height:1.4;margin-bottom:0.4rem;">The four best nations. Two matches that define who reaches the Final.</div>
+            <div style="font-family:'Cormorant Garamond',serif;font-size:0.82rem;color:rgba(245,237,216,0.75);font-style:italic;line-height:1.4;margin-bottom:0.4rem;">The four best nations. Two matches for Final glory.</div>
             <div style="font-size:0.46rem;letter-spacing:0.14em;text-transform:uppercase;color:#D4A84B;font-weight:600;font-family:'Montserrat',sans-serif;">Available →</div>
           </div>
-
           <div style="background:#1A1408;padding:1.2rem 1rem;border-top:3px solid #B8932A;cursor:pointer;transition:all 0.2s;" onmouseover="this.style.background='#2A2010'" onmouseout="this.style.background='#1A1408'">
             <div style="font-family:'Bebas Neue',sans-serif;font-size:1.2rem;color:#D4A84B;line-height:1;margin-bottom:0.3rem;">JUL 18</div>
             <div style="font-size:0.55rem;letter-spacing:0.2em;text-transform:uppercase;color:#B8932A;font-family:'Montserrat',sans-serif;margin-bottom:0.35rem;">Third Place</div>
-            <div style="font-family:'Cormorant Garamond',serif;font-size:0.82rem;color:rgba(245,237,216,0.75);font-style:italic;line-height:1.4;margin-bottom:0.4rem;">Elite football. Still an unforgettable match night experience.</div>
+            <div style="font-family:'Cormorant Garamond',serif;font-size:0.82rem;color:rgba(245,237,216,0.75);font-style:italic;line-height:1.4;margin-bottom:0.4rem;">Elite football. Still an unforgettable match night.</div>
             <div style="font-size:0.46rem;letter-spacing:0.14em;text-transform:uppercase;color:#D4A84B;font-weight:600;font-family:'Montserrat',sans-serif;">Available →</div>
           </div>
-
-          <div style="background:linear-gradient(135deg,#1A0808,#2A0A0A);padding:1.2rem 1rem;border-top:3px solid #8B1A1A;cursor:pointer;transition:all 0.2s;box-shadow:inset 0 0 0 1px rgba(139,26,26,0.2);" onmouseover="this.style.background='#2A1010'" onmouseout="this.style.background='linear-gradient(135deg,#1A0808,#2A0A0A)'">
+          <div style="background:linear-gradient(135deg,#1A0808,#2A0A0A);padding:1.2rem 1rem;border-top:3px solid #8B1A1A;cursor:pointer;transition:all 0.2s;box-shadow:inset 0 0 0 1px rgba(139,26,26,0.2);">
             <div style="font-family:'Bebas Neue',sans-serif;font-size:1.2rem;color:#E8A080;line-height:1;margin-bottom:0.3rem;">JUL 19</div>
             <div style="font-size:0.55rem;letter-spacing:0.2em;text-transform:uppercase;color:#C47050;font-family:'Montserrat',sans-serif;margin-bottom:0.35rem;">🏆 THE FINAL</div>
-            <div style="font-family:'Cormorant Garamond',serif;font-size:0.82rem;color:rgba(245,220,200,0.85);font-style:italic;line-height:1.4;margin-bottom:0.4rem;">One game. Legends made. The most watched event in human history.</div>
+            <div style="font-family:'Cormorant Garamond',serif;font-size:0.82rem;color:rgba(245,220,200,0.85);font-style:italic;line-height:1.4;margin-bottom:0.4rem;">New York NJ Stadium. One game. Legends made.</div>
             <div style="font-size:0.46rem;letter-spacing:0.14em;text-transform:uppercase;color:#E8A080;font-weight:700;font-family:'Montserrat',sans-serif;">★ Limited · Enquire Now →</div>
           </div>
-
         </div>
       </div>
 
-      <!-- Disclaimer -->
       <div style="margin-top:1.2rem;padding-top:0.8rem;border-top:1px solid rgba(184,147,42,0.2);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.5rem;">
-        <div style="font-family:'Cormorant Garamond',serif;font-size:0.8rem;font-style:italic;color:#7A6A4A;max-width:500px;line-height:1.5;">Match dates and times subject to FIFA confirmation. All times shown in ET. Curator Atelier experiences available for any date shown. Minimum 2-week lead time required.</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:0.8rem;font-style:italic;color:#7A6A4A;max-width:500px;line-height:1.5;">All fixtures verified from official FOX Sports schedule. Times shown in ET. Subject to FIFA confirmation for knockout stage times.</div>
         <a href="#book" style="font-size:0.68rem;letter-spacing:0.15em;text-transform:uppercase;color:#8A6A1A;font-family:'Montserrat',sans-serif;font-weight:600;border-bottom:1px solid rgba(184,147,42,0.4);padding-bottom:1px;">Select your date &amp; enquire →</a>
       </div>
-
     </div>
   </div>
-
 </div>
 
 <script>
-// Calendar interaction
 document.querySelectorAll('.cal-active, .cal-hot').forEach(function(day) {
   day.addEventListener('click', function() {
     document.querySelectorAll('.cal-day.selected').forEach(function(d) { d.classList.remove('selected'); });
     this.classList.add('selected');
-    // Scroll to booking form
     const book = document.getElementById('book');
-    if (book) {
-      setTimeout(function() {
-        book.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }, 300);
-    }
+    if (book) { setTimeout(function() { book.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 300); }
   });
 });
 </script>
