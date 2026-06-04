@@ -38,8 +38,9 @@
     /* HERO */
     .hero{min-height:100vh;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:center;padding:6rem 2rem 4rem;}
     .hero-bg{position:absolute;inset:0;}
-    .hero-bg img{width:100%;height:100%;object-fit:cover;opacity:0.42;}
-    .hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(4,3,2,0.96) 0%,rgba(4,3,2,0.72) 50%,rgba(4,3,2,0.35) 100%);}
+    .hero-bg-slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1.8s ease-in-out;}
+    .hero-bg-slide.active{opacity:0.52;}
+    .hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(4,3,2,0.96) 0%,rgba(4,3,2,0.72) 50%,rgba(4,3,2,0.25) 100%);}
     .hero-content{position:relative;z-index:2;max-width:1100px;margin:0 auto;width:100%;}
     .eyebrow{font-size:0.68rem;letter-spacing:0.45em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem;display:flex;align-items:center;gap:0.7rem;}
     .live-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);animation:pulse 1.8s ease-in-out infinite;flex-shrink:0;}
@@ -78,54 +79,17 @@
     .prod-card-title{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--white);margin-bottom:0.5rem;}
     .prod-card-desc{font-family:'Cormorant Garamond',serif;font-size:0.95rem;color:var(--dim);line-height:1.6;margin-bottom:1.2rem;}
 
-    /* TIERS */
-    .tiers{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--border);margin-top:2rem;}
-    @media(max-width:900px){.tiers{grid-template-columns:1fr 1fr;}}
-    @media(max-width:500px){.tiers{grid-template-columns:1fr;}}
-    .tier{padding:1.8rem 1.4rem;border-right:1px solid rgba(201,168,76,0.1);background:var(--dark2);transition:background 0.3s;}
-    .tier:last-child{border-right:none;}
-    .tier:hover{background:var(--dark3);}
-    .tier.feat{background:linear-gradient(180deg,#14110A,#0E0B07);border:1px solid rgba(201,168,76,0.22);}
-    .tier-num{font-size:0.62rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);margin-bottom:0.5rem;}
-    .tier-name{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--white);margin-bottom:0.3rem;}
-    .tier-tag{font-family:'Cormorant Garamond',serif;font-size:0.88rem;color:var(--muted);font-style:italic;margin-bottom:0.9rem;}
-    .tier-hr{width:100%;height:1px;background:rgba(201,168,76,0.1);margin:0.7rem 0;}
-    .tier-list{list-style:none;display:flex;flex-direction:column;gap:0.45rem;}
-    .tier-list li{display:flex;gap:0.45rem;font-size:0.8rem;color:var(--dim);line-height:1.4;}
-    .tier-list li::before{content:'—';color:var(--gold);flex-shrink:0;font-size:0.72rem;margin-top:1px;}
-    .tier-guests{font-size:0.65rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);margin-top:0.9rem;padding-top:0.7rem;border-top:1px solid rgba(201,168,76,0.08);}
-    .rec{background:var(--gold);color:var(--dark);font-size:0.58rem;letter-spacing:0.15em;text-transform:uppercase;font-weight:700;padding:0.22rem 0.6rem;display:inline-block;margin-bottom:0.45rem;font-family:'Montserrat',sans-serif;}
-
-    /* PACKAGES */
-    .pkgs{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--border);margin-top:2rem;}
-    @media(max-width:900px){.pkgs{grid-template-columns:1fr 1fr;}}
-    @media(max-width:500px){.pkgs{grid-template-columns:1fr;}}
-    .pkg{padding:1.8rem 1.4rem;border-right:1px solid rgba(201,168,76,0.1);background:var(--dark2);}
-    .pkg:last-child{border-right:none;}
-    .pkg.feat{background:linear-gradient(180deg,#14110A,#0E0B07);border:1px solid rgba(201,168,76,0.22);}
-    .pkg-tag{font-size:0.62rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:0.5rem;}
-    .pkg-name{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--white);margin-bottom:0.25rem;}
-    .pkg-events{font-size:0.7rem;color:var(--muted);margin-bottom:0.9rem;}
-    .pkg-num{font-family:'Playfair Display',serif;font-size:1.55rem;color:var(--gold);}
-    .pkg-numlab{font-size:0.6rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);}
-    .pkg-hr{width:100%;height:1px;background:rgba(201,168,76,0.1);margin:0.7rem 0;}
-    .pkg-list{list-style:none;display:flex;flex-direction:column;gap:0.4rem;}
-    .pkg-list li{font-size:0.78rem;color:var(--dim);display:flex;gap:0.4rem;}
-    .pkg-list li::before{content:'✓';color:var(--gold);flex-shrink:0;}
-
-    /* CALENDAR */
-    .cal{display:flex;flex-direction:column;gap:2px;margin-top:2rem;}
-    .cal-row{display:grid;grid-template-columns:180px 1fr;gap:2px;}
-    @media(max-width:600px){.cal-row{grid-template-columns:1fr;}}
-    .cal-left{background:var(--dark3);padding:1.2rem 1.4rem;display:flex;flex-direction:column;justify-content:center;}
-    .cal-left-name{font-family:'Playfair Display',serif;font-size:0.95rem;color:var(--white);margin-bottom:0.2rem;}
-    .cal-left-dates{font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);}
-    .cal-right{background:var(--dark3);padding:1.2rem 1.4rem;display:flex;flex-wrap:wrap;gap:0.55rem;align-items:center;}
-    .pill{display:flex;align-items:center;gap:0.45rem;padding:0.4rem 0.85rem;border:1px solid rgba(201,168,76,0.12);background:var(--dark);font-size:0.68rem;}
-    .pill.feat{border-color:var(--gold);background:rgba(201,168,76,0.06);}
-    .pill-d{color:var(--gold);font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;}
-    .pill-m{color:var(--cream);}
-    .cal-note{font-size:0.62rem;color:var(--muted);font-style:italic;margin-top:0.2rem;width:100%;}
+    /* GALLERY STRIP */
+    .gallery-strip{position:relative;overflow:hidden;background:var(--dark);padding:0;}
+    .gallery-track-wrap{overflow:hidden;}
+    .gallery-track{display:flex;gap:3px;width:max-content;animation:galleryScroll 40s linear infinite;}
+    .gallery-track:hover{animation-play-state:paused;}
+    @keyframes galleryScroll{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+    .gallery-item{flex-shrink:0;width:420px;height:280px;overflow:hidden;position:relative;}
+    .gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform 0.6s ease;display:block;}
+    .gallery-item:hover img{transform:scale(1.04);}
+    .gallery-item::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(4,3,2,0.55) 100%);pointer-events:none;}
+    @media(max-width:640px){.gallery-item{width:280px;height:200px;}}
 
     /* VENUES */
     .venues{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:2rem;}
@@ -169,319 +133,82 @@
     .fu{opacity:0;transform:translateY(22px);transition:opacity 0.7s ease,transform 0.7s ease;}
     .fu.visible{opacity:1;transform:translateY(0);}
 
-/* ── PARTNER STRIP ── */
-.partner-strip {
-  background: var(--dark2, #0A0806);
-  border-top: 1px solid rgba(201,162,75,0.12);
-  border-bottom: 1px solid rgba(201,162,75,0.12);
-  padding: 0;
-  overflow: hidden;
-  position: relative;
-}
-.partner-strip::before,
-.partner-strip::after {
-  content: '';
-  position: absolute;
-  top: 0; bottom: 0;
-  width: 80px;
-  z-index: 2;
-  pointer-events: none;
-}
-.partner-strip::before { left: 0; background: linear-gradient(90deg, var(--dark2,#0A0806), transparent); }
-.partner-strip::after  { right:0; background: linear-gradient(270deg, var(--dark2,#0A0806), transparent); }
+    /* PARTNER STRIP */
+    .partner-strip{background:var(--dark2);border-top:1px solid rgba(201,162,75,0.12);border-bottom:1px solid rgba(201,162,75,0.12);padding:0;overflow:hidden;position:relative;}
+    .partner-strip::before,.partner-strip::after{content:'';position:absolute;top:0;bottom:0;width:80px;z-index:2;pointer-events:none;}
+    .partner-strip::before{left:0;background:linear-gradient(90deg,var(--dark2),transparent);}
+    .partner-strip::after{right:0;background:linear-gradient(270deg,var(--dark2),transparent);}
+    .partner-strip-label{text-align:center;font-size:0.58rem;letter-spacing:0.35em;text-transform:uppercase;color:rgba(201,162,75,0.45);padding:0.9rem 0 0;font-family:'Montserrat',sans-serif;}
+    .partner-track-wrap{overflow:hidden;padding:0.7rem 0 1rem;}
+    .partner-track{display:flex;align-items:center;gap:0;width:max-content;animation:partnerScroll 32s linear infinite;}
+    .partner-track:hover{animation-play-state:paused;}
+    @keyframes partnerScroll{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+    .partner-logo{display:flex;align-items:center;justify-content:center;padding:0 2.5rem;opacity:0.45;transition:opacity 0.3s;flex-shrink:0;border-right:1px solid rgba(201,162,75,0.08);}
+    .partner-logo:hover{opacity:0.85;}
+    .partner-logo .logo-text{font-size:14px;font-weight:700;letter-spacing:0.05em;color:#fff;white-space:nowrap;line-height:22px;font-family:'Montserrat',sans-serif;}
+    .partner-logo .logo-text.serif{font-family:'Playfair Display',Georgia,serif;font-weight:400;letter-spacing:0.12em;font-size:13px;}
 
-.partner-strip-label {
-  text-align: center;
-  font-size: 0.58rem;
-  letter-spacing: 0.35em;
-  text-transform: uppercase;
-  color: rgba(201,162,75,0.45);
-  padding: 0.9rem 0 0;
-  font-family: 'Montserrat', sans-serif;
-}
+    /* TRUST BAND */
+    .trust-band{background:linear-gradient(90deg,#0a0c08,#0d1209,#0a0c08);border-top:1px solid rgba(201,162,75,0.12);border-bottom:1px solid rgba(201,162,75,0.12);padding:1rem 1.25rem;display:flex;align-items:center;justify-content:center;gap:0;flex-wrap:wrap;}
+    .trust-item{display:flex;align-items:center;gap:0.5rem;padding:0.35rem 1.4rem;border-right:1px solid rgba(201,162,75,0.12);}
+    .trust-item:last-child{border-right:none;}
+    .trust-icon{font-size:13px;opacity:0.7;}
+    .trust-text{font-size:0.65rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(201,162,75,0.7);white-space:nowrap;font-family:'Montserrat',sans-serif;}
 
-.partner-track-wrap {
-  overflow: hidden;
-  padding: 0.7rem 0 1rem;
-}
+    /* STICKY CTA */
+    .sticky-cta{position:fixed;bottom:1.5rem;left:50%;transform:translateX(-50%) translateY(10px);z-index:996;opacity:0;transition:opacity 0.4s ease,transform 0.4s ease;pointer-events:none;}
+    .sticky-cta.visible{opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(0);}
+    .sticky-cta a{display:flex;align-items:center;gap:0.6rem;background:linear-gradient(135deg,#C9A84C,#E8CE80);color:#040302;padding:0.75rem 1.8rem;font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;font-weight:700;font-family:'Montserrat',sans-serif;text-decoration:none;box-shadow:0 4px 24px rgba(201,168,76,0.4);transition:all 0.25s;white-space:nowrap;}
+    .sticky-cta a:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(201,168,76,0.5);}
 
-.partner-track {
-  display: flex;
-  align-items: center;
-  gap: 0;
-  width: max-content;
-  animation: partnerScroll 32s linear infinite;
-}
-.partner-track:hover { animation-play-state: paused; }
+    /* WA FLOAT */
+    .wa-float{position:fixed;bottom:5.5rem;left:1.5rem;z-index:997;}
+    .wa-btn{display:flex;align-items:center;gap:0.55rem;background:#1a1a1a;color:#25D366;border:1px solid #25D366;padding:0.6rem 1rem;font-size:0.68rem;letter-spacing:0.1em;text-transform:uppercase;font-family:'Montserrat',sans-serif;font-weight:500;cursor:pointer;text-decoration:none;transition:all 0.25s;white-space:nowrap;}
+    .wa-btn:hover{background:#25D366;color:#000;transform:translateY(-2px);}
+    .wa-pulse{width:8px;height:8px;border-radius:50%;background:#25D366;animation:waPulse 2s ease-in-out infinite;flex-shrink:0;}
+    @keyframes waPulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:0.4;transform:scale(0.7);}}
 
-@keyframes partnerScroll {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
-}
+    /* BESPOKE NOTE */
+    .bespoke-note{margin-top:2rem;padding:1.2rem 1.8rem;border:1px solid rgba(201,168,76,0.2);background:rgba(201,168,76,0.04);display:flex;align-items:flex-start;gap:1rem;}
+    .bespoke-note-text{font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--dim);line-height:1.65;font-style:italic;}
+    .bespoke-note-text strong{color:var(--gold);font-weight:400;}
 
-.partner-logo {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 2.5rem;
-  opacity: 0.45;
-  transition: opacity 0.3s;
-  flex-shrink: 0;
-  border-right: 1px solid rgba(201,162,75,0.08);
-}
-.partner-logo:hover { opacity: 0.85; }
-.partner-logo svg, .partner-logo span {
-  height: 22px;
-  filter: brightness(0) invert(1);
-  display: flex;
-  align-items: center;
-}
-.partner-logo .logo-text {
-  font-size: 14px;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  color: #fff;
-  white-space: nowrap;
-  line-height: 22px;
-  font-family: 'Montserrat', sans-serif;
-}
-.partner-logo .logo-text.serif {
-  font-family: 'Playfair Display', Georgia, serif;
-  font-weight: 400;
-  letter-spacing: 0.12em;
-  font-size: 13px;
-}
+    /* FOOD/BAR SPLIT */
+    .hospitality-split{display:grid;grid-template-columns:1fr 1fr;gap:3px;margin-top:0;}
+    .hospitality-split img{width:100%;height:320px;object-fit:cover;display:block;}
+    @media(max-width:640px){.hospitality-split{grid-template-columns:1fr;}.hospitality-split img{height:220px;}}
 
-
-/* ── TRUST BAND ── */
-.trust-band {
-  background: linear-gradient(90deg, #0a0c08, #0d1209, #0a0c08);
-  border-top: 1px solid rgba(201,162,75,0.12);
-  border-bottom: 1px solid rgba(201,162,75,0.12);
-  padding: 1rem 1.25rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0;
-  flex-wrap: wrap;
-}
-.trust-item {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.35rem 1.4rem;
-  border-right: 1px solid rgba(201,162,75,0.12);
-}
-.trust-item:last-child { border-right: none; }
-.trust-icon { font-size: 13px; opacity: 0.7; }
-.trust-text {
-  font-size: 0.65rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: rgba(201,162,75,0.7);
-  white-space: nowrap;
-  font-family: 'Montserrat', sans-serif;
-}
-@media(max-width: 640px) {
-  .trust-band { gap: 0; padding: 0.75rem 0.5rem; }
-  .trust-item { padding: 0.4rem 0.8rem; }
-  .trust-text { font-size: 0.58rem; letter-spacing: 0.1em; }
-}
-
-
-/* ── HOW WE EXECUTE ── */
-.execute-section { padding: 4.5rem 2rem; }
-.execute-steps {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 0;
-  margin-top: 2rem;
-  border: 1px solid rgba(201,168,76,0.15);
-}
-@media(max-width: 900px) {
-  .execute-steps { grid-template-columns: 1fr 1fr; }
-}
-@media(max-width: 500px) {
-  .execute-steps { grid-template-columns: 1fr; }
-}
-.execute-step {
-  padding: 1.8rem 1.4rem;
-  border-right: 1px solid rgba(201,168,76,0.08);
-  background: #0A0806;
-  position: relative;
-  transition: background 0.3s;
-}
-.execute-step:hover { background: #131008; }
-.execute-step:last-child { border-right: none; }
-.execute-step::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 2px;
-  background: var(--gold, #C9A84C);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.4s ease;
-}
-.execute-step:hover::before { transform: scaleX(1); }
-.execute-num {
-  font-family: 'Playfair Display', serif;
-  font-size: 2.2rem;
-  color: rgba(201,168,76,0.1);
-  line-height: 1;
-  margin-bottom: 0.8rem;
-}
-.execute-icon { font-size: 1.3rem; margin-bottom: 0.6rem; display: block; }
-.execute-name {
-  font-family: 'Playfair Display', serif;
-  font-size: 0.95rem;
-  color: #F0E6D0;
-  margin-bottom: 0.5rem;
-  line-height: 1.25;
-}
-.execute-desc {
-  font-size: 0.76rem;
-  color: #A89060;
-  line-height: 1.6;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 300;
-}
-
-
-/* ── SMS / WHATSAPP ── */
-.wa-float {
-  position: fixed;
-  bottom: 5.5rem;
-  left: 1.5rem;
-  z-index: 997;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 0.4rem;
-}
-.wa-btn {
-  display: flex;
-  align-items: center;
-  gap: 0.55rem;
-  background: #1a1a1a;
-  color: #25D366;
-  border: 1px solid #25D366;
-  padding: 0.6rem 1rem;
-  font-size: 0.68rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 500;
-  cursor: pointer;
-  text-decoration: none;
-  transition: all 0.25s;
-  white-space: nowrap;
-}
-.wa-btn:hover {
-  background: #25D366;
-  color: #000;
-  transform: translateY(-2px);
-}
-.wa-pulse {
-  width: 8px; height: 8px;
-  border-radius: 50%;
-  background: #25D366;
-  animation: waPulse 2s ease-in-out infinite;
-  flex-shrink: 0;
-}
-@keyframes waPulse {
-  0%,100% { opacity:1; transform:scale(1); }
-  50% { opacity:0.4; transform:scale(0.7); }
-}
-@media(max-width:640px) {
-  .wa-float { bottom: 5rem; left: 1rem; }
-  .wa-btn { font-size: 0.62rem; padding: 0.5rem 0.8rem; }
-}
-
-
-/* ── STICKY CTA ── */
-.sticky-cta {
-  position: fixed;
-  bottom: 1.5rem;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 996;
-  opacity: 0;
-  transition: opacity 0.4s ease, transform 0.4s ease;
-  pointer-events: none;
-  transform: translateX(-50%) translateY(10px);
-}
-.sticky-cta.visible {
-  opacity: 1;
-  pointer-events: auto;
-  transform: translateX(-50%) translateY(0);
-}
-.sticky-cta a {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  background: linear-gradient(135deg, #C9A84C, #E8CE80);
-  color: #040302;
-  padding: 0.75rem 1.8rem;
-  font-size: 0.72rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  font-weight: 700;
-  font-family: 'Montserrat', sans-serif;
-  text-decoration: none;
-  box-shadow: 0 4px 24px rgba(201,168,76,0.4);
-  transition: all 0.25s;
-  white-space: nowrap;
-}
-.sticky-cta a:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 32px rgba(201,168,76,0.5);
-}
-@media(max-width:640px) {
-  .sticky-cta { bottom: 1rem; width: 90%; }
-  .sticky-cta a { justify-content: center; padding: 0.85rem 1rem; font-size: 0.68rem; }
-}
-
-
-  /* ── WC PAGE MOBILE IMPROVEMENTS ── */
-  @media(max-width:640px) {
-    .hero { padding: 4.5rem 1.25rem 3rem; }
-    .hero-title { font-size: clamp(2.2rem, 8vw, 3rem); }
-    .hero-sub { font-size: 1rem; }
-    .cta-row { flex-direction: column; }
-    .cta-row .btn { width: 100%; justify-content: center; text-align: center; }
-    .hero-stats { grid-template-columns: 1fr 1fr; gap: 0.75rem; }
-    .wrap { padding: 3rem 1.25rem; }
-    .section-full { padding: 3rem 1.25rem; }
-    .tiers { grid-template-columns: 1fr; }
-    .pkgs { grid-template-columns: 1fr; }
-    .cal-row { grid-template-columns: 1fr; }
-    .venues { grid-template-columns: 1fr; }
-    .book-cards { grid-template-columns: 1fr; }
-    .form-wrap { padding: 2rem 1.25rem; }
-    .fgrid { grid-template-columns: 1fr; }
-    .sticky-tab { bottom: 1rem; right: 1rem; }
-    .tab-btn { font-size: 0.62rem; padding: 0.55rem 0.9rem; }
-    .h2 { font-size: 1.6rem; }
-  }
-  @media(max-width:480px) {
-    .hero-stats { grid-template-columns: 1fr 1fr; }
-    .hero-stat { border-left: 1px solid rgba(201,168,76,0.3); padding-left: 0.6rem; }
-    .two-col { grid-template-columns: 1fr; }
-    .nav-links { display: none; }
-  }
-
+    /* MOBILE */
+    @media(max-width:640px){
+      .hero{padding:4.5rem 1.25rem 3rem;}
+      .hero-title{font-size:clamp(2.2rem,8vw,3rem);}
+      .cta-row{flex-direction:column;}
+      .cta-row .btn{width:100%;justify-content:center;}
+      .wrap{padding:3rem 1.25rem;}
+      .trust-band{padding:0.75rem 0.5rem;}
+      .trust-item{padding:0.4rem 0.8rem;}
+      .trust-text{font-size:0.58rem;}
+      .sticky-tab{bottom:1rem;right:1rem;}
+      .tab-btn{font-size:0.62rem;padding:0.55rem 0.9rem;}
+      .h2{font-size:1.6rem;}
+      .book-cards{grid-template-columns:1fr;}
+      .two-col{grid-template-columns:1fr;}
+      .venues{grid-template-columns:1fr;}
+      .form-wrap{padding:2rem 1.25rem;}
+      .fgrid{grid-template-columns:1fr;}
+      .wa-float{bottom:5rem;left:1rem;}
+      .sticky-cta{bottom:1rem;width:90%;}
+      .sticky-cta a{justify-content:center;padding:0.85rem 1rem;font-size:0.68rem;}
+    }
   </style>
 </head>
 <body>
 
-<!-- Sticky Tab -->
 <div class="sticky-tab">
   <a href="https://calendly.com/hello-curatoratelier/30min" target="_blank" class="tab-btn dark">📅 Book a Call</a>
   <button class="tab-btn gold" onclick="downloadGuide()">⬇ Download Guide</button>
 </div>
 
-<!-- NAV -->
 <nav class="nav">
   <div class="nav-brand">
     <img src="assets/img/curator-logo-gold.png" alt="CA" class="nav-logo" onerror="this.style.opacity='0'">
@@ -494,16 +221,7 @@
     <a href="#calendar">Calendar</a>
     <a href="#book" class="active">Book Now</a>
   </div>
-  <a href="#book" style="display:none;" class="nav-mobile-cta" 
-       style="color:var(--gold);font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;font-family:Montserrat,sans-serif;">
-    Book
-  </a>
 </nav>
-<style>
-@media(max-width:768px) {
-  .nav-mobile-cta { display:inline-flex !important; align-items:center; }
-}
-</style>
 
 <div class="trust-band">
   <div class="trust-item"><span class="trust-icon">🛡️</span><span class="trust-text">Fully Insured</span></div>
@@ -514,10 +232,12 @@
   <div class="trust-item"><span class="trust-icon">⚡</span><span class="trust-text">24hr Response</span></div>
 </div>
 
-<!-- HERO -->
+<!-- HERO — rotating between img08, img01, img04 -->
 <div class="hero">
   <div class="hero-bg">
-    <img src="assets/img/hero-rooftop.jpg" alt="World Cup 2026 Hospitality"/>
+    <div class="hero-bg-slide active" style="background-image:url('assets/img/img08.jpg');"></div>
+    <div class="hero-bg-slide" style="background-image:url('assets/img/img01.jpg');"></div>
+    <div class="hero-bg-slide" style="background-image:url('assets/img/img04.jpg');"></div>
   </div>
   <div class="hero-content fu">
     <div class="eyebrow"><div class="live-dot"></div>FIFA World Cup 2026 &nbsp;·&nbsp; Washington DC &nbsp;·&nbsp; Baltimore &nbsp;·&nbsp; Northern Virginia</div>
@@ -528,7 +248,7 @@
       <a href="#residential" class="btn btn-outline">Resident Match Series</a>
       <button class="btn btn-muted" onclick="downloadGuide()">⬇ Download Guide</button>
     </div>
-    <div class="hero-stats" style="display:flex;gap:1.5rem;flex-wrap:wrap;">
+    <div class="hero-stats">
       <div class="hero-stat">Opening Match<span>June 11, 2026</span></div>
       <div class="hero-stat">★ Primary Corporate Slot<span>USA vs Paraguay · Jun 12 · 9pm</span></div>
       <div class="hero-stat">The Final<span>July 19, 2026</span></div>
@@ -541,7 +261,26 @@
 
 <div class="partner-strip">
   <div class="partner-strip-label">Partners · Venues · Media</div>
-  <div class="partner-track-wrap"><div class="partner-track"><div class="partner-logo" aria-label="fifa"><span class="logo-text">FIFA World Cup™ 2026</span></div><div class="partner-logo" aria-label="fox"><svg viewBox="0 0 80 28" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="80" height="28" rx="3" fill="#fff" fill-opacity="0.12"/><text x="40" y="20" fill="white" font-family="Arial Black,Arial" font-weight="900" font-size="16" text-anchor="middle" letter-spacing="1">FOX</text></svg></div><div class="partner-logo" aria-label="adidas"><svg viewBox="0 0 90 28" fill="none" xmlns="http://www.w3.org/2000/svg"><polygon points="30,24 45,4 60,24" fill="white" opacity="0.9"/><text x="45" y="28" fill="white" font-family="Arial,sans-serif" font-weight="900" font-size="11" text-anchor="middle" letter-spacing="3">ADIDAS</text></svg></div><div class="partner-logo" aria-label="skyline"><span class="logo-text serif">SKYLINE 609</span></div><div class="partner-logo" aria-label="google"><svg viewBox="0 0 80 28" xmlns="http://www.w3.org/2000/svg"><text x="40" y="20" fill="white" font-family="Arial,sans-serif" font-weight="700" font-size="15" text-anchor="middle" letter-spacing="0.5">Google</text></svg></div><div class="partner-logo" aria-label="tower"><span class="logo-text serif">TOWER CLUB</span></div><div class="partner-logo" aria-label="13th"><span class="logo-text serif">THE 13TH FLOOR</span></div><div class="partner-logo" aria-label="rooftop1"><span class="logo-text serif">PENTHOUSE DC</span></div><div class="partner-logo" aria-label="rooftop2"><span class="logo-text serif">CAPITOL SKY</span></div><div class="partner-logo" aria-label="cater1"><span class="logo-text">ELITE CATERING DMV</span></div><div class="partner-logo" aria-label="cater2"><span class="logo-text">HARBOUR HOSPITALITY</span></div><div class="partner-logo" aria-label="fifa"><span class="logo-text">FIFA World Cup™ 2026</span></div><div class="partner-logo" aria-label="fox"><svg viewBox="0 0 80 28" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="80" height="28" rx="3" fill="#fff" fill-opacity="0.12"/><text x="40" y="20" fill="white" font-family="Arial Black,Arial" font-weight="900" font-size="16" text-anchor="middle" letter-spacing="1">FOX</text></svg></div><div class="partner-logo" aria-label="adidas"><svg viewBox="0 0 90 28" fill="none" xmlns="http://www.w3.org/2000/svg"><polygon points="30,24 45,4 60,24" fill="white" opacity="0.9"/><text x="45" y="28" fill="white" font-family="Arial,sans-serif" font-weight="900" font-size="11" text-anchor="middle" letter-spacing="3">ADIDAS</text></svg></div><div class="partner-logo" aria-label="skyline"><span class="logo-text serif">SKYLINE 609</span></div><div class="partner-logo" aria-label="google"><svg viewBox="0 0 80 28" xmlns="http://www.w3.org/2000/svg"><text x="40" y="20" fill="white" font-family="Arial,sans-serif" font-weight="700" font-size="15" text-anchor="middle" letter-spacing="0.5">Google</text></svg></div><div class="partner-logo" aria-label="tower"><span class="logo-text serif">TOWER CLUB</span></div><div class="partner-logo" aria-label="13th"><span class="logo-text serif">THE 13TH FLOOR</span></div><div class="partner-logo" aria-label="rooftop1"><span class="logo-text serif">PENTHOUSE DC</span></div><div class="partner-logo" aria-label="rooftop2"><span class="logo-text serif">CAPITOL SKY</span></div><div class="partner-logo" aria-label="cater1"><span class="logo-text">ELITE CATERING DMV</span></div><div class="partner-logo" aria-label="cater2"><span class="logo-text">HARBOUR HOSPITALITY</span></div></div></div>
+  <div class="partner-track-wrap"><div class="partner-track">
+    <div class="partner-logo"><span class="logo-text">FIFA World Cup™ 2026</span></div>
+    <div class="partner-logo"><svg viewBox="0 0 80 28" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="80" height="28" rx="3" fill="#fff" fill-opacity="0.12"/><text x="40" y="20" fill="white" font-family="Arial Black,Arial" font-weight="900" font-size="16" text-anchor="middle" letter-spacing="1">FOX</text></svg></div>
+    <div class="partner-logo"><span class="logo-text serif">SKYLINE 609</span></div>
+    <div class="partner-logo"><span class="logo-text serif">TOWER CLUB</span></div>
+    <div class="partner-logo"><span class="logo-text serif">THE 13TH FLOOR</span></div>
+    <div class="partner-logo"><span class="logo-text serif">PENTHOUSE DC</span></div>
+    <div class="partner-logo"><span class="logo-text serif">CAPITOL SKY</span></div>
+    <div class="partner-logo"><span class="logo-text">OCCASIONS CATERERS</span></div>
+    <div class="partner-logo"><span class="logo-text">HARBOUR HOSPITALITY</span></div>
+    <div class="partner-logo"><span class="logo-text">FIFA World Cup™ 2026</span></div>
+    <div class="partner-logo"><svg viewBox="0 0 80 28" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="80" height="28" rx="3" fill="#fff" fill-opacity="0.12"/><text x="40" y="20" fill="white" font-family="Arial Black,Arial" font-weight="900" font-size="16" text-anchor="middle" letter-spacing="1">FOX</text></svg></div>
+    <div class="partner-logo"><span class="logo-text serif">SKYLINE 609</span></div>
+    <div class="partner-logo"><span class="logo-text serif">TOWER CLUB</span></div>
+    <div class="partner-logo"><span class="logo-text serif">THE 13TH FLOOR</span></div>
+    <div class="partner-logo"><span class="logo-text serif">PENTHOUSE DC</span></div>
+    <div class="partner-logo"><span class="logo-text serif">CAPITOL SKY</span></div>
+    <div class="partner-logo"><span class="logo-text">OCCASIONS CATERERS</span></div>
+    <div class="partner-logo"><span class="logo-text">HARBOUR HOSPITALITY</span></div>
+  </div></div>
 </div>
 
 <!-- TWO PRODUCTS -->
@@ -555,15 +294,15 @@
       <div class="prod-card feat">
         <span class="prod-card-tag">Corporate</span>
         <div class="prod-card-title">Corporate Hospitality</div>
-        <p class="prod-card-desc">One exceptional evening for your team and key partners. Private venue. Full hospitality. Executive gifting. Any match, any stage. From $15,000.</p>
-        <span class="btn btn-outline" style="font-size:0.7rem;padding:0.55rem 1.1rem;">View Tiers →</span>
+        <p class="prod-card-desc">One exceptional evening for your team and key partners. Private venue. Full hospitality. Executive gifting. Any match, any stage. Tailored to your group.</p>
+        <span class="btn btn-outline" style="font-size:0.7rem;padding:0.55rem 1.1rem;">View Experiences →</span>
       </div>
     </a>
     <a href="#residential">
       <div class="prod-card">
         <span class="prod-card-tag">Residential</span>
         <div class="prod-card-title">Resident Match Series</div>
-        <p class="prod-card-desc">Fully curated World Cup programming for luxury apartment communities. Rooftop activations, cocktail bar, resident gifting. Your space, our execution. From $8,000/event.</p>
+        <p class="prod-card-desc">Fully curated World Cup programming for luxury apartment communities. Rooftop activations, elevated hospitality, resident gifting. Your space, our execution.</p>
         <span class="btn btn-outline" style="font-size:0.7rem;padding:0.55rem 1.1rem;">View Packages →</span>
       </div>
     </a>
@@ -584,10 +323,8 @@
     <span style="font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);">★ Primary Slot — USA vs Paraguay &nbsp;·&nbsp; Friday June 12 &nbsp;·&nbsp; 9pm ET &nbsp;·&nbsp; Private DC Rooftop</span>
   </div>
 
-  <!-- Four experience cards — emotion first, no pricing, no hard guest numbers -->
   <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:2px;border:1px solid var(--border);margin-top:2.5rem;">
-
-    <div style="padding:1.8rem 1.4rem;background:var(--dark2);border-top:3px solid #4A6FA5;transition:background 0.3s;">
+    <div style="padding:1.8rem 1.4rem;background:var(--dark2);border-top:3px solid #4A6FA5;">
       <div style="font-size:0.62rem;letter-spacing:0.3em;text-transform:uppercase;color:#4A6FA5;margin-bottom:0.5rem;">Tier 01</div>
       <div style="font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--white);margin-bottom:0.3rem;">The Introduction</div>
       <div style="font-family:'Cormorant Garamond',serif;font-size:0.88rem;color:var(--muted);font-style:italic;margin-bottom:0.9rem;">Premium access. Curated atmosphere.</div>
@@ -599,10 +336,9 @@
         <li style="display:flex;gap:0.45rem;font-size:0.8rem;color:var(--dim);line-height:1.4;"><span style="color:#4A6FA5;flex-shrink:0;">—</span>Premium AV match viewing</li>
         <li style="display:flex;gap:0.45rem;font-size:0.8rem;color:var(--dim);line-height:1.4;"><span style="color:#4A6FA5;flex-shrink:0;">—</span>Subtle branding &amp; décor</li>
       </ul>
-      <div style="margin-top:1rem;padding-top:0.7rem;border-top:1px solid rgba(201,168,76,0.08);font-size:0.7rem;color:var(--muted);font-family:'Cormorant Garamond',serif;font-style:italic;">Typically curated for intimate executive groups</div>
+      <div style="margin-top:1rem;padding-top:0.7rem;border-top:1px solid rgba(201,168,76,0.08);font-size:0.7rem;color:var(--muted);font-family:'Cormorant Garamond',serif;font-style:italic;">Curated for intimate executive groups</div>
     </div>
-
-    <div style="padding:1.8rem 1.4rem;background:var(--dark2);border-top:3px solid #2E7D5E;transition:background 0.3s;">
+    <div style="padding:1.8rem 1.4rem;background:var(--dark2);border-top:3px solid #2E7D5E;">
       <div style="font-size:0.62rem;letter-spacing:0.3em;text-transform:uppercase;color:#2E7D5E;margin-bottom:0.5rem;">Tier 02</div>
       <div style="font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--white);margin-bottom:0.3rem;">The Statement</div>
       <div style="font-family:'Cormorant Garamond',serif;font-size:0.88rem;color:var(--muted);font-style:italic;margin-bottom:0.9rem;">Elevated. Private. Fully hosted.</div>
@@ -616,9 +352,8 @@
       </ul>
       <div style="margin-top:1rem;padding-top:0.7rem;border-top:1px solid rgba(201,168,76,0.08);font-size:0.7rem;color:var(--muted);font-family:'Cormorant Garamond',serif;font-style:italic;">Ideal for private client and leadership groups</div>
     </div>
-
-    <div style="padding:1.8rem 1.4rem;background:linear-gradient(180deg,#14110A,#0E0B07);border:1px solid rgba(201,168,76,0.22);border-top:3px solid var(--gold);position:relative;">
-      <div style="background:var(--gold);color:var(--dark);font-size:0.58rem;letter-spacing:0.15em;text-transform:uppercase;font-weight:700;padding:0.22rem 0.6rem;display:inline-block;margin-bottom:0.45rem;font-family:'Montserrat',sans-serif;">Most Selected</div>
+    <div style="padding:1.8rem 1.4rem;background:linear-gradient(180deg,#14110A,#0E0B07);border:1px solid rgba(201,168,76,0.22);border-top:3px solid var(--gold);">
+      <div style="background:var(--gold);color:var(--dark);font-size:0.58rem;letter-spacing:0.15em;text-transform:uppercase;font-weight:700;padding:0.22rem 0.6rem;display:inline-block;margin-bottom:0.45rem;">Most Selected</div>
       <div style="font-size:0.62rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);margin-bottom:0.5rem;">Tier 03</div>
       <div style="font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--white);margin-bottom:0.3rem;">The Signature</div>
       <div style="font-family:'Cormorant Garamond',serif;font-size:0.88rem;color:var(--muted);font-style:italic;margin-bottom:0.9rem;">Fully private. Fully yours. Unforgettable.</div>
@@ -631,11 +366,10 @@
         <li style="display:flex;gap:0.45rem;font-size:0.8rem;color:var(--dim);line-height:1.4;"><span style="color:var(--gold);flex-shrink:0;">—</span>Professional photography &amp; content capture</li>
         <li style="display:flex;gap:0.45rem;font-size:0.8rem;color:var(--dim);line-height:1.4;"><span style="color:var(--gold);flex-shrink:0;">—</span>Optional: company branding on gifting</li>
       </ul>
-      <div style="margin-top:1rem;padding-top:0.7rem;border-top:1px solid rgba(201,168,76,0.08);font-size:0.7rem;color:var(--gold);font-family:'Cormorant Garamond',serif;font-style:italic;">Designed for elevated hospitality &amp; strategic entertainment groups</div>
+      <div style="margin-top:1rem;padding-top:0.7rem;border-top:1px solid rgba(201,168,76,0.08);font-size:0.7rem;color:var(--gold);font-family:'Cormorant Garamond',serif;font-style:italic;">Elevated hospitality &amp; strategic entertainment groups</div>
     </div>
-
-    <div style="padding:1.8rem 1.4rem;background:linear-gradient(180deg,#100A14,#0A0610);border:1px solid rgba(123,79,160,0.3);border-top:3px solid #7B4FA0;position:relative;">
-      <div style="background:rgba(123,79,160,0.15);border:1px solid rgba(123,79,160,0.4);color:#B890D8;font-size:0.58rem;letter-spacing:0.15em;text-transform:uppercase;font-weight:600;padding:0.22rem 0.6rem;display:inline-block;margin-bottom:0.45rem;font-family:'Montserrat',sans-serif;">★ Flagship · By Invitation</div>
+    <div style="padding:1.8rem 1.4rem;background:linear-gradient(180deg,#100A14,#0A0610);border:1px solid rgba(123,79,160,0.3);border-top:3px solid #7B4FA0;">
+      <div style="background:rgba(123,79,160,0.15);border:1px solid rgba(123,79,160,0.4);color:#B890D8;font-size:0.58rem;letter-spacing:0.15em;text-transform:uppercase;font-weight:600;padding:0.22rem 0.6rem;display:inline-block;margin-bottom:0.45rem;">★ Flagship · By Invitation</div>
       <div style="font-size:0.62rem;letter-spacing:0.3em;text-transform:uppercase;color:#7B4FA0;margin-bottom:0.5rem;">Tier 04</div>
       <div style="font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--white);margin-bottom:0.3rem;">The Masterpiece</div>
       <div style="font-family:'Cormorant Garamond',serif;font-size:0.88rem;color:var(--muted);font-style:italic;margin-bottom:0.9rem;">A cultural production. A business asset.</div>
@@ -643,35 +377,55 @@
       <ul style="list-style:none;display:flex;flex-direction:column;gap:0.45rem;">
         <li style="display:flex;gap:0.45rem;font-size:0.8rem;color:var(--dim);line-height:1.4;"><span style="color:#7B4FA0;flex-shrink:0;">—</span>Exclusive sole-use venue — full production</li>
         <li style="display:flex;gap:0.45rem;font-size:0.8rem;color:var(--dim);line-height:1.4;"><span style="color:#7B4FA0;flex-shrink:0;">—</span>Bespoke chef menu &amp; top-shelf open bar</li>
-        <li style="display:flex;gap:0.45rem;font-size:0.8rem;color:var(--dim);line-height:1.4;"><span style="color:#7B4FA0;flex-shrink:0;">—</span><strong style="color:var(--cream);font-weight:400;">Company-branded luxury gifting — your logo on every gift</strong></li>
-        <li style="display:flex;gap:0.45rem;font-size:0.8rem;color:var(--dim);line-height:1.4;"><span style="color:#7B4FA0;flex-shrink:0;">—</span><strong style="color:var(--cream);font-weight:400;">Live artist — original World Cup canvas created in real time</strong></li>
-        <li style="display:flex;gap:0.45rem;font-size:0.8rem;color:var(--dim);line-height:1.4;"><span style="color:#7B4FA0;flex-shrink:0;">—</span><strong style="color:var(--cream);font-weight:400;">Dedicated videographer — highlight reel for LinkedIn &amp; recruitment</strong></li>
+        <li style="display:flex;gap:0.45rem;font-size:0.8rem;color:var(--dim);line-height:1.4;"><span style="color:#7B4FA0;flex-shrink:0;">—</span>Company-branded luxury gifting — your logo on every gift</li>
+        <li style="display:flex;gap:0.45rem;font-size:0.8rem;color:var(--dim);line-height:1.4;"><span style="color:#7B4FA0;flex-shrink:0;">—</span>Live artist — original World Cup canvas created in real time</li>
+        <li style="display:flex;gap:0.45rem;font-size:0.8rem;color:var(--dim);line-height:1.4;"><span style="color:#7B4FA0;flex-shrink:0;">—</span>Dedicated videographer — highlight reel for LinkedIn &amp; recruitment</li>
         <li style="display:flex;gap:0.45rem;font-size:0.8rem;color:var(--dim);line-height:1.4;"><span style="color:#7B4FA0;flex-shrink:0;">—</span>MC host · pre-event courier delivery to offices</li>
       </ul>
       <div style="margin-top:1rem;padding:0.6rem 0.8rem;background:rgba(123,79,160,0.1);border:1px solid rgba(123,79,160,0.25);">
-        <div style="font-size:0.68rem;color:#B890D8;line-height:1.5;font-family:'Cormorant Garamond',serif;font-style:italic;">The only tier that generates lasting business assets — branded gifts, video content, and original artwork — that continue working for your firm after the final whistle.</div>
+        <div style="font-size:0.68rem;color:#B890D8;line-height:1.5;font-family:'Cormorant Garamond',serif;font-style:italic;">The only tier that generates lasting business assets — branded gifts, video content, and original artwork — that continue working after the final whistle.</div>
       </div>
-      <div style="margin-top:0.8rem;font-size:0.65rem;color:#7B4FA0;font-family:'Cormorant Garamond',serif;font-style:italic;">Reserved for flagship hospitality — limited availability, select dates only</div>
     </div>
-
   </div>
 
-  <div style="margin-top:1.8rem;display:flex;gap:1rem;flex-wrap:wrap;align-items:center;">
+  <div class="bespoke-note">
+    <span style="color:var(--gold);font-size:1.1rem;flex-shrink:0;">✦</span>
+    <p class="bespoke-note-text">Every Curator Atelier corporate experience is <strong>tailored to your group, your goals, and your match</strong>. Investment details, guest capacity, and venue options are shared in conversation — reach out and we'll build the right proposal for you.</p>
+  </div>
+
+  <div style="margin-top:1.8rem;display:flex;gap:1rem;flex-wrap:wrap;">
     <a href="#book" class="btn btn-primary">Request a Tailored Proposal</a>
     <button class="btn btn-outline" onclick="downloadGuide()">⬇ Download Full Guide</button>
-    <span style="font-size:0.7rem;color:var(--muted);font-family:'Cormorant Garamond',serif;font-style:italic;">Pricing and details shared in conversation.</span>
   </div>
 </div>
 
 <!-- GIFTING BREAK -->
 <div class="divider"></div>
 <div style="position:relative;overflow:hidden;max-height:360px;">
-  <img src="assets/img/gifting.jpg" alt="Curator Atelier Gifting" style="width:100%;height:360px;object-fit:cover;display:block;opacity:0.65;"/>
+  <img src="assets/img/img02.jpg" alt="Curator Atelier Gifting" style="width:100%;height:360px;object-fit:cover;display:block;opacity:0.72;"/>
   <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(4,3,2,0.96) 0%,rgba(4,3,2,0.55) 45%,rgba(4,3,2,0.15) 100%);display:flex;align-items:center;padding:3rem 2.5rem;">
     <div style="max-width:480px;">
       <span style="font-size:0.62rem;letter-spacing:0.35em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:0.7rem;">Curator Atelier Gifting</span>
       <div style="font-family:'Playfair Display',serif;font-size:clamp(1.4rem,2.5vw,2.1rem);color:var(--white);line-height:1.2;font-style:italic;margin-bottom:0.7rem;">"The World Cup Experience.<br>Curated to Perfection."</div>
       <p style="font-family:'Cormorant Garamond',serif;font-size:0.98rem;color:var(--dim);line-height:1.65;">Every guest receives a Curator Atelier executive gift on arrival. Not a giveaway. A hospitality moment that defines the evening.</p>
+    </div>
+  </div>
+</div>
+
+<!-- FOOD + BAR SPLIT -->
+<div class="hospitality-split">
+  <div style="position:relative;overflow:hidden;">
+    <img src="assets/img/img06.jpg" alt="Culinary Experience" style="width:100%;height:320px;object-fit:cover;display:block;"/>
+    <div style="position:absolute;bottom:0;left:0;right:0;padding:1.2rem 1.5rem;background:linear-gradient(0deg,rgba(4,3,2,0.88),transparent);">
+      <div style="font-family:'Playfair Display',serif;font-size:1rem;color:var(--white);margin-bottom:0.2rem;">Culinary Experience</div>
+      <div style="font-size:0.62rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);">Curated food presentation · every tier</div>
+    </div>
+  </div>
+  <div style="position:relative;overflow:hidden;">
+    <img src="assets/img/img07.jpg" alt="Signature Cocktail Bar" style="width:100%;height:320px;object-fit:cover;display:block;"/>
+    <div style="position:absolute;bottom:0;left:0;right:0;padding:1.2rem 1.5rem;background:linear-gradient(0deg,rgba(4,3,2,0.88),transparent);">
+      <div style="font-family:'Playfair Display',serif;font-size:1rem;color:var(--white);margin-bottom:0.2rem;">Signature Cocktail Bar</div>
+      <div style="font-size:0.62rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);">Cheers to the world's game</div>
     </div>
   </div>
 </div>
@@ -684,81 +438,63 @@
   <div class="rule"></div>
   <p class="body-text">A fully curated World Cup hospitality programme for luxury apartment communities. Your building provides the rooftop or amenity space. We deliver everything. Zero effort for your team. Unforgettable for your residents.</p>
 
-  <div style="margin-top:0.75rem;padding:0.75rem 1.2rem;background:rgba(201,168,76,0.04);border:1px solid rgba(201,168,76,0.15);display:inline-flex;align-items:center;gap:0.75rem;">
-    <div class="live-dot"></div>
-    <span style="font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);">Curated for approximately 75 residents &nbsp;·&nbsp; All tiers · All experiences</span>
+  <!-- COLLAGE IMAGE -->
+  <div style="margin-top:2rem;position:relative;overflow:hidden;border:1px solid rgba(201,168,76,0.15);">
+    <img src="assets/img/collage-resident.jpg" alt="Resident Match Series Experience" style="width:100%;display:block;max-height:600px;object-fit:cover;"/>
+    <div style="position:absolute;bottom:0;left:0;right:0;padding:1.5rem 2rem;background:linear-gradient(0deg,rgba(4,3,2,0.92),transparent);">
+      <div style="font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--white);font-style:italic;">Exclusive Moments. Unforgettable Nights. Together.</div>
+    </div>
   </div>
 
-  <!-- Four experience tiers -->
-  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--border);margin-top:2rem;">
-
-    <!-- T1 -->
-    <div style="padding:1.8rem 1.4rem;background:var(--dark2);border-right:1px solid rgba(201,168,76,0.08);border-top:3px solid #4A6FA5;transition:background 0.3s;">
-      <div style="font-size:0.58rem;letter-spacing:0.3em;text-transform:uppercase;color:#4A6FA5;margin-bottom:0.4rem;font-family:'Montserrat',sans-serif;">Match Lounge Experience</div>
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:2px;border:1px solid var(--border);margin-top:2rem;">
+    <div style="padding:1.8rem 1.4rem;background:var(--dark2);border-right:1px solid rgba(201,168,76,0.08);border-top:3px solid #4A6FA5;">
+      <div style="font-size:0.58rem;letter-spacing:0.3em;text-transform:uppercase;color:#4A6FA5;margin-bottom:0.4rem;">Match Lounge</div>
       <div style="font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--white);margin-bottom:0.3rem;line-height:1.2;">Refined.<br>Connected.</div>
       <div style="font-family:'Cormorant Garamond',serif;font-size:0.88rem;color:var(--muted);font-style:italic;margin-bottom:1rem;line-height:1.5;">Elevated match-night hospitality designed for intimate resident connection and community atmosphere.</div>
       <div style="width:100%;height:1px;background:rgba(201,168,76,0.08);margin-bottom:0.8rem;"></div>
       <ul style="list-style:none;display:flex;flex-direction:column;gap:0.5rem;">
         <li style="display:flex;gap:0.45rem;font-size:0.78rem;color:var(--dim);line-height:1.4;"><span style="color:#4A6FA5;flex-shrink:0;">—</span>Curated viewing environment</li>
-        <li style="display:flex;gap:0.45rem;font-size:0.78rem;color:var(--dim);line-height:1.4;"><span style="color:#4A6FA5;flex-shrink:0;">—</span>Elevated hospitality service</li>
+        <li style="display:flex;gap:0.45rem;font-size:0.78rem;color:var(--dim);line-height:1.4;"><span style="color:#4A6FA5;flex-shrink:0;">—</span>Elevated food &amp; beverage service</li>
         <li style="display:flex;gap:0.45rem;font-size:0.78rem;color:var(--dim);line-height:1.4;"><span style="color:#4A6FA5;flex-shrink:0;">—</span>Signature atmosphere styling</li>
         <li style="display:flex;gap:0.45rem;font-size:0.78rem;color:var(--dim);line-height:1.4;"><span style="color:#4A6FA5;flex-shrink:0;">—</span>Resident engagement moments</li>
-        <li style="display:flex;gap:0.45rem;font-size:0.78rem;color:var(--dim);line-height:1.4;"><span style="color:#4A6FA5;flex-shrink:0;">—</span>Premium keepsake gifting</li>
+        <li style="display:flex;gap:0.45rem;font-size:0.78rem;color:var(--dim);line-height:1.4;"><span style="color:#4A6FA5;flex-shrink:0;">—</span>Curated keepsake gifting</li>
         <li style="display:flex;gap:0.45rem;font-size:0.78rem;color:var(--dim);line-height:1.4;"><span style="color:#4A6FA5;flex-shrink:0;">—</span>Seamless event coordination</li>
       </ul>
-      <div style="margin-top:1rem;padding-top:0.7rem;border-top:1px solid rgba(201,168,76,0.08);">
-        <div style="font-size:0.58rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);font-family:'Montserrat',sans-serif;">From</div>
-        <div style="font-family:'Playfair Display',serif;font-size:1.4rem;color:#4A6FA5;">$8,500</div>
-      </div>
     </div>
-
-    <!-- T2 -->
-    <div style="padding:1.8rem 1.4rem;background:var(--dark2);border-right:1px solid rgba(201,168,76,0.08);border-top:3px solid #2E7D5E;transition:background 0.3s;">
-      <div style="font-size:0.58rem;letter-spacing:0.3em;text-transform:uppercase;color:#2E7D5E;margin-bottom:0.4rem;font-family:'Montserrat',sans-serif;">Resident Experience</div>
-      <div style="font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--white);margin-bottom:0.3rem;line-height:1.2;">Immersive.<br>Unforgettable.</div>
-      <div style="font-family:'Cormorant Garamond',serif;font-size:0.88rem;color:var(--muted);font-style:italic;margin-bottom:1rem;line-height:1.5;">An immersive experience designed to transform match nights into unforgettable resident moments.</div>
+    <div style="padding:1.8rem 1.4rem;background:var(--dark2);border-right:1px solid rgba(201,168,76,0.08);border-top:3px solid #2E7D5E;">
+      <div style="font-size:0.58rem;letter-spacing:0.3em;text-transform:uppercase;color:#2E7D5E;margin-bottom:0.4rem;">Resident Experience</div>
+      <div style="font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--white);margin-bottom:0.3rem;line-height:1.2;">Immersive.<br>Memorable.</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:0.88rem;color:var(--muted);font-style:italic;margin-bottom:1rem;line-height:1.5;">An elevated experience designed to transform match nights into unforgettable resident moments.</div>
       <div style="width:100%;height:1px;background:rgba(201,168,76,0.08);margin-bottom:0.8rem;"></div>
       <ul style="list-style:none;display:flex;flex-direction:column;gap:0.5rem;">
         <li style="display:flex;gap:0.45rem;font-size:0.78rem;color:var(--dim);line-height:1.4;"><span style="color:#2E7D5E;flex-shrink:0;">—</span>Enhanced hospitality presentation</li>
         <li style="display:flex;gap:0.45rem;font-size:0.78rem;color:var(--dim);line-height:1.4;"><span style="color:#2E7D5E;flex-shrink:0;">—</span>Elevated atmosphere transformation</li>
         <li style="display:flex;gap:0.45rem;font-size:0.78rem;color:var(--dim);line-height:1.4;"><span style="color:#2E7D5E;flex-shrink:0;">—</span>Interactive resident activations</li>
-        <li style="display:flex;gap:0.45rem;font-size:0.78rem;color:var(--dim);line-height:1.4;"><span style="color:#2E7D5E;flex-shrink:0;">—</span>Prediction scoreboard & trivia</li>
+        <li style="display:flex;gap:0.45rem;font-size:0.78rem;color:var(--dim);line-height:1.4;"><span style="color:#2E7D5E;flex-shrink:0;">—</span>Prediction scoreboard &amp; trivia</li>
         <li style="display:flex;gap:0.45rem;font-size:0.78rem;color:var(--dim);line-height:1.4;"><span style="color:#2E7D5E;flex-shrink:0;">—</span>Curated gifting experience</li>
         <li style="display:flex;gap:0.45rem;font-size:0.78rem;color:var(--dim);line-height:1.4;"><span style="color:#2E7D5E;flex-shrink:0;">—</span>Expanded event staffing</li>
       </ul>
-      <div style="margin-top:1rem;padding-top:0.7rem;border-top:1px solid rgba(201,168,76,0.08);">
-        <div style="font-size:0.58rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);font-family:'Montserrat',sans-serif;">From</div>
-        <div style="font-family:'Playfair Display',serif;font-size:1.4rem;color:#2E7D5E;">$15,000</div>
-      </div>
     </div>
-
-    <!-- T3 SIGNATURE -->
-    <div style="padding:1.8rem 1.4rem;background:linear-gradient(180deg,#14110A,#0E0B07);border:1px solid rgba(201,168,76,0.22);border-top:3px solid var(--gold);position:relative;">
-      <div style="background:var(--gold);color:var(--dark);font-size:0.55rem;letter-spacing:0.15em;text-transform:uppercase;font-weight:700;padding:0.2rem 0.55rem;display:inline-block;margin-bottom:0.4rem;font-family:'Montserrat',sans-serif;">⭐ Most Recommended</div>
-      <div style="font-size:0.58rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);margin-bottom:0.4rem;font-family:'Montserrat',sans-serif;">Signature Experience</div>
+    <div style="padding:1.8rem 1.4rem;background:linear-gradient(180deg,#14110A,#0E0B07);border:1px solid rgba(201,168,76,0.22);border-top:3px solid var(--gold);">
+      <div style="background:var(--gold);color:var(--dark);font-size:0.55rem;letter-spacing:0.15em;text-transform:uppercase;font-weight:700;padding:0.2rem 0.55rem;display:inline-block;margin-bottom:0.4rem;">⭐ Most Recommended</div>
+      <div style="font-size:0.58rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);margin-bottom:0.4rem;">Signature Experience</div>
       <div style="font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--white);margin-bottom:0.3rem;line-height:1.2;">Cinematic.<br>Iconic.</div>
-      <div style="font-family:'Cormorant Garamond',serif;font-size:0.88rem;color:var(--muted);font-style:italic;margin-bottom:1rem;line-height:1.5;">The flagship Curator Atelier experience. Cinematic match-night energy and lasting resident impact.</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:0.88rem;color:var(--muted);font-style:italic;margin-bottom:1rem;line-height:1.5;">The flagship Curator Atelier resident experience. Cinematic match-night energy and lasting community impact.</div>
       <div style="width:100%;height:1px;background:rgba(201,168,76,0.15);margin-bottom:0.8rem;"></div>
       <ul style="list-style:none;display:flex;flex-direction:column;gap:0.5rem;">
         <li style="display:flex;gap:0.45rem;font-size:0.78rem;color:var(--dim);line-height:1.4;"><span style="color:var(--gold);flex-shrink:0;">—</span>Immersive atmosphere transformation</li>
         <li style="display:flex;gap:0.45rem;font-size:0.78rem;color:var(--dim);line-height:1.4;"><span style="color:var(--gold);flex-shrink:0;">—</span>Premium hospitality execution</li>
-        <li style="display:flex;gap:0.45rem;font-size:0.78rem;color:var(--cream);line-height:1.4;font-weight:400;"><span style="color:var(--gold);flex-shrink:0;">—</span><strong style="font-weight:400;">Professional MC & engagement lead</strong></li>
-        <li style="display:flex;gap:0.45rem;font-size:0.78rem;color:var(--cream);line-height:1.4;font-weight:400;"><span style="color:var(--gold);flex-shrink:0;">—</span><strong style="font-weight:400;">Photography & cinematic content capture</strong></li>
+        <li style="display:flex;gap:0.45rem;font-size:0.78rem;color:var(--cream);line-height:1.4;"><span style="color:var(--gold);flex-shrink:0;">—</span>Professional MC &amp; engagement lead</li>
+        <li style="display:flex;gap:0.45rem;font-size:0.78rem;color:var(--cream);line-height:1.4;"><span style="color:var(--gold);flex-shrink:0;">—</span>Photography &amp; content capture</li>
         <li style="display:flex;gap:0.45rem;font-size:0.78rem;color:var(--dim);line-height:1.4;"><span style="color:var(--gold);flex-shrink:0;">—</span>Elevated gifting architecture</li>
         <li style="display:flex;gap:0.45rem;font-size:0.78rem;color:var(--dim);line-height:1.4;"><span style="color:var(--gold);flex-shrink:0;">—</span>Concierge-level experience management</li>
       </ul>
-      <div style="margin-top:1rem;padding-top:0.7rem;border-top:1px solid rgba(201,168,76,0.15);">
-        <div style="font-size:0.58rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);font-family:'Montserrat',sans-serif;">From</div>
-        <div style="font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--gold);">$24,500</div>
-      </div>
     </div>
-
-    <!-- T4 FINAL -->
     <div style="padding:1.8rem 1.4rem;background:linear-gradient(180deg,#100A14,#0A0610);border:1px solid rgba(123,79,160,0.3);border-top:3px solid #7B4FA0;">
-      <div style="background:rgba(123,79,160,0.15);border:1px solid rgba(123,79,160,0.4);color:#B890D8;font-size:0.55rem;letter-spacing:0.15em;text-transform:uppercase;font-weight:600;padding:0.2rem 0.55rem;display:inline-block;margin-bottom:0.4rem;font-family:'Montserrat',sans-serif;">★ Championship Only</div>
-      <div style="font-size:0.58rem;letter-spacing:0.3em;text-transform:uppercase;color:#7B4FA0;margin-bottom:0.4rem;font-family:'Montserrat',sans-serif;">The Final Experience</div>
+      <div style="background:rgba(123,79,160,0.15);border:1px solid rgba(123,79,160,0.4);color:#B890D8;font-size:0.55rem;letter-spacing:0.15em;text-transform:uppercase;font-weight:600;padding:0.2rem 0.55rem;display:inline-block;margin-bottom:0.4rem;">★ Championship Only</div>
+      <div style="font-size:0.58rem;letter-spacing:0.3em;text-transform:uppercase;color:#7B4FA0;margin-bottom:0.4rem;">The Final Experience</div>
       <div style="font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--white);margin-bottom:0.3rem;line-height:1.2;">Legendary.<br>Once in four years.</div>
-      <div style="font-family:'Cormorant Garamond',serif;font-size:0.88rem;color:var(--muted);font-style:italic;margin-bottom:1rem;line-height:1.5;">An iconic championship-level experience reserved for marquee World Cup moments and flagship celebrations.</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:0.88rem;color:var(--muted);font-style:italic;margin-bottom:1rem;line-height:1.5;">A championship-level experience reserved for marquee World Cup moments and flagship building celebrations.</div>
       <div style="width:100%;height:1px;background:rgba(123,79,160,0.2);margin-bottom:0.8rem;"></div>
       <ul style="list-style:none;display:flex;flex-direction:column;gap:0.5rem;">
         <li style="display:flex;gap:0.45rem;font-size:0.78rem;color:var(--dim);line-height:1.4;"><span style="color:#7B4FA0;flex-shrink:0;">—</span>Full experiential production</li>
@@ -769,61 +505,76 @@
         <li style="display:flex;gap:0.45rem;font-size:0.78rem;color:var(--dim);line-height:1.4;"><span style="color:#7B4FA0;flex-shrink:0;">—</span>Finale ceremony atmosphere</li>
       </ul>
       <div style="margin-top:0.8rem;padding:0.6rem 0.8rem;background:rgba(123,79,160,0.08);border:1px solid rgba(123,79,160,0.2);">
-        <div style="font-size:0.68rem;color:#B890D8;line-height:1.5;font-family:'Cormorant Garamond',serif;font-style:italic;">Reserved for Semi Finals & The Final only. Ultra-limited availability.</div>
-      </div>
-      <div style="margin-top:0.8rem;padding-top:0.7rem;border-top:1px solid rgba(123,79,160,0.15);">
-        <div style="font-size:0.58rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);font-family:'Montserrat',sans-serif;">From</div>
-        <div style="font-family:'Playfair Display',serif;font-size:1.4rem;color:#7B4FA0;">$42,000+</div>
+        <div style="font-size:0.68rem;color:#B890D8;line-height:1.5;font-family:'Cormorant Garamond',serif;font-style:italic;">Reserved for Semi Finals &amp; The Final only. Ultra-limited availability.</div>
       </div>
     </div>
+  </div>
 
+  <!-- GALLERY STRIP — after tiers, before series packages -->
+  <div style="margin-top:2.5rem;margin-left:-2rem;margin-right:-2rem;">
+    <div style="font-size:0.6rem;letter-spacing:0.35em;text-transform:uppercase;color:rgba(201,168,76,0.5);text-align:center;margin-bottom:0.8rem;font-family:'Montserrat',sans-serif;">Experience the atmosphere</div>
+    <div class="gallery-strip">
+      <div class="gallery-track-wrap">
+        <div class="gallery-track">
+          <!-- Set 1 -->
+          <div class="gallery-item"><img src="assets/img/img03.jpg" alt="Goal moment"/></div>
+          <div class="gallery-item"><img src="assets/img/img01.jpg" alt="Rooftop welcome"/></div>
+          <div class="gallery-item"><img src="assets/img/img08.jpg" alt="MC hosting"/></div>
+          <div class="gallery-item"><img src="assets/img/img02.jpg" alt="Champagne gifting"/></div>
+          <div class="gallery-item"><img src="assets/img/img04.jpg" alt="FIFA backdrop"/></div>
+          <div class="gallery-item"><img src="assets/img/img05.jpg" alt="Interior lounge"/></div>
+          <div class="gallery-item"><img src="assets/img/img06.jpg" alt="Culinary spread"/></div>
+          <div class="gallery-item"><img src="assets/img/img07.jpg" alt="Cocktail bar"/></div>
+          <!-- Set 2 — duplicate for seamless loop -->
+          <div class="gallery-item"><img src="assets/img/img03.jpg" alt="Goal moment"/></div>
+          <div class="gallery-item"><img src="assets/img/img01.jpg" alt="Rooftop welcome"/></div>
+          <div class="gallery-item"><img src="assets/img/img08.jpg" alt="MC hosting"/></div>
+          <div class="gallery-item"><img src="assets/img/img02.jpg" alt="Champagne gifting"/></div>
+          <div class="gallery-item"><img src="assets/img/img04.jpg" alt="FIFA backdrop"/></div>
+          <div class="gallery-item"><img src="assets/img/img05.jpg" alt="Interior lounge"/></div>
+          <div class="gallery-item"><img src="assets/img/img06.jpg" alt="Culinary spread"/></div>
+          <div class="gallery-item"><img src="assets/img/img07.jpg" alt="Cocktail bar"/></div>
+        </div>
+      </div>
+    </div>
   </div>
 
   <!-- Series packages -->
   <div style="margin-top:2.5rem;">
-    <div style="font-size:0.62rem;letter-spacing:0.35em;text-transform:uppercase;color:var(--gold);margin-bottom:1.2rem;font-family:'Montserrat',sans-serif;">Series Commitment Packages</div>
+    <div style="font-size:0.62rem;letter-spacing:0.35em;text-transform:uppercase;color:var(--gold);margin-bottom:1.2rem;">Series Commitment Packages</div>
     <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--border);">
-
       <div style="padding:1.5rem 1.3rem;background:var(--dark2);border-right:1px solid rgba(201,168,76,0.08);">
-        <div style="font-size:0.6rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--muted);margin-bottom:0.4rem;font-family:'Montserrat',sans-serif;">Single Match</div>
-        <div style="font-family:'Playfair Display',serif;font-size:1rem;color:var(--white);margin-bottom:0.2rem;">Single Match Experience</div>
-        <div style="font-size:0.7rem;color:var(--muted);margin-bottom:0.8rem;">One premium event</div>
-        <div style="font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--dim);">Full Price</div>
-        <div style="font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);">À la carte</div>
+        <div style="font-size:0.6rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--muted);margin-bottom:0.4rem;">Single Event</div>
+        <div style="font-family:'Playfair Display',serif;font-size:1rem;color:var(--white);margin-bottom:0.4rem;">Single Match Experience</div>
+        <div style="font-size:0.78rem;color:var(--dim);font-family:'Cormorant Garamond',serif;line-height:1.5;">One premium curated event. Full hospitality delivered. Ideal for an inaugural community moment.</div>
       </div>
-
       <div style="padding:1.5rem 1.3rem;background:var(--dark2);border-right:1px solid rgba(201,168,76,0.08);">
-        <div style="font-size:0.6rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--muted);margin-bottom:0.4rem;font-family:'Montserrat',sans-serif;">Twin Package</div>
-        <div style="font-family:'Playfair Display',serif;font-size:1rem;color:var(--white);margin-bottom:0.2rem;">Twin Match Package</div>
-        <div style="font-size:0.7rem;color:var(--muted);margin-bottom:0.8rem;">Two curated events</div>
-        <div style="font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--gold);">8.5%</div>
-        <div style="font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);">Value Advantage</div>
+        <div style="font-size:0.6rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--muted);margin-bottom:0.4rem;">Twin Package</div>
+        <div style="font-family:'Playfair Display',serif;font-size:1rem;color:var(--white);margin-bottom:0.4rem;">Twin Match Package</div>
+        <div style="font-size:0.78rem;color:var(--dim);font-family:'Cormorant Garamond',serif;line-height:1.5;">Two curated events. Priority date selection. Value advantage for committing to the pairing.</div>
       </div>
-
       <div style="padding:1.5rem 1.3rem;background:linear-gradient(180deg,#14110A,#0E0B07);border:1px solid rgba(201,168,76,0.18);">
-        <div style="background:var(--gold);color:var(--dark);font-size:0.55rem;letter-spacing:0.15em;text-transform:uppercase;font-weight:700;padding:0.18rem 0.5rem;display:inline-block;margin-bottom:0.35rem;font-family:'Montserrat',sans-serif;">Most Recommended</div>
-        <div style="font-size:0.6rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);margin-bottom:0.4rem;font-family:'Montserrat',sans-serif;">Four-Event Series</div>
-        <div style="font-family:'Playfair Display',serif;font-size:1rem;color:var(--white);margin-bottom:0.2rem;">Resident Match Series</div>
-        <div style="font-size:0.7rem;color:var(--muted);margin-bottom:0.8rem;">Four premium events</div>
-        <div style="font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--gold);">15%</div>
-        <div style="font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);">Value Advantage</div>
+        <div style="background:var(--gold);color:var(--dark);font-size:0.55rem;letter-spacing:0.15em;text-transform:uppercase;font-weight:700;padding:0.18rem 0.5rem;display:inline-block;margin-bottom:0.35rem;">Most Recommended</div>
+        <div style="font-size:0.6rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);margin-bottom:0.4rem;">Four-Event Series</div>
+        <div style="font-family:'Playfair Display',serif;font-size:1rem;color:var(--white);margin-bottom:0.4rem;">Resident Match Series</div>
+        <div style="font-size:0.78rem;color:var(--dim);font-family:'Cormorant Garamond',serif;line-height:1.5;">Four events across the tournament. Exclusive series benefits. Strongest value and resident impact.</div>
       </div>
-
       <div style="padding:1.5rem 1.3rem;background:var(--dark2);">
-        <div style="font-size:0.6rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--muted);margin-bottom:0.4rem;font-family:'Montserrat',sans-serif;">6+ Events</div>
-        <div style="font-family:'Playfair Display',serif;font-size:1rem;color:var(--white);margin-bottom:0.2rem;">Full Season Partnership</div>
-        <div style="font-size:0.7rem;color:var(--muted);margin-bottom:0.8rem;">Six or more events</div>
-        <div style="font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--gold);">19.5%</div>
-        <div style="font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);">Value Advantage</div>
+        <div style="font-size:0.6rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--muted);margin-bottom:0.4rem;">Full Season</div>
+        <div style="font-family:'Playfair Display',serif;font-size:1rem;color:var(--white);margin-bottom:0.4rem;">Full Season Partnership</div>
+        <div style="font-size:0.78rem;color:var(--dim);font-family:'Cormorant Garamond',serif;line-height:1.5;">Six or more events. Maximum series advantage. For communities making this World Cup a defining season.</div>
       </div>
-
     </div>
   </div>
 
-  <div style="margin-top:1.8rem;display:flex;gap:1rem;flex-wrap:wrap;align-items:center;">
+  <div class="bespoke-note">
+    <span style="color:var(--gold);font-size:1.1rem;flex-shrink:0;">✦</span>
+    <p class="bespoke-note-text">Every experience is <strong>customised to your property's goals, amenities, attendance expectations, and budget</strong>. Pricing and capacity details are shared in conversation — reach out and we'll build the right programme for your community.</p>
+  </div>
+
+  <div style="margin-top:1.8rem;display:flex;gap:1rem;flex-wrap:wrap;">
     <a href="#book" class="btn btn-primary">Enquire for Your Building</a>
     <a href="https://calendly.com/hello-curatoratelier/30min" target="_blank" class="btn btn-outline">Schedule a Call</a>
-    <span style="font-size:0.7rem;color:var(--muted);font-family:'Cormorant Garamond',serif;font-style:italic;">Pricing and capacity details shared in conversation.</span>
   </div>
 </div>
 
@@ -835,26 +586,19 @@
     <span class="tag">Match Calendar · Verified Official Fixtures · Source: FOX Sports</span>
     <h2 class="h2">Pick your match.<br><em>We build around it.</em></h2>
     <div class="rule"></div>
-    <p class="body-text">Every confirmed match in the tournament. Select the date that works for your team or building — we handle everything. USA matches highlighted in red. Minimum 2-week lead time required.</p>
+    <p class="body-text">Every confirmed match in the tournament. Select the date that works for your team or building — we handle everything. USA matches highlighted. Minimum 2-week lead time required.</p>
   </div>
 
   <div style="background:#FAF5E8;margin:0;padding:2.5rem 2rem 3rem;">
     <div style="max-width:1100px;margin:0 auto;">
-
       <div style="display:flex;gap:1.5rem;flex-wrap:wrap;margin-bottom:1.5rem;align-items:center;">
         <div style="font-size:0.6rem;letter-spacing:0.35em;text-transform:uppercase;color:#8A6A1A;font-family:'Montserrat',sans-serif;">June 2026 · Group Stage</div>
         <div style="display:flex;gap:1rem;flex-wrap:wrap;">
-          <div style="display:flex;align-items:center;gap:0.4rem;font-size:0.62rem;color:#5A4E32;font-family:'Montserrat',sans-serif;">
-            <div style="width:10px;height:10px;border-radius:50%;background:#8B1A1A;flex-shrink:0;"></div>★ USA Match
-          </div>
-          <div style="display:flex;align-items:center;gap:0.4rem;font-size:0.62rem;color:#5A4E32;font-family:'Montserrat',sans-serif;">
-            <div style="width:10px;height:10px;border-radius:50%;background:#B8932A;flex-shrink:0;"></div>Match Day
-          </div>
-          <div style="display:flex;align-items:center;gap:0.4rem;font-size:0.62rem;color:#5A4E32;font-family:'Montserrat',sans-serif;">
-            <div style="width:10px;height:10px;border-radius:50%;background:#EDE0C4;border:1px solid rgba(184,147,42,0.3);flex-shrink:0;"></div>No Matches
-          </div>
+          <div style="display:flex;align-items:center;gap:0.4rem;font-size:0.62rem;color:#5A4E32;font-family:'Montserrat',sans-serif;"><div style="width:10px;height:10px;border-radius:50%;background:#8B1A1A;"></div>★ USA Match</div>
+          <div style="display:flex;align-items:center;gap:0.4rem;font-size:0.62rem;color:#5A4E32;font-family:'Montserrat',sans-serif;"><div style="width:10px;height:10px;border-radius:50%;background:#B8932A;"></div>Match Day</div>
+          <div style="display:flex;align-items:center;gap:0.4rem;font-size:0.62rem;color:#5A4E32;font-family:'Montserrat',sans-serif;"><div style="width:10px;height:10px;border-radius:50%;background:#EDE0C4;border:1px solid rgba(184,147,42,0.3);"></div>No Matches</div>
         </div>
-        <div style="margin-left:auto;font-family:'Cormorant Garamond',serif;font-size:0.85rem;color:#7A6A4A;font-style:italic;">All fixtures verified · FOX Sports official schedule</div>
+        <div style="margin-left:auto;font-family:'Cormorant Garamond',serif;font-size:0.85rem;color:#7A6A4A;font-style:italic;">All fixtures verified · FOX Sports</div>
       </div>
 
       <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:2px;margin-bottom:2px;">
@@ -868,619 +612,80 @@
       </div>
 
       <style>
-        .cal-grid-june { display:grid; grid-template-columns:repeat(7,1fr); gap:2px; }
-        .cal-day { background:#F5EDD8; padding:0.55rem 0.45rem; min-height:150px; display:flex; flex-direction:column; border-top:3px solid transparent; transition:all 0.2s; cursor:default; position:relative; }
-        .cal-active { border-top-color:#B8932A; background:#F8F2E0; cursor:pointer; }
-        .cal-hot { border-top-color:#8B1A1A; background:#FFF0E8; cursor:pointer; box-shadow:inset 0 0 0 1px rgba(139,26,26,0.1); }
-        .cal-empty { background:#F0EBD8; opacity:0.6; }
-        .cal-day:hover:not(.cal-empty) { transform:translateY(-2px); box-shadow:0 4px 16px rgba(184,147,42,0.18); z-index:2; }
-        .cal-day.selected { box-shadow:0 0 0 2px #8A6A1A; transform:translateY(-2px); }
-        .cal-daynum { font-family:'Bebas Neue',sans-serif; font-size:1.3rem; line-height:1; color:#2A2010; margin-bottom:0.3rem; }
-        .cal-active .cal-daynum { color:#8A6A1A; }
-        .cal-hot .cal-daynum { color:#8B1A1A; }
-        .cal-daymatches { display:flex; flex-direction:column; gap:0.25rem; flex:1; }
-        .cal-nomatch { font-size:0.55rem; color:rgba(90,78,50,0.3); font-style:italic; font-family:'Cormorant Garamond',serif; margin-top:auto; }
-        .mc { background:rgba(255,255,255,0.75); border:1px solid rgba(184,147,42,0.15); padding:0.3rem 0.35rem; border-radius:1px; transition:all 0.15s; }
-        .mc:hover { background:#fff; border-color:#B8932A; }
-        .mc-hot { background:rgba(139,26,26,0.06); border:1px solid rgba(139,26,26,0.22); }
-        .mc-hot:hover { background:rgba(139,26,26,0.1); border-color:#8B1A1A; }
-        .mc-flags { font-size:0.8rem; line-height:1; margin-bottom:0.1rem; }
-        .mc-vs { font-size:0.5rem; color:#7A6A4A; font-family:'Montserrat',sans-serif; letter-spacing:0.08em; text-transform:uppercase; vertical-align:middle; }
-        .mc-teams { font-size:0.56rem; font-weight:600; color:#1A1408; line-height:1.25; margin-bottom:0.1rem; }
-        .mc-hot .mc-teams { color:#8B1A1A; }
-        .mc-time { font-size:0.52rem; color:#7A6A4A; font-weight:500; }
-        .mc-hot .mc-time { color:#8B1A1A; font-weight:600; }
-        .mc-venue { font-size:0.48rem; color:#7A6A4A; opacity:0.8; }
-        .mc-cta { font-size:0.46rem; letter-spacing:0.14em; text-transform:uppercase; color:#8B1A1A; font-weight:700; margin-top:0.18rem; font-family:'Montserrat',sans-serif; }
-        @media(max-width:900px) { .cal-grid-june { grid-template-columns:repeat(4,1fr); } .cal-day { min-height:120px; } }
-        @media(max-width:540px) { .cal-grid-june { grid-template-columns:repeat(2,1fr); } }
+        .cal-grid-june{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;}
+        .cal-day{background:#F5EDD8;padding:0.55rem 0.45rem;min-height:150px;display:flex;flex-direction:column;border-top:3px solid transparent;transition:all 0.2s;position:relative;}
+        .cal-active{border-top-color:#B8932A;background:#F8F2E0;cursor:pointer;}
+        .cal-hot{border-top-color:#8B1A1A;background:#FFF0E8;cursor:pointer;box-shadow:inset 0 0 0 1px rgba(139,26,26,0.1);}
+        .cal-empty{background:#F0EBD8;opacity:0.6;}
+        .cal-day:hover:not(.cal-empty){transform:translateY(-2px);box-shadow:0 4px 16px rgba(184,147,42,0.18);z-index:2;}
+        .cal-day.selected{box-shadow:0 0 0 2px #8A6A1A;transform:translateY(-2px);}
+        .cal-daynum{font-family:'Playfair Display',serif;font-size:1.3rem;line-height:1;color:#2A2010;margin-bottom:0.3rem;}
+        .cal-active .cal-daynum{color:#8A6A1A;}.cal-hot .cal-daynum{color:#8B1A1A;}
+        .cal-daymatches{display:flex;flex-direction:column;gap:0.25rem;flex:1;}
+        .cal-nomatch{font-size:0.55rem;color:rgba(90,78,50,0.3);font-style:italic;font-family:'Cormorant Garamond',serif;margin-top:auto;}
+        .mc{background:rgba(255,255,255,0.75);border:1px solid rgba(184,147,42,0.15);padding:0.3rem 0.35rem;border-radius:1px;transition:all 0.15s;}
+        .mc:hover{background:#fff;border-color:#B8932A;}
+        .mc-hot{background:rgba(139,26,26,0.06);border:1px solid rgba(139,26,26,0.22);}
+        .mc-hot:hover{background:rgba(139,26,26,0.1);border-color:#8B1A1A;}
+        .mc-flags{font-size:0.8rem;line-height:1;margin-bottom:0.1rem;}
+        .mc-vs{font-size:0.5rem;color:#7A6A4A;font-family:'Montserrat',sans-serif;letter-spacing:0.08em;text-transform:uppercase;vertical-align:middle;}
+        .mc-teams{font-size:0.56rem;font-weight:600;color:#1A1408;line-height:1.25;margin-bottom:0.1rem;}
+        .mc-hot .mc-teams{color:#8B1A1A;}
+        .mc-time{font-size:0.52rem;color:#7A6A4A;font-weight:500;}
+        .mc-hot .mc-time{color:#8B1A1A;font-weight:600;}
+        .mc-venue{font-size:0.48rem;color:#7A6A4A;opacity:0.8;}
+        .mc-cta{font-size:0.46rem;letter-spacing:0.14em;text-transform:uppercase;color:#8B1A1A;font-weight:700;margin-top:0.18rem;font-family:'Montserrat',sans-serif;}
+        @media(max-width:900px){.cal-grid-june{grid-template-columns:repeat(4,1fr);}.cal-day{min-height:120px;}}
+        @media(max-width:540px){.cal-grid-june{grid-template-columns:repeat(2,1fr);}}
       </style>
 
-      <div class="cal-grid-june" id="june-cal">
-        <div class="cal-day cal-empty" data-date="2026-06-01">
-      <div class="cal-daynum">1</div>
-      <div class="cal-daymatches"><div class="cal-nomatch">—</div></div>
-    </div>
-<div class="cal-day cal-empty" data-date="2026-06-02">
-      <div class="cal-daynum">2</div>
-      <div class="cal-daymatches"><div class="cal-nomatch">—</div></div>
-    </div>
-<div class="cal-day cal-empty" data-date="2026-06-03">
-      <div class="cal-daynum">3</div>
-      <div class="cal-daymatches"><div class="cal-nomatch">—</div></div>
-    </div>
-<div class="cal-day cal-empty" data-date="2026-06-04">
-      <div class="cal-daynum">4</div>
-      <div class="cal-daymatches"><div class="cal-nomatch">—</div></div>
-    </div>
-<div class="cal-day cal-empty" data-date="2026-06-05">
-      <div class="cal-daynum">5</div>
-      <div class="cal-daymatches"><div class="cal-nomatch">—</div></div>
-    </div>
-<div class="cal-day cal-empty" data-date="2026-06-06">
-      <div class="cal-daynum">6</div>
-      <div class="cal-daymatches"><div class="cal-nomatch">—</div></div>
-    </div>
-<div class="cal-day cal-empty" data-date="2026-06-07">
-      <div class="cal-daynum">7</div>
-      <div class="cal-daymatches"><div class="cal-nomatch">—</div></div>
-    </div>
-<div class="cal-day cal-empty" data-date="2026-06-08">
-      <div class="cal-daynum">8</div>
-      <div class="cal-daymatches"><div class="cal-nomatch">—</div></div>
-    </div>
-<div class="cal-day cal-empty" data-date="2026-06-09">
-      <div class="cal-daynum">9</div>
-      <div class="cal-daymatches"><div class="cal-nomatch">—</div></div>
-    </div>
-<div class="cal-day cal-empty" data-date="2026-06-10">
-      <div class="cal-daynum">10</div>
-      <div class="cal-daymatches"><div class="cal-nomatch">—</div></div>
-    </div>
-<div class="cal-day cal-active" data-date="2026-06-11">
-      <div class="cal-daynum">11</div>
-      <div class="cal-daymatches"><div class="mc">
-      <div class="mc-flags">🇲🇽 <span class="mc-vs">vs</span> 🇿🇦</div>
-      <div class="mc-teams">Mexico vs South Africa</div>
-      <div class="mc-time">3:00 PM ET</div>
-      <div class="mc-venue">Mexico City</div>
-      
-    </div><div class="mc">
-      <div class="mc-flags">🇰🇷 <span class="mc-vs">vs</span> 🇨🇿</div>
-      <div class="mc-teams">South Korea vs Czechia</div>
-      <div class="mc-time">10:00 PM ET</div>
-      <div class="mc-venue">Guadalajara</div>
-      
-    </div></div>
-    </div>
-<div class="cal-day cal-hot" data-date="2026-06-12">
-      <div class="cal-daynum">12</div>
-      <div class="cal-daymatches"><div class="mc">
-      <div class="mc-flags">🇨🇦 <span class="mc-vs">vs</span> 🇧🇦</div>
-      <div class="mc-teams">Canada vs Bosnia & Herzegovina</div>
-      <div class="mc-time">3:00 PM ET</div>
-      <div class="mc-venue">Toronto</div>
-      
-    </div><div class="mc mc-hot">
-      <div class="mc-flags">🇺🇸 <span class="mc-vs">vs</span> 🇵🇾</div>
-      <div class="mc-teams">USA vs Paraguay</div>
-      <div class="mc-time">9:00 PM ET</div>
-      <div class="mc-venue">Los Angeles</div>
-      <div class="mc-cta">★ USA MATCH · SELECT DATE →</div>
-    </div></div>
-    </div>
-<div class="cal-day cal-active" data-date="2026-06-13">
-      <div class="cal-daynum">13</div>
-      <div class="cal-daymatches"><div class="mc">
-      <div class="mc-flags">🇶🇦 <span class="mc-vs">vs</span> 🇨🇭</div>
-      <div class="mc-teams">Qatar vs Switzerland</div>
-      <div class="mc-time">3:00 PM ET</div>
-      <div class="mc-venue">San Francisco</div>
-      
-    </div><div class="mc">
-      <div class="mc-flags">🇧🇷 <span class="mc-vs">vs</span> 🇲🇦</div>
-      <div class="mc-teams">Brazil vs Morocco</div>
-      <div class="mc-time">6:00 PM ET</div>
-      <div class="mc-venue">New York NJ</div>
-      
-    </div><div class="mc">
-      <div class="mc-flags">🇭🇹 <span class="mc-vs">vs</span> 🏴󠁧󠁢󠁳󠁣󠁴󠁿</div>
-      <div class="mc-teams">Haiti vs Scotland</div>
-      <div class="mc-time">9:00 PM ET</div>
-      <div class="mc-venue">Boston</div>
-      
-    </div><div class="mc">
-      <div class="mc-flags">🇦🇺 <span class="mc-vs">vs</span> 🇹🇷</div>
-      <div class="mc-teams">Australia vs Türkiye</div>
-      <div class="mc-time">12:00 AM ET</div>
-      <div class="mc-venue">Vancouver</div>
-      
-    </div></div>
-    </div>
-<div class="cal-day cal-active" data-date="2026-06-14">
-      <div class="cal-daynum">14</div>
-      <div class="cal-daymatches"><div class="mc">
-      <div class="mc-flags">🇩🇪 <span class="mc-vs">vs</span> 🇨🇼</div>
-      <div class="mc-teams">Germany vs Curaçao</div>
-      <div class="mc-time">1:00 PM ET</div>
-      <div class="mc-venue">Houston</div>
-      
-    </div><div class="mc">
-      <div class="mc-flags">🇳🇱 <span class="mc-vs">vs</span> 🇯🇵</div>
-      <div class="mc-teams">Netherlands vs Japan</div>
-      <div class="mc-time">4:00 PM ET</div>
-      <div class="mc-venue">Dallas</div>
-      
-    </div><div class="mc">
-      <div class="mc-flags">🇨🇮 <span class="mc-vs">vs</span> 🇪🇨</div>
-      <div class="mc-teams">Ivory Coast vs Ecuador</div>
-      <div class="mc-time">7:00 PM ET</div>
-      <div class="mc-venue">Philadelphia</div>
-      
-    </div><div class="mc">
-      <div class="mc-flags">🇹🇳 <span class="mc-vs">vs</span> 🇸🇪</div>
-      <div class="mc-teams">Tunisia vs Sweden</div>
-      <div class="mc-time">10:00 PM ET</div>
-      <div class="mc-venue">Monterrey</div>
-      
-    </div></div>
-    </div>
-<div class="cal-day cal-active" data-date="2026-06-15">
-      <div class="cal-daynum">15</div>
-      <div class="cal-daymatches"><div class="mc">
-      <div class="mc-flags">🇪🇸 <span class="mc-vs">vs</span> 🇨🇻</div>
-      <div class="mc-teams">Spain vs Cape Verde</div>
-      <div class="mc-time">12:00 PM ET</div>
-      <div class="mc-venue">Atlanta</div>
-      
-    </div><div class="mc">
-      <div class="mc-flags">🇧🇪 <span class="mc-vs">vs</span> 🇪🇬</div>
-      <div class="mc-teams">Belgium vs Egypt</div>
-      <div class="mc-time">3:00 PM ET</div>
-      <div class="mc-venue">Seattle</div>
-      
-    </div><div class="mc">
-      <div class="mc-flags">🇸🇦 <span class="mc-vs">vs</span> 🇺🇾</div>
-      <div class="mc-teams">Saudi Arabia vs Uruguay</div>
-      <div class="mc-time">6:00 PM ET</div>
-      <div class="mc-venue">Miami</div>
-      
-    </div><div class="mc">
-      <div class="mc-flags">🇮🇷 <span class="mc-vs">vs</span> 🇳🇿</div>
-      <div class="mc-teams">Iran vs New Zealand</div>
-      <div class="mc-time">9:00 PM ET</div>
-      <div class="mc-venue">Los Angeles</div>
-      
-    </div></div>
-    </div>
-<div class="cal-day cal-active" data-date="2026-06-16">
-      <div class="cal-daynum">16</div>
-      <div class="cal-daymatches"><div class="mc">
-      <div class="mc-flags">🇫🇷 <span class="mc-vs">vs</span> 🇸🇳</div>
-      <div class="mc-teams">France vs Senegal</div>
-      <div class="mc-time">3:00 PM ET</div>
-      <div class="mc-venue">New York NJ</div>
-      
-    </div><div class="mc">
-      <div class="mc-flags">🇮🇶 <span class="mc-vs">vs</span> 🇳🇴</div>
-      <div class="mc-teams">Iraq vs Norway</div>
-      <div class="mc-time">6:00 PM ET</div>
-      <div class="mc-venue">Boston</div>
-      
-    </div><div class="mc">
-      <div class="mc-flags">🇦🇷 <span class="mc-vs">vs</span> 🇩🇿</div>
-      <div class="mc-teams">Argentina vs Algeria</div>
-      <div class="mc-time">9:00 PM ET</div>
-      <div class="mc-venue">Kansas City</div>
-      
-    </div><div class="mc">
-      <div class="mc-flags">🇦🇹 <span class="mc-vs">vs</span> 🇯🇴</div>
-      <div class="mc-teams">Austria vs Jordan</div>
-      <div class="mc-time">12:00 AM ET</div>
-      <div class="mc-venue">San Francisco</div>
-      
-    </div></div>
-    </div>
-<div class="cal-day cal-active" data-date="2026-06-17">
-      <div class="cal-daynum">17</div>
-      <div class="cal-daymatches"><div class="mc">
-      <div class="mc-flags">🇵🇹 <span class="mc-vs">vs</span> 🇨🇩</div>
-      <div class="mc-teams">Portugal vs Congo DR</div>
-      <div class="mc-time">1:00 PM ET</div>
-      <div class="mc-venue">Houston</div>
-      
-    </div><div class="mc">
-      <div class="mc-flags">🏴󠁧󠁢󠁥󠁮󠁧󠁿 <span class="mc-vs">vs</span> 🇭🇷</div>
-      <div class="mc-teams">England vs Croatia</div>
-      <div class="mc-time">4:00 PM ET</div>
-      <div class="mc-venue">Dallas</div>
-      
-    </div><div class="mc">
-      <div class="mc-flags">🇬🇭 <span class="mc-vs">vs</span> 🇵🇦</div>
-      <div class="mc-teams">Ghana vs Panama</div>
-      <div class="mc-time">7:00 PM ET</div>
-      <div class="mc-venue">Toronto</div>
-      
-    </div><div class="mc">
-      <div class="mc-flags">🇺🇿 <span class="mc-vs">vs</span> 🇨🇴</div>
-      <div class="mc-teams">Uzbekistan vs Colombia</div>
-      <div class="mc-time">10:00 PM ET</div>
-      <div class="mc-venue">Mexico City</div>
-      
-    </div></div>
-    </div>
-<div class="cal-day cal-active" data-date="2026-06-18">
-      <div class="cal-daynum">18</div>
-      <div class="cal-daymatches"><div class="mc">
-      <div class="mc-flags">🇨🇿 <span class="mc-vs">vs</span> 🇿🇦</div>
-      <div class="mc-teams">Czechia vs South Africa</div>
-      <div class="mc-time">12:00 PM ET</div>
-      <div class="mc-venue">Atlanta</div>
-      
-    </div><div class="mc">
-      <div class="mc-flags">🇨🇭 <span class="mc-vs">vs</span> 🇧🇦</div>
-      <div class="mc-teams">Switzerland vs Bosnia & Herz.</div>
-      <div class="mc-time">3:00 PM ET</div>
-      <div class="mc-venue">Los Angeles</div>
-      
-    </div><div class="mc">
-      <div class="mc-flags">🇨🇦 <span class="mc-vs">vs</span> 🇶🇦</div>
-      <div class="mc-teams">Canada vs Qatar</div>
-      <div class="mc-time">6:00 PM ET</div>
-      <div class="mc-venue">Vancouver</div>
-      
-    </div><div class="mc">
-      <div class="mc-flags">🇲🇽 <span class="mc-vs">vs</span> 🇰🇷</div>
-      <div class="mc-teams">Mexico vs South Korea</div>
-      <div class="mc-time">9:00 PM ET</div>
-      <div class="mc-venue">Guadalajara</div>
-      
-    </div></div>
-    </div>
-<div class="cal-day cal-hot" data-date="2026-06-19">
-      <div class="cal-daynum">19</div>
-      <div class="cal-daymatches"><div class="mc mc-hot">
-      <div class="mc-flags">🇺🇸 <span class="mc-vs">vs</span> 🇦🇺</div>
-      <div class="mc-teams">USA vs Australia</div>
-      <div class="mc-time">3:00 PM ET</div>
-      <div class="mc-venue">Seattle</div>
-      <div class="mc-cta">★ USA MATCH · SELECT DATE →</div>
-    </div><div class="mc">
-      <div class="mc-flags">🏴󠁧󠁢󠁳󠁣󠁴󠁿 <span class="mc-vs">vs</span> 🇲🇦</div>
-      <div class="mc-teams">Scotland vs Morocco</div>
-      <div class="mc-time">3:00 PM ET</div>
-      <div class="mc-venue">Boston</div>
-      
-    </div><div class="mc">
-      <div class="mc-flags">🇧🇷 <span class="mc-vs">vs</span> 🇭🇹</div>
-      <div class="mc-teams">Brazil vs Haiti</div>
-      <div class="mc-time">9:00 PM ET</div>
-      <div class="mc-venue">Philadelphia</div>
-      
-    </div><div class="mc">
-      <div class="mc-flags">🇹🇷 <span class="mc-vs">vs</span> 🇵🇾</div>
-      <div class="mc-teams">Türkiye vs Paraguay</div>
-      <div class="mc-time">12:00 AM ET</div>
-      <div class="mc-venue">San Francisco</div>
-      
-    </div></div>
-    </div>
-<div class="cal-day cal-active" data-date="2026-06-20">
-      <div class="cal-daynum">20</div>
-      <div class="cal-daymatches"><div class="mc">
-      <div class="mc-flags">🇳🇱 <span class="mc-vs">vs</span> 🇸🇪</div>
-      <div class="mc-teams">Netherlands vs Sweden</div>
-      <div class="mc-time">1:00 PM ET</div>
-      <div class="mc-venue">Houston</div>
-      
-    </div><div class="mc">
-      <div class="mc-flags">🇩🇪 <span class="mc-vs">vs</span> 🇨🇮</div>
-      <div class="mc-teams">Germany vs Ivory Coast</div>
-      <div class="mc-time">4:00 PM ET</div>
-      <div class="mc-venue">Toronto</div>
-      
-    </div><div class="mc">
-      <div class="mc-flags">🇪🇨 <span class="mc-vs">vs</span> 🇨🇼</div>
-      <div class="mc-teams">Ecuador vs Curaçao</div>
-      <div class="mc-time">7:00 PM ET</div>
-      <div class="mc-venue">Philadelphia</div>
-      
-    </div><div class="mc">
-      <div class="mc-flags">🇯🇵 <span class="mc-vs">vs</span> 🇹🇳</div>
-      <div class="mc-teams">Japan vs Tunisia</div>
-      <div class="mc-time">10:00 PM ET</div>
-      <div class="mc-venue">Dallas</div>
-      
-    </div></div>
-    </div>
-<div class="cal-day cal-active" data-date="2026-06-21">
-      <div class="cal-daynum">21</div>
-      <div class="cal-daymatches"><div class="mc">
-      <div class="mc-flags">🇺🇾 <span class="mc-vs">vs</span> 🇨🇻</div>
-      <div class="mc-teams">Uruguay vs Cape Verde</div>
-      <div class="mc-time">12:00 PM ET</div>
-      <div class="mc-venue">Miami</div>
-      
-    </div><div class="mc">
-      <div class="mc-flags">🇳🇿 <span class="mc-vs">vs</span> 🇧🇪</div>
-      <div class="mc-teams">New Zealand vs Belgium</div>
-      <div class="mc-time">3:00 PM ET</div>
-      <div class="mc-venue">Los Angeles</div>
-      
-    </div><div class="mc">
-      <div class="mc-flags">🇪🇬 <span class="mc-vs">vs</span> 🇮🇷</div>
-      <div class="mc-teams">Egypt vs Iran</div>
-      <div class="mc-time">6:00 PM ET</div>
-      <div class="mc-venue">Seattle</div>
-      
-    </div><div class="mc">
-      <div class="mc-flags">🇪🇸 <span class="mc-vs">vs</span> 🇸🇦</div>
-      <div class="mc-teams">Spain vs Saudi Arabia</div>
-      <div class="mc-time">9:00 PM ET</div>
-      <div class="mc-venue">Atlanta</div>
-      
-    </div></div>
-    </div>
-<div class="cal-day cal-active" data-date="2026-06-22">
-      <div class="cal-daynum">22</div>
-      <div class="cal-daymatches"><div class="mc">
-      <div class="mc-flags">🇸🇳 <span class="mc-vs">vs</span> 🇮🇶</div>
-      <div class="mc-teams">Senegal vs Iraq</div>
-      <div class="mc-time">3:00 PM ET</div>
-      <div class="mc-venue">Kansas City</div>
-      
-    </div><div class="mc">
-      <div class="mc-flags">🇳🇴 <span class="mc-vs">vs</span> 🇫🇷</div>
-      <div class="mc-teams">Norway vs France</div>
-      <div class="mc-time">3:00 PM ET</div>
-      <div class="mc-venue">New York NJ</div>
-      
-    </div><div class="mc">
-      <div class="mc-flags">🇩🇿 <span class="mc-vs">vs</span> 🇦🇹</div>
-      <div class="mc-teams">Algeria vs Austria</div>
-      <div class="mc-time">9:00 PM ET</div>
-      <div class="mc-venue">San Francisco</div>
-      
-    </div><div class="mc">
-      <div class="mc-flags">🇯🇴 <span class="mc-vs">vs</span> 🇦🇷</div>
-      <div class="mc-teams">Jordan vs Argentina</div>
-      <div class="mc-time">9:00 PM ET</div>
-      <div class="mc-venue">Kansas City</div>
-      
-    </div></div>
-    </div>
-<div class="cal-day cal-active" data-date="2026-06-23">
-      <div class="cal-daynum">23</div>
-      <div class="cal-daymatches"><div class="mc">
-      <div class="mc-flags">🇨🇴 <span class="mc-vs">vs</span> 🇵🇹</div>
-      <div class="mc-teams">Colombia vs Portugal</div>
-      <div class="mc-time">1:00 PM ET</div>
-      <div class="mc-venue">Houston</div>
-      
-    </div><div class="mc">
-      <div class="mc-flags">🇨🇩 <span class="mc-vs">vs</span> 🇺🇿</div>
-      <div class="mc-teams">Congo DR vs Uzbekistan</div>
-      <div class="mc-time">1:00 PM ET</div>
-      <div class="mc-venue">Mexico City</div>
-      
-    </div><div class="mc">
-      <div class="mc-flags">🇭🇷 <span class="mc-vs">vs</span> 🇬🇭</div>
-      <div class="mc-teams">Croatia vs Ghana</div>
-      <div class="mc-time">4:00 PM ET</div>
-      <div class="mc-venue">Dallas</div>
-      
-    </div><div class="mc">
-      <div class="mc-flags">🇵🇦 <span class="mc-vs">vs</span> 🏴󠁧󠁢󠁥󠁮󠁧󠁿</div>
-      <div class="mc-teams">Panama vs England</div>
-      <div class="mc-time">4:00 PM ET</div>
-      <div class="mc-venue">Toronto</div>
-      
-    </div></div>
-    </div>
-<div class="cal-day cal-active" data-date="2026-06-24">
-      <div class="cal-daynum">24</div>
-      <div class="cal-daymatches"><div class="mc">
-      <div class="mc-flags">🇿🇦 <span class="mc-vs">vs</span> 🇰🇷</div>
-      <div class="mc-teams">South Africa vs South Korea</div>
-      <div class="mc-time">3:00 PM ET</div>
-      <div class="mc-venue">Atlanta</div>
-      
-    </div><div class="mc">
-      <div class="mc-flags">🇨🇿 <span class="mc-vs">vs</span> 🇲🇽</div>
-      <div class="mc-teams">Czechia vs Mexico</div>
-      <div class="mc-time">3:00 PM ET</div>
-      <div class="mc-venue">Los Angeles</div>
-      
-    </div><div class="mc">
-      <div class="mc-flags">🇧🇦 <span class="mc-vs">vs</span> 🇨🇦</div>
-      <div class="mc-teams">Bosnia & Herz. vs Canada</div>
-      <div class="mc-time">9:00 PM ET</div>
-      <div class="mc-venue">Vancouver</div>
-      
-    </div><div class="mc">
-      <div class="mc-flags">🇶🇦 <span class="mc-vs">vs</span> 🇨🇭</div>
-      <div class="mc-teams">Qatar vs Switzerland</div>
-      <div class="mc-time">9:00 PM ET</div>
-      <div class="mc-venue">San Francisco</div>
-      
-    </div></div>
-    </div>
-<div class="cal-day cal-hot" data-date="2026-06-25">
-      <div class="cal-daynum">25</div>
-      <div class="cal-daymatches"><div class="mc mc-hot">
-      <div class="mc-flags">🇺🇸 <span class="mc-vs">vs</span> 🇹🇷</div>
-      <div class="mc-teams">USA vs Türkiye</div>
-      <div class="mc-time">3:00 PM ET</div>
-      <div class="mc-venue">Philadelphia</div>
-      <div class="mc-cta">★ USA MATCH · SELECT DATE →</div>
-    </div><div class="mc">
-      <div class="mc-flags">🇵🇾 <span class="mc-vs">vs</span> 🇦🇺</div>
-      <div class="mc-teams">Paraguay vs Australia</div>
-      <div class="mc-time">3:00 PM ET</div>
-      <div class="mc-venue">Dallas</div>
-      
-    </div><div class="mc">
-      <div class="mc-flags">🇲🇦 <span class="mc-vs">vs</span> 🇧🇷</div>
-      <div class="mc-teams">Morocco vs Brazil</div>
-      <div class="mc-time">9:00 PM ET</div>
-      <div class="mc-venue">New York NJ</div>
-      
-    </div><div class="mc">
-      <div class="mc-flags">🏴󠁧󠁢󠁳󠁣󠁴󠁿 <span class="mc-vs">vs</span> 🇭🇹</div>
-      <div class="mc-teams">Scotland vs Haiti</div>
-      <div class="mc-time">9:00 PM ET</div>
-      <div class="mc-venue">Boston</div>
-      
-    </div></div>
-    </div>
-<div class="cal-day cal-active" data-date="2026-06-26">
-      <div class="cal-daynum">26</div>
-      <div class="cal-daymatches"><div class="mc">
-      <div class="mc-flags">🇨🇼 <span class="mc-vs">vs</span> 🇩🇪</div>
-      <div class="mc-teams">Curaçao vs Germany</div>
-      <div class="mc-time">1:00 PM ET</div>
-      <div class="mc-venue">Houston</div>
-      
-    </div><div class="mc">
-      <div class="mc-flags">🇪🇨 <span class="mc-vs">vs</span> 🇨🇮</div>
-      <div class="mc-teams">Ecuador vs Ivory Coast</div>
-      <div class="mc-time">1:00 PM ET</div>
-      <div class="mc-venue">Kansas City</div>
-      
-    </div><div class="mc">
-      <div class="mc-flags">🇸🇪 <span class="mc-vs">vs</span> 🇯🇵</div>
-      <div class="mc-teams">Sweden vs Japan</div>
-      <div class="mc-time">4:00 PM ET</div>
-      <div class="mc-venue">Los Angeles</div>
-      
-    </div><div class="mc">
-      <div class="mc-flags">🇹🇳 <span class="mc-vs">vs</span> 🇳🇱</div>
-      <div class="mc-teams">Tunisia vs Netherlands</div>
-      <div class="mc-time">4:00 PM ET</div>
-      <div class="mc-venue">Atlanta</div>
-      
-    </div></div>
-    </div>
-<div class="cal-day cal-active" data-date="2026-06-27">
-      <div class="cal-daynum">27</div>
-      <div class="cal-daymatches"><div class="mc">
-      <div class="mc-flags">🇨🇻 <span class="mc-vs">vs</span> 🇪🇸</div>
-      <div class="mc-teams">Cape Verde vs Spain</div>
-      <div class="mc-time">12:00 PM ET</div>
-      <div class="mc-venue">Miami</div>
-      
-    </div><div class="mc">
-      <div class="mc-flags">🇺🇾 <span class="mc-vs">vs</span> 🇸🇦</div>
-      <div class="mc-teams">Uruguay vs Saudi Arabia</div>
-      <div class="mc-time">12:00 PM ET</div>
-      <div class="mc-venue">Seattle</div>
-      
-    </div><div class="mc">
-      <div class="mc-flags">🇧🇪 <span class="mc-vs">vs</span> 🇮🇷</div>
-      <div class="mc-teams">Belgium vs Iran</div>
-      <div class="mc-time">7:30 PM ET</div>
-      <div class="mc-venue">Los Angeles</div>
-      
-    </div><div class="mc">
-      <div class="mc-flags">🇳🇿 <span class="mc-vs">vs</span> 🇪🇬</div>
-      <div class="mc-teams">New Zealand vs Egypt</div>
-      <div class="mc-time">7:30 PM ET</div>
-      <div class="mc-venue">Boston</div>
-      
-    </div></div>
-    </div>
-<div class="cal-day cal-active" data-date="2026-06-28">
-      <div class="cal-daynum">28</div>
-      <div class="cal-daymatches"><div class="mc">
-      <div class="mc-flags">⚽ <span class="mc-vs">vs</span> ⚽</div>
-      <div class="mc-teams">Round of 32 · Match 1</div>
-      <div class="mc-time">3:00 PM ET</div>
-      <div class="mc-venue">Multiple venues</div>
-      
-    </div><div class="mc">
-      <div class="mc-flags">⚽ <span class="mc-vs">vs</span> ⚽</div>
-      <div class="mc-teams">Round of 32 · Match 2</div>
-      <div class="mc-time">9:00 PM ET</div>
-      <div class="mc-venue">Multiple venues</div>
-      
-    </div></div>
-    </div>
-<div class="cal-day cal-active" data-date="2026-06-29">
-      <div class="cal-daynum">29</div>
-      <div class="cal-daymatches"><div class="mc">
-      <div class="mc-flags">🇫🇷 <span class="mc-vs">vs</span> 🇮🇶</div>
-      <div class="mc-teams">Group I Finals · France + Iraq</div>
-      <div class="mc-time">3:00 PM ET</div>
-      <div class="mc-venue">Multiple venues</div>
-      
-    </div><div class="mc">
-      <div class="mc-flags">⚽ <span class="mc-vs">vs</span> ⚽</div>
-      <div class="mc-teams">Round of 32 · Matches Continue</div>
-      <div class="mc-time">9:00 PM ET</div>
-      <div class="mc-venue">Multiple venues</div>
-      
-    </div></div>
-    </div>
-<div class="cal-day cal-active" data-date="2026-06-30">
-      <div class="cal-daynum">30</div>
-      <div class="cal-daymatches"><div class="mc">
-      <div class="mc-flags">🇦🇷 <span class="mc-vs">vs</span> 🇩🇿</div>
-      <div class="mc-teams">Group J Finals · Argentina + Algeria</div>
-      <div class="mc-time">3:00 PM ET</div>
-      <div class="mc-venue">Multiple venues</div>
-      
-    </div><div class="mc">
-      <div class="mc-flags">⚽ <span class="mc-vs">vs</span> ⚽</div>
-      <div class="mc-teams">Round of 32 · Matches Continue</div>
-      <div class="mc-time">9:00 PM ET</div>
-      <div class="mc-venue">Multiple venues</div>
-      
-    </div></div>
-    </div>
+      <div class="cal-grid-june">
+        <div class="cal-day cal-empty"><div class="cal-daynum">1</div><div class="cal-daymatches"><div class="cal-nomatch">—</div></div></div>
+        <div class="cal-day cal-empty"><div class="cal-daynum">2</div><div class="cal-daymatches"><div class="cal-nomatch">—</div></div></div>
+        <div class="cal-day cal-empty"><div class="cal-daynum">3</div><div class="cal-daymatches"><div class="cal-nomatch">—</div></div></div>
+        <div class="cal-day cal-empty"><div class="cal-daynum">4</div><div class="cal-daymatches"><div class="cal-nomatch">—</div></div></div>
+        <div class="cal-day cal-empty"><div class="cal-daynum">5</div><div class="cal-daymatches"><div class="cal-nomatch">—</div></div></div>
+        <div class="cal-day cal-empty"><div class="cal-daynum">6</div><div class="cal-daymatches"><div class="cal-nomatch">—</div></div></div>
+        <div class="cal-day cal-empty"><div class="cal-daynum">7</div><div class="cal-daymatches"><div class="cal-nomatch">—</div></div></div>
+        <div class="cal-day cal-empty"><div class="cal-daynum">8</div><div class="cal-daymatches"><div class="cal-nomatch">—</div></div></div>
+        <div class="cal-day cal-empty"><div class="cal-daynum">9</div><div class="cal-daymatches"><div class="cal-nomatch">—</div></div></div>
+        <div class="cal-day cal-empty"><div class="cal-daynum">10</div><div class="cal-daymatches"><div class="cal-nomatch">—</div></div></div>
+        <div class="cal-day cal-active"><div class="cal-daynum">11</div><div class="cal-daymatches"><div class="mc"><div class="mc-flags">🇲🇽 <span class="mc-vs">vs</span> 🇿🇦</div><div class="mc-teams">Mexico vs South Africa</div><div class="mc-time">3:00 PM ET</div></div><div class="mc"><div class="mc-flags">🇰🇷 <span class="mc-vs">vs</span> 🇨🇿</div><div class="mc-teams">South Korea vs Czechia</div><div class="mc-time">10:00 PM ET</div></div></div></div>
+        <div class="cal-day cal-hot"><div class="cal-daynum">12</div><div class="cal-daymatches"><div class="mc"><div class="mc-flags">🇨🇦 <span class="mc-vs">vs</span> 🇧🇦</div><div class="mc-teams">Canada vs Bosnia</div><div class="mc-time">3:00 PM ET</div></div><div class="mc mc-hot"><div class="mc-flags">🇺🇸 <span class="mc-vs">vs</span> 🇵🇾</div><div class="mc-teams">USA vs Paraguay</div><div class="mc-time">9:00 PM ET</div><div class="mc-venue">Los Angeles</div><div class="mc-cta">★ USA MATCH · SELECT →</div></div></div></div>
+        <div class="cal-day cal-active"><div class="cal-daynum">13</div><div class="cal-daymatches"><div class="mc"><div class="mc-flags">🇧🇷 <span class="mc-vs">vs</span> 🇲🇦</div><div class="mc-teams">Brazil vs Morocco</div><div class="mc-time">6:00 PM ET</div></div><div class="mc"><div class="mc-flags">🇶🇦 <span class="mc-vs">vs</span> 🇨🇭</div><div class="mc-teams">Qatar vs Switzerland</div><div class="mc-time">3:00 PM ET</div></div></div></div>
+        <div class="cal-day cal-active"><div class="cal-daynum">14</div><div class="cal-daymatches"><div class="mc"><div class="mc-flags">🇩🇪 <span class="mc-vs">vs</span> 🇨🇼</div><div class="mc-teams">Germany vs Curaçao</div><div class="mc-time">1:00 PM ET</div></div><div class="mc"><div class="mc-flags">🇳🇱 <span class="mc-vs">vs</span> 🇯🇵</div><div class="mc-teams">Netherlands vs Japan</div><div class="mc-time">4:00 PM ET</div></div></div></div>
+        <div class="cal-day cal-active"><div class="cal-daynum">15</div><div class="cal-daymatches"><div class="mc"><div class="mc-flags">🇪🇸 <span class="mc-vs">vs</span> 🇨🇻</div><div class="mc-teams">Spain vs Cape Verde</div><div class="mc-time">12:00 PM ET</div></div><div class="mc"><div class="mc-flags">🇧🇪 <span class="mc-vs">vs</span> 🇪🇬</div><div class="mc-teams">Belgium vs Egypt</div><div class="mc-time">3:00 PM ET</div></div></div></div>
+        <div class="cal-day cal-active"><div class="cal-daynum">16</div><div class="cal-daymatches"><div class="mc"><div class="mc-flags">🇫🇷 <span class="mc-vs">vs</span> 🇸🇳</div><div class="mc-teams">France vs Senegal</div><div class="mc-time">3:00 PM ET</div></div><div class="mc"><div class="mc-flags">🇦🇷 <span class="mc-vs">vs</span> 🇩🇿</div><div class="mc-teams">Argentina vs Algeria</div><div class="mc-time">9:00 PM ET</div></div></div></div>
+        <div class="cal-day cal-active"><div class="cal-daynum">17</div><div class="cal-daymatches"><div class="mc"><div class="mc-flags">🏴󠁧󠁢󠁥󠁮󠁧󠁿 <span class="mc-vs">vs</span> 🇭🇷</div><div class="mc-teams">England vs Croatia</div><div class="mc-time">4:00 PM ET</div></div><div class="mc"><div class="mc-flags">🇵🇹 <span class="mc-vs">vs</span> 🇨🇩</div><div class="mc-teams">Portugal vs Congo DR</div><div class="mc-time">1:00 PM ET</div></div></div></div>
+        <div class="cal-day cal-active"><div class="cal-daynum">18</div><div class="cal-daymatches"><div class="mc"><div class="mc-flags">🇨🇦 <span class="mc-vs">vs</span> 🇶🇦</div><div class="mc-teams">Canada vs Qatar</div><div class="mc-time">6:00 PM ET</div></div><div class="mc"><div class="mc-flags">🇲🇽 <span class="mc-vs">vs</span> 🇰🇷</div><div class="mc-teams">Mexico vs South Korea</div><div class="mc-time">9:00 PM ET</div></div></div></div>
+        <div class="cal-day cal-hot"><div class="cal-daynum">19</div><div class="cal-daymatches"><div class="mc mc-hot"><div class="mc-flags">🇺🇸 <span class="mc-vs">vs</span> 🇦🇺</div><div class="mc-teams">USA vs Australia</div><div class="mc-time">3:00 PM ET</div><div class="mc-venue">Seattle</div><div class="mc-cta">★ USA MATCH · SELECT →</div></div><div class="mc"><div class="mc-flags">🇧🇷 <span class="mc-vs">vs</span> 🇭🇹</div><div class="mc-teams">Brazil vs Haiti</div><div class="mc-time">9:00 PM ET</div></div></div></div>
+        <div class="cal-day cal-active"><div class="cal-daynum">20</div><div class="cal-daymatches"><div class="mc"><div class="mc-flags">🇩🇪 <span class="mc-vs">vs</span> 🇨🇮</div><div class="mc-teams">Germany vs Ivory Coast</div><div class="mc-time">4:00 PM ET</div></div><div class="mc"><div class="mc-flags">🇳🇱 <span class="mc-vs">vs</span> 🇸🇪</div><div class="mc-teams">Netherlands vs Sweden</div><div class="mc-time">1:00 PM ET</div></div></div></div>
+        <div class="cal-day cal-active"><div class="cal-daynum">21</div><div class="cal-daymatches"><div class="mc"><div class="mc-flags">🇪🇸 <span class="mc-vs">vs</span> 🇸🇦</div><div class="mc-teams">Spain vs Saudi Arabia</div><div class="mc-time">9:00 PM ET</div></div><div class="mc"><div class="mc-flags">🇧🇪 <span class="mc-vs">vs</span> 🇮🇷</div><div class="mc-teams">Belgium vs Iran</div><div class="mc-time">3:00 PM ET</div></div></div></div>
+        <div class="cal-day cal-active"><div class="cal-daynum">22</div><div class="cal-daymatches"><div class="mc"><div class="mc-flags">🇳🇴 <span class="mc-vs">vs</span> 🇫🇷</div><div class="mc-teams">Norway vs France</div><div class="mc-time">3:00 PM ET</div></div><div class="mc"><div class="mc-flags">🇯🇴 <span class="mc-vs">vs</span> 🇦🇷</div><div class="mc-teams">Jordan vs Argentina</div><div class="mc-time">9:00 PM ET</div></div></div></div>
+        <div class="cal-day cal-active"><div class="cal-daynum">23</div><div class="cal-daymatches"><div class="mc"><div class="mc-flags">🇨🇴 <span class="mc-vs">vs</span> 🇵🇹</div><div class="mc-teams">Colombia vs Portugal</div><div class="mc-time">1:00 PM ET</div></div><div class="mc"><div class="mc-flags">🇭🇷 <span class="mc-vs">vs</span> 🇬🇭</div><div class="mc-teams">Croatia vs Ghana</div><div class="mc-time">4:00 PM ET</div></div></div></div>
+        <div class="cal-day cal-active"><div class="cal-daynum">24</div><div class="cal-daymatches"><div class="mc"><div class="mc-flags">🇨🇿 <span class="mc-vs">vs</span> 🇲🇽</div><div class="mc-teams">Czechia vs Mexico</div><div class="mc-time">3:00 PM ET</div></div><div class="mc"><div class="mc-flags">🇧🇦 <span class="mc-vs">vs</span> 🇨🇦</div><div class="mc-teams">Bosnia vs Canada</div><div class="mc-time">9:00 PM ET</div></div></div></div>
+        <div class="cal-day cal-hot"><div class="cal-daynum">25</div><div class="cal-daymatches"><div class="mc mc-hot"><div class="mc-flags">🇺🇸 <span class="mc-vs">vs</span> 🇹🇷</div><div class="mc-teams">USA vs Türkiye</div><div class="mc-time">3:00 PM ET</div><div class="mc-venue">Philadelphia</div><div class="mc-cta">★ USA MATCH · SELECT →</div></div><div class="mc"><div class="mc-flags">🇲🇦 <span class="mc-vs">vs</span> 🇧🇷</div><div class="mc-teams">Morocco vs Brazil</div><div class="mc-time">9:00 PM ET</div></div></div></div>
+        <div class="cal-day cal-active"><div class="cal-daynum">26</div><div class="cal-daymatches"><div class="mc"><div class="mc-flags">🇩🇪 <span class="mc-vs">vs</span> 🇳🇱</div><div class="mc-teams">Germany vs Netherlands</div><div class="mc-time">4:00 PM ET</div></div></div></div>
+        <div class="cal-day cal-active"><div class="cal-daynum">27</div><div class="cal-daymatches"><div class="mc"><div class="mc-flags">🇪🇸 <span class="mc-vs">vs</span> 🇺🇾</div><div class="mc-teams">Spain vs Uruguay</div><div class="mc-time">12:00 PM ET</div></div><div class="mc"><div class="mc-flags">🇧🇪 <span class="mc-vs">vs</span> 🇫🇷</div><div class="mc-teams">Belgium vs France</div><div class="mc-time">7:30 PM ET</div></div></div></div>
+        <div class="cal-day cal-active"><div class="cal-daynum">28</div><div class="cal-daymatches"><div class="mc"><div class="mc-flags">⚽ <span class="mc-vs">vs</span> ⚽</div><div class="mc-teams">Round of 32 · Match 1</div><div class="mc-time">3:00 PM ET</div></div><div class="mc"><div class="mc-flags">⚽ <span class="mc-vs">vs</span> ⚽</div><div class="mc-teams">Round of 32 · Match 2</div><div class="mc-time">9:00 PM ET</div></div></div></div>
+        <div class="cal-day cal-active"><div class="cal-daynum">29</div><div class="cal-daymatches"><div class="mc"><div class="mc-flags">⚽ <span class="mc-vs">vs</span> ⚽</div><div class="mc-teams">Round of 32 · Continues</div><div class="mc-time">3:00 PM ET</div></div></div></div>
+        <div class="cal-day cal-active"><div class="cal-daynum">30</div><div class="cal-daymatches"><div class="mc"><div class="mc-flags">⚽ <span class="mc-vs">vs</span> ⚽</div><div class="mc-teams">Round of 32 · Continues</div><div class="mc-time">3:00 PM ET</div></div></div></div>
       </div>
 
-      <!-- July Knockout Strip -->
+      <!-- July Knockout -->
       <div style="margin-top:2rem;">
-        <div style="font-family:'Playfair Display',serif;font-size:1.1rem;color:#8A6A1A;margin-bottom:0.75rem;display:flex;align-items:center;gap:0.75rem;">
-          July 2026 &nbsp;·&nbsp; Knockout Stage &amp; The Final
-          <div style="flex:1;height:1px;background:rgba(184,147,42,0.25);"></div>
-        </div>
+        <div style="font-family:'Playfair Display',serif;font-size:1.1rem;color:#8A6A1A;margin-bottom:0.75rem;display:flex;align-items:center;gap:0.75rem;">July 2026 &nbsp;·&nbsp; Knockout Stage &amp; The Final<div style="flex:1;height:1px;background:rgba(184,147,42,0.25);"></div></div>
         <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:2px;">
-          <div style="background:#1A1408;padding:1.2rem 1rem;border-top:3px solid #B8932A;cursor:pointer;transition:all 0.2s;" onmouseover="this.style.background='#2A2010'" onmouseout="this.style.background='#1A1408'">
-            <div style="font-family:'Bebas Neue',sans-serif;font-size:1.2rem;color:#D4A84B;line-height:1;margin-bottom:0.3rem;">JUL 4–7</div>
-            <div style="font-size:0.55rem;letter-spacing:0.2em;text-transform:uppercase;color:#B8932A;font-family:'Montserrat',sans-serif;margin-bottom:0.35rem;">Round of 16</div>
-            <div style="font-family:'Cormorant Garamond',serif;font-size:0.82rem;color:rgba(245,237,216,0.75);font-style:italic;line-height:1.4;margin-bottom:0.4rem;">Best 32 nations battle it out. Elimination starts here.</div>
-            <div style="font-size:0.46rem;letter-spacing:0.14em;text-transform:uppercase;color:#D4A84B;font-weight:600;font-family:'Montserrat',sans-serif;">Available →</div>
-          </div>
-          <div style="background:#1A1408;padding:1.2rem 1rem;border-top:3px solid #B8932A;cursor:pointer;transition:all 0.2s;" onmouseover="this.style.background='#2A2010'" onmouseout="this.style.background='#1A1408'">
-            <div style="font-family:'Bebas Neue',sans-serif;font-size:1.2rem;color:#D4A84B;line-height:1;margin-bottom:0.3rem;">JUL 9–11</div>
-            <div style="font-size:0.55rem;letter-spacing:0.2em;text-transform:uppercase;color:#B8932A;font-family:'Montserrat',sans-serif;margin-bottom:0.35rem;">Quarter Finals</div>
-            <div style="font-family:'Cormorant Garamond',serif;font-size:0.82rem;color:rgba(245,237,216,0.75);font-style:italic;line-height:1.4;margin-bottom:0.4rem;">Eight nations. Four matches. The road to glory.</div>
-            <div style="font-size:0.46rem;letter-spacing:0.14em;text-transform:uppercase;color:#D4A84B;font-weight:600;font-family:'Montserrat',sans-serif;">Available →</div>
-          </div>
-          <div style="background:#1A1408;padding:1.2rem 1rem;border-top:3px solid #B8932A;cursor:pointer;transition:all 0.2s;" onmouseover="this.style.background='#2A2010'" onmouseout="this.style.background='#1A1408'">
-            <div style="font-family:'Bebas Neue',sans-serif;font-size:1.2rem;color:#D4A84B;line-height:1;margin-bottom:0.3rem;">JUL 14–15</div>
-            <div style="font-size:0.55rem;letter-spacing:0.2em;text-transform:uppercase;color:#B8932A;font-family:'Montserrat',sans-serif;margin-bottom:0.35rem;">Semi Finals</div>
-            <div style="font-family:'Cormorant Garamond',serif;font-size:0.82rem;color:rgba(245,237,216,0.75);font-style:italic;line-height:1.4;margin-bottom:0.4rem;">The four best nations. Two matches for Final glory.</div>
-            <div style="font-size:0.46rem;letter-spacing:0.14em;text-transform:uppercase;color:#D4A84B;font-weight:600;font-family:'Montserrat',sans-serif;">Available →</div>
-          </div>
-          <div style="background:#1A1408;padding:1.2rem 1rem;border-top:3px solid #B8932A;cursor:pointer;transition:all 0.2s;" onmouseover="this.style.background='#2A2010'" onmouseout="this.style.background='#1A1408'">
-            <div style="font-family:'Bebas Neue',sans-serif;font-size:1.2rem;color:#D4A84B;line-height:1;margin-bottom:0.3rem;">JUL 18</div>
-            <div style="font-size:0.55rem;letter-spacing:0.2em;text-transform:uppercase;color:#B8932A;font-family:'Montserrat',sans-serif;margin-bottom:0.35rem;">Third Place</div>
-            <div style="font-family:'Cormorant Garamond',serif;font-size:0.82rem;color:rgba(245,237,216,0.75);font-style:italic;line-height:1.4;margin-bottom:0.4rem;">Elite football. Still an unforgettable match night.</div>
-            <div style="font-size:0.46rem;letter-spacing:0.14em;text-transform:uppercase;color:#D4A84B;font-weight:600;font-family:'Montserrat',sans-serif;">Available →</div>
-          </div>
-          <div style="background:linear-gradient(135deg,#1A0808,#2A0A0A);padding:1.2rem 1rem;border-top:3px solid #8B1A1A;cursor:pointer;transition:all 0.2s;box-shadow:inset 0 0 0 1px rgba(139,26,26,0.2);">
-            <div style="font-family:'Bebas Neue',sans-serif;font-size:1.2rem;color:#E8A080;line-height:1;margin-bottom:0.3rem;">JUL 19</div>
-            <div style="font-size:0.55rem;letter-spacing:0.2em;text-transform:uppercase;color:#C47050;font-family:'Montserrat',sans-serif;margin-bottom:0.35rem;">🏆 THE FINAL</div>
-            <div style="font-family:'Cormorant Garamond',serif;font-size:0.82rem;color:rgba(245,220,200,0.85);font-style:italic;line-height:1.4;margin-bottom:0.4rem;">New York NJ Stadium. One game. Legends made.</div>
-            <div style="font-size:0.46rem;letter-spacing:0.14em;text-transform:uppercase;color:#E8A080;font-weight:700;font-family:'Montserrat',sans-serif;">★ Limited · Enquire Now →</div>
-          </div>
+          <div style="background:#1A1408;padding:1.2rem 1rem;border-top:3px solid #B8932A;cursor:pointer;transition:background 0.2s;" onmouseover="this.style.background='#2A2010'" onmouseout="this.style.background='#1A1408'"><div style="font-family:'Playfair Display',serif;font-size:1.2rem;color:#D4A84B;margin-bottom:0.3rem;">JUL 4–7</div><div style="font-size:0.55rem;letter-spacing:0.2em;text-transform:uppercase;color:#B8932A;font-family:'Montserrat',sans-serif;margin-bottom:0.35rem;">Round of 16</div><div style="font-family:'Cormorant Garamond',serif;font-size:0.82rem;color:rgba(245,237,216,0.75);font-style:italic;line-height:1.4;margin-bottom:0.4rem;">Best 32 nations battle it out. Elimination starts here.</div><div style="font-size:0.46rem;letter-spacing:0.14em;text-transform:uppercase;color:#D4A84B;font-weight:600;font-family:'Montserrat',sans-serif;">Available →</div></div>
+          <div style="background:#1A1408;padding:1.2rem 1rem;border-top:3px solid #B8932A;cursor:pointer;transition:background 0.2s;" onmouseover="this.style.background='#2A2010'" onmouseout="this.style.background='#1A1408'"><div style="font-family:'Playfair Display',serif;font-size:1.2rem;color:#D4A84B;margin-bottom:0.3rem;">JUL 9–11</div><div style="font-size:0.55rem;letter-spacing:0.2em;text-transform:uppercase;color:#B8932A;font-family:'Montserrat',sans-serif;margin-bottom:0.35rem;">Quarter Finals</div><div style="font-family:'Cormorant Garamond',serif;font-size:0.82rem;color:rgba(245,237,216,0.75);font-style:italic;line-height:1.4;margin-bottom:0.4rem;">Eight nations. Four matches. The road to glory.</div><div style="font-size:0.46rem;letter-spacing:0.14em;text-transform:uppercase;color:#D4A84B;font-weight:600;font-family:'Montserrat',sans-serif;">Available →</div></div>
+          <div style="background:#1A1408;padding:1.2rem 1rem;border-top:3px solid #B8932A;cursor:pointer;transition:background 0.2s;" onmouseover="this.style.background='#2A2010'" onmouseout="this.style.background='#1A1408'"><div style="font-family:'Playfair Display',serif;font-size:1.2rem;color:#D4A84B;margin-bottom:0.3rem;">JUL 14–15</div><div style="font-size:0.55rem;letter-spacing:0.2em;text-transform:uppercase;color:#B8932A;font-family:'Montserrat',sans-serif;margin-bottom:0.35rem;">Semi Finals</div><div style="font-family:'Cormorant Garamond',serif;font-size:0.82rem;color:rgba(245,237,216,0.75);font-style:italic;line-height:1.4;margin-bottom:0.4rem;">The four best nations. Two matches for Final glory.</div><div style="font-size:0.46rem;letter-spacing:0.14em;text-transform:uppercase;color:#D4A84B;font-weight:600;font-family:'Montserrat',sans-serif;">Available →</div></div>
+          <div style="background:#1A1408;padding:1.2rem 1rem;border-top:3px solid #B8932A;cursor:pointer;transition:background 0.2s;" onmouseover="this.style.background='#2A2010'" onmouseout="this.style.background='#1A1408'"><div style="font-family:'Playfair Display',serif;font-size:1.2rem;color:#D4A84B;margin-bottom:0.3rem;">JUL 18</div><div style="font-size:0.55rem;letter-spacing:0.2em;text-transform:uppercase;color:#B8932A;font-family:'Montserrat',sans-serif;margin-bottom:0.35rem;">Third Place</div><div style="font-family:'Cormorant Garamond',serif;font-size:0.82rem;color:rgba(245,237,216,0.75);font-style:italic;line-height:1.4;margin-bottom:0.4rem;">Elite football. Still an unforgettable match night.</div><div style="font-size:0.46rem;letter-spacing:0.14em;text-transform:uppercase;color:#D4A84B;font-weight:600;font-family:'Montserrat',sans-serif;">Available →</div></div>
+          <div style="background:linear-gradient(135deg,#1A0808,#2A0A0A);padding:1.2rem 1rem;border-top:3px solid #8B1A1A;box-shadow:inset 0 0 0 1px rgba(139,26,26,0.2);cursor:pointer;"><div style="font-family:'Playfair Display',serif;font-size:1.2rem;color:#E8A080;margin-bottom:0.3rem;">JUL 19</div><div style="font-size:0.55rem;letter-spacing:0.2em;text-transform:uppercase;color:#C47050;font-family:'Montserrat',sans-serif;margin-bottom:0.35rem;">🏆 THE FINAL</div><div style="font-family:'Cormorant Garamond',serif;font-size:0.82rem;color:rgba(245,220,200,0.85);font-style:italic;line-height:1.4;margin-bottom:0.4rem;">New York NJ Stadium. One game. Legends made.</div><div style="font-size:0.46rem;letter-spacing:0.14em;text-transform:uppercase;color:#E8A080;font-weight:700;font-family:'Montserrat',sans-serif;">★ Limited · Enquire Now →</div></div>
         </div>
       </div>
 
       <div style="margin-top:1.2rem;padding-top:0.8rem;border-top:1px solid rgba(184,147,42,0.2);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.5rem;">
-        <div style="font-family:'Cormorant Garamond',serif;font-size:0.8rem;font-style:italic;color:#7A6A4A;max-width:500px;line-height:1.5;">All fixtures verified from official FOX Sports schedule. Times shown in ET. Subject to FIFA confirmation for knockout stage times.</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:0.8rem;font-style:italic;color:#7A6A4A;max-width:500px;line-height:1.5;">All fixtures verified from official FOX Sports schedule. Times shown in ET. Subject to FIFA confirmation for knockout stage.</div>
         <a href="#book" style="font-size:0.68rem;letter-spacing:0.15em;text-transform:uppercase;color:#8A6A1A;font-family:'Montserrat',sans-serif;font-weight:600;border-bottom:1px solid rgba(184,147,42,0.4);padding-bottom:1px;">Select your date &amp; enquire →</a>
       </div>
     </div>
@@ -1488,21 +693,21 @@
 </div>
 
 <script>
-document.querySelectorAll('.cal-active, .cal-hot').forEach(function(day) {
-  day.addEventListener('click', function() {
-    document.querySelectorAll('.cal-day.selected').forEach(function(d) { d.classList.remove('selected'); });
+document.querySelectorAll('.cal-active,.cal-hot').forEach(function(day){
+  day.addEventListener('click',function(){
+    document.querySelectorAll('.cal-day.selected').forEach(function(d){d.classList.remove('selected');});
     this.classList.add('selected');
-    const book = document.getElementById('book');
-    if (book) { setTimeout(function() { book.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 300); }
+    var book=document.getElementById('book');
+    if(book){setTimeout(function(){book.scrollIntoView({behavior:'smooth',block:'start'});},300);}
   });
 });
 </script>
 
+<div class="divider"></div>
 
 <!-- USA VISUAL -->
-<div class="divider"></div>
 <div style="position:relative;overflow:hidden;max-height:380px;">
-  <img src="assets/img/usa-match.jpg" alt="USA Match Experience" style="width:100%;height:380px;object-fit:cover;display:block;opacity:0.72;"/>
+  <img src="assets/img/img01.jpg" alt="USA Match Experience" style="width:100%;height:380px;object-fit:cover;display:block;opacity:0.75;"/>
   <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(4,3,2,0.05) 0%,rgba(4,3,2,0.6) 45%,rgba(4,3,2,0.96) 100%);display:flex;align-items:center;justify-content:flex-end;padding:3rem 2.5rem;">
     <div style="text-align:right;max-width:400px;">
       <span style="font-size:0.62rem;letter-spacing:0.35em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:0.55rem;">Primary Corporate Slot</span>
@@ -1560,7 +765,7 @@ document.querySelectorAll('.cal-active, .cal-hot').forEach(function(day) {
     <div class="book-card">
       <span class="bc-icon">⬇</span>
       <div class="bc-title">Download the Full Experience Guide</div>
-      <p class="bc-desc">The complete Corporate Hospitality Guide — all four tiers, pricing, match windows, venues, and terms. Share with your team before reaching out.</p>
+      <p class="bc-desc">The complete Corporate Hospitality Guide — all four tiers, match windows, venues, and everything you need to share with your team before reaching out.</p>
       <button class="btn btn-outline" onclick="downloadGuide()" style="font-size:0.7rem;">Download PDF Guide</button>
     </div>
   </div>
@@ -1569,6 +774,7 @@ document.querySelectorAll('.cal-active, .cal-hot').forEach(function(day) {
     <div style="margin-bottom:1.8rem;">
       <span style="font-size:0.65rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:0.5rem;">Enquiry Form</span>
       <div style="font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--white);">Tell us about your experience</div>
+      <p style="font-family:'Cormorant Garamond',serif;font-size:0.9rem;color:var(--muted);margin-top:0.4rem;font-style:italic;">Pricing and full details shared within 24 hours of enquiry.</p>
     </div>
     <form method="POST" action="https://formspree.io/f/xblwkzyq" onsubmit="trackLead()">
       <div class="fgrid">
@@ -1576,8 +782,7 @@ document.querySelectorAll('.cal-active, .cal-hot').forEach(function(day) {
         <div><label>Company / Building</label><input name="company" placeholder="Firm or Building Name"/></div>
         <div><label>Email Address</label><input type="email" name="email" required placeholder="name@firm.com"/></div>
         <div><label>Phone</label><input name="phone" placeholder="+1 (301) 000-0000"/></div>
-        <div>
-          <label>Experience Type</label>
+        <div><label>Experience Type</label>
           <select name="type">
             <option>Corporate — Team &amp; Partners</option>
             <option>Residential — Resident Match Series</option>
@@ -1585,8 +790,7 @@ document.querySelectorAll('.cal-active, .cal-hot').forEach(function(day) {
             <option>Unsure — I'd like guidance</option>
           </select>
         </div>
-        <div>
-          <label>Preferred Match / Date</label>
+        <div><label>Preferred Match / Date</label>
           <select name="match">
             <option>★ USA vs Paraguay — Jun 12 Fri 9pm (Primary)</option>
             <option>Opening Match — Jun 11 Thursday</option>
@@ -1599,24 +803,25 @@ document.querySelectorAll('.cal-active, .cal-hot').forEach(function(day) {
             <option>Open to recommendation</option>
           </select>
         </div>
-        <div>
-          <label>Approximate Guests</label>
+        <div><label>Approximate Guests</label>
           <select name="guests">
-            <option>8–15 guests</option>
-            <option>16–30 guests</option>
-            <option>31–65 guests</option>
-            <option>65+ guests (residential)</option>
+            <option>Under 20 guests</option>
+            <option>20–40 guests</option>
+            <option>40–75 guests</option>
+            <option>75+ guests</option>
             <option>Not yet decided</option>
           </select>
         </div>
-        <div>
-          <label>Tier / Package Interest</label>
+        <div><label>Experience Level</label>
           <select name="tier">
-            <option>The Introduction (from $15K)</option>
-            <option>The Statement (from $20K)</option>
-            <option>The Signature (from $35K)</option>
-            <option>The Masterpiece (from $50K+)</option>
-            <option>Residential Series</option>
+            <option>Corporate — The Introduction</option>
+            <option>Corporate — The Statement</option>
+            <option>Corporate — The Signature</option>
+            <option>Corporate — The Masterpiece</option>
+            <option>Residential — Match Lounge</option>
+            <option>Residential — Resident Experience</option>
+            <option>Residential — Signature Experience</option>
+            <option>Residential — The Final Experience</option>
             <option>Not sure — advise me</option>
           </select>
         </div>
@@ -1635,19 +840,18 @@ document.querySelectorAll('.cal-active, .cal-hot').forEach(function(day) {
 
 <!-- QUOTE STRIP -->
 <div style="position:relative;overflow:hidden;max-height:260px;">
-  <img src="assets/img/flow.jpg" alt="The Experience" style="width:100%;height:260px;object-fit:cover;display:block;opacity:0.55;"/>
+  <img src="assets/img/img04.jpg" alt="The Experience" style="width:100%;height:260px;object-fit:cover;display:block;opacity:0.6;"/>
   <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(4,3,2,0.45),rgba(4,3,2,0.88));display:flex;align-items:flex-end;padding:2rem 2.5rem;">
-    <div style="font-family:'Playfair Display',serif;font-size:clamp(1.1rem,2vw,1.7rem);color:var(--gold);font-style:italic;">"More than a watch party. A legacy of moments."</div>
+    <div style="font-family:'Playfair Display',serif;font-size:clamp(1.1rem,2vw,1.7rem);color:var(--gold);font-style:italic;">"Your most important relationships deserve more than another dinner reservation."</div>
   </div>
 </div>
 
 <div class="wa-float">
-  <a href="https://wa.me/13016367663?text=Hi%20Curator%20Atelier%2C%20I%27m%20interested%20in%20World%20Cup%20hospitality." 
-     target="_blank" class="wa-btn">
-    <div class="wa-pulse"></div>
-    Text Us · WhatsApp
+  <a href="https://wa.me/13016367663?text=Hi%20Curator%20Atelier%2C%20I%27m%20interested%20in%20World%20Cup%20hospitality." target="_blank" class="wa-btn">
+    <div class="wa-pulse"></div>Text Us · WhatsApp
   </a>
 </div>
+
 <div class="sticky-cta" id="sticky-cta"><a href="#book">✦ &nbsp;Request a Proposal</a></div>
 
 <footer>
@@ -1664,53 +868,55 @@ document.querySelectorAll('.cal-active, .cal-hot').forEach(function(day) {
 </footer>
 
 <script>
-const obs = new IntersectionObserver(entries => {
-  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
-},{threshold:0.15});
-document.querySelectorAll('.fu').forEach(el => obs.observe(el));
-document.getElementById('yr').textContent = new Date().getFullYear();
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', e => {
-    const t = document.querySelector(a.getAttribute('href'));
-    if(t){ e.preventDefault(); t.scrollIntoView({behavior:'smooth',block:'start'}); }
-  });
-});
-// Dynamic days to kickoff
-(function() {
-  const kickoff = new Date('2026-06-11T00:00:00');
-  const today = new Date();
-  const days = Math.ceil((kickoff - today) / (1000 * 60 * 60 * 24));
-  document.querySelectorAll('.days-counter').forEach(el => {
-    el.textContent = days > 0 ? days : '🔴 Live';
-  });
+// Hero rotation
+(function(){
+  var slides=document.querySelectorAll('.hero-bg-slide');
+  var current=0;
+  setInterval(function(){
+    slides[current].classList.remove('active');
+    current=(current+1)%slides.length;
+    slides[current].classList.add('active');
+  },5000);
 })();
 
+// Scroll animations
+var obs=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add('visible');});
+},{threshold:0.15});
+document.querySelectorAll('.fu').forEach(function(el){obs.observe(el);});
 
-// Sticky CTA — show after scrolling 40% of page
-(function() {
-  const cta = document.getElementById('sticky-cta');
-  if (!cta) return;
-  window.addEventListener('scroll', function() {
-    const scrolled = window.scrollY / (document.body.scrollHeight - window.innerHeight);
-    if (scrolled > 0.15) cta.classList.add('visible');
+document.getElementById('yr').textContent=new Date().getFullYear();
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(function(a){
+  a.addEventListener('click',function(e){
+    var t=document.querySelector(a.getAttribute('href'));
+    if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'});}
+  });
+});
+
+// Sticky CTA
+(function(){
+  var cta=document.getElementById('sticky-cta');
+  if(!cta)return;
+  window.addEventListener('scroll',function(){
+    var scrolled=window.scrollY/(document.body.scrollHeight-window.innerHeight);
+    if(scrolled>0.15)cta.classList.add('visible');
     else cta.classList.remove('visible');
-  }, { passive: true });
+  },{passive:true});
 })();
 
 function downloadGuide(){
-  // Try hosted PDF first, fallback to Calendly booking
-  const pdfUrl = 'assets/Curator_Atelier_Corporate_Hospitality_Guide_2026.pdf';
-  fetch(pdfUrl, {method:'HEAD'})
-    .then(r => {
-      if(r.ok) { window.open(pdfUrl,'_blank'); }
-      else { window.open('https://calendly.com/hello-curatoratelier/30min','_blank'); }
-    })
-    .catch(() => { window.open('https://calendly.com/hello-curatoratelier/30min','_blank'); });
+  var pdfUrl='assets/Curator_Atelier_Corporate_Hospitality_Guide_2026.pdf';
+  fetch(pdfUrl,{method:'HEAD'})
+    .then(function(r){if(r.ok){window.open(pdfUrl,'_blank');}else{window.open('https://calendly.com/hello-curatoratelier/30min','_blank');}})
+    .catch(function(){window.open('https://calendly.com/hello-curatoratelier/30min','_blank');});
 }
+
 function trackLead(){
-  if(typeof fbq!=='undefined') fbq('track','Lead');
-  if(typeof gtag!=='undefined') gtag('event','wc_lead_submit');
-  const btn = document.querySelector('#book button[type=submit]');
+  if(typeof fbq!=='undefined')fbq('track','Lead');
+  if(typeof gtag!=='undefined')gtag('event','wc_lead_submit');
+  var btn=document.querySelector('#book button[type=submit]');
   if(btn){btn.disabled=true;btn.textContent='Processing...';btn.style.opacity='0.7';}
 }
 </script>
