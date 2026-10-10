@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /thank-you.html
+Disallow: /submission-received.html
+
+Sitemap: https://curatoratelier.com/sitemap.xml
