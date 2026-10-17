@@ -2,5 +2,16 @@ User-agent: *
 Allow: /
 Disallow: /thank-you.html
 Disallow: /submission-received.html
+Disallow: /index_4.html
+Disallow: /index_5.html
+Disallow: /index_6.html
+Disallow: /index-previous.html
+Disallow: /worldcup1.html
+Disallow: /worldcup_2.html
+Disallow: /worldcup_3.html
+Disallow: /worldcup_4.html
+Disallow: /_previous/
+Disallow: /internalproduction.html
+Disallow: /internalproduction.html
 
 Sitemap: https://curatoratelier.com/sitemap.xml
