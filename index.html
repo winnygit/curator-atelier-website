@@ -162,12 +162,13 @@ p{margin:0}
 .gift video,.gift img{width:100%;height:100%;object-fit:cover;display:block}
 .gift .ph{position:absolute;left:.6rem;bottom:.6rem}
 .gift .gi{align-self:end;aspect-ratio:9/13}
-.depths{margin:1.6rem 0 0;display:grid;gap:8px}
-.depths a{background:var(--pine-2);border:1px solid var(--line);padding:1.3rem 1.2rem;display:grid;gap:.35rem;text-decoration:none;color:inherit}
+.depths{list-style:none;margin:1.6rem 0 0;padding:0;display:grid;gap:1px;background:var(--line);border-block:1px solid var(--line)}
+.depths li{background:var(--pine);padding:1.3rem 0;display:grid;gap:.3rem}
 .depths span{font-size:.64rem;letter-spacing:.24em;text-transform:uppercase;color:var(--champagne)}
 .depths b{font:400 1.45rem var(--display)}
+.depths p{color:var(--mist);font-size:.94rem;max-width:46ch}
 .vessel .acts{display:grid;gap:.6rem;margin-top:1.6rem}
-@media(min-width:900px){.gift{grid-template-columns:1fr 1fr;max-width:860px}.depths{grid-template-columns:repeat(3,1fr);gap:1rem}.depths a{border-top:1px solid var(--gold)}.vessel .acts{display:flex}}
+@media(min-width:900px){.gift{grid-template-columns:1fr 1fr;max-width:860px}.depths{grid-template-columns:repeat(3,1fr);background:none;border:0;gap:2rem}.depths li{border-top:1px solid var(--gold);padding-top:1.3rem}.vessel .acts{display:flex}}
 
 /* 5 one program */
 .pair{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:2rem}
@@ -325,6 +326,13 @@ footer a{text-decoration:none}footer a:hover{color:var(--champagne)}
 .reveal{transition:opacity 1s,transform 1s}
 .reveal.pre{opacity:.001;transform:translateY(22px)}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}.hero{height:auto}.hero .stage{position:relative}.band,.bow{display:none}.reveal.pre{opacity:1;transform:none}}
+.cards:has(>a.card){display:grid;gap:1px;background:var(--line);border:1px solid var(--line)}
+.cards>a.card{background:var(--pine);padding:1.4rem 1.3rem;display:grid;gap:.35rem;align-content:start;text-decoration:none;color:inherit;transition:background .3s}
+.cards>a.card:hover{background:var(--pine-2)}
+.cards>a.card span{font-size:.64rem;letter-spacing:.24em;text-transform:uppercase;color:var(--champagne)}
+.cards>a.card b{font:400 1.45rem var(--display)}
+.cards>a.card p{color:var(--mist);font-size:.94rem}
+@media(min-width:900px){.cards:has(>a.card){grid-template-columns:repeat(3,1fr)}}
 </style>
 </head>
 <body>
@@ -375,7 +383,7 @@ footer a{text-decoration:none}footer a:hover{color:var(--champagne)}
     <div class="rail" id="offerRail">
       <a class="offer" href="christmas-environments.html"><img src="assets/media/space-residence.jpg" alt="Garland-wrapped staircase in a residence"><div class="in"><span class="kicker">Christmas Environments</span><h3>For homes, offices and lobbies</h3><p>Designed, installed, maintained through the season and struck in January.</p><span class="go">Explore spaces →</span></div></a>
       <a class="offer star" href="#program"><span class="flag">The flagship</span><img src="assets/media/space-lobby-wide.jpg" alt="A building lobby with a tall Christmas tree, garland and warm light"><div class="in"><span class="kicker">Combined Holiday Program</span><h3>The space and the gift, as one</h3><p>One designer, one timeline, from the lobby to the gift on every desk.</p><span class="go">See the program →</span></div></a>
-      <a class="offer" href="appreciation-collection.html"><img src="assets/media/gift-open.jpg" alt="Open burgundy gift box"><div class="in"><span class="kicker">The Appreciation Collection</span><h3>Gifting for clients, teams and residents</h3><p>Year-round gifting, composed for your relationships and delivered on your date.</p><span class="go">Explore gifting →</span></div></a>
+      <a class="offer" href="appreciation-collection.html"><img src="assets/media/gift-open.jpg" alt="An open burgundy Curator Atelier gift box"><div class="in"><span class="kicker">The Appreciation Collection</span><h3>Gifting for clients, teams and residents</h3><p>Year-round gifting, composed for your relationships and delivered on your date.</p><span class="go">Explore gifting →</span></div></a>
     </div>
     <div class="dots" id="offerDots"><i class="on"></i><i></i><i></i></div>
   </div>
@@ -426,13 +434,13 @@ footer a{text-decoration:none}footer a:hover{color:var(--champagne)}
     <h2 class="reveal">The gift arrives <em>before it is opened.</em></h2>
     <p class="lede">Year-round gifting for the clients, teams and residents who matter most, composed to your brief and presented by hand.</p>
     <div class="gift">
-      <figure class="gv"><video id="giftVid" muted loop playsinline preload="none" poster="assets/media/gift-present.jpg" aria-label="Gift box presented by gloved hands"></video></figure>
-      <figure class="gi"><img src="assets/media/gift-open.jpg" alt="Open gift box with candle, chocolates and keepsakes"></figure>
+      <figure class="gv"><video id="giftVid" muted loop playsinline preload="none" poster="assets/media/gift-present.jpg" aria-label="A gift box presented by gloved hands"></video></figure>
+      <figure class="gi"><img src="assets/media/gift-open.jpg" alt="An open gift box with a candle, chocolates and keepsakes"></figure>
     </div>
-    <div class="depths">
-      <a href="appreciation-collection.html#depths"><span>Signature</span><b>Considered Appreciation</b></a>
-      <a href="appreciation-collection.html#depths"><span>Collector</span><b>An Exceptional Gesture</b></a>
-      <a href="appreciation-collection.html#depths"><span>Atelier Privé</span><b>By Private Commission</b></a>
+    <div class="cards" style="margin-top:1.6rem">
+      <a class="card" href="appreciation-collection.html#depths"><span>Signature</span><b>Considered Appreciation</b><p>Thoughtful indulgences, elegant presentation and personalized correspondence.</p></a>
+      <a class="card" href="appreciation-collection.html#depths"><span>Collector</span><b>An Exceptional Gesture</b><p>Centered on a carefully selected hero object.</p></a>
+      <a class="card" href="appreciation-collection.html#depths"><span>Atelier Privé</span><b>By Private Commission</b><p>Every commission begins with a conversation.</p></a>
     </div>
     <div class="acts"><a class="btn" href="#inquiry">Request a gifting proposal</a><a class="btn line" href="appreciation-collection.html">Explore the Appreciation Collection</a></div>
   </div>
@@ -445,7 +453,7 @@ footer a{text-decoration:none}footer a:hover{color:var(--champagne)}
     <p class="kicker">Combined Holiday Program</p>
     <h2 class="reveal">One hand behind <em>the lobby and the gift.</em></h2>
     <p class="lede">One coordinated holiday experience. Bring Christmas Environments and corporate gifting together through a unified creative direction, coordinated planning and a single point of contact. Installation scheduling is confirmed during consultation.</p>
-    <div class="pair"><figure><img src="assets/media/space-lobby.jpg" alt="Christmas lobby with garland and tree"><figcaption>The environment</figcaption></figure><figure><img src="assets/media/gift-open.jpg" alt="Open gift box"><figcaption>The gift</figcaption></figure><span class="knot" aria-hidden="true">&amp;</span></div>
+    <div class="pair"><figure><img src="assets/media/space-lobby.jpg" alt="A building lobby dressed with a tree and garland"><figcaption>The environment</figcaption></figure><figure><img src="assets/media/gift-open.jpg" alt="An open gift box"><figcaption>The gift</figcaption></figure><span class="knot" aria-hidden="true">&amp;</span></div>
     <ol class="flow" id="flow">
       <li><b>Design</b><span>One palette for the space and the gift.</span></li>
       <li><b>Install</b><span>Dressed before your first guest arrives.</span></li>
@@ -461,14 +469,14 @@ footer a{text-decoration:none}footer a:hover{color:var(--champagne)}
   <div class="wrap">
     <span class="ribbon"></span>
     <p class="kicker">How we work</p>
-    <h2 class="reveal">Insured, rehearsed <em>and on time.</em></h2>
+    <h2 class="reveal">Rehearsed <em>and on time.</em></h2>
     <ol class="std">
       <li><b>Consult</b><span>Spaces, recipients and dates defined before anything moves.</span></li>
       <li><b>Compose</b><span>Every element chosen for your brand and your guests.</span></li>
       <li><b>Install</b><span>White-glove, after hours where needed, with visits through the season.</span></li>
       <li><b>Strike</b><span>Removed, cared for and stored in January.</span></li>
     </ol>
-    <div class="assure"><span>Fully insured</span><span>One coordinator</span><span>Contingency planned</span><span>Reply within 24 hours</span></div>
+    <div class="assure"><span>One coordinator</span><span>Contingency planned</span></div>
   </div>
 </section>
 
@@ -489,7 +497,7 @@ footer a{text-decoration:none}footer a:hover{color:var(--champagne)}
     <span class="ribbon"></span>
     <p class="kicker">Plan your Christmas</p>
     <h2 class="reveal">Tell us about <em>your Christmas.</em></h2>
-    <p class="lede">Five quick answers. We reply within 24 hours with ideas and next steps, then prepare a proposal around your needs.</p>
+    <p class="lede">Five quick answers. We'll be in touch shortly with ideas and next steps, then prepare a proposal around your needs.</p>
     <form class="inq" id="form" novalidate>
       <div class="bar" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
       <fieldset class="step" data-step="0"><legend>What are you planning?</legend><div class="opts">
@@ -524,7 +532,7 @@ footer a{text-decoration:none}footer a:hover{color:var(--champagne)}
         <label>Desired date (optional)<input id="f-date" name="desired_date" placeholder="e.g. week of Dec 1"></label>
         <label class="full">Anything we should know, including a budget if you have one in mind<textarea id="f-notes" name="notes" rows="3"></textarea></label>
       </div></fieldset>
-      <div class="step" data-step="5" hidden><p class="q">Thank you. Your brief is with us.</p><div class="brief" id="brief"></div><p class="lede">We reply within 24 hours. Prefer to talk now? Message us on <a href="https://wa.me/13016367663" target="_blank" rel="noopener" style="color:var(--champagne)">WhatsApp</a> or <a href="https://calendly.com/hello-curatoratelier/30min" target="_blank" rel="noopener" style="color:var(--champagne)">book a call</a>.</p></div>
+      <div class="step" data-step="5" hidden><p class="q">Thank you. Your brief is with us.</p><div class="brief" id="brief"></div><p class="lede">We'll be in touch shortly. Prefer to talk now? Message us on <a href="https://wa.me/13016367663" target="_blank" rel="noopener" style="color:var(--champagne)">WhatsApp</a> or <a href="https://calendly.com/hello-curatoratelier/30min" target="_blank" rel="noopener" style="color:var(--champagne)">book a call</a>.</p></div>
       <p class="err" id="err" role="alert"></p>
       <div class="navs"><button type="button" class="btn line" id="back">Back</button><button type="submit" class="btn" id="next">Continue</button></div>
     </form>
@@ -562,7 +570,7 @@ footer a{text-decoration:none}footer a:hover{color:var(--champagne)}
           <li><em>2020</em><b>Founded in the DMV</b><span>Gifts and moments for families and firms around Washington.</span></li>
           <li><em>2024</em><b>Curator Atelier</b><span>A new name and a single atelier for environments and gifting.</span></li>
           <li><em>2024</em><b>Established as Curator Atelier</b><span>A new name and a single house for Christmas environments and gifting.</span></li>
-          <li class="now"><em>Today</em><b>Headquartered in Bethesda</b><span>Installations across DC, Maryland and Virginia; gifting delivered nationwide.</span></li>
+          <li class="now"><em>Today</em><b>Headquartered in Bethesda</b><span>Installations across DC, Maryland and Virginia.</span></li>
           <li><em>Next</em><b>Beyond the region</b><span>Bringing Christmas environments to clients in more North American cities.</span></li>
         </ol>
         <div class="cities" id="cities" aria-label="Show a route"></div>
@@ -579,11 +587,11 @@ footer a{text-decoration:none}footer a:hover{color:var(--champagne)}
   <p class="kicker">Curator Atelier · Bethesda, Maryland</p>
   <h2>Let's compose <em>your Christmas.</em></h2>
   <div class="acts"><a class="btn" href="#inquiry">Plan your Christmas</a><a class="btn line" href="appreciation-collection.html">Corporate gifting</a></div>
-  <div class="contact"><span>hello@curatoratelier.com</span><span><a href="tel:+13017447278" style="color:var(--champagne)">Call 301-744-7278</a> · <a href="https://wa.me/13016367663" target="_blank" rel="noopener" style="color:var(--champagne)">WhatsApp 301-636-7663</a></span></div>
+  <div class="contact"><span>hello@curatoratelier.com</span><span>Call 301-744-7278 · WhatsApp 301-636-7663</span></div>
 </section>
 </main>
 
-<footer><div class="wrap"><span><img src="assets/img/ca-lockup.png" alt="Curator Atelier" width="120" height="110" style="width:120px;height:auto;margin-bottom:1rem">© 2026 Curator Atelier · Bethesda, Maryland · Serving DC, Maryland and Virginia</span><nav><a href="christmas-environments.html">Christmas Environments</a><a href="appreciation-collection.html">The Appreciation Collection</a><a href="#program">Combined Program</a><a href="holiday-removal.html">January Strike</a><a href="dealership.html">Vehicle Delivery</a><a href="privacy-policy.html">Privacy</a></nav></div></footer>
+<footer><div class="wrap"><span><img src="assets/img/ca-lockup.png" alt="Curator Atelier" width="120" height="110" style="width:120px;height:auto;margin-bottom:1rem">© 2026 Curator Atelier · Bethesda, Maryland · Serving DC, Maryland and Virginia</span><nav><a href="christmas-environments.html">Christmas Environments</a><a href="appreciation-collection.html">The Appreciation Collection</a><a href="#program">Combined Program</a><a href="holiday-removal.html">January Strike</a><a href="dealership.html">Vehicle Delivery</a><a href="careers.html">Join the Atelier</a><a href="privacy-policy.html">Privacy</a></nav></div></footer>
 
 <div class="dock" id="dock"><a href="https://wa.me/13016367663" target="_blank" rel="noopener">WhatsApp</a><a href="#reach">Reach</a><a class="main" href="#inquiry">Plan your Christmas</a></div>
 
@@ -592,16 +600,16 @@ footer a{text-decoration:none}footer a:hover{color:var(--champagne)}
     <button class="x" id="leadX" aria-label="Close">×</button>
     <img src="assets/media/gift-open.jpg" alt="">
     <div class="in">
-      <p class="kicker">Plan ahead</p>
-      <h3 id="leadT">Request a priority slot.</h3>
-      <p>Tell us what you’re planning and we’ll hold your place in the atelier’s calendar, with the lookbook sent to you.</p>
+      <p class="kicker">Private preview</p>
+      <h3 id="leadT">Be first to see the season.</h3>
+      <p>Receive the Appreciation Collection and this year’s Christmas environments before they are shared publicly.</p>
       <form id="leadForm" novalidate>
         <input id="l-name" placeholder="Name" autocomplete="name" aria-label="Name">
         <input id="l-email" type="email" placeholder="Email" autocomplete="email" inputmode="email" aria-label="Email">
         <select id="l-int" aria-label="I'm planning"><option value="">I'm planning…</option><option>A Christmas environment</option><option>Corporate holiday gifting</option><option>Both</option><option>Just browsing</option></select>
         <p class="err" id="leadErr" role="alert"></p>
-        <button class="btn" type="submit">Request my slot</button>
-        <p class="fine" style="color:var(--mist)">One lookbook, then a few considered notes. Unsubscribe anytime.</p>
+        <button class="btn" type="submit">Join the preview</button>
+        <p class="fine" style="color:var(--mist)">A few considered notes each season. Unsubscribe anytime.</p>
       </form>
       <button class="skip" id="leadSkip" type="button">Not now</button>
     </div>
@@ -609,7 +617,7 @@ footer a{text-decoration:none}footer a:hover{color:var(--champagne)}
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
-<script src="assets/js/globe-land.js"></script>
+<script src="assets/js/globe-land.js?v=20261021"></script>
 <script>
 (()=>{
 const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -654,7 +662,7 @@ if(innerWidth<900){requestAnimationFrame(()=>{const c=rail.children[1];rail.scro
 // spaces
 const SP=[{t:'Estates and penthouses',img:IMG.royale,alt:'Dressed residence foyer',c:['Foyer and staircase','The tree','Mantels','Dining table','Exterior entry']},
 {t:'Offices and firms',img:IMG.sparkle,alt:'Dressed tree in a refined interior',c:['Reception','Boardroom','Client lounge','Holiday party','After-hours install']},
-{t:'Lobbies and buildings',img:IMG.rooftop,alt:'Christmas lobby with garland and tree',c:['Tower trees','Lobby and concierge','Entrances and façades','Amenity spaces','Resident gifts']}];
+{t:'Lobbies and buildings',img:IMG.rooftop,alt:'A building lobby dressed with a tall tree and garland',c:['Tower trees','Lobby and concierge','Entrances and façades','Amenity spaces','Resident gifts']}];
 const spImg=$('#spaceImg');
 function setSpace(k){const s=SP[k];spImg.classList.add('fade');setTimeout(()=>{spImg.src=s.img;spImg.alt=s.alt;spImg.classList.remove('fade')},300);$('#spaceT').textContent=s.t;const ch=$('#spaceChips');ch.textContent='';s.c.forEach(x=>{const e=document.createElement('span');e.textContent=x;ch.append(e)});$$('.seg button').forEach((b,i)=>b.setAttribute('aria-selected',i===k))}
 $$('.seg button').forEach(b=>b.addEventListener('click',()=>setSpace(+b.dataset.k)));setSpace(0);
@@ -692,7 +700,6 @@ back.addEventListener('click',()=>{if(s>0){s--;show()}});show();
 (function(){
   if(!window.d3)return;
   const land=window.CA_LAND;
-
   const HQ=[-77.1,38.98];
   const C=[['New York',-74.0,40.7],['Boston',-71.06,42.36],['Philadelphia',-75.16,39.95],['Charlotte',-80.84,35.23],['Atlanta',-84.39,33.75],['Miami',-80.19,25.76],['Nashville',-86.78,36.16],['Chicago',-87.63,41.88],['Dallas',-96.8,32.78],['Houston',-95.37,29.76],['Denver',-104.99,39.74],['Los Angeles',-118.24,34.05],['San Francisco',-122.42,37.77],['Seattle',-122.33,47.61],['Toronto',-79.38,43.65],['Montreal',-73.57,45.5]];
   const box=$('#globe'),cv=$('#globeCv'),c=cv.getContext('2d'),hq=$('#hq');
@@ -752,9 +759,9 @@ back.addEventListener('click',()=>{if(s>0){s--;show()}});show();
   $('#leadX').addEventListener('click',close);$('#leadSkip').addEventListener('click',close);
   el.addEventListener('click',e=>{if(e.target===el)close()});addEventListener('keydown',e=>{if(e.key==='Escape')close()});
   $('#leadForm').addEventListener('submit',e=>{e.preventDefault();const em=$('#l-email').value.trim();if(!/^\S+@\S+\.\S+$/.test(em)){$('#leadErr').textContent='Add a valid email so we can reach you.';return}
-    send({form:'Priority slot request',name:$('#l-name').value.trim(),email:em,interest:$('#l-int').value,_subject:'Priority slot request · '+em,page:location.href,...attribution()}).then(()=>{track('Lead','priority_slot');done()}).catch(()=>{$('#leadErr').textContent='Something went wrong. Please try again or email hello@curatoratelier.com.'})});
+    send({form:'Private preview list',name:$('#l-name').value.trim(),email:em,interest:$('#l-int').value,_subject:'Preview list signup · '+em,page:location.href,...attribution()}).then(()=>{track('CompleteRegistration','preview_signup');done()}).catch(()=>{$('#leadErr').textContent='Something went wrong. Please try again or email hello@curatoratelier.com.'})});
   function done(){
-    const inn=el.querySelector('.in');inn.textContent='';const k=document.createElement('p');k.className='kicker';k.textContent='Received';const h=document.createElement('h3');h.textContent='You’re on our calendar.';const p=document.createElement('p');p.textContent='We’ll be in touch personally, and the lookbook is on its way.';const b=document.createElement('button');b.className='btn';b.type='button';b.textContent='Keep exploring';b.addEventListener('click',close);inn.append(k,h,p,b)}
+    const inn=el.querySelector('.in');inn.textContent='';const k=document.createElement('p');k.className='kicker';k.textContent='On its way';const h=document.createElement('h3');h.textContent='Thank you. You are on the list.';const p=document.createElement('p');p.textContent='We will be in touch as the season comes together.';const b=document.createElement('button');b.className='btn';b.type='button';b.textContent='Keep exploring';b.addEventListener('click',close);inn.append(k,h,p,b)}
 })();
 })();
 </script>
