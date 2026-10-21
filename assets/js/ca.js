@@ -78,7 +78,8 @@ $$('form.qform').forEach(form => {
     send(data).then(() => {
       track('Lead', 'lead_submit', { service: data.service_interest || '' });
       const d = document.createElement('div'); d.className = 'done'; d.setAttribute('role', 'status');
-      d.innerHTML = '<p class="kicker">Received</p><h3>Thank you. Your brief is with us.</h3><p>We reply within 24 hours with ideas and next steps. Prefer to talk now? Message us on <a href="https://wa.me/13016367663" target="_blank" rel="noopener">WhatsApp</a> or <a href="https://calendly.com/hello-curatoratelier/30min" target="_blank" rel="noopener">book a call</a>.</p>';
+      if (form.dataset.form === 'Careers interest') { d.innerHTML = '<p class="kicker">Received</p><h3>Thank you for reaching out.</h3><p>We read every note, and we will be in touch when a role that fits you opens.</p>'; } else
+      d.innerHTML = '<p class="kicker">Received</p><h3>Thank you. Your brief is with us.</h3><p>We’ll be in touch shortly with ideas and next steps. Prefer to talk now? Message us on <a href="https://wa.me/13016367663" target="_blank" rel="noopener">WhatsApp</a> or <a href="https://calendly.com/hello-curatoratelier/30min" target="_blank" rel="noopener">book a call</a>.</p>';
       form.replaceChildren(d); form.scrollIntoView({ block: 'nearest', behavior: reduce ? 'auto' : 'smooth' });
     }).catch(() => {
       err.innerHTML = 'We could not send your brief. Please email <a href="mailto:hello@curatoratelier.com" style="color:var(--champagne)">hello@curatoratelier.com</a> or message us on WhatsApp.';
