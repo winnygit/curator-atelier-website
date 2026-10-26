@@ -16,8 +16,6 @@ function attribution() { let a = {}; try { a = JSON.parse(sessionStorage.getItem
 function send(data) { return fetch(ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(data) }).then(r => { if (!r.ok) throw new Error('send failed'); return r.json(); }); }
 function track(fbEvent, gaEvent, extra) {
   try { if (window.fbq) fbq('track', fbEvent, extra || {}); } catch (e) {}
-  try { if (window.gtag) gtag('event', gaEvent, extra || {}); } catch (e) {}
-  try { if (fbEvent === 'Lead' && window.gtag) gtag('event', 'generate_lead', extra || {}); } catch (e) {}
   try { const id = window.CA && CA.linkedinLeadConversion; if (fbEvent === 'Lead' && id && window.lintrk) lintrk('track', { conversion_id: +id }); } catch (e) {}
 }
 window.CAtrack = track;
@@ -76,7 +74,8 @@ $$('form.qform').forEach(form => {
     data._subject = 'New website inquiry: ' + (data.service_interest || data.form) + ' · ' + data.name;
     form.dataset.sending = '1'; btn.disabled = true; const label = btn.textContent; btn.textContent = 'Sending…';
     send(data).then(() => {
-      track('Lead', 'lead_submit', { service: data.service_interest || '' });
+      if (form.dataset.form !== 'Careers interest') track('Lead', 'lead_submit', { service: data.service_interest || '' });
+      window.CAga && CAga.lead(data.form, data.service_interest);
       const d = document.createElement('div'); d.className = 'done'; d.setAttribute('role', 'status');
       if (form.dataset.form === 'Careers interest') { d.innerHTML = '<p class="kicker">Received</p><h3>Thank you for reaching out.</h3><p>We read every note, and we will be in touch when a role that fits you opens.</p>'; } else
       d.innerHTML = '<p class="kicker">Received</p><h3>Thank you. Your brief is with us.</h3><p>We’ll be in touch shortly with ideas and next steps. Prefer to talk now? Message us on <a href="https://wa.me/13016367663" target="_blank" rel="noopener">WhatsApp</a> or <a href="https://calendly.com/hello-curatoratelier/30min" target="_blank" rel="noopener">book a call</a>.</p>';
