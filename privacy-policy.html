@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script src="/assets/js/site-config.js?v=20261026"></script>
   <meta charset="UTF-8" />
   <title>Privacy Policy · Curator Atelier</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Curator Atelier privacy policy describing how we collect and use personal information submitted through our website and advertising forms." />
+  <meta name="description" content="Curator Atelier privacy policy: what we collect through our website and forms, how we use it, and the analytics and advertising tools we use." />
 
   <!-- Fonts (match site) -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -130,6 +131,7 @@
       color:var(--muted);
     }
 
+    h2{font-family:'Playfair Display',serif;font-size:1.15rem;letter-spacing:.04em;color:var(--accent);margin:1.6rem 0 .6rem;}
     .muted{
       color:var(--muted);
       font-size:.86rem;
@@ -189,8 +191,41 @@
       </p>
 
       <p>
-        We do not sell, rent, or share your personal information with third parties for marketing purposes.
+        We do not sell or rent the personal information you submit through our forms. We share it only with service
+        providers that help us run this website and receive your message (for example, our form and email providers),
+        and only so we can respond to you.
       </p>
+      <h2>Analytics and advertising</h2>
+      <p>
+        This website uses cookies and similar technologies from Google, Meta, and LinkedIn:
+      </p>
+      <ul>
+        <li><strong>Google Analytics</strong> helps us understand how visitors use the site, for example which pages are viewed
+          and whether an inquiry is sent. We have turned off Google signals and ads personalization for Google Analytics,
+          and we do not use Google Analytics data for advertising. Google Analytics 4 does not log or store IP addresses.</li>
+        <li><strong>Google Ads tag</strong> and <strong>Meta Pixel</strong> help us measure our advertising and may be used to
+          show our ads to people who have visited this site (remarketing) on Google and on Meta's platforms (Facebook and Instagram).
+          These tools record things like the pages you visit and whether you send an inquiry, along with information from your
+          browser and device. They do not receive the contents of the forms you submit.</li>
+        <li><strong>LinkedIn Insight Tag</strong> helps us understand visits from LinkedIn and measure LinkedIn advertising.
+          It records pages you visit and basic browser/device information. It does not receive the contents of the forms you submit.</li>
+      </ul>
+      <p>
+        Google, Meta, and LinkedIn process this information under their own privacy policies:
+        <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">How Google uses information from sites that use its services</a>,
+        <a href="https://www.facebook.com/privacy/policy/" target="_blank" rel="noopener">Meta Privacy Policy</a>, and
+        <a href="https://www.linkedin.com/legal/privacy-policy" target="_blank" rel="noopener">LinkedIn Privacy Policy</a>.
+      </p>
+      <p><strong>How to opt out</strong></p>
+      <ul>
+        <li>Google Analytics: install the <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">Google Analytics opt-out browser add-on</a>.</li>
+        <li>Google ads: turn off personalized ads in <a href="https://myadcenter.google.com/" target="_blank" rel="noopener">My Ad Center</a>.</li>
+        <li>Meta ads: adjust your <a href="https://accountscenter.facebook.com/ad_preferences" target="_blank" rel="noopener">Meta ad preferences</a>, including activity from other websites.</li>
+        <li>LinkedIn: adjust your <a href="https://www.linkedin.com/mypreferences/d/categories/ads" target="_blank" rel="noopener">LinkedIn ad settings</a>.</li>
+        <li>Many advertising companies: use <a href="https://optout.aboutads.info/" target="_blank" rel="noopener">YourAdChoices</a> or
+          <a href="https://optout.networkadvertising.org/" target="_blank" rel="noopener">NAI opt-out</a>.</li>
+        <li>You can also block or delete cookies in your browser settings. The site will still work.</li>
+      </ul>
 
       <p>
         Your information is stored securely and used only as necessary to deliver our services or communicate with you regarding your request.
@@ -202,7 +237,7 @@
       </p>
 
       <p class="muted">
-        Last updated: <span id="lastUpdated"></span>
+        Last updated: October 21, 2026
       </p>
     </main>
 
@@ -213,11 +248,6 @@
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Auto-fill "Last updated" with today's date (local)
-    const d = new Date();
-    const opts = { year: 'numeric', month: 'long', day: 'numeric' };
-    document.getElementById('lastUpdated').textContent = d.toLocaleDateString(undefined, opts);
   </script>
 </body>
 </html>
